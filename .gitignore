@@ -15,6 +15,9 @@ venv/
 *.egg-info/
 .eggs/
 
+# Excel lock/temp
+~$*
+
 # IDE / local
 .idea/
 .vscode/

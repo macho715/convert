@@ -1,0 +1,6 @@
+---
+alwaysApply: true
+---
+- Use pyupgrade --py313-plus; ruff --fix
+- Prefer stdlib, lazy imports where practical
+- Encourage pattern matching & context managers

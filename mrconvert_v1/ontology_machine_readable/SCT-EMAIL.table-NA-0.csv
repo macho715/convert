@@ -1,0 +1,11 @@
+제목,정의,예시
+Email_Message,이메일 실체,Booking ETA 확인
+Quick_Message,짧은 메신저,WhatsApp 안내
+Command,시스템 명령,"/revise, /reply"
+Intent,발신 의도,"inform, request"
+Logistics_Process,물류 절차,"Shipment, Customs"
+Stakeholder_Role,역할,"Shipper, Carrier"
+Document,공식 문서,"BL, Invoice"
+Regulation,규범 항목,"HS, Permit"
+Cost_Item,비용 단위,"DEM, DET"
+KPI_Record,성과 지표,"TAT, SLA"

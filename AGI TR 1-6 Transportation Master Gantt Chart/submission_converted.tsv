@@ -1,0 +1,36 @@
+WBS	Phase	Site	Task/Document	Owner	Approver	Predecessor	Start_Tag	Start_Date	Due_Tag	Due_Date	Duration_days	Risk	Evidence
+S01	PTW	Common	Berth Request / Berth Booking Request	OFCO	HM / Port Ops		D+16	2026-01-17	D+19	2026-01-20	3	MED	Berth allocation request for MZP port call
+S02	PTW	Common	PTW Applicant / Receiver Consent Form	SCT	AD Ports HSE		D+16	2026-01-17	D+19	2026-01-20	3	HIGH	Consent form as per AD Ports PTW process
+S03	Engineering	Common	Method Statement (AD Ports format, incl. weather criteria)	MMT	AD Ports HSE / HM		D+16	2026-01-17	D+19	2026-01-20	3	MED	Approved MS for cargo loading/offloading; include weather limits
+S04	Engineering	Common	Risk Assessment – RoRo Operations (AD Ports format)	MMT	AD Ports HSE		D+16	2026-01-17	D+19	2026-01-20	3	MED	RA for RoRo/Loadout operations
+S05	Engineering	Common	Risk Assessment – Hot Work on LCT (AD Ports format)	MMT	AD Ports HSE		D+16	2026-01-17	D+19	2026-01-20	3	MED	RA for hot work activities
+S06	Engineering	Common	Stowage Plan	KFS	HM / MWS		D+16	2026-01-17	D+19	2026-01-20	3	MED	Cargo stowage arrangement on LCT
+S07	Engineering	Common	Stability Calculation / Ballasting Calculation	ALS	MWS / HM		D+16	2026-01-17	D+19	2026-01-20	3	MED	Intact stability and ballast plan for loadout stages
+S08	Engineering	Common	RoRo Simulation Drawing / SPMT Load Distribution Plan	MMT	MWS / HM		D+16	2026-01-17	D+19	2026-01-20	3	MED	RoRo simulation and SPMT load distribution to confirm deck/berth limits
+S09	Engineering	Common	Ramp / Linkspan Certificate	MMT	HM / Port Ops		D+16	2026-01-17	D+19	2026-01-20	3	HIGH	Ramp/linkspan capacity certification (as applicable) | Note: If port-provided ramp, OFCO to advise
+S10	Engineering	Common	Mooring Plan	MWS	HM		D+16	2026-01-17	D+19	2026-01-20	3	MED	Mooring arrangement for port stay and cargo ops
+S11	Engineering	Common	Lashing Plan	MMT	MWS / HM		D+16	2026-01-17	D+19	2026-01-20	3	MED	Lashing arrangement for cargo during voyage
+S12	Engineering	Common	Critical Lifting Plan	MMT	AD Ports HSE		D+16	2026-01-17	D+19	2026-01-20	3	CRITICAL	Plan for critical lifting activities (if any)
+S13	Mandatory Docs	Common	3rd Party Equipment Certificates	MMT	AD Ports HSE / HM / MWS		D+16	2026-01-17	D+19	2026-01-20	3	HIGH	Certificates for SPMT/linkspan/lifting gear, etc.
+S14	Mandatory Docs	Common	SPMT Certificate	MMT	AD Ports HSE / HM		D+16	2026-01-17	D+19	2026-01-20	3	HIGH	SPMT certification and inspection documents
+S15	Mandatory Docs	Common	Welding Machine Calibration Certificates	MMT	AD Ports HSE		D+16	2026-01-17	D+19	2026-01-20	3	HIGH	Calibration certificates for welding machines
+S16	Mandatory Docs	Common	Welder Certificates	MMT	AD Ports HSE		D+16	2026-01-17	D+19	2026-01-20	3	HIGH	Welder qualification certificates
+S17	PTW	Common	Pre-Arrival Meeting (Operations Planning)	OFCO	Port Authorities / Ops		D+18	2026-01-19	D+21	2026-01-22	3	MED	Pre-arrival coordination meeting with port authorities | Note: OFCO to confirm meeting schedule
+S18	PTW	Common	Pre-Arrival Cargo Declaration	OFCO	Customs		D+18	2026-01-19	D+21	2026-01-22	3	MED	Cargo declaration prior to arrival (agent submission)
+S19	PTW	Common	Firewatcher Certificate	MMT	AD Ports HSE		D+18	2026-01-19	D+21	2026-01-22	3	HIGH	Required competency certificate for firewatch duties | Note: Required per OFCO feedback
+S20	Engineering	Common	Sea Fastening Certificate	MMT	MWS / HM		D+18	2026-01-19	D+21	2026-01-22	3	HIGH	Third-party confirmation of sea fastening design/installation
+S21	Engineering	Common	Countdown Plan	MMT	AD Ports HSE / HM		D+18	2026-01-19	D+21	2026-01-22	3	MED	Operational readiness countdown checklist/plan
+S22	Engineering	Common	Marine Warranty Survey (MWS) Appointment / Approval	MWS	Client / HM		D+18	2026-01-19	D+21	2026-01-22	3	MED	MWS attendance/approval documentation
+S23	Submission	Common	Undertaking Letter	SCT	HM / AD Ports		D+18	2026-01-19	D+21	2026-01-22	3	MED	Undertaking letter as required by port/authorities
+S24	Submission	Common	Indemnity Letter	SCT	HM / AD Ports		D+18	2026-01-19	D+21	2026-01-22	3	MED	Indemnity letter (general)
+S25	Submission	Common	Indemnity Letter – Lifting Plan	SCT	HM / AD Ports		D+18	2026-01-19	D+21	2026-01-22	3	MED	Indemnity letter specific to lifting plan (if applicable)
+S26	PTW	Common	PTW – Hot Work (Marine)	MMT	AD Ports HSE / HM		D+19	2026-01-20	D+22	2026-01-23	3	HIGH	Port-call specific permit for hot work on vessel/jetty interface | Note: PTW cannot be monthly; voyage-specific
+S27	PTW	Common	PTW – Working Over Water (Marine)	MMT	AD Ports HSE / HM		D+19	2026-01-20	D+22	2026-01-23	3	HIGH	Port-call specific permit for overwater activities | Note: PTW cannot be monthly; voyage-specific
+S28	PTW	Common	PTW – Land Oversized & Heavy Load (SPMT operations)	MMT	AD Ports HSE / HM		D+20	2026-01-21	D+22	2026-01-23	2	HIGH	Land permit required for SPMT movement/operations | Note: OFCO advised 2–3 working days; weekend may extend
+S29	Submission	Common	AD Maritime NOC Application Package (Summary)	SCT	AD Maritime (NOC)		D+22	2026-01-23	D+25	2026-01-26	3	HIGH	Summary line for NOC submission prior to proceeding to AGI; package includes Trading License, RA+ERP, No Objection letters, Voyage Plan, Route Map, and Contract Award Letter copy (see items below). | Note: OFCO advised AD Maritime NOC required before proceeding to AGI.
+S30	Submission	Common	Local Trading License	SCT	AD Maritime		D+22	2026-01-23	D+25	2026-01-26	3	MED	Required for AD Maritime NOC application
+S31	Submission	Common	Detailed Risk Assessment & Emergency Response Plan	SCT	AD Maritime		D+22	2026-01-23	D+25	2026-01-26	3	MED	Required for NOC; include ERP
+S32	Submission	Common	No Objection from relevant Authorities	SCT	AD Maritime		D+22	2026-01-23	D+25	2026-01-26	3	MED	NOC letters from relevant authorities (as applicable)
+S33	Submission	Common	Voyage Plan	KFS	AD Maritime		D+22	2026-01-23	D+25	2026-01-26	3	MED	Voyage plan for transit to AGI
+S34	Submission	Common	Route Map	KFS	AD Maritime		D+22	2026-01-23	D+25	2026-01-26	3	MED	Route map for transit to AGI
+S35	Submission	Common	Contract Award Letter Copy	SCT	AD Maritime		D+22	2026-01-23	D+25	2026-01-26	3	MED	Contract award letter copy for NOC application

@@ -1,0 +1,515 @@
+{
+  "year": 2025,
+  "month": 12,
+  "month_name": "DECEMBER 2025",
+  "start_date": "2025-11-30",
+  "weeks": [
+    [
+      {
+        "date": "2025-11-30",
+        "day": 30,
+        "is_current_month": false,
+        "is_today": false,
+        "weekday": "Sunday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2025-12-01",
+        "day": 1,
+        "is_current_month": true,
+        "is_today": false,
+        "weekday": "Monday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2025-12-02",
+        "day": 2,
+        "is_current_month": true,
+        "is_today": false,
+        "weekday": "Tuesday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2025-12-03",
+        "day": 3,
+        "is_current_month": true,
+        "is_today": false,
+        "weekday": "Wednesday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2025-12-04",
+        "day": 4,
+        "is_current_month": true,
+        "is_today": false,
+        "weekday": "Thursday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2025-12-05",
+        "day": 5,
+        "is_current_month": true,
+        "is_today": false,
+        "weekday": "Friday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2025-12-06",
+        "day": 6,
+        "is_current_month": true,
+        "is_today": false,
+        "weekday": "Saturday",
+        "items": [],
+        "item_count": 0
+      }
+    ],
+    [
+      {
+        "date": "2025-12-07",
+        "day": 7,
+        "is_current_month": true,
+        "is_today": false,
+        "weekday": "Sunday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2025-12-08",
+        "day": 8,
+        "is_current_month": true,
+        "is_today": false,
+        "weekday": "Monday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2025-12-09",
+        "day": 9,
+        "is_current_month": true,
+        "is_today": false,
+        "weekday": "Tuesday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2025-12-10",
+        "day": 10,
+        "is_current_month": true,
+        "is_today": false,
+        "weekday": "Wednesday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2025-12-11",
+        "day": 11,
+        "is_current_month": true,
+        "is_today": false,
+        "weekday": "Thursday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2025-12-12",
+        "day": 12,
+        "is_current_month": true,
+        "is_today": false,
+        "weekday": "Friday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2025-12-13",
+        "day": 13,
+        "is_current_month": true,
+        "is_today": false,
+        "weekday": "Saturday",
+        "items": [],
+        "item_count": 0
+      }
+    ],
+    [
+      {
+        "date": "2025-12-14",
+        "day": 14,
+        "is_current_month": true,
+        "is_today": false,
+        "weekday": "Sunday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2025-12-15",
+        "day": 15,
+        "is_current_month": true,
+        "is_today": false,
+        "weekday": "Monday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2025-12-16",
+        "day": 16,
+        "is_current_month": true,
+        "is_today": false,
+        "weekday": "Tuesday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2025-12-17",
+        "day": 17,
+        "is_current_month": true,
+        "is_today": false,
+        "weekday": "Wednesday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2025-12-18",
+        "day": 18,
+        "is_current_month": true,
+        "is_today": false,
+        "weekday": "Thursday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2025-12-19",
+        "day": 19,
+        "is_current_month": true,
+        "is_today": false,
+        "weekday": "Friday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2025-12-20",
+        "day": 20,
+        "is_current_month": true,
+        "is_today": false,
+        "weekday": "Saturday",
+        "items": [],
+        "item_count": 0
+      }
+    ],
+    [
+      {
+        "date": "2025-12-21",
+        "day": 21,
+        "is_current_month": true,
+        "is_today": false,
+        "weekday": "Sunday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2025-12-22",
+        "day": 22,
+        "is_current_month": true,
+        "is_today": false,
+        "weekday": "Monday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2025-12-23",
+        "day": 23,
+        "is_current_month": true,
+        "is_today": false,
+        "weekday": "Tuesday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2025-12-24",
+        "day": 24,
+        "is_current_month": true,
+        "is_today": false,
+        "weekday": "Wednesday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2025-12-25",
+        "day": 25,
+        "is_current_month": true,
+        "is_today": false,
+        "weekday": "Thursday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2025-12-26",
+        "day": 26,
+        "is_current_month": true,
+        "is_today": false,
+        "weekday": "Friday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2025-12-27",
+        "day": 27,
+        "is_current_month": true,
+        "is_today": false,
+        "weekday": "Saturday",
+        "items": [],
+        "item_count": 0
+      }
+    ],
+    [
+      {
+        "date": "2025-12-28",
+        "day": 28,
+        "is_current_month": true,
+        "is_today": false,
+        "weekday": "Sunday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2025-12-29",
+        "day": 29,
+        "is_current_month": true,
+        "is_today": false,
+        "weekday": "Monday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2025-12-30",
+        "day": 30,
+        "is_current_month": true,
+        "is_today": true,
+        "weekday": "Tuesday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2025-12-31",
+        "day": 31,
+        "is_current_month": true,
+        "is_today": false,
+        "weekday": "Wednesday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2026-01-01",
+        "day": 1,
+        "is_current_month": false,
+        "is_today": false,
+        "weekday": "Thursday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2026-01-02",
+        "day": 2,
+        "is_current_month": false,
+        "is_today": false,
+        "weekday": "Friday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2026-01-03",
+        "day": 3,
+        "is_current_month": false,
+        "is_today": false,
+        "weekday": "Saturday",
+        "items": [],
+        "item_count": 0
+      }
+    ],
+    [
+      {
+        "date": "2026-01-04",
+        "day": 4,
+        "is_current_month": false,
+        "is_today": false,
+        "weekday": "Sunday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2026-01-05",
+        "day": 5,
+        "is_current_month": false,
+        "is_today": false,
+        "weekday": "Monday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2026-01-06",
+        "day": 6,
+        "is_current_month": false,
+        "is_today": false,
+        "weekday": "Tuesday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2026-01-07",
+        "day": 7,
+        "is_current_month": false,
+        "is_today": false,
+        "weekday": "Wednesday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2026-01-08",
+        "day": 8,
+        "is_current_month": false,
+        "is_today": false,
+        "weekday": "Thursday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2026-01-09",
+        "day": 9,
+        "is_current_month": false,
+        "is_today": false,
+        "weekday": "Friday",
+        "items": [],
+        "item_count": 0
+      },
+      {
+        "date": "2026-01-10",
+        "day": 10,
+        "is_current_month": false,
+        "is_today": false,
+        "weekday": "Saturday",
+        "items": [],
+        "item_count": 0
+      }
+    ]
+  ],
+  "settings": {
+    "year": 2025,
+    "month": 12,
+    "start_day_of_week": 1
+  },
+  "all_content_items": [
+    {
+      "id": "4",
+      "date": null,
+      "title": "TITLE",
+      "description": "SHORT DESCRIPTION",
+      "status": null,
+      "hashtags": [],
+      "platform": null,
+      "url": null
+    },
+    {
+      "id": "6",
+      "date": null,
+      "title": "How to Learn to Fly",
+      "description": "This is a short description of this content and the description wraps to 2 lines.",
+      "status": null,
+      "hashtags": [],
+      "platform": null,
+      "url": null
+    },
+    {
+      "id": "7",
+      "date": null,
+      "title": "Awesome Travel Points",
+      "description": null,
+      "status": null,
+      "hashtags": [],
+      "platform": null,
+      "url": null
+    },
+    {
+      "id": "8",
+      "date": null,
+      "title": "Top 10 Stock Picks",
+      "description": null,
+      "status": null,
+      "hashtags": [],
+      "platform": null,
+      "url": null
+    },
+    {
+      "id": "9",
+      "date": null,
+      "title": "10 Things to Avoid",
+      "description": null,
+      "status": null,
+      "hashtags": [],
+      "platform": null,
+      "url": null
+    },
+    {
+      "id": "10",
+      "date": null,
+      "title": "Top CMS Solutions",
+      "description": null,
+      "status": null,
+      "hashtags": [],
+      "platform": null,
+      "url": null
+    },
+    {
+      "id": "11",
+      "date": null,
+      "title": "Marketing 101",
+      "description": null,
+      "status": null,
+      "hashtags": [],
+      "platform": null,
+      "url": null
+    },
+    {
+      "id": "12",
+      "date": null,
+      "title": "How to Watch Paint Dry",
+      "description": null,
+      "status": null,
+      "hashtags": [],
+      "platform": null,
+      "url": null
+    },
+    {
+      "id": "23",
+      "date": null,
+      "title": "Insert new rows ABOVE this one",
+      "description": null,
+      "status": null,
+      "hashtags": [],
+      "platform": null,
+      "url": null
+    },
+    {
+      "id": "26",
+      "date": null,
+      "title": "😎 DONE",
+      "description": null,
+      "status": null,
+      "hashtags": [],
+      "platform": null,
+      "url": null
+    },
+    {
+      "id": "settings_46",
+      "date": "1900-01-01T00:00:00",
+      "title": "Do not delete this row",
+      "description": "",
+      "status": null,
+      "hashtags": [],
+      "platform": null,
+      "url": null
+    }
+  ]
+}

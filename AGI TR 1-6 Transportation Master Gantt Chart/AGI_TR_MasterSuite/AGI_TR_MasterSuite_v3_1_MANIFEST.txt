@@ -1,0 +1,16 @@
+AGI TR MasterSuite v3.1.0 — Package Manifest
+
+1) Excel Workbooks
+- AGI_TR6_MasterSuite_READY_v3_1.xlsx
+- AGI_TR6_MasterSuite_READY_v3_1.xlsm   (macro-enabled container; import .bas)
+
+2) VBA
+- AGI_TR_MasterSuite_v3_1.bas
+
+3) Python
+- build_agi_tr_mastersuite_v3_1.py
+- test_mastersuite_v3_1.py
+
+4) Docs
+- AGI_TR_MasterSuite_QuickStart_v3_1.md
+- AGI_TR_MasterSuite_v3_1_MANIFEST.txt

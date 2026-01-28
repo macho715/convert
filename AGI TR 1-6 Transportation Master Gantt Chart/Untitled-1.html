@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Option A 병렬 운영 분석 보고서</title>
+<style>
+:root {
+  --primary: #009688;
+  --primary-dark: #00796b;
+  --secondary: #A23B72;
+  --bg: #f3f4f6;
+  --surface: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --radius: 12px;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111827;
+    --surface: #1f2937;
+    --text: #f9fafb;
+    --muted: #9ca3af;
+    --border: #374151;
+  }
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+header[role="banner"] {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  padding-top: calc(100px + 2rem);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+}
+
+h1 { font-size: 1.5rem; font-weight: 700; color: var(--text); }
+h2 { font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; color: var(--text); display: flex; align-items: center; }
+h2::before { content: ''; display: block; width: 4px; height: 1.1rem; background: var(--primary); margin-right: 0.5rem; border-radius: 2px; }
+p { margin-bottom: 0.5rem; font-size: 0.95rem; color: var(--muted); }
+
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.metric-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.stat-block {
+  padding: 1rem;
+  background: rgba(0, 150, 136, 0.05);
+  border-radius: 8px;
+  text-align: center;
+}
+.stat-label { display: block; font-size: 0.85rem; color: var(--muted); margin-bottom: 0.25rem; }
+.stat-value { font-size: 1.75rem; font-weight: 800; color: var(--primary); }
+.stat-unit { font-size: 0.9rem; font-weight: 600; color: var(--muted); margin-left: 2px; }
+
+.progress-label { display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.25rem; }
+.progress {
+  background: var(--border);
+  border-radius: 8px;
+  height: 12px;
+  overflow: hidden;
+}
+.progress-bar {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 8px;
+  transition: width 1s ease-out;
+}
+
+.barchart { display: grid; gap: 1rem; margin-top: 1rem; }
+.bar-row { display: grid; grid-template-columns: 140px 1fr; align-items: center; gap: 1rem; }
+.bar-label { font-size: 0.9rem; color: var(--text); text-align: right; }
+.bar-track { background: var(--border); border-radius: 6px; height: 24px; display: flex; align-items: center; overflow: hidden; position: relative; }
+.bar-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 0.5rem;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.bar-fill.secondary { background: var(--muted); opacity: 0.7; }
+
+.timeline { list-style: none; border-left: 2px solid var(--border); padding-left: 1.5rem; margin-left: 0.5rem; }
+.timeline li { position: relative; margin-bottom: 1.5rem; }
+.timeline li::before {
+  content: ''; position: absolute; left: -1.95rem; top: 0.3rem;
+  width: 10px; height: 10px; border-radius: 50%; background: var(--primary); border: 2px solid var(--surface);
+}
+.timeline time { display: block; font-size: 0.8rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem; }
+.timeline strong { color: var(--text); font-weight: 600; }
+
+.rec-list { list-style: none; display: grid; gap: 0.75rem; }
+.rec-item {
+  display: flex;
+  align-items: flex-start;
+  background: rgba(0, 0, 0, 0.02);
+  padding: 0.75rem;
+  border-radius: 6px;
+}
+.rec-icon {
+  margin-right: 0.75rem; color: var(--primary); font-weight: bold;
+}
+
+/* Gantt Chart Styles */
+.gantt-container {
+  margin-top: 1rem;
+  overflow-x: auto;
+  padding: 1rem 0;
+}
+.gantt-chart {
+  min-width: 900px;
+  height: 220px;
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 10px 40px 160px;
+  background: var(--surface);
+}
+.gantt-row {
+  height: 35px;
+  margin-bottom: 8px;
+  position: relative;
+  border-bottom: 1px solid var(--border);
+}
+.gantt-label {
+  position: absolute;
+  left: -160px;
+  width: 150px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding-right: 10px;
+  text-align: right;
+  line-height: 35px;
+}
+.gantt-bar {
+  position: absolute;
+  left: 0;
+  height: 28px;
+  margin-top: 3px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  white-space: nowrap;
+  overflow: hidden;
+}
+.gantt-bar.mobilization { background: #FF6B6B; }
+.gantt-bar.operational { background: var(--primary); }
+.gantt-bar.parallel { background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%); }
+.gantt-bar.demobilization { background: #4ECDC4; }
+.gantt-timeline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+.gantt-date-marker {
+  position: absolute;
+  top: 0;
+  bottom: 40px;
+  width: 1px;
+  background: rgba(0,0,0,0.1);
+}
+.gantt-date-label {
+  position: absolute;
+  bottom: -20px;
+  font-size: 0.7rem;
+  color: var(--muted);
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.area-summary { grid-column: span 12; display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.area-gantt { grid-column: span 12; }
+.area-chart { grid-column: span 6; }
+.area-timeline { grid-column: span 6; }
+.area-rec { grid-column: span 12; }
+
+@media (max-width: 768px) {
+  .area-chart, .area-timeline { grid-column: span 12; }
+  main { padding: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<header role="banner">
+  <div style="max-width:1400px; margin:0 auto; display:flex; justify-content:space-between; align-items:center;">
+    <div>
+      <h1>Option A 병렬 운영 상세 분석</h1>
+      <p style="margin-top:0.25rem;">SPMT 2개 세트 동시 운용을 통한 공기 단축 전략 보고서</p>
+    </div>
+    <div style="text-align:right;">
+      <span style="font-size:0.8rem; background:var(--primary); color:white; padding:4px 8px; border-radius:4px;">C-Level Report</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="area-summary">
+  <div class="card">
+    <h2>Executive Summary</h2>
+    <div style="padding: 1rem; background: rgba(0,150,136,0.05); border-radius:8px; margin-bottom:1.5rem;">
+      <strong style="color:var(--primary); font-size:1.1rem;">"SPMT 2개 세트 병렬 투입으로 22일 공기 단축"</strong>
+      <p style="margin-top:0.5rem; color:var(--text);">
+        1st Set(AGI 현장 설치)와 2nd Set(MZP 적재/운송)를 동시에 운영하여 유휴 시간을 제거하고 리소스 활용도를 <strong>85% 이상</strong>으로 극대화함.
+      </p>
+    </div>
+    
+    <div class="metric-group">
+      <div class="stat-block">
+        <span class="stat-label">단축 기간</span>
+        <span class="stat-value">22</span>
+        <span class="stat-unit">일</span>
+      </div>
+      <div class="stat-block">
+        <span class="stat-label">총 수행 기간</span>
+        <span class="stat-value">40</span>
+        <span class="stat-unit">일</span>
+      </div>
+      <div class="stat-block" style="text-align:left; display:flex; flex-direction:column; justify-content:center;">
+        <div class="progress-label"><span>장비 가동률</span><strong>85% +</strong></div>
+        <div class="progress" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" style="width: 85%;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="area-gantt">
+  <div class="card">
+    <h2>SPMT 세트별 운영 Gantt 차트</h2>
+    <p>TSV 데이터 기반 실제 일정 시각화 - 병렬 운영 구간 강조</p>
+    <div class="gantt-container">
+      <div class="gantt-chart" id="ganttChart">
+        <!-- Gantt chart will be generated by JavaScript -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="area-chart">
+  <div class="card">
+    <h2>운영 방식별 기간 비교</h2>
+    <p>순차 운영(Option B) 대비 병렬 운영(Option A)의 효율성 분석</p>
+    <div class="barchart" role="img" aria-label="기간 비교 차트">
+      <div class="bar-row">
+        <span class="bar-label">순차 운영 (B)</span>
+        <div class="bar-track">
+          <div class="bar-fill secondary" style="width: 100%;">62일 (예상)</div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label"><strong>병렬 운영 (A)</strong></span>
+        <div class="bar-track">
+          <div class="bar-fill" style="width: 64.5%;">40일 (실제)</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:1.5rem; padding-top:1rem; border-top:1px solid var(--border); font-size:0.85rem; color:var(--muted);">
+      * <strong>TR Units 3-6</strong> 구간에서 대기 시간 없이 동시 작업 수행으로 <strong>18일</strong> 확보, 초기/후기 최적화로 <strong>4일</strong> 추가 단축.
+    </div>
+  </div>
+</section>
+
+<section class="area-timeline">
+  <div class="card">
+    <h2>주요 병렬 운영 구간 (Phase 2)</h2>
+    <p>2026-02-05 ~ 02-11 (가장 중요한 동시 작업 기간)</p>
+    <ul class="timeline">
+      <li>
+        <time>2026-02-05 (병렬 시작)</time>
+        <p><strong>1st Set (AGI):</strong> TR Unit 1 (TR Bay 4) SPMT 적재 및 운송 시작</p>
+        <p><strong>2nd Set (MZP):</strong> LCT 도착 및 TR Units 3-4 준비 (02-06 LCT arrives)</p>
+      </li>
+      <li>
+        <time>2026-02-06 ~ 02-07 (Peak)</time>
+        <p><strong>1st Set:</strong> TR Unit 1 Turning (02-06~02-08, 3일)</p>
+        <p><strong>2nd Set:</strong> TR Unit 3 Load-out (02-07), TR Unit 4 적재 (02-07~02-08)</p>
+      </li>
+      <li>
+        <time>2026-02-09 ~ 02-11 (전환)</time>
+        <p><strong>1st Set:</strong> TR Unit 1 Jacking down (02-09), TR Unit 2 적재 (02-09), Port 복귀 (02-11)</p>
+        <p><strong>2nd Set:</strong> TR Units 3-4 해상 운송 (02-10), AGI 도착 (02-11)</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="area-rec">
+  <div class="card" style="background: linear-gradient(to right, #ffffff, rgba(0,150,136,0.03));">
+    <h2>전략적 제언 및 필수 요건</h2>
+    <div class="rec-list">
+      <div class="rec-item">
+        <span class="rec-icon">✓</span>
+        <div>
+          <strong>초기 자원 확보 필수</strong><br>
+          SPMT 2개 세트와 운용 인력(설치팀/적재팀)의 완전한 분리 및 사전 모빌라이제이션(2026-01-26~02-04) 완료 필요.
+        </div>
+      </div>
+      <div class="rec-item">
+        <span class="rec-icon">✓</span>
+        <div>
+          <strong>동기화(Synchronization) 관리</strong><br>
+          한 세트의 지연이 전체 병렬 로직을 깰 수 있으므로, AGI-MZP 간 실시간 통신 및 일정 조율 컨트롤 타워 가동.
+        </div>
+      </div>
+      <div class="rec-item">
+        <span class="rec-icon">✓</span>
+        <div>
+          <strong>해상 운송 변수 통제</strong><br>
+          LCT 이동(MZP↔AGI)이 병렬 전환의 핵심 연결고리이므로 기상 예보에 따른 선제적 출항 계획 수립 권고.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const root = document.documentElement;
+  const header = document.querySelector('header[role="banner"]');
+  const main = document.querySelector('main');
+
+  const applyLayout = () => {
+    const hh = header ? header.getBoundingClientRect().height : 0;
+    root.style.setProperty('--header-h', `${Math.round(hh)}px`);
+    if(main) main.style.paddingTop = `calc(${Math.round(hh)}px + 2rem)`;
+  };
+
+  applyLayout();
+  window.addEventListener('resize', applyLayout, { passive: true });
+
+  // Gantt Chart Generation based on TSV data
+  const ganttChart = document.getElementById('ganttChart');
+  if (ganttChart) {
+    const startDate = new Date('2026-01-26');
+    const endDate = new Date('2026-03-08');
+    const totalDays = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
+    const dayWidth = 3.5; // pixels per day
+    const chartWidth = totalDays * dayWidth;
+    
+    // Set chart width
+    ganttChart.style.width = `${chartWidth + 20}px`;
+    
+    // Timeline with date markers
+    const timeline = document.createElement('div');
+    timeline.className = 'gantt-timeline';
+    ganttChart.appendChild(timeline);
+    
+    // Date markers every 5 days
+    for (let i = 0; i <= totalDays; i += 5) {
+      const marker = document.createElement('div');
+      marker.className = 'gantt-date-marker';
+      marker.style.left = `${i * dayWidth}px`;
+      timeline.appendChild(marker);
+      
+      const label = document.createElement('div');
+      label.className = 'gantt-date-label';
+      const date = new Date(startDate);
+      date.setDate(date.getDate() + i);
+      label.textContent = date.toISOString().slice(5, 10).replace('-', '/');
+      label.style.left = `${i * dayWidth}px`;
+      ganttChart.appendChild(label);
+    }
+    
+    // Gantt rows based on TSV data
+    const rows = [
+      {
+        label: '1st Set SPMT',
+        bars: [
+          { start: 0, duration: 1, type: 'mobilization', label: 'Mob 01-26' },
+          { start: 3, duration: 15, type: 'operational', label: 'TR 1-2 (01-29~02-13)' },
+          { start: 40, duration: 2, type: 'demobilization', label: 'Demob 03-06~07' }
+        ]
+      },
+      {
+        label: '2nd Set SPMT',
+        bars: [
+          { start: 9, duration: 1, type: 'mobilization', label: 'Mob 02-04' },
+          { start: 11, duration: 16, type: 'operational', label: 'TR 3-4 (02-07~02-22)' },
+          { start: 32, duration: 1, type: 'demobilization', label: 'Demob 02-27' }
+        ]
+      },
+      {
+        label: '병렬 운영 구간',
+        bars: [
+          { start: 10, duration: 7, type: 'parallel', label: '02-05 ~ 02-11 병렬 운영' }
+        ]
+      }
+    ];
+    
+    rows.forEach((row, rowIdx) => {
+      const rowEl = document.createElement('div');
+      rowEl.className = 'gantt-row';
+      
+      const label = document.createElement('div');
+      label.className = 'gantt-label';
+      label.textContent = row.label;
+      rowEl.appendChild(label);
+      
+      row.bars.forEach(bar => {
+        const barEl = document.createElement('div');
+        barEl.className = `gantt-bar ${bar.type}`;
+        barEl.style.left = `${bar.start * dayWidth}px`;
+        barEl.style.width = `${bar.duration * dayWidth}px`;
+        const labelText = document.createElement('span');
+        labelText.textContent = bar.label;
+        labelText.style.fontSize = '0.7rem';
+        barEl.appendChild(labelText);
+        rowEl.appendChild(barEl);
+      });
+      
+      ganttChart.appendChild(rowEl);
+    });
+  }
+  
+  document.body.style.visibility = 'visible';
+});
+</script>
+
+</body>
+</html>

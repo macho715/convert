@@ -1,0 +1,7 @@
+Source Field Ontology Property Note
+NO. fin:lineNo Row key
+SUBJECT fin:subject 패턴 매핑 트리거
+SAMSUNG REF id:hasSamsungRef 클러스터 anchor
+"Channel Crossing fin:lineAmount 또는 금액→Line, EA/
+Charges… 등 금액열 rate:hasRate_i / rate:hasEA_i Rate 분해"
+EA_1..4 rate:hasEA_i 최대 4 쌍

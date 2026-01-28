@@ -1,0 +1,6 @@
+---
+alwaysApply: true
+---
+- SoT = plan.md; when user says "go", select next unchecked test only
+- TDD loop: RED→GREEN→REFACTOR; Unit SLA ≤ 0.20s
+- Separate structural vs behavioral commits

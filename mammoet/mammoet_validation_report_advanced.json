@@ -1,0 +1,432 @@
+{
+  "timestamp": "2026-01-26T04:10:46.791175",
+  "match_results": {
+    "tsv_to_excel": [
+      {
+        "TSV_S.N.": 2,
+        "TSV_Name": "Nor Asean Bin Atan",
+        "Excel_Row": 15,
+        "Excel_S.N.": 14,
+        "Excel_Name": "NOR ASEAN BIN ATAN",
+        "Similarity": "100.00%"
+      },
+      {
+        "TSV_S.N.": 3,
+        "TSV_Name": "Hermie Ebora Claus",
+        "Excel_Row": 9,
+        "Excel_S.N.": 8,
+        "Excel_Name": "Hermie Ebora Claus",
+        "Similarity": "100.00%"
+      },
+      {
+        "TSV_S.N.": 4,
+        "TSV_Name": "Felix Catapang Ebora",
+        "Excel_Row": 10,
+        "Excel_S.N.": 9,
+        "Excel_Name": "FELIX CATAPANG EBORA",
+        "Similarity": "100.00%"
+      },
+      {
+        "TSV_S.N.": 5,
+        "TSV_Name": "Jomon Chathanattu Abraham",
+        "Excel_Row": 11,
+        "Excel_S.N.": 10,
+        "Excel_Name": "Jomon Chathanattu Abraham Abraham",
+        "Similarity": "93.10%"
+      },
+      {
+        "TSV_S.N.": 7,
+        "TSV_Name": "Than Ampabut",
+        "Excel_Row": 13,
+        "Excel_S.N.": 12,
+        "Excel_Name": "THAN AMPABUT",
+        "Similarity": "100.00%"
+      },
+      {
+        "TSV_S.N.": 8,
+        "TSV_Name": "Abu Sufian Abul Khair",
+        "Excel_Row": 14,
+        "Excel_S.N.": 13,
+        "Excel_Name": "ABU SUFIAN ABUL KHAIR",
+        "Similarity": "100.00%"
+      },
+      {
+        "TSV_S.N.": 9,
+        "TSV_Name": "Iuliia Frolova",
+        "Excel_Row": 7,
+        "Excel_S.N.": 6,
+        "Excel_Name": "IULIIA FROLOVA",
+        "Similarity": "100.00%"
+      },
+      {
+        "TSV_S.N.": 11,
+        "TSV_Name": "Dennis Ray Bassig Atas",
+        "Excel_Row": 6,
+        "Excel_S.N.": 5,
+        "Excel_Name": "Dennis Ray Bassig Atas",
+        "Similarity": "100.00%"
+      },
+      {
+        "TSV_S.N.": 13,
+        "TSV_Name": "Prashantha Koraga Devadiga",
+        "Excel_Row": 2,
+        "Excel_S.N.": 1,
+        "Excel_Name": "PRASHANTHA KORAGA DEVADEGA",
+        "Similarity": "96.15%"
+      },
+      {
+        "TSV_S.N.": 14,
+        "TSV_Name": "Anantha Bhadra Devadiga",
+        "Excel_Row": 3,
+        "Excel_S.N.": 2,
+        "Excel_Name": "ANANTHA BHADRA DEVADEGA",
+        "Similarity": "95.65%"
+      },
+      {
+        "TSV_S.N.": 15,
+        "TSV_Name": "Praveenkumar Christadima",
+        "Excel_Row": 4,
+        "Excel_S.N.": 3,
+        "Excel_Name": "PRAVEEN KUMAR CHRISTADIMA",
+        "Similarity": "97.96%"
+      },
+      {
+        "TSV_S.N.": 16,
+        "TSV_Name": "Sudhish Parathil Sreendharan",
+        "Excel_Row": 5,
+        "Excel_S.N.": 4,
+        "Excel_Name": "SUDHISH PARATHIL SREEDHARAN",
+        "Similarity": "98.18%"
+      }
+    ],
+    "tsv_to_folder": [
+      {
+        "TSV_S.N.": 1,
+        "TSV_Name": "Muhammad Nasir",
+        "Folder_Number": 2,
+        "Folder_Name": "MUHAMMAD NASIR",
+        "Similarity": "100.00%",
+        "PDF_Count": 3,
+        "Image_Count": 1
+      },
+      {
+        "TSV_S.N.": 2,
+        "TSV_Name": "Nor Asean Bin Atan",
+        "Folder_Number": 1,
+        "Folder_Name": "NOR ASEAN BIN ATAN",
+        "Similarity": "100.00%",
+        "PDF_Count": 2,
+        "Image_Count": 1
+      },
+      {
+        "TSV_S.N.": 3,
+        "TSV_Name": "Hermie Ebora Claus",
+        "Folder_Number": 3,
+        "Folder_Name": "HERMIE EBORA CLAUS",
+        "Similarity": "100.00%",
+        "PDF_Count": 3,
+        "Image_Count": 1
+      },
+      {
+        "TSV_S.N.": 4,
+        "TSV_Name": "Felix Catapang Ebora",
+        "Folder_Number": 4,
+        "Folder_Name": "FELIX EBORA",
+        "Similarity": "85.48%",
+        "PDF_Count": 3,
+        "Image_Count": 1
+      },
+      {
+        "TSV_S.N.": 5,
+        "TSV_Name": "Jomon Chathanattu Abraham",
+        "Folder_Number": 5,
+        "Folder_Name": "JOMON ABRAHAM",
+        "Similarity": "84.21%",
+        "PDF_Count": 3,
+        "Image_Count": 1
+      },
+      {
+        "TSV_S.N.": 6,
+        "TSV_Name": "Joseph Maliekkal",
+        "Folder_Number": 6,
+        "Folder_Name": "JOSEPH MALIEKKAL",
+        "Similarity": "100.00%",
+        "PDF_Count": 2,
+        "Image_Count": 2
+      },
+      {
+        "TSV_S.N.": 7,
+        "TSV_Name": "Than Ampabut",
+        "Folder_Number": 7,
+        "Folder_Name": "THAN AMBAPUT",
+        "Similarity": "84.52%",
+        "PDF_Count": 3,
+        "Image_Count": 1
+      },
+      {
+        "TSV_S.N.": 8,
+        "TSV_Name": "Abu Sufian Abul Khair",
+        "Folder_Number": 8,
+        "Folder_Name": "ABU SUFIAN",
+        "Similarity": "64.52%",
+        "PDF_Count": 3,
+        "Image_Count": 1
+      },
+      {
+        "TSV_S.N.": 9,
+        "TSV_Name": "Iuliia Frolova",
+        "Folder_Number": 9,
+        "Folder_Name": "IULIIA FROLOVA",
+        "Similarity": "100.00%",
+        "PDF_Count": 1,
+        "Image_Count": 3
+      },
+      {
+        "TSV_S.N.": 10,
+        "TSV_Name": "Syed Khleel Ahmed Ahmed",
+        "Folder_Number": 10,
+        "Folder_Name": "SYED KHLEEL AHMED AHMED",
+        "Similarity": "100.00%",
+        "PDF_Count": 2,
+        "Image_Count": 1
+      },
+      {
+        "TSV_S.N.": 11,
+        "TSV_Name": "Dennis Ray Bassig Atas",
+        "Folder_Number": 11,
+        "Folder_Name": "DENNIS RAY BASSIG ATAS",
+        "Similarity": "100.00%",
+        "PDF_Count": 2,
+        "Image_Count": 1
+      },
+      {
+        "TSV_S.N.": 12,
+        "TSV_Name": "Aziz Haroon Gajiya",
+        "Folder_Number": 12,
+        "Folder_Name": "AZIZ GAJIYA",
+        "Similarity": "87.93%",
+        "PDF_Count": 1,
+        "Image_Count": 2
+      },
+      {
+        "TSV_S.N.": 15,
+        "TSV_Name": "Praveenkumar Christadima",
+        "Folder_Number": 16,
+        "Folder_Name": "PRAVEENKUMAR",
+        "Similarity": "66.67%",
+        "PDF_Count": 3,
+        "Image_Count": 1
+      }
+    ],
+    "excel_to_tsv": [
+      {
+        "Excel_Row": 2,
+        "Excel_S.N.": 1,
+        "Excel_Name": "PRASHANTHA KORAGA DEVADEGA",
+        "TSV_S.N.": 13,
+        "TSV_Name": "Prashantha Koraga Devadiga",
+        "Similarity": "96.15%"
+      },
+      {
+        "Excel_Row": 3,
+        "Excel_S.N.": 2,
+        "Excel_Name": "ANANTHA BHADRA DEVADEGA",
+        "TSV_S.N.": 14,
+        "TSV_Name": "Anantha Bhadra Devadiga",
+        "Similarity": "95.65%"
+      },
+      {
+        "Excel_Row": 4,
+        "Excel_S.N.": 3,
+        "Excel_Name": "PRAVEEN KUMAR CHRISTADIMA",
+        "TSV_S.N.": 15,
+        "TSV_Name": "Praveenkumar Christadima",
+        "Similarity": "97.96%"
+      },
+      {
+        "Excel_Row": 5,
+        "Excel_S.N.": 4,
+        "Excel_Name": "SUDHISH PARATHIL SREEDHARAN",
+        "TSV_S.N.": 16,
+        "TSV_Name": "Sudhish Parathil Sreendharan",
+        "Similarity": "98.18%"
+      },
+      {
+        "Excel_Row": 6,
+        "Excel_S.N.": 5,
+        "Excel_Name": "Dennis Ray Bassig Atas",
+        "TSV_S.N.": 11,
+        "TSV_Name": "Dennis Ray Bassig Atas",
+        "Similarity": "100.00%"
+      },
+      {
+        "Excel_Row": 7,
+        "Excel_S.N.": 6,
+        "Excel_Name": "IULIIA FROLOVA",
+        "TSV_S.N.": 9,
+        "TSV_Name": "Iuliia Frolova",
+        "Similarity": "100.00%"
+      },
+      {
+        "Excel_Row": 9,
+        "Excel_S.N.": 8,
+        "Excel_Name": "Hermie Ebora Claus",
+        "TSV_S.N.": 3,
+        "TSV_Name": "Hermie Ebora Claus",
+        "Similarity": "100.00%"
+      },
+      {
+        "Excel_Row": 10,
+        "Excel_S.N.": 9,
+        "Excel_Name": "FELIX CATAPANG EBORA",
+        "TSV_S.N.": 4,
+        "TSV_Name": "Felix Catapang Ebora",
+        "Similarity": "100.00%"
+      },
+      {
+        "Excel_Row": 11,
+        "Excel_S.N.": 10,
+        "Excel_Name": "Jomon Chathanattu Abraham Abraham",
+        "TSV_S.N.": 5,
+        "TSV_Name": "Jomon Chathanattu Abraham",
+        "Similarity": "93.10%"
+      },
+      {
+        "Excel_Row": 13,
+        "Excel_S.N.": 12,
+        "Excel_Name": "THAN AMPABUT",
+        "TSV_S.N.": 7,
+        "TSV_Name": "Than Ampabut",
+        "Similarity": "100.00%"
+      },
+      {
+        "Excel_Row": 14,
+        "Excel_S.N.": 13,
+        "Excel_Name": "ABU SUFIAN ABUL KHAIR",
+        "TSV_S.N.": 8,
+        "TSV_Name": "Abu Sufian Abul Khair",
+        "Similarity": "100.00%"
+      },
+      {
+        "Excel_Row": 15,
+        "Excel_S.N.": 14,
+        "Excel_Name": "NOR ASEAN BIN ATAN",
+        "TSV_S.N.": 2,
+        "TSV_Name": "Nor Asean Bin Atan",
+        "Similarity": "100.00%"
+      }
+    ],
+    "folder_to_tsv": [],
+    "unmatched_tsv": [
+      {
+        "S.N.": 1,
+        "Name": "Muhammad Nasir",
+        "Name_Normalized": "MUHAMMAD NASIR",
+        "Position": "SPMT Supervisor",
+        "Employee_Number": 970137.0,
+        "EID": "784-1985-2874320-0",
+        "Email": "muhammad.nasir@mammoet.com"
+      },
+      {
+        "S.N.": 6,
+        "Name": "Joseph Maliekkal",
+        "Name_Normalized": "JOSEPH MALIEKKAL",
+        "Position": "SPMT Rigger",
+        "Employee_Number": 971716.0,
+        "EID": "784-1978-9683515-0",
+        "Email": "joseph.maliekkal@mammoet.com"
+      },
+      {
+        "S.N.": 10,
+        "Name": "Syed Khleel Ahmed Ahmed",
+        "Name_Normalized": "SYED KHLEEL AHMED AHMED",
+        "Position": "Project Engineer",
+        "Employee_Number": 971615.0,
+        "EID": "784-1987-5909876-1",
+        "Email": "sayeed.ahmed@mammoet.com"
+      },
+      {
+        "S.N.": 12,
+        "Name": "Aziz Haroon Gajiya",
+        "Name_Normalized": "AZIZ HAROON GAJIYA",
+        "Position": "SHEQ Manager",
+        "Employee_Number": 970382.0,
+        "EID": "784-1973-1409085-9",
+        "Email": "aziz.gajia@mammoet.com"
+      },
+      {
+        "S.N.": 17,
+        "Name": "Shajihan Puthuveettil Nettiyamparambil",
+        "Name_Normalized": "SHAJIHAN PUTHUVEETTIL NETTIYAMPARAMBIL",
+        "Position": "Jacking Crew / Assistance in mob",
+        "Employee_Number": 971669.0,
+        "EID": "784-1974-6831483-2",
+        "Email": "shajihan.nettiyam@mammoet.com"
+      }
+    ],
+    "unmatched_excel": [
+      {
+        "Excel_Row": 8,
+        "S.N.": 7,
+        "Name": "Muhammad Nasir Qamar Zaman",
+        "Name_Normalized": "MUHAMMAD NASIR QAMAR ZAMAN",
+        "Raw_Data": {
+          "S.N.": 7,
+          "Name": "Muhammad Nasir Qamar Zaman",
+          "Excel_Row": 145
+        }
+      },
+      {
+        "Excel_Row": 12,
+        "S.N.": 11,
+        "Name": "JOSEPH MALIEKKAL JOSEPH JOSEPH",
+        "Name_Normalized": "JOSEPH MALIEKKAL JOSEPH JOSEPH",
+        "Raw_Data": {
+          "S.N.": 11,
+          "Name": "JOSEPH MALIEKKAL JOSEPH JOSEPH",
+          "Excel_Row": 214
+        }
+      }
+    ],
+    "unmatched_folder": [
+      {
+        "Folder_Number": 13,
+        "Folder_Name": "SHAJIHAN",
+        "Folder_Name_Normalized": "SHAJIHAN",
+        "PDF_Count": 3,
+        "Image_Count": 1
+      },
+      {
+        "Folder_Number": 14,
+        "Folder_Name": "PRASHANTHA",
+        "Folder_Name_Normalized": "PRASHANTHA",
+        "PDF_Count": 3,
+        "Image_Count": 1
+      },
+      {
+        "Folder_Number": 15,
+        "Folder_Name": "ANANTHA",
+        "Folder_Name_Normalized": "ANANTHA",
+        "PDF_Count": 3,
+        "Image_Count": 1
+      },
+      {
+        "Folder_Number": 17,
+        "Folder_Name": "SUDHISH",
+        "Folder_Name_Normalized": "SUDHISH",
+        "PDF_Count": 3,
+        "Image_Count": 1
+      }
+    ]
+  },
+  "summary": {
+    "tsv_count": 17,
+    "excel_count": 14,
+    "folder_count": 17,
+    "tsv_to_excel_matched": 12,
+    "tsv_to_folder_matched": 13,
+    "unmatched_tsv": 5,
+    "unmatched_excel": 2,
+    "unmatched_folder": 4
+  }
+}

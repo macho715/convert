@@ -1,0 +1,36 @@
+No	Category	Document	Purpose / Notes	Owner	Submit To	Submission Channel	Lead Time (working days)	Target Due Date	Status	Portal Ref / Tracking No.	Revision	Remarks
+1	Port / Permits	Berth Request / Berth Booking Request	Berth allocation request for MZP port call	OFCO	HM / Port Ops	Email / Port System	TBD	2026-01-20	Open			
+2	Port / Permits	PTW Applicant / Receiver Consent Form	Consent form as per AD Ports PTW process	SCT	AD Ports HSE	Maqta Gateway	TBD	2026-01-20	Open			
+3	Engineering / Marine	Method Statement (AD Ports format, incl. weather criteria)	Approved MS for cargo loading/offloading; include weather limits	MMT	AD Ports HSE / HM	Maqta Gateway	TBD	2026-01-20	Open			
+4	Engineering / Marine	Risk Assessment – RoRo Operations (AD Ports format)	RA for RoRo/Loadout operations	MMT	AD Ports HSE	Maqta Gateway	TBD	2026-01-20	Open			
+5	Engineering / Marine	Risk Assessment – Hot Work on LCT (AD Ports format)	RA for hot work activities	MMT	AD Ports HSE	Maqta Gateway	TBD	2026-01-20	Open			
+6	Engineering / Marine	Stowage Plan	Cargo stowage arrangement on LCT	KFS	HM / MWS	Maqta Gateway	TBD	2026-01-20	Open			
+7	Engineering / Marine	Stability Calculation / Ballasting Calculation	Intact stability and ballast plan for loadout stages	ALS	MWS / HM	Maqta Gateway	TBD	2026-01-20	Open			
+8	Engineering / Marine	RoRo Simulation Drawing / SPMT Load Distribution Plan	RoRo simulation and SPMT load distribution to confirm deck/berth limits	MMT	MWS / HM	Maqta Gateway	TBD	2026-01-20	Open			
+9	Engineering / Marine	Ramp / Linkspan Certificate	Ramp/linkspan capacity certification (as applicable)	MMT	HM / Port Ops	Maqta Gateway / Email	TBD	2026-01-20	Open			If port-provided ramp, OFCO to advise
+10	Engineering / Marine	Mooring Plan	Mooring arrangement for port stay and cargo ops	MWS	HM	Maqta Gateway	TBD	2026-01-20	Open			
+11	Engineering / Marine	Lashing Plan	Lashing arrangement for cargo during voyage	MMT	MWS / HM	Maqta Gateway	TBD	2026-01-20	Open			
+12	Engineering / Marine	Critical Lifting Plan	Plan for critical lifting activities (if any)	MMT	AD Ports HSE	Maqta Gateway	TBD	2026-01-20	Open			
+13	Certificates / Equipment	3rd Party Equipment Certificates	Certificates for SPMT/linkspan/lifting gear, etc.	MMT	AD Ports HSE / HM / MWS	Maqta Gateway	TBD	2026-01-20	Open			
+14	Certificates / Equipment	SPMT Certificate	SPMT certification and inspection documents	MMT	AD Ports HSE / HM	Maqta Gateway	TBD	2026-01-20	Open			
+15	Certificates / Equipment	Welding Machine Calibration Certificates	Calibration certificates for welding machines	MMT	AD Ports HSE	Maqta Gateway	TBD	2026-01-20	Open			
+16	Certificates / Equipment	Welder Certificates	Welder qualification certificates	MMT	AD Ports HSE	Maqta Gateway	TBD	2026-01-20	Open			
+17	Port / Permits	Pre-Arrival Meeting (Operations Planning)	Pre-arrival coordination meeting with port authorities	OFCO	Port Authorities / Ops	Email / Meeting	TBD	2026-01-22	Open			OFCO to confirm meeting schedule
+18	Port / Permits	Pre-Arrival Cargo Declaration	Cargo declaration prior to arrival (agent submission)	OFCO	Customs	Maqta Gateway	TBD	2026-01-22	Open			
+19	Port / Permits	Firewatcher Certificate	Required competency certificate for firewatch duties	MMT	AD Ports HSE	Maqta Gateway	TBD	2026-01-22	Open			Required per OFCO feedback
+20	Engineering / Marine	Sea Fastening Certificate	Third-party confirmation of sea fastening design/installation	MMT	MWS / HM	Maqta Gateway	TBD	2026-01-22	Open			
+21	Engineering / Marine	Countdown Plan	Operational readiness countdown checklist/plan	MMT	AD Ports HSE / HM	Email / Maqta Gateway	TBD	2026-01-22	Open			
+22	Engineering / Marine	Marine Warranty Survey (MWS) Appointment / Approval	MWS attendance/approval documentation	MWS	Client / HM	Email	TBD	2026-01-22	Open			
+23	Letters	Undertaking Letter	Undertaking letter as required by port/authorities	SCT	HM / AD Ports	Email / Maqta Gateway	TBD	2026-01-22	Open			
+24	Letters	Indemnity Letter	Indemnity letter (general)	SCT	HM / AD Ports	Email / Maqta Gateway	TBD	2026-01-22	Open			
+25	Letters	Indemnity Letter – Lifting Plan	Indemnity letter specific to lifting plan (if applicable)	SCT	HM / AD Ports	Email / Maqta Gateway	TBD	2026-01-22	Open			
+26	Port / Permits	PTW – Hot Work (Marine)	Port-call specific permit for hot work on vessel/jetty interface	MMT	AD Ports HSE / HM	Maqta Gateway	TBD (port-call specific)	2026-01-23	Open			PTW cannot be monthly; voyage-specific
+27	Port / Permits	PTW – Working Over Water (Marine)	Port-call specific permit for overwater activities	MMT	AD Ports HSE / HM	Maqta Gateway	TBD (port-call specific)	2026-01-23	Open			PTW cannot be monthly; voyage-specific
+28	Port / Permits	PTW – Land Oversized & Heavy Load (SPMT operations)	Land permit required for SPMT movement/operations	MMT	AD Ports HSE / HM	Maqta Gateway	2–3	2026-01-23	Open			OFCO advised 2–3 working days; weekend may extend
+29	AD Maritime NOC	AD Maritime NOC Application Package (Summary)	Summary line for NOC submission prior to proceeding to AGI; package includes Trading License, RA+ERP, No Objection letters, Voyage Plan, Route Map, and Contract Award Letter copy (see items below).	SCT	AD Maritime (NOC)	TBD (via OFCO / AD Maritime process)	TBD	2026-01-26	Open			OFCO advised AD Maritime NOC required before proceeding to AGI.
+30	AD Maritime NOC	Local Trading License	Required for AD Maritime NOC application	SCT	AD Maritime	Email / Portal	TBD	2026-01-26	Open			
+31	AD Maritime NOC	Detailed Risk Assessment & Emergency Response Plan	Required for NOC; include ERP	SCT	AD Maritime	Email / Portal	TBD	2026-01-26	Open			
+32	AD Maritime NOC	No Objection from relevant Authorities	NOC letters from relevant authorities (as applicable)	SCT	AD Maritime	Email / Portal	TBD	2026-01-26	Open			
+33	AD Maritime NOC	Voyage Plan	Voyage plan for transit to AGI	KFS	AD Maritime	Email / Portal	TBD	2026-01-26	Open			
+34	AD Maritime NOC	Route Map	Route map for transit to AGI	KFS	AD Maritime	Email / Portal	TBD	2026-01-26	Open			
+35	AD Maritime NOC	Contract Award Letter Copy	Contract award letter copy for NOC application	SCT	AD Maritime	Email / Portal	TBD	2026-01-26	Open			

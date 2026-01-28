@@ -1,0 +1,38 @@
+'===============================================================================
+' T_Tracker 시트 모듈 코드
+' 설치 방법: T_Tracker 시트에서 마우스 우클릭 -> 코드 보기 -> 아래 코드 붙여넣기
+'===============================================================================
+
+Private Sub Worksheet_Change(ByVal Target As Range)
+    On Error GoTo EH
+    
+    Dim lo As ListObject
+    Set lo = Me.ListObjects("tbl_Tracker")
+    
+    Dim rngWatch As Range
+    Set rngWatch = Union( _
+        lo.ListColumns("Status").DataBodyRange, _
+        lo.ListColumns("SubmittedDate").DataBodyRange, _
+        lo.ListColumns("AcceptedDate").DataBodyRange, _
+        lo.ListColumns("EvidenceLink").DataBodyRange, _
+        lo.ListColumns("EvidenceNote").DataBodyRange _
+    )
+    
+    If Intersect(Target, rngWatch) Is Nothing Then Exit Sub
+    
+    Application.EnableEvents = False
+    
+    Dim rowIdx As Long
+    rowIdx = Target.Row - lo.DataBodyRange.Row + 1
+    If rowIdx < 1 Or rowIdx > lo.DataBodyRange.Rows.Count Then GoTo SafeExit
+    
+    lo.ListColumns("LastUpdatedAt").DataBodyRange.Cells(rowIdx, 1).Value = Now
+    lo.ListColumns("LastUpdatedBy").DataBodyRange.Cells(rowIdx, 1).Value = Environ$("username")
+    
+SafeExit:
+    Application.EnableEvents = True
+    Exit Sub
+    
+EH:
+    Application.EnableEvents = True
+End Sub

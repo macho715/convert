@@ -1,0 +1,17 @@
+[
+    {
+        "thread_id": "gt_1",
+        "members": [
+            1,
+            2,
+            3
+        ]
+    },
+    {
+        "thread_id": "gt_2",
+        "members": [
+            4,
+            5
+        ]
+    }
+]

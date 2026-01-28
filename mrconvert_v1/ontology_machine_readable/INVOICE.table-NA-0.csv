@@ -1,0 +1,7 @@
+Class,핵심 속성,관계,근거/조인 소스,결과
+hvdc:Invoice,"docId, vendor, issueDate, currency",hasLine → InvoiceLine,—,"상태, 총액, proof"
+hvdc:InvoiceLine,"chargeDesc, qty, unit, draftRateUSD",hasLane → ODLane / uses → RateRef,"Inland Trucking/Table, Air/Container/Bulk Rate","Δ%, cg_band"
+hvdc:ODLane,"origin_norm, destination_norm, vehicle, unit",joinedBy → ApprovedLaneMap,"RefDestinationMap, Lane stats",median_rate_usd
+hvdc:RateRef,"rate_usd, tolerance(±3%), source(contract/market/special)",per Category/Port/Dest/Unit,Air/Container/Bulk/Trucking tables,ref_rate_usd
+hvdc:CurrencyPolicy,"base=USD, fx=3.6725",validates Invoice/Line,currency_mismatch rule,환산/락
+hvdc:RiskResult,"delta_pct, cg_band, verdict",from Line vs Ref,COST-GUARD bands,PASS/FAIL

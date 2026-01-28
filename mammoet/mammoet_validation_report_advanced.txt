@@ -1,0 +1,128 @@
+================================================================================
+📋 MAMMOET 인력 데이터 검증 리포트 (이름 기반 매칭)
+생성일시: 2026-01-26 04:10:46
+================================================================================
+
+[1] 데이터 요약
+--------------------------------------------------------------------------------
+   TSV: 17명
+   Excel: 14명 (필터링 후)
+   폴더: 17개
+
+[2] TSV → Excel 매칭 결과
+--------------------------------------------------------------------------------
+   ✓ 매칭 성공: 12/17명
+
+   매칭된 항목:
+      TSV S.N. 2: Nor Asean Bin Atan
+         → Excel 행 15: NOR ASEAN BIN ATAN (유사도: 100.00%)
+      TSV S.N. 3: Hermie Ebora Claus
+         → Excel 행  9: Hermie Ebora Claus (유사도: 100.00%)
+      TSV S.N. 4: Felix Catapang Ebora
+         → Excel 행 10: FELIX CATAPANG EBORA (유사도: 100.00%)
+      TSV S.N. 5: Jomon Chathanattu Abraham
+         → Excel 행 11: Jomon Chathanattu Abraham Abraham (유사도: 93.10%)
+      TSV S.N. 7: Than Ampabut
+         → Excel 행 13: THAN AMPABUT (유사도: 100.00%)
+      TSV S.N. 8: Abu Sufian Abul Khair
+         → Excel 행 14: ABU SUFIAN ABUL KHAIR (유사도: 100.00%)
+      TSV S.N. 9: Iuliia Frolova
+         → Excel 행  7: IULIIA FROLOVA (유사도: 100.00%)
+      TSV S.N.11: Dennis Ray Bassig Atas
+         → Excel 행  6: Dennis Ray Bassig Atas (유사도: 100.00%)
+      TSV S.N.13: Prashantha Koraga Devadiga
+         → Excel 행  2: PRASHANTHA KORAGA DEVADEGA (유사도: 96.15%)
+      TSV S.N.14: Anantha Bhadra Devadiga
+         → Excel 행  3: ANANTHA BHADRA DEVADEGA (유사도: 95.65%)
+      TSV S.N.15: Praveenkumar Christadima
+         → Excel 행  4: PRAVEEN KUMAR CHRISTADIMA (유사도: 97.96%)
+      TSV S.N.16: Sudhish Parathil Sreendharan
+         → Excel 행  5: SUDHISH PARATHIL SREEDHARAN (유사도: 98.18%)
+
+   ⚠️  매칭 실패: 5명
+      - S.N. 1: Muhammad Nasir (SPMT Supervisor)
+      - S.N. 6: Joseph Maliekkal (SPMT Rigger)
+      - S.N. 10: Syed Khleel Ahmed Ahmed (Project Engineer)
+      - S.N. 12: Aziz Haroon Gajiya (SHEQ Manager)
+      - S.N. 17: Shajihan Puthuveettil Nettiyamparambil (Jacking Crew / Assistance in mob)
+
+[3] TSV → Folder 매칭 결과
+--------------------------------------------------------------------------------
+   ✓ 매칭 성공: 13/17명
+
+   매칭된 항목:
+      TSV S.N. 1: Muhammad Nasir
+         → 폴더  2: MUHAMMAD NASIR (유사도: 100.00%)
+            문서: PDF 3개, 이미지 1개
+      TSV S.N. 2: Nor Asean Bin Atan
+         → 폴더  1: NOR ASEAN BIN ATAN (유사도: 100.00%)
+            문서: PDF 2개, 이미지 1개
+      TSV S.N. 3: Hermie Ebora Claus
+         → 폴더  3: HERMIE EBORA CLAUS (유사도: 100.00%)
+            문서: PDF 3개, 이미지 1개
+      TSV S.N. 4: Felix Catapang Ebora
+         → 폴더  4: FELIX EBORA (유사도: 85.48%)
+            문서: PDF 3개, 이미지 1개
+      TSV S.N. 5: Jomon Chathanattu Abraham
+         → 폴더  5: JOMON ABRAHAM (유사도: 84.21%)
+            문서: PDF 3개, 이미지 1개
+      TSV S.N. 6: Joseph Maliekkal
+         → 폴더  6: JOSEPH MALIEKKAL (유사도: 100.00%)
+            문서: PDF 2개, 이미지 2개
+      TSV S.N. 7: Than Ampabut
+         → 폴더  7: THAN AMBAPUT (유사도: 84.52%)
+            문서: PDF 3개, 이미지 1개
+      TSV S.N. 8: Abu Sufian Abul Khair
+         → 폴더  8: ABU SUFIAN (유사도: 64.52%)
+            문서: PDF 3개, 이미지 1개
+      TSV S.N. 9: Iuliia Frolova
+         → 폴더  9: IULIIA FROLOVA (유사도: 100.00%)
+            문서: PDF 1개, 이미지 3개
+      TSV S.N.10: Syed Khleel Ahmed Ahmed
+         → 폴더 10: SYED KHLEEL AHMED AHMED (유사도: 100.00%)
+            문서: PDF 2개, 이미지 1개
+      TSV S.N.11: Dennis Ray Bassig Atas
+         → 폴더 11: DENNIS RAY BASSIG ATAS (유사도: 100.00%)
+            문서: PDF 2개, 이미지 1개
+      TSV S.N.12: Aziz Haroon Gajiya
+         → 폴더 12: AZIZ GAJIYA (유사도: 87.93%)
+            문서: PDF 1개, 이미지 2개
+      TSV S.N.15: Praveenkumar Christadima
+         → 폴더 16: PRAVEENKUMAR (유사도: 66.67%)
+            문서: PDF 3개, 이미지 1개
+
+[4] Excel → TSV 역방향 매칭
+--------------------------------------------------------------------------------
+   ✓ 매칭 성공: 12명
+
+   ⚠️  Excel에만 있는 항목: 2명
+      - Excel 행 8: Muhammad Nasir Qamar Zaman
+      - Excel 행 12: JOSEPH MALIEKKAL JOSEPH JOSEPH
+
+[5] 폴더 매칭 실패
+--------------------------------------------------------------------------------
+   ⚠️  매칭 실패 폴더: 4개
+      - 폴더 13: SHAJIHAN
+      - 폴더 14: PRASHANTHA
+      - 폴더 15: ANANTHA
+      - 폴더 17: SUDHISH
+
+[6] 불일치 분석
+--------------------------------------------------------------------------------
+   ⚠️  S.N. 불일치: 12건
+      TSV S.N.2 ↔ Excel S.N.14: Nor Asean Bin Atan
+      TSV S.N.3 ↔ Excel S.N.8: Hermie Ebora Claus
+      TSV S.N.4 ↔ Excel S.N.9: Felix Catapang Ebora
+      TSV S.N.5 ↔ Excel S.N.10: Jomon Chathanattu Abraham
+      TSV S.N.7 ↔ Excel S.N.12: Than Ampabut
+      TSV S.N.8 ↔ Excel S.N.13: Abu Sufian Abul Khair
+      TSV S.N.9 ↔ Excel S.N.6: Iuliia Frolova
+      TSV S.N.11 ↔ Excel S.N.5: Dennis Ray Bassig Atas
+      TSV S.N.13 ↔ Excel S.N.1: Prashantha Koraga Devadiga
+      TSV S.N.14 ↔ Excel S.N.2: Anantha Bhadra Devadiga
+      TSV S.N.15 ↔ Excel S.N.3: Praveenkumar Christadima
+      TSV S.N.16 ↔ Excel S.N.4: Sudhish Parathil Sreendharan
+
+================================================================================
+✅ 검증 완료
+================================================================================

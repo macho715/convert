@@ -1,0 +1,7 @@
+Ontology Node,대응 모듈,기능적 의미
+Activity,pipeline,단계별 절차 정의
+Document,"rdfio, validation",eDAS·MRR 등 문서형 triple
+Agent,core,역할/권한 모델
+Location,mapping,Port/Site 좌표·거점
+RiskEvent,reasoning,Weather-Tie·Delay inference
+Report,report,KPI/Inspection 리포트

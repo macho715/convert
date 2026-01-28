@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "source": "C:\\Users\\minky\\Downloads\\mrconvert_v1\\ONTOLOGY\\SCT-EMAIL.docx",
+    "type": "docx",
+    "pages": null,
+    "parsed_at": "2025-10-19T17:51:47+00:00",
+    "ocr": {
+      "used": false,
+      "engine": "none",
+      "lang": null
+    }
+  },
+  "text": "다음은 SCT-EMAIL을 온톨로지 관점에서 정밀 정리한 보고서다.\n용어는 OWL/RDF 기반을 따랐다. 문장 길이는 간결히 유지했다.\n1) 요약\nSCT-EMAIL은 물류 커뮤니케이션을 의미 그래프로 표현한다.\n핵심 단위는 메시지, 명령, 의도, 프로세스, 공문, 비용이다.\nLogiOntology와 클래스·속성 정렬로 상호운용한다.\nSHACL, SWRL, SPARQL로 검증·추론·질의를 수행한다.\nCIPL·BL 사전통제 흐름과 자연스럽게 결합된다.\n2) 상위 모델 정렬\nPROV-O: 행위 기록과 책임 추적에 사용한다.\nTime Ontology: 일정, DDL, UAE 시간대 정규화에 사용한다.\nGS1/EPCIS 개념: 이벤트형 화물 이력에 연결한다.\nUN/CEFACT 용어: 선적 문서와 로지스틱스 어휘 정합을 맞춘다.\n3) 핵심 클래스 체계\n4) 핵심 속성 설계\nhasIntent(Communication_Action → Intent)\nabout(Communication_Action → Logistics_Process)\ninvolves(Logistics_Process → Stakeholder_Role)\nrefersTo(Communication_Action → Document)\nhasAmount(Cost_Item → xsd:decimal)\nhasCurrency(Cost_Item → xsd:string)\neventTime(Communication_Action → time:Instant)\nprojectTag(Communication_Action → xsd:string)\nuom(Cost_Item → xsd:string)\nrequires(Regulation → Document)\n5) 공리와 규칙 예시\nEmail_Message ⊑ Communication_Action\nQuick_Message ⊑ Communication_Action\nCommand ⊑ prov:Activity\nCommunication_Action ⊑ ∃hasIntent.Intent\nCost_Item ⊑ ∃hasAmount.xsd:decimal\nSWRL 예시\nEmail_Message(?m) ^ hasIntent(?m, request) ^ refersTo(?m, BL)\n→ triggers(?m, PreArrival_Check)\n6) SHACL 검증 스키마\nEmail 메시지 필수 항목\nsh:NodeShape  targetClass: Email_Message\n- property: projectTag       datatype xsd:string   minCount 1\n- property: eventTime        datatype time:Instant minCount 1\n- property: hasIntent        class    Intent       minCount 1\n비용 항목 2자리 소수 규칙\n- property: hasAmount datatype xsd:decimal pattern \"^[0-9]+(\\.[0-9]{2})$\"\n- property: hasCurrency in [USD, AED, EUR]\n7) 명령 모듈의 온톨로지 매핑\n8) LogiOntology 연계 방안\nLogiOntology:Shipment ⊑ Logistics_Process 로 매핑한다.\nPortCall, VesselVisit 를 Logistics_Process 하위로 연결한다.\n브리지 속성 예시:\nlo:hasPortCallId ↔ projectTag 보조 식별자 매핑\nlo:hasMilestone ↔ about 절차 연결\nnamespace는 lo:로 고정한다. 충돌은 owl:equivalentClass 로 해소한다.\n9) CIPL·BL 사전통제 결합\nPreArrival_Guard ⊑ Verification_Action 으로 정의한다.\n트리거 규칙: BL 누락, CIPL 미제출, ETA 임박 시점.\n결과 액션: /reply-note 생성, 담당자 알림, 체크리스트 업데이트.\n10) 이벤트 흐름 시나리오\n사용자가 /revise를 호출한다.\n시스템이 Intent를 고정한다.\nEmail_Message가 Document를 참조한다.\nSHACL로 형식 검증을 수행한다.\n규칙이 PreArrival_Guard를 유발한다.\nKPI_Record가 TAT를 기록한다.\n11) 데이터 직렬화 권장\nRDF/Turtle 운영, JSON-LD 외부 연계 사용.\n시간은 Asia/Dubai 로 정규화한다. 오프셋을 명시한다.\n금액은 두 자리 고정이다. 예: 420.00, 150.00.\nTTL 예시\n:msg123 a Email_Message ;\n  projectTag \"HVDC-001\" ;\n  eventTime \"2025-10-19T09:00:00+04:00\"^^xsd:dateTime ;\n  hasIntent :request ;\n  refersTo :docBL8899 ;\n  about :procShipmentA .\n:cost1 a Cost_Item ;\n  hasAmount \"420.00\"^^xsd:decimal ;\n  hasCurrency \"USD\" ;\n  uom \"Lot\" .\n12) KPI와 SPARQL 질의\nTAT 측정\nSELECT ?project (AVG(?minutes) AS ?avgTATmin)\nWHERE {\n  ?m a :Email_Message ; :projectTag ?project ;\n     :eventTime ?t1 ; :hasIntent :request .\n  ?r a :Email_Message ; :projectTag ?project ;\n     :eventTime ?t2 ; :hasIntent :inform .\n  FILTER (?t2 > ?t1)\n  BIND ( (xsd:dateTime(?t2)-xsd:dateTime(?t1)) AS ?delta )\n  BIND ( (?delta/60000) AS ?minutes )\n}\nGROUP BY ?project\nPre-Arrival 미준수 목록\nSELECT ?bl ?eta\nWHERE {\n  ?check a :PreArrival_Guard ; :status \"Open\" ;\n         :refersTo ?bl ; :eta ?eta .\n}\nORDER BY ?eta\nDEM/DET 합계\nSELECT ?project (SUM(xsd:decimal(?amt)) AS ?total)\nWHERE {\n  ?c a :Cost_Item ; :projectTag ?project ;\n     :type ?k ; :hasAmount ?amt .\n  FILTER (?k IN (\"DEM\",\"DET\"))\n}\nGROUP BY ?project\n13) 거버넌스\n네임스페이스 버전: sct-email/1.0/, lo/1.0/.\n변경 관리: owl:deprecated 적용, 마이그레이션 그래프 유지.\n규범 갱신은 /update-lib 로 기록한다. 버전 로그를 남긴다.\n14) 보안·감사\nPII 마스킹 규칙을 SHACL로 강제한다.\n접근 제어는 그래프 레벨 태깅으로 분리한다.\n모든 명령 기록은 prov:wasAssociatedWith 로 남긴다.\n15) 시스템 배치 권장\n트리플 스토어는 ACID 보장 제품을 추천한다.\n메시지 버스는 명령 이벤트를 전달한다.\nETL은 JSON-LD를 표준으로 고정한다.\n16) 이행 단계\n17) 위험 및 대응\nHS 코드 8자리 초과 인식 오류 가능성이 높다.\nUAE 이중용도 품목은 오검이 잦다.\n두 항목은 수동 검증 표시를 유지한다.\n표시 예시\n🔍 Verification needed 속성을 부여한다.\n18) 운영 체크리스트\n메시지에 프로젝트 태그가 있는가.\n시간은 +04:00 으로 저장되었는가.\n비용은 두 자리 소수인가.\n문서는 규범과 연결되었는가.\nKPI 기록이 생성되었는가.\n19) 부록: 매핑 테이블\n원하면 TTL 파일 뼈대를 제공하겠다.\n샘플 그래프와 SHACL 패키지도 즉시 제공 가능하다.\nConfidential – SCT Internal Use\n— Recommended Next Commands — (Internal)\n/summary ▪ /logi-master ▪ /doccheck",
+  "markdown": "다음은 __SCT\\-EMAIL__을 온톨로지 관점에서 정밀 정리한 보고서다\\.  \n용어는 OWL/RDF 기반을 따랐다\\. 문장 길이는 간결히 유지했다\\.\n\n__1\\) 요약__\n\n- SCT\\-EMAIL은 물류 커뮤니케이션을 __의미 그래프__로 표현한다\\.\n- 핵심 단위는 메시지, 명령, 의도, 프로세스, 공문, 비용이다\\.\n- LogiOntology와 __클래스·속성 정렬__로 상호운용한다\\.\n- SHACL, SWRL, SPARQL로 __검증·추론·질의__를 수행한다\\.\n- CIPL·BL 사전통제 흐름과 자연스럽게 결합된다\\.\n\n__2\\) 상위 모델 정렬__\n\n- __PROV\\-O__: 행위 기록과 책임 추적에 사용한다\\.\n- __Time Ontology__: 일정, DDL, UAE 시간대 정규화에 사용한다\\.\n- __GS1/EPCIS 개념__: 이벤트형 화물 이력에 연결한다\\.\n- __UN/CEFACT 용어__: 선적 문서와 로지스틱스 어휘 정합을 맞춘다\\.\n\n__3\\) 핵심 클래스 체계__\n\n__제목__\n\n__정의__\n\n__예시__\n\nEmail\\_Message\n\n이메일 실체\n\nBooking ETA 확인\n\nQuick\\_Message\n\n짧은 메신저\n\nWhatsApp 안내\n\nCommand\n\n시스템 명령\n\n/revise, /reply\n\nIntent\n\n발신 의도\n\ninform, request\n\nLogistics\\_Process\n\n물류 절차\n\nShipment, Customs\n\nStakeholder\\_Role\n\n역할\n\nShipper, Carrier\n\nDocument\n\n공식 문서\n\nBL, Invoice\n\nRegulation\n\n규범 항목\n\nHS, Permit\n\nCost\\_Item\n\n비용 단위\n\nDEM, DET\n\nKPI\\_Record\n\n성과 지표\n\nTAT, SLA\n\n__4\\) 핵심 속성 설계__\n\n- hasIntent\\(Communication\\_Action → Intent\\)\n- about\\(Communication\\_Action → Logistics\\_Process\\)\n- involves\\(Logistics\\_Process → Stakeholder\\_Role\\)\n- refersTo\\(Communication\\_Action → Document\\)\n- hasAmount\\(Cost\\_Item → xsd:decimal\\)\n- hasCurrency\\(Cost\\_Item → xsd:string\\)\n- eventTime\\(Communication\\_Action → time:Instant\\)\n- projectTag\\(Communication\\_Action → xsd:string\\)\n- uom\\(Cost\\_Item → xsd:string\\)\n- requires\\(Regulation → Document\\)\n\n__5\\) 공리와 규칙 예시__\n\n- Email\\_Message ⊑ Communication\\_Action\n- Quick\\_Message ⊑ Communication\\_Action\n- Command ⊑ prov:Activity\n- Communication\\_Action ⊑ ∃hasIntent\\.Intent\n- Cost\\_Item ⊑ ∃hasAmount\\.xsd:decimal\n\n__SWRL 예시__\n\nEmail\\_Message\\(?m\\) ^ hasIntent\\(?m, request\\) ^ refersTo\\(?m, BL\\)\n\n→ triggers\\(?m, PreArrival\\_Check\\)\n\n__6\\) SHACL 검증 스키마__\n\n__Email 메시지 필수 항목__\n\nsh:NodeShape  targetClass: Email\\_Message\n\n\\- property: projectTag       datatype xsd:string   minCount 1\n\n\\- property: eventTime        datatype time:Instant minCount 1\n\n\\- property: hasIntent        class    Intent       minCount 1\n\n__비용 항목 2자리 소수 규칙__\n\n\\- property: hasAmount datatype xsd:decimal pattern \"^\\[0\\-9\\]\\+\\(\\\\\\.\\[0\\-9\\]\\{2\\}\\)$\"\n\n\\- property: hasCurrency in \\[USD, AED, EUR\\]\n\n__7\\) 명령 모듈의 온톨로지 매핑__\n\n__명령__\n\n__클래스/속성__\n\n__효과__\n\n/revise\n\nCommand\n\n문장 재구성, 용어 정합 유지\n\n/reply\n\nCommand\n\n의도 기반 응답 생성\n\n/reply\\-note\n\nCommand\n\n응답 요지 생성\n\n/costtable\n\nCommand \\+ Cost\\_Item\n\n표 생성, 합계 계산\n\n/doccheck\n\nVerification\\_Action\n\n문서 규칙 확인\n\n/ocr\\-note\n\nDocument\\_Ingest\n\n문자 인식 정리\n\n/logi\\-master\n\nOrchestrator\n\nKPI·비용·스케줄 연동\n\n/update\\-lib\n\nRegulation\\_Update\n\n규범 버전 갱신\n\n__8\\) LogiOntology 연계 방안__\n\n- LogiOntology:Shipment ⊑ Logistics\\_Process 로 매핑한다\\.\n- PortCall, VesselVisit 를 Logistics\\_Process 하위로 연결한다\\.\n- 브리지 속성 예시:\n\t- lo:hasPortCallId ↔ projectTag 보조 식별자 매핑\n\t- lo:hasMilestone ↔ about 절차 연결\n- namespace는 lo:로 고정한다\\. 충돌은 owl:equivalentClass 로 해소한다\\.\n\n__9\\) CIPL·BL 사전통제 결합__\n\n- PreArrival\\_Guard ⊑ Verification\\_Action 으로 정의한다\\.\n- 트리거 규칙: BL 누락, CIPL 미제출, ETA 임박 시점\\.\n- 결과 액션: /reply\\-note 생성, 담당자 알림, 체크리스트 업데이트\\.\n\n__10\\) 이벤트 흐름 시나리오__\n\n1. 사용자가 /revise를 호출한다\\.\n2. 시스템이 Intent를 고정한다\\.\n3. Email\\_Message가 Document를 참조한다\\.\n4. SHACL로 형식 검증을 수행한다\\.\n5. 규칙이 PreArrival\\_Guard를 유발한다\\.\n6. KPI\\_Record가 TAT를 기록한다\\.\n\n__11\\) 데이터 직렬화 권장__\n\n- __RDF/Turtle__ 운영, __JSON\\-LD__ 외부 연계 사용\\.\n- 시간은 Asia/Dubai 로 정규화한다\\. 오프셋을 명시한다\\.\n- 금액은 두 자리 고정이다\\. 예: 420\\.00, 150\\.00\\.\n\n__TTL 예시__\n\n:msg123 a Email\\_Message ;\n\n  projectTag \"HVDC\\-001\" ;\n\n  eventTime \"2025\\-10\\-19T09:00:00\\+04:00\"^^xsd:dateTime ;\n\n  hasIntent :request ;\n\n  refersTo :docBL8899 ;\n\n  about :procShipmentA \\.\n\n:cost1 a Cost\\_Item ;\n\n  hasAmount \"420\\.00\"^^xsd:decimal ;\n\n  hasCurrency \"USD\" ;\n\n  uom \"Lot\" \\.\n\n__12\\) KPI와 SPARQL 질의__\n\n__TAT 측정__\n\nSELECT ?project \\(AVG\\(?minutes\\) AS ?avgTATmin\\)\n\nWHERE \\{\n\n  ?m a :Email\\_Message ; :projectTag ?project ;\n\n     :eventTime ?t1 ; :hasIntent :request \\.\n\n  ?r a :Email\\_Message ; :projectTag ?project ;\n\n     :eventTime ?t2 ; :hasIntent :inform \\.\n\n  FILTER \\(?t2 > ?t1\\)\n\n  BIND \\( \\(xsd:dateTime\\(?t2\\)\\-xsd:dateTime\\(?t1\\)\\) AS ?delta \\)\n\n  BIND \\( \\(?delta/60000\\) AS ?minutes \\)\n\n\\}\n\nGROUP BY ?project\n\n__Pre\\-Arrival 미준수 목록__\n\nSELECT ?bl ?eta\n\nWHERE \\{\n\n  ?check a :PreArrival\\_Guard ; :status \"Open\" ;\n\n         :refersTo ?bl ; :eta ?eta \\.\n\n\\}\n\nORDER BY ?eta\n\n__DEM/DET 합계__\n\nSELECT ?project \\(SUM\\(xsd:decimal\\(?amt\\)\\) AS ?total\\)\n\nWHERE \\{\n\n  ?c a :Cost\\_Item ; :projectTag ?project ;\n\n     :type ?k ; :hasAmount ?amt \\.\n\n  FILTER \\(?k IN \\(\"DEM\",\"DET\"\\)\\)\n\n\\}\n\nGROUP BY ?project\n\n__13\\) 거버넌스__\n\n- 네임스페이스 버전: sct\\-email/1\\.0/, lo/1\\.0/\\.\n- 변경 관리: owl:deprecated 적용, 마이그레이션 그래프 유지\\.\n- 규범 갱신은 /update\\-lib 로 기록한다\\. 버전 로그를 남긴다\\.\n\n__14\\) 보안·감사__\n\n- PII 마스킹 규칙을 SHACL로 강제한다\\.\n- 접근 제어는 그래프 레벨 태깅으로 분리한다\\.\n- 모든 명령 기록은 prov:wasAssociatedWith 로 남긴다\\.\n\n__15\\) 시스템 배치 권장__\n\n- 트리플 스토어는 ACID 보장 제품을 추천한다\\.\n- 메시지 버스는 명령 이벤트를 전달한다\\.\n- ETL은 JSON\\-LD를 표준으로 고정한다\\.\n\n__16\\) 이행 단계__\n\n__단계__\n\n__범위__\n\n__산출물__\n\nPhase 1\n\n클래스·속성 최소셋\n\nSHACL v1, SPARQL 5종\n\nPhase 2\n\n규칙·KPI 확장\n\nSWRL v1, 대시보드\n\nPhase 3\n\n전사 연계\n\nPreArrival 자동화\n\n__17\\) 위험 및 대응__\n\n- HS 코드 8자리 초과 인식 오류 가능성이 높다\\.\n- UAE 이중용도 품목은 오검이 잦다\\.\n- 두 항목은 수동 검증 표시를 유지한다\\.\n\n__표시 예시__\n\n- 🔍 Verification needed 속성을 부여한다\\.\n\n__18\\) 운영 체크리스트__\n\n- 메시지에 프로젝트 태그가 있는가\\.\n- 시간은 \\+04:00 으로 저장되었는가\\.\n- 비용은 두 자리 소수인가\\.\n- 문서는 규범과 연결되었는가\\.\n- KPI 기록이 생성되었는가\\.\n\n__19\\) 부록: 매핑 테이블__\n\n__항목__\n\n__SCT\\-EMAIL__\n\n__LogiOntology__\n\n선적\n\nLogistics\\_Process\n\nShipment\n\n입항\n\nLogistics\\_Process\n\nPortCall\n\n문서\n\nDocument\n\nBL, Invoice\n\n규범\n\nRegulation\n\nPermit, HS\n\n행위\n\nCommunication\\_Action\n\nEvent\n\n원하면 TTL 파일 뼈대를 제공하겠다\\.  \n샘플 그래프와 SHACL 패키지도 즉시 제공 가능하다\\.\n\nConfidential – SCT Internal Use\n\n— Recommended Next Commands — \\(Internal\\)  \n/summary ▪ /logi\\-master ▪ /doccheck\n\n",
+  "tables": [
+    {
+      "page": null,
+      "index": 0,
+      "rows": [
+        [
+          "제목",
+          "정의",
+          "예시"
+        ],
+        [
+          "Email_Message",
+          "이메일 실체",
+          "Booking ETA 확인"
+        ],
+        [
+          "Quick_Message",
+          "짧은 메신저",
+          "WhatsApp 안내"
+        ],
+        [
+          "Command",
+          "시스템 명령",
+          "/revise, /reply"
+        ],
+        [
+          "Intent",
+          "발신 의도",
+          "inform, request"
+        ],
+        [
+          "Logistics_Process",
+          "물류 절차",
+          "Shipment, Customs"
+        ],
+        [
+          "Stakeholder_Role",
+          "역할",
+          "Shipper, Carrier"
+        ],
+        [
+          "Document",
+          "공식 문서",
+          "BL, Invoice"
+        ],
+        [
+          "Regulation",
+          "규범 항목",
+          "HS, Permit"
+        ],
+        [
+          "Cost_Item",
+          "비용 단위",
+          "DEM, DET"
+        ],
+        [
+          "KPI_Record",
+          "성과 지표",
+          "TAT, SLA"
+        ]
+      ]
+    },
+    {
+      "page": null,
+      "index": 1,
+      "rows": [
+        [
+          "명령",
+          "클래스/속성",
+          "효과"
+        ],
+        [
+          "/revise",
+          "Command",
+          "문장 재구성, 용어 정합 유지"
+        ],
+        [
+          "/reply",
+          "Command",
+          "의도 기반 응답 생성"
+        ],
+        [
+          "/reply-note",
+          "Command",
+          "응답 요지 생성"
+        ],
+        [
+          "/costtable",
+          "Command + Cost_Item",
+          "표 생성, 합계 계산"
+        ],
+        [
+          "/doccheck",
+          "Verification_Action",
+          "문서 규칙 확인"
+        ],
+        [
+          "/ocr-note",
+          "Document_Ingest",
+          "문자 인식 정리"
+        ],
+        [
+          "/logi-master",
+          "Orchestrator",
+          "KPI·비용·스케줄 연동"
+        ],
+        [
+          "/update-lib",
+          "Regulation_Update",
+          "규범 버전 갱신"
+        ]
+      ]
+    },
+    {
+      "page": null,
+      "index": 2,
+      "rows": [
+        [
+          "단계",
+          "범위",
+          "산출물"
+        ],
+        [
+          "Phase 1",
+          "클래스·속성 최소셋",
+          "SHACL v1, SPARQL 5종"
+        ],
+        [
+          "Phase 2",
+          "규칙·KPI 확장",
+          "SWRL v1, 대시보드"
+        ],
+        [
+          "Phase 3",
+          "전사 연계",
+          "PreArrival 자동화"
+        ]
+      ]
+    },
+    {
+      "page": null,
+      "index": 3,
+      "rows": [
+        [
+          "항목",
+          "SCT-EMAIL",
+          "LogiOntology"
+        ],
+        [
+          "선적",
+          "Logistics_Process",
+          "Shipment"
+        ],
+        [
+          "입항",
+          "Logistics_Process",
+          "PortCall"
+        ],
+        [
+          "문서",
+          "Document",
+          "BL, Invoice"
+        ],
+        [
+          "규범",
+          "Regulation",
+          "Permit, HS"
+        ],
+        [
+          "행위",
+          "Communication_Action",
+          "Event"
+        ]
+      ]
+    }
+  ]
+}

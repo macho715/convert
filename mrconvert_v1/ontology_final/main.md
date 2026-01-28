@@ -1,0 +1,228 @@
+---
+title: "MAIN - Samsung C&T Construction Logistics Ontology"
+type: "ontology-design"
+domain: "construction-logistics"
+version: "3.7"
+date: "2025-01-19"
+tags: ["ontology", "samsung-ct", "hvdc", "logistics", "standards", "unified"]
+standards: ["UN/CEFACT", "WCO-DM", "DCSA", "ICC-Incoterms-2020", "HS-2022", "MOIAT", "FANR"]
+status: "active"
+---
+
+# MAIN - 삼성 C&T 건설물류 통합 온톨로지
+
+## Executive Summary
+
+다음은 **삼성 C&T 건설물류(UAE 6현장, 400 TEU/100 BL·월)** 업무를 **온톨로지 관점**으로 재정의한 "작동 가능한 설계서"입니다.
+
+핵심은 **표준(UN/CEFACT·WCO DM·DCSA·ICC Incoterms·HS·MOIAT·FANR)**을 상위 스키마로 삼아 **문서·화물·설비·프로세스·이벤트·계약·규정**을 하나의 그래프(KG)로 엮고, 여기서 **Heat-Stow·WHF/Cap·HSRisk·CostGuard·CertChk·Pre-Arrival Guard** 같은 기능을 **제약(Constraints)**으로 돌리는 것입니다. (Incoterms 2020, HS 2022 최신 적용). [참조: UN/CEFACT](https://unece.org/trade/uncefact/rdm)
+
+## 1) Ontology Stack (요약표)
+
+| Layer | 표준/근거 | 범위 | 당신 업무 매핑(예) |
+|-------|----------|------|-------------------|
+| **Upper** | **IOF/BFO Supply Chain Ontology**, **ISO 15926** | 상위 개념(행위자/행위/자산/이벤트)·플랜트 라이프사이클 | 자산(크레인, 스키드, 모듈)·작업(리깅, 해상 보급)·상태(검사/격납) 정합성 프레임 |
+| **Reference Data (Process/Data)** | **UN/CEFACT Buy-Ship-Pay RDM & CCL** | 주문–선적–결제 전과정 공통 데이터·용어 | *Party, Shipment, Consignment, Transport Means, Invoice/LineItem* 공통 정의 |
+| **Border/Customs** | **WCO Data Model v4.2.0**, **HS 2022** | 신고/승인/통관 데이터·코드셋 | BOE(수입신고), 원산지·보증·증명, HS 분류·위험도 |
+| **Ocean/Carrier** | **DCSA Booking 2.0 & eBL 3.0** | 예약/BL 데이터 모델·API | BL 데이터 정규화, eBL 규칙·검증 |
+| **Trade Terms** | **ICC Incoterms® 2020** | 비용/리스크 이전 지점 | EXW/FOB/CIF/DAP별 의무·리스크 노드 매핑 |
+| **UAE Reg.** | **MOIAT ECAS/EQM**, **FANR 수입허가**, **CICPA/ADNOC 출입** | 규제/인증/출입 통제 | CertChk(MOIAT·FANR), 게이트패스 제약, 위험물 통제 |
+| **Offshore 계약** | **BIMCO SUPPLYTIME 2017** | OSV 타임차터 책임체계 | 보트/바지선 운영 KPI·책임 분기 조건 |
+
+> **Hint:** Abu Dhabi는 역사적으로 **CICPA/구 CNIA 보안패스** 체계가 근간이며, 항만 **e-pass** 디지털화가 병행되었습니다(현장 Gate 규정은 매년 공지 확인 필요). [참조: HLB Abu Dhabi](https://hlbabudhabi.com/a-comprehensive-guide-on-cicpa-passes-in-abu-dhabi/)
+
+## 2) Domain Ontology — 클래스/관계 (업무 단위 재정의)
+
+### 핵심 클래스 (Classes)
+
+- **Party**(Shipper/Consignee/Carrier/3PL/Authority)
+- **Asset**(Container ISO 6346, OOG 모듈, 장비/스프레더, OSV/바지선)
+- **Document**(CIPL, Invoice, BL/eBL, BOE, DO, INS, MS(Method Statement), Port Permit, Cert[ECAS/EQM/FANR], SUPPLYTIME17)
+- **Process**(Booking, Pre-alert, Export/Import Clearance, Berth/Port Call, Stowage, Gate Pass, Last-mile, WH In/Out, Returns)
+- **Event**(ETA/ATA, CY In/Out, Berth Start/End, DG Inspection, Weather Alert, FANR Permit Granted, MOIAT CoC Issued)
+- **Contract**(IncotermTerm, SUPPLYTIME17)
+- **Regulation**(HS Rule, MOIAT TR, FANR Reg.)
+- **Location**(UN/LOCODE, Berth, Laydown Yard, Site Gate)
+- **KPI**(DEM/DET Clock, Port Dwell, WH Util, Delivery OTIF, Damage Rate, Cert SLA)
+
+### 대표 관계 (Object Properties)
+
+- `Shipment → hasIncoterm → IncotermTerm` (리스크/비용 이전 노드) [ICC](https://iccwbo.org/business-solutions/incoterms-rules/)
+- `InvoiceLineItem → classifiedBy → HSCode` (HS 2022) [WCO](https://www.wcoomd.org/en/topics/nomenclature/instrument-and-tools/hs-nomenclature-2022-edition/)
+- `BL → conformsTo → DCSA_eBL_3_0` (데이터 검증 규칙) [DCSA](https://dcsa.org/newsroom/final-versions-of-booking-bill-of-lading-standards-released)
+- `CustomsDeclaration(BOE) → usesDataModel → WCO_DM_4_2_0` (전자신고 필드 정합) [WCO](https://www.wcoomd.org/en/media/newsroom/2025/july/world-customs-organization-releases-data-mode.aspx)
+- `Equipment/OOG → requiresCertificate → MOIAT_ECAS|EQM` (규제 제품) [MOIAT](https://moiat.gov.ae/en/services/issue-conformity-certificates-for-regulated-products/)
+- `Radioactive_Source|Gauge → requiresPermit → FANR_ImportPermit` (60일 유효) [FANR](https://www.fanr.gov.ae/en/services/import-and-export-permit/issue-import-permit-for-radiation-sources-and-nuclear-materials)
+- `PortAccess → governedBy → CICPA_Policy` (게이트패스) [HLB](https://hlbabudhabi.com/a-comprehensive-guide-on-cicpa-passes-in-abu-dhabi/)
+- `OSV_Charter → governedBy → SUPPLYTIME2017` (책임) [BIMCO](https://www.bimco.org/contractual-affairs/bimco-contracts/contracts/supplytime-2017/)
+
+### 데이터 속성 (Data Properties)
+
+`grossMass`, `dims(L×W×H)`, `isOOG(boolean)`, `dgClass`, `UNNumber`, `tempTolerance`, `stowHeatIndex`, `demClockStartAt`, `detClockStartAt`, `gatePassExpiryAt`, `permitId`, `costCenter`, `tariffRef`
+
+## 3) Use-case별 제약(Constraints) = 운영 가드레일
+
+### 3.1 CIPL·BL Pre-Arrival Guard (eBL-first)
+
+- **Rule-1**: BL 존재 → `BL.conformsTo = DCSA_eBL_3_0` AND Party·Consignment·PlaceOfReceipt/Delivery 필수. 미충족 시 *Berth Slot* 확정 금지.
+- **Rule-2**: 모든 InvoiceLineItem는 HSCode 필수 + OriginCountry·Qty/UM·FOB/CI 금액. **WCO DM 필드** 매핑 누락 시 **BOE 초안 생성 차단**.
+- **Rule-3**: IncotermTerm별 책임/비용 그래프 확인(예: **DAP**면 현지 내륙운송·통관 리스크=Buyer).
+
+### 3.2 Heat-Stow (고온 노출 최소화)
+
+- `stowHeatIndex = f(DeckPos, ContainerTier, WeatherForecast)` → 임계치 초과 시 **Under-deck/센터 베이** 유도, **berth 시간대 조정**. (기상 이벤트는 Event로 연결)
+- `dgClass ∈ {1,2.1,3,4.1,5.1,8}` → Heat-Stow 규칙 엄격 적용(위치·분리거리).
+
+### 3.3 WHF/Cap (Warehouse Forecast/Capacity)
+
+- `InboundPlan(TEU/주)·Outplan → WHUtil(%)` 예측, 임계치(85.00%) 초과 시 *overflow yard* 예약, **DET 발생 예측**과 연결.
+
+### 3.4 HSRisk
+
+- `RiskScore = g(HS, Origin, DG, Cert 요구, 과거검사빈도)` → **검사·추징·지연 확률** 추정. (HS·규제요건: HS 2022·MOIAT·FANR 근거)
+
+### 3.5 CertChk (MOIAT·FANR)
+
+- 규제제품 → ECAS/EQM 승인서 필수 없으면 **DO·GatePass 발행 금지**, **선하증권 인도 보류**.
+- 방사선 관련 기자재 → FANR Import Permit(유효 60일) 없으면 **BOE 제출 중단**.
+
+## 4) 최소 예시(표현) — JSON-LD (요지)
+
+```json
+{
+  "@context": {
+    "incoterm": "https://iccwbo.org/incoterms/2020#",
+    "dcsa": "https://dcsa.org/bl/3.0#",
+    "wco": "https://www.wcoomd.org/datamodel/4.2#"
+  },
+  "@type": "Shipment",
+  "id": "SHP-ADNOC-2025-10-001",
+  "hasIncoterm": {
+    "@type": "incoterm:DAP",
+    "deliveryPlace": "Ruwais Site Gate"
+  },
+  "hasDocument": [
+    {
+      "@type": "dcsa:BillOfLading",
+      "number": "DCSA123...",
+      "status": "original-validated"
+    },
+    {
+      "@type": "wco:CustomsDeclarationDraft",
+      "items": [
+        {
+          "hsCode": "850440",
+          "qty": 2,
+          "value": 120000.00
+        }
+      ]
+    }
+  ],
+  "consistsOf": [
+    {
+      "@type": "Container",
+      "isoCode": "45G1",
+      "isOOG": true,
+      "dims": {
+        "l": 12.2,
+        "w": 2.44,
+        "h": 2.90
+      }
+    }
+  ]
+}
+```
+
+## 5) 선택지(3) — 구축 옵션 (pro/con/$/risk/time)
+
+### Option 1: Reference-first (표준 우선, 얇은 구현)
+
+- **Pro**: 대외 연계 쉬움(UN/CEFACT·WCO·DCSA).
+- **Con**: 현장 특성 반영 속도↓.
+- **$**: 초기 낮음(₩·$$). **Risk**: 커스터마이즈 지연. **Time**: 6–8주 MVP.
+
+### Option 2: Hybrid (표준+현장제약 동시) ← *추천*
+
+- **Pro**: 표준 적합 + GatePass/Heat-Stow/WH 바로 적용.
+- **Con**: 설계 복잡.
+- **$**: 중간. **Risk**: 스키마 복잡성. **Time**: 10–12주 POC→Rollout.
+
+### Option 3: Ops-first (현장 규칙 우선)
+
+- **Pro**: 즉효(DEM/DET·GatePass).
+- **Con**: 표준 정합 나중 기술부채.
+- **$**: 낮음→중간. **Risk**: 대외 API 통합 시 재작업. **Time**: 4–6주.
+
+## 6) Roadmap (P→Pi→B→O→S + KPI)
+
+- **P(Plan)**: 스코프 확정(문서: CIPL/BL/BOE/DO/INS/Permit, 프로세스: Berth/Gate Pass/WH). **KPI**: 데이터 필드 완전성 ≥ 98.00%.
+- **Pi(Pilot)**: **eBL-Pre-Arrival Guard** + **WHF/Cap** 1현장 적용. **KPI**: Port dwell ↓ 12.50%, DET 비용 ↓ 18.00% *(가정)*.
+- **B(Build)**: **HSRisk**·**CertChk**·**CostGuard** 추가, **SUPPLYTIME17** 운영지표 연계. **KPI**: 검사로 인한 Leadtime 분산 ↓ 15.00%.
+- **O(Operate)**: 규칙/SHACL 자동검증, Slack/Telegram 알림. **KPI**: 규칙 위반 건당 처리시간 ≤ 0.50h.
+- **S(Scale)**: 6현장→글로벌 재사용, **UN/CEFACT Web Vocabulary**로 공개 스키마 매핑. **KPI**: 시스템 간 매핑 공수 ↓ 30.00%.
+
+## 7) Data·Sim·BI (운영 숫자 관점)
+
+- **DEM/DET 시계**: `ClockStart = (CY In or FreeTime Start by Carrier)` → 컨테이너별 **DEM/DET Clock** 노드 운영.
+- **WH Capacity Forecast**: `Util_t+1 = Util_t + Inbound - Outbound` (ARIMA/Prophet 가능).
+- **Heat-Stow 점수**: `HI = α*DeckExposure + β*Tier + γ*ForecastTemp(°C)` → 임계 0.70 이상 **스택 변경**.
+- **Risk@HS**: 로지스틱 회귀/GBT로 검사확률·추징금 기대값.
+
+## 8) Automation (RPA·LLM·Sheets·TG) — Slash Cmd 예시
+
+- `/logi-master --fast invoice-audit` → CIPL/Invoice 라인 **HS·Origin·Qty·Value 누락** 탐지→BOE 초안 블록.
+- `/logi-master predict --AEDonly weather-tie` → 기상경보 Event→Berth 스케줄 재배치(Heat-Stow 임계).
+- `/switch_mode COST-GUARD LATTICE` → DET/DEM 예측비용 알림 + eBL 상태/도착지연 교차검증(DCSA eBL 3.0).
+- `/visualize_data --type=heatmap <stow.csv>` → HI>0.70 구간 강조.
+
+## 9) QA — Gap/Recheck 리스트
+
+- **eBL 상태 신뢰도**: Carrier별 DCSA 3.0 호환 여부 점검.
+- **HS·CCL 정합성**: UN/CEFACT CCL 릴리스(예: **24A**)와 로컬 속성 매핑 재검.
+- **UAE 인증**: MOIAT ECAS/EQM 최신 규제 범위/코드 확인, FANR 퍼밋 유효일(60일) 자동 만료 체크.
+- **GatePass 체계**: 현장 보안 주체(CICPA/ADNOC) 최신 공지 확인(사내 SOP 연결).
+
+## 10) Fail-safe "중단" 테이블 (ZERO 전략)
+
+| 트리거(중단) | ZERO 액션 | 재개 조건 |
+|-------------|----------|----------|
+| eBL 비정합(DCSA 3.0 스키마 오류) | Berth 확정 보류, 선적명세 수동검증 | eBL 재검증 Pass |
+| BOE 필수필드 미충족(WCO DM) | 신고중단, Shipper 보완요청 | 필드 완전성 ≥ 98.00% |
+| 규제제품 Cert 부재(MOIAT/FANR) | DO/게이트패스 발급 금지 | 유효 CoC/Permit 업로드 |
+| DET 임계 초과 예측(>AED x/TEU) | 내륙 인도·반납 계획 재조정 | 비용 추정 < 임계값 |
+
+## 11) 운영에 바로 쓰는 SHACL(요지)
+
+```turtle
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+:InvoiceLineItemShape a sh:NodeShape ;
+  sh:targetClass :InvoiceLineItem ;
+  sh:property [
+    sh:path :hsCode ; sh:minCount 1 ; sh:pattern "^[0-9]{6,10}$"
+  ] ;
+  sh:property [
+    sh:path :originCountry ; sh:minCount 1
+  ] ;
+  sh:property [
+    sh:path :quantity ; sh:minInclusive 0.01
+  ] .
+```
+
+## 12) GitHub·재사용
+
+- 리포지토리 **macho715/ontology-insight**에 **/models (TTL/JSON-LD)**, **/rules (SHACL)**, **/mappings (CCL/HS/WCO/DCSA)** 디렉토리 구조 권장.
+- OFCO CostCenter 매핑은 **Invoice/LineItem → CostCenter** 룰로 두고, **/mappings/ofco.csv**로 관리. *(가정: OFCO는 내규 분류표)*
+
+## 13) Assumptions & Sources
+
+- **가정:** OFCO/CostCenter·Heat-Stow·HSRisk·CostGuard는 사내용 명칭/로직. UAE 게이트패스(e-pass, CICPA/ADNOC)는 현장별 차이 존재(사내 공지 우선).
+- **표준/근거:** UN/CEFACT BSP-RDM & CCL, WCO DM v4.2.0, HS 2022, DCSA eBL 3.0/Booking 2.0, ICC Incoterms 2020, MOIAT ECAS/EQM, FANR Import Permit, SUPPLYTIME 2017. [참조: UN/CEFACT](https://unece.org/trade/uncefact/rdm)
+
+## 14) 다음 액션(짧게)
+
+- `/logi-master --fast invoice-audit` 로 현재 월간 100 BL 대상 **Pre-Arrival Guard** 돌리고,
+- `/switch_mode COST-GUARD` 로 **DEM/DET** 시계 추정부터 시작합니다(목표 ↓ 15.00%).
+- `/wh-capacity oracle --horizon 12m` 로 **WH Util** 예측 배치.
+
+원하시면, 위 스택으로 **CIPL·BL Pre-Arrival Guard**와 **CertChk(MOIAT·FANR)**부터 SHACL/룰팩을 묶어 드리겠습니다.

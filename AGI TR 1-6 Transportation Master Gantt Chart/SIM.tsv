@@ -1,0 +1,154 @@
+Original (1-2-2-2 / Single SPMT)						
+ID	WBS	Task	Owner	Start	End	Dur
+MOB-001	0.0	Mobilization (crew/equipment)	Mammoet	12-Jan	13-Jan	1
+PREP-001	0.0	LCT deck preparations + fenders + mooring	Mammoet/KFS	13-Jan	16-Jan	3
+V1	1.0	VOYAGE 1: TR1 Transport	SCT/Mammoet/KFS	16-Jan	16-Jan	0
+LO-01	1.0	Loadout TR1 onto LCT	Mammoet	23-Jan	23-Jan	0.5
+SF-01	1.0	Sea fastening + MWS checks (TR1)	Mammoet/KFS/MWS	24-Jan	24-Jan	1
+SAIL-01	1.0	Sail-away MZP→AGI	LCT	25-Jan	25-Jan	1
+UL-01-1	1.0	Unload TR1 at AGI (1 unit/day)	Mammoet	26-Jan	26-Jan	1
+TURN-01-1						
+JD-01-1	1.0	Turning TR1 (90°)	Mammoet	27-Jan	29-Jan	3
+	1.0	Jackdown TR1	Mammoet	30-Jan	30-Jan	1
+						
+						
+RET-01	1.0	LCT Return AGI→MZP	LCT	31-Jan	31-Jan	1
+BUF-01	1.0	Buffer / reset	All	01-Feb	01-Feb	1
+V2	2.0	VOYAGE 2: TR2-TR3 Transport	SCT/Mammoet/KFS	02-Feb	02-Feb	1
+LO-02	2.0	Loadout TR2-TR3 onto LCT	Mammoet	02-Feb	03-Feb	2
+SF-02	2.0	Sea fastening + MWS checks (TR2-TR3)	Mammoet/KFS/MWS	04-Feb	04-Feb	1
+SAIL-02	2.0	Sail-away MZP→AGI	LCT	05-Feb	05-Feb	1
+UL-02-1	2.0	Unload TR2 at AGI (1 unit/day)	Mammoet	06-Feb	06-Feb	1
+UL-02-2	2.0	Unload TR3 at AGI (1 unit/day)	Mammoet	07-Feb	07-Feb	1
+TURN-02-1	2.0	Turning TR2 (90°)	Mammoet	08-Feb	10-Feb	3
+JD-02-1	2.0	Jackdown TR2	Mammoet	11-Feb	11-Feb	1
+TURN-02-2	2.0	Turning TR3 (90°)	Mammoet	12-Feb	14-Feb	3
+JD-02-2	2.0	Jackdown TR3	Mammoet	15-Feb	15-Feb	1
+RET-02	2.0	LCT Return AGI→MZP	LCT	16-Feb	16-Feb	1
+BUF-02	2.0	Buffer / reset	All	17-Feb	17-Feb	1
+V3	3.0	VOYAGE 3: TR4-TR5 Transport	SCT/Mammoet/KFS	19-Feb	19-Feb	1
+LO-03	3.0	Loadout TR4-TR5 onto LCT	Mammoet	19-Feb	20-Feb	2
+SF-03	3.0	Sea fastening + MWS checks (TR4-TR5)	Mammoet/KFS/MWS	21-Feb	21-Feb	1
+SAIL-03	3.0	Sail-away MZP→AGI	LCT	22-Feb	22-Feb	1
+UL-03-1	3.0	Unload TR4 at AGI (1 unit/day)	Mammoet	23-Feb	23-Feb	1
+UL-03-2	3.0	Unload TR5 at AGI (1 unit/day)	Mammoet	24-Feb	24-Feb	1
+TURN-03-1	3.0	Turning TR4 (90°)	Mammoet	25-Feb	27-Feb	3
+JD-03-1	3.0	Jackdown TR4	Mammoet	28-Feb	28-Feb	1
+TURN-03-2	3.0	Turning TR5 (90°)	Mammoet	01-Mar	03-Mar	3
+JD-03-2	3.0	Jackdown TR5	Mammoet	04-Mar	04-Mar	1
+RET-03	3.0	LCT Return AGI→MZP	LCT	05-Mar	05-Mar	1
+BUF-03	3.0	Buffer / reset	All	06-Mar	06-Mar	1
+V4	4.0	VOYAGE 4: TR6-TR7 Transport	SCT/Mammoet/KFS	07-Mar	07-Mar	1
+LO-04	4.0	Loadout TR6-TR7 onto LCT	Mammoet	07-Mar	08-Mar	2
+SF-04	4.0	Sea fastening + MWS checks (TR6-TR7)	Mammoet/KFS/MWS	09-Mar	09-Mar	1
+SAIL-04	4.0	Sail-away MZP→AGI	LCT	10-Mar	10-Mar	1
+UL-04-1	4.0	Unload TR6 at AGI (1 unit/day)	Mammoet	11-Mar	11-Mar	1
+UL-04-2	4.0	Unload TR7 at AGI (1 unit/day)	Mammoet	12-Mar	12-Mar	1
+TURN-04-1	4.0	Turning TR6 (90°)	Mammoet	13-Mar	15-Mar	3
+JD-04-1	4.0	Jackdown TR6	Mammoet	16-Mar	16-Mar	1
+TURN-04-2	4.0	Turning TR7 (90°)	Mammoet	17-Mar	19-Mar	3
+JD-04-2	4.0	Jackdown TR7	Mammoet	20-Mar	20-Mar	1
+RET-04	4.0	LCT Return AGI→MZP	LCT	21-Mar	21-Mar	1
+BUF-04	4.0	Buffer / reset	All	22-Mar	22-Mar	1
+
+
+Original (2-2-2-1 / Single SPMT)					
+Task	Owner	Start	End	Dur	Notes
+Mobilization (crew/equipment)	Mammoet	12-Jan	13-Jan	1	SPMT + grillage in MZP
+LCT deck preparations + fenders + mooring	Mammoet/KFS	13-Jan	16-Jan	3	MWS pre-check ready
+VOYAGE 1: TR1-TR2 Transport	SCT/Mammoet/KFS	16-Jan	16-Jan	0	TIDE>=1.90 required (Loadout start)
+Loadout TR1-TR2 onto LCT	Mammoet	23-Jan	24-Jan	2	OK 2.01m (12:00-16:00)
+Sea fastening + MWS checks (TR1)	Mammoet/KFS/MWS	25-Jan	25-Jan	1	Lashing + survey
+Sail-away MZP→AGI	LCT	26-Jan	26-Jan	1	WX gate
+Unload TR1 at AGI (1 unit/day)	Mammoet	27-Jan	27-Jan	1	RORO + ramp
+Unload TR2 at AGI (1 unit/day)	Mammoet	28-Jan	28-Jan	1	RORO + ramp
+Turning TR1 (90°)	Mammoet	29-Jan	31-Jan	3	3.0d/unit
+Jackdown TR1	Mammoet	01-Feb	01-Feb	1	1.0d/unit
+Turning TR2 (90°)	Mammoet	02-Feb	04-Feb	3	3.0d/unit
+Jackdown TR2	Mammoet	05-Feb	05-Feb	1	1.0d/unit
+LCT Return AGI→MZP	LCT	06-Feb	06-Feb	1	After final JD
+Buffer / reset	All	07-Feb	07-Feb	1	contingency
+VOYAGE 2: TR3-TR4 Transport	SCT/Mammoet/KFS	08-Feb	08-Feb	1	TIDE>=1.90 required (Loadout start)
+Loadout TR3-TR4 onto LCT	Mammoet	08-Feb	09-Feb	2	OK 2.03m (06:00-09:00, 15:00-18:00)
+Sea fastening + MWS checks (TR3-TR4)	Mammoet/KFS/MWS	10-Feb	10-Feb	1	Lashing + survey
+Sail-away MZP→AGI	LCT	11-Feb	11-Feb	1	WX gate
+Unload TR3 at AGI (1 unit/day)	Mammoet	12-Feb	12-Feb	1	RORO + ramp
+Unload TR4 at AGI (1 unit/day)	Mammoet	13-Feb	13-Feb	1	RORO + ramp
+Turning TR3 (90°)	Mammoet	14-Feb	16-Feb	3	3.0d/unit
+Jackdown TR3	Mammoet	17-Feb	17-Feb	1	1.0d/unit
+Turning TR4 (90°)	Mammoet	18-Feb	20-Feb	3	3.0d/unit
+Jackdown TR4	Mammoet	21-Feb	21-Feb	1	1.0d/unit
+LCT Return AGI→MZP	LCT	22-Feb	22-Feb	1	After final JD
+Buffer / reset	All	23-Feb	23-Feb	1	contingency
+VOYAGE 3: TR5-TR6 Transport	SCT/Mammoet/KFS	25-Feb	25-Feb	1	TIDE>=1.90 required (Loadout start)
+Loadout TR5-TR6 onto LCT	Mammoet	25-Feb	26-Feb	2	OK 1.90m (12:00-15:00)
+Sea fastening + MWS checks (TR5-TR6)	Mammoet/KFS/MWS	27-Feb	27-Feb	1	Lashing + survey
+Sail-away MZP→AGI	LCT	28-Feb	28-Feb	1	WX gate
+Unload TR5 at AGI (1 unit/day)	Mammoet	01-Mar	01-Mar	1	RORO + ramp
+Unload TR6 at AGI (1 unit/day)	Mammoet	02-Mar	02-Mar	1	RORO + ramp
+Turning TR5 (90°)	Mammoet	03-Mar	05-Mar	3	3.0d/unit
+Jackdown TR5	Mammoet	06-Mar	06-Mar	1	1.0d/unit
+Turning TR6 (90°)	Mammoet	07-Mar	09-Mar	3	3.0d/unit
+Jackdown TR6	Mammoet	10-Mar	10-Mar	1	1.0d/unit
+LCT Return AGI→MZP	LCT	11-Mar	11-Mar	1	After final JD
+Buffer / reset	All	12-Mar	12-Mar	1	contingency
+VOYAGE 4: TR7 Transport	SCT/Mammoet/KFS	13-Mar	13-Mar	1	TIDE>=1.90 required (Loadout start)
+Loadout TR7 onto LCT	Mammoet	13-Mar	13-Mar	1	TIDE_TBD(after 2026-02-28)
+Sea fastening + MWS checks (TR6-TR7)	Mammoet/KFS/MWS	14-Mar	14-Mar	1	Lashing + survey
+Sail-away MZP→AGI	LCT	15-Mar	15-Mar	1	WX gate
+Unload TR7 at AGI (1 unit/day)	Mammoet	16-Mar	16-Mar	1	RORO + ramp
+Turning TR7 (90°)	Mammoet	17-Mar	19-Mar	3	3.0d/unit
+Jackdown TR7	Mammoet	20-Mar	20-Mar	1	1.0d/unit
+LCT Return AGI→MZP	LCT	21-Mar	21-Mar	1	After final JD
+Buffer / reset	All	22-Mar	22-Mar	1	contingency
+
+
+Alternative (2-2-2-1 / Two SPMTs)					
+Task	Owner	Start	End	Dur	Notes
+Mobilization (crew/equipment)	Mammoet	12-Jan	13-Jan	1	SPMT + grillage in MZP
+LCT deck preparations + fenders + mooring	Mammoet/KFS	13-Jan	16-Jan	3	MWS pre-check ready
+VOYAGE 1: TR1-TR2 Transport	SCT/Mammoet/KFS	16-Jan	16-Jan	0	TIDE>=1.90 required (Loadout start)
+Loadout TR1-TR2 onto LCT	Mammoet	23-Jan	24-Jan	2	OK 2.01m (12:00-16:00)
+Sea fastening + MWS checks (TR1)	Mammoet/KFS/MWS	25-Jan	25-Jan	1	Lashing + survey
+Sail-away MZP→AGI	LCT	26-Jan	26-Jan	1	WX gate
+Unload TR1 at AGI (1 unit/day)	Mammoet	27-Jan	27-Jan	1	RORO + ramp
+Unload TR2 at AGI (1 unit/day)	Mammoet	28-Jan	28-Jan	1	RORO + ramp
+Turning TR1 (90°)	Mammoet	29-Jan	31-Jan	3	3.0d/unit
+Jackdown TR1	Mammoet	01-Feb	01-Feb	1	1.0d/unit
+Turning TR2 (90°)	Mammoet	02-Feb	04-Feb	3	3.0d/unit
+Jackdown TR2	Mammoet	05-Feb	05-Feb	1	1.0d/unit
+LCT Return AGI→MZP	LCT	02-Feb	02-Feb	1	After first JD
+Buffer / reset	All	03-Feb	03-Feb	1	contingency
+VOYAGE 2: TR3-TR4 Transport	SCT/Mammoet/KFS	04-Feb	04-Feb	1	TIDE>=1.90 required (Loadout start)
+Loadout TR3-TR4 onto LCT	Mammoet	04-Feb	05-Feb	2	OK 2.03m (06:00-09:00, 15:00-18:00)
+Sea fastening + MWS checks (TR3-TR4)	Mammoet/KFS/MWS	06-Feb	06-Feb	1	Lashing + survey
+Sail-away MZP→AGI	LCT	07-Feb	07-Feb	1	WX gate
+Unload TR3 at AGI (1 unit/day)	Mammoet	08-Feb	08-Feb	1	RORO + ramp
+Unload TR4 at AGI (1 unit/day)	Mammoet	09-Feb	09-Feb	1	RORO + ramp
+Turning TR3 (90°)	Mammoet	10-Feb	12-Feb	3	3.0d/unit
+Jackdown TR3	Mammoet	13-Feb	13-Feb	1	1.0d/unit
+Turning TR4 (90°)	Mammoet	14-Feb	16-Feb	3	3.0d/unit
+Jackdown TR4	Mammoet	17-Feb	17-Feb	1	1.0d/unit
+LCT Return AGI→MZP	LCT	14-Feb	14-Feb	1	After first JD
+Buffer / reset	All	15-Feb	15-Feb	1	contingency
+VOYAGE 3: TR5-TR6 Transport	SCT/Mammoet/KFS	17-Feb	17-Feb	1	TIDE>=1.90 required (Loadout start)
+Loadout TR5-TR6 onto LCT	Mammoet	17-Feb	18-Feb	2	OK 1.90m (12:00-15:00)
+Sea fastening + MWS checks (TR5-TR6)	Mammoet/KFS/MWS	19-Feb	19-Feb	1	Lashing + survey
+Sail-away MZP→AGI	LCT	20-Feb	20-Feb	1	WX gate
+Unload TR5 at AGI (1 unit/day)	Mammoet	21-Feb	21-Feb	1	RORO + ramp
+Unload TR6 at AGI (1 unit/day)	Mammoet	22-Feb	22-Feb	1	RORO + ramp
+Turning TR5 (90°)	Mammoet	23-Feb	25-Feb	3	3.0d/unit
+Jackdown TR5	Mammoet	26-Feb	26-Feb	1	1.0d/unit
+Turning TR6 (90°)	Mammoet	27-Feb	01-Mar	3	3.0d/unit
+Jackdown TR6	Mammoet	02-Mar	02-Mar	1	1.0d/unit
+LCT Return AGI→MZP	LCT	27-Feb	27-Feb	1	After first JD
+Buffer / reset	All	28-Feb	28-Feb	1	contingency
+VOYAGE 4: TR7 Transport	SCT/Mammoet/KFS	01-Mar	01-Mar	1	TIDE>=1.90 required (Loadout start)
+Loadout TR7 onto LCT	Mammoet	01-Mar	01-Mar	1	TIDE_TBD(after 2026-02-28)
+Sea fastening + MWS checks (TR6-TR7)	Mammoet/KFS/MWS	02-Mar	02-Mar	1	Lashing + survey
+Sail-away MZP→AGI	LCT	03-Mar	03-Mar	1	WX gate
+Unload TR7 at AGI (1 unit/day)	Mammoet	04-Mar	04-Mar	1	RORO + ramp
+Turning TR7 (90°)	Mammoet	05-Mar	07-Mar	3	3.0d/unit
+Jackdown TR7	Mammoet	08-Mar	08-Mar	1	1.0d/unit
+LCT Return AGI→MZP	LCT	09-Mar	09-Mar	1	After final JD
+Buffer / reset	All	10-Mar	10-Mar	1	contingency

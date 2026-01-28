@@ -1,0 +1,2 @@
+{"ts": "2026-01-07T08:20:14", "event": "start", "inp": "/mnt/data/AGI_TR6_VBA_Enhanced_TEMPLATE.xlsx", "out": "/mnt/data/READY_TEST/out3/AGI_TR6_VBA_Enhanced_TEMPLATE_PY_REPORT.xlsx"}
+{"ts": "2026-01-07T08:20:15", "event": "done", "rows": 72, "out": "/mnt/data/READY_TEST/out3/AGI_TR6_VBA_Enhanced_TEMPLATE_PY_REPORT.xlsx"}

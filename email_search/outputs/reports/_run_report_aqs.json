@@ -1,0 +1,11 @@
+{
+  "task": "aqs_search",
+  "input_file": "C:\\Users\\SAMSUNG\\Downloads\\CONVERT\\OUTLOOK_HVDC_ALL_rev.xlsx",
+  "sheet": "\uc804\uccb4_\ub370\uc774\ud130",
+  "query": "case:123",
+  "results_count": 2,
+  "elapsed_seconds": 11.126,
+  "warnings": [],
+  "config": "C:\\Users\\SAMSUNG\\Downloads\\CONVERT\\config\\aqs_column_aliases.json",
+  "generated_at": "2026-01-23T06:01:13.840116"
+}

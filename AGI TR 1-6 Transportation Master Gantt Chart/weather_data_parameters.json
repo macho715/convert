@@ -1,0 +1,548 @@
+{
+  "weather_data_parameters": {
+    "version": "1.0",
+    "last_updated": "2026-01-08",
+    "description": "AGI TR Transportation Weather Data Collection Parameters",
+    "location": {
+      "name": "Mina Zayed Port / AGI Site",
+      "latitude": 24.12,
+      "longitude": 52.53,
+      "timezone": "Asia/Dubai"
+    },
+    "date_range": {
+      "start": "2026-01-06",
+      "end": "2026-02-21",
+      "total_days": 47
+    },
+    "parameters": {
+      "required": [
+        {
+          "name": "Date",
+          "field_name": "Date",
+          "type": "date",
+          "format": "YYYY-MM-DD",
+          "example": "2026-01-18",
+          "description": "날짜 (필수)",
+          "validation": {
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+            "min": "2026-01-06",
+            "max": "2026-02-21"
+          }
+        },
+        {
+          "name": "Wind_Max_kn",
+          "field_name": "Wind_Max_kn",
+          "type": "float",
+          "unit": "knots",
+          "unit_symbol": "kt",
+          "range": {
+            "min": 0,
+            "max": 50,
+            "typical": "5-25 kt"
+          },
+          "description": "최대 풍속 (필수)",
+          "web_search_keywords": ["wind speed", "maximum wind", "풍속"],
+          "unit_conversion": {
+            "m/s_to_kn": 1.944,
+            "km/h_to_kn": 0.54,
+            "mph_to_kn": 0.87,
+            "examples": [
+              {"from": "10 m/s", "to": "19.4 kt", "formula": "10 × 1.944"},
+              {"from": "30 km/h", "to": "16.2 kt", "formula": "30 × 0.54"},
+              {"from": "20 mph", "to": "17.4 kt", "formula": "20 × 0.87"}
+            ]
+          },
+          "risk_thresholds": {
+            "low": "< 12 kt",
+            "medium": "12-18 kt",
+            "high": "> 18 kt"
+          }
+        },
+        {
+          "name": "Gust_Max_kn",
+          "field_name": "Gust_Max_kn",
+          "type": "float",
+          "unit": "knots",
+          "unit_symbol": "kt",
+          "range": {
+            "min": 0,
+            "max": 60,
+            "typical": "8-30 kt"
+          },
+          "description": "최대 돌풍 (필수)",
+          "web_search_keywords": ["wind gust", "gust speed", "돌풍"],
+          "relationship": {
+            "to_wind": "보통 풍속의 1.2-1.5배",
+            "formula": "Gust ≈ Wind × 1.3 (일반적)"
+          },
+          "risk_thresholds": {
+            "low": "< 18 kt",
+            "medium": "18-22 kt",
+            "high": "> 22 kt"
+          }
+        },
+        {
+          "name": "Wind_Dir_deg",
+          "field_name": "Wind_Dir_deg",
+          "type": "float",
+          "unit": "degrees",
+          "unit_symbol": "°",
+          "range": {
+            "min": 0,
+            "max": 360
+          },
+          "description": "풍향 (필수) - 바람이 부는 방향",
+          "web_search_keywords": ["wind direction", "풍향"],
+          "direction_map": {
+            "N": 0,
+            "NNE": 22.5,
+            "NE": 45,
+            "ENE": 67.5,
+            "E": 90,
+            "ESE": 112.5,
+            "SE": 135,
+            "SSE": 157.5,
+            "S": 180,
+            "SSW": 202.5,
+            "SW": 225,
+            "WSW": 247.5,
+            "W": 270,
+            "WNW": 292.5,
+            "NW": 315,
+            "NNW": 337.5
+          },
+          "shamal_detection": {
+            "enabled": true,
+            "range": {
+              "min": 285,
+              "max": 345
+            },
+            "description": "NW 방향 (285-345도) = 샤말 바람 가능성"
+          }
+        }
+      ],
+      "recommended": [
+        {
+          "name": "Wave_Max_m",
+          "field_name": "Wave_Max_m",
+          "type": "float",
+          "unit": "meters",
+          "unit_symbol": "m",
+          "range": {
+            "min": 0.3,
+            "max": 3.0,
+            "typical": "0.4-1.5 m"
+          },
+          "description": "최대 파고 (권장)",
+          "web_search_keywords": ["wave height", "sea state", "파고", "해상 상태"],
+          "unit_conversion": {
+            "feet_to_meters": 0.3048,
+            "example": {"from": "2 ft", "to": "0.61 m", "formula": "2 × 0.3048"}
+          },
+          "risk_thresholds": {
+            "low": "< 0.8 m",
+            "medium": "0.8-1.2 m",
+            "high": "> 1.2 m"
+          },
+          "note": "Arabian Gulf는 얕은 해역이라 바람에 민감"
+        },
+        {
+          "name": "Visibility_km",
+          "field_name": "Visibility_km",
+          "type": "float",
+          "unit": "kilometers",
+          "unit_symbol": "km",
+          "range": {
+            "min": 2,
+            "max": 15,
+            "typical": "6-12 km"
+          },
+          "description": "가시거리 (권장)",
+          "web_search_keywords": ["visibility", "가시거리", "시정"],
+          "unit_conversion": {
+            "miles_to_km": 1.609,
+            "meters_to_km": 0.001,
+            "examples": [
+              {"from": "5 miles", "to": "8.0 km", "formula": "5 × 1.609"},
+              {"from": "8000 m", "to": "8.0 km", "formula": "8000 ÷ 1000"}
+            ]
+          },
+          "risk_thresholds": {
+            "low": "> 8 km",
+            "medium": "6-8 km",
+            "high": "< 6 km"
+          },
+          "shamal_impact": "샤말 시 먼지로 인해 가시거리 감소 (보통 < 6 km)"
+        }
+      ],
+      "metadata": [
+        {
+          "name": "Source",
+          "field_name": "Source",
+          "type": "string",
+          "description": "데이터 출처",
+          "examples": ["UAE NCM", "Windy.com", "Meteoblue", "OpenWeatherMap"],
+          "priority": {
+            "1": "UAE NCM (공식 기상청)",
+            "2": "Windy.com (시각화 우수)",
+            "3": "Meteoblue (상세 예보)"
+          }
+        },
+        {
+          "name": "Notes",
+          "field_name": "Notes",
+          "type": "string",
+          "description": "비고 및 특이사항",
+          "examples": [
+            "Shamal detected",
+            "Good weather window",
+            "High risk period",
+            "V1 Load-out scheduled"
+          ]
+        }
+      ]
+    },
+    "web_sources": {
+      "primary": [
+        {
+          "name": "UAE National Center of Meteorology",
+          "url": "https://www.ncm.ae",
+          "priority": 1,
+          "description": "공식 기상청 - 가장 신뢰할 수 있는 소스",
+          "provides": [
+            "Wind Speed/Direction",
+            "Wave Height",
+            "Visibility",
+            "Shamal Warnings"
+          ],
+          "search_path": [
+            "1. 사이트 접속",
+            "2. 'Marine Weather' 또는 'Abu Dhabi Forecast' 선택",
+            "3. 날짜별 데이터 확인",
+            "4. 단위 확인 후 변환 (보통 km/h 또는 m/s)"
+          ]
+        },
+        {
+          "name": "Windy.com",
+          "url": "https://www.windy.com",
+          "priority": 2,
+          "description": "시각화 우수 - 인터랙티브 맵",
+          "coordinates": {
+            "lat": 24.12,
+            "lon": 52.53,
+            "location": "Mina Zayed Port"
+          },
+          "provides": [
+            "Wind/Gust (knots)",
+            "Wind Direction (degrees)",
+            "Waves (meters)",
+            "Visibility (km)"
+          ],
+          "search_path": [
+            "1. 좌표 입력: 24.12°N, 52.53°E 또는 'Abu Dhabi' 검색",
+            "2. 날짜 선택 (2026-01-06 ~ 2026-02-21)",
+            "3. 레이어: Wind, Waves, Visibility 확인",
+            "4. 시간별 데이터에서 최대값 기록"
+          ]
+        },
+        {
+          "name": "Meteoblue",
+          "url": "https://www.meteoblue.com",
+          "priority": 3,
+          "description": "상세 해상 예보",
+          "search_query": "Abu Dhabi marine weather"
+        }
+      ]
+    },
+    "shamal_detection": {
+      "enabled": true,
+      "criteria": {
+        "wind_direction": {
+          "range": [285, 345],
+          "description": "NW 방향 (285-345도)"
+        },
+        "wind_speed": {
+          "min_sustained": 18,
+          "min_gust": 22,
+          "unit": "knots"
+        },
+        "duration": {
+          "typical": "2-5 days",
+          "description": "보통 2-5일 지속"
+        },
+        "visibility_impact": {
+          "reduced": true,
+          "typical_range": "< 6 km",
+          "reason": "먼지로 인한 가시거리 감소"
+        }
+      },
+      "expected_period": {
+        "start": "2026-02-05",
+        "end": "2026-02-14",
+        "description": "예상 샤말 기간"
+      }
+    },
+    "risk_calculation": {
+      "method": "score_based",
+      "thresholds": {
+        "wind": {
+          "low": "< 12 kt",
+          "medium": "12-18 kt",
+          "high": "> 18 kt",
+          "score_weight": 40
+        },
+        "gust": {
+          "low": "< 18 kt",
+          "medium": "18-22 kt",
+          "high": "> 22 kt",
+          "score_weight": 30
+        },
+        "wave": {
+          "low": "< 0.8 m",
+          "medium": "0.8-1.2 m",
+          "high": "> 1.2 m",
+          "score_weight": 25
+        },
+        "visibility": {
+          "low": "> 8 km",
+          "medium": "6-8 km",
+          "high": "< 6 km",
+          "score_weight": 25
+        }
+      },
+      "operation_status": {
+        "GO": "score < 30",
+        "HOLD": "30 ≤ score < 60",
+        "NO-GO": "score ≥ 60"
+      }
+    },
+    "priority_dates": [
+      {
+        "date": "2026-01-18",
+        "priority": 3,
+        "reason": "V1 Load-out",
+        "required_parameters": ["Wind_Max_kn", "Gust_Max_kn", "Wind_Dir_deg", "Wave_Max_m"]
+      },
+      {
+        "date": "2026-01-24",
+        "priority": 3,
+        "reason": "V2 시작",
+        "required_parameters": ["Wind_Max_kn", "Gust_Max_kn", "Wind_Dir_deg"]
+      },
+      {
+        "date": "2026-02-05",
+        "priority": 3,
+        "reason": "샤말 시작 예상",
+        "required_parameters": ["Wind_Max_kn", "Gust_Max_kn", "Wind_Dir_deg", "Visibility_km"]
+      },
+      {
+        "date": "2026-02-14",
+        "priority": 3,
+        "reason": "샤말 종료, V4 시작",
+        "required_parameters": ["Wind_Max_kn", "Gust_Max_kn", "Wind_Dir_deg", "Wave_Max_m"]
+      },
+      {
+        "date": "2026-02-20",
+        "priority": 2,
+        "reason": "JD-2 일정",
+        "required_parameters": ["Wind_Max_kn", "Gust_Max_kn", "Wind_Dir_deg"]
+      }
+    ],
+    "data_examples": {
+      "normal_weather": {
+        "date": "2026-01-18",
+        "Wind_Max_kn": 15.0,
+        "Gust_Max_kn": 20.0,
+        "Wind_Dir_deg": 315,
+        "Wave_Max_m": 0.6,
+        "Visibility_km": 10.0,
+        "Source": "Windy.com",
+        "Notes": "Good weather for V1 Load-out"
+      },
+      "shamal_period": {
+        "date": "2026-02-05",
+        "Wind_Max_kn": 20.0,
+        "Gust_Max_kn": 28.0,
+        "Wind_Dir_deg": 300,
+        "Wave_Max_m": 1.2,
+        "Visibility_km": 4.0,
+        "Source": "UAE NCM",
+        "Notes": "Shamal detected - NW wind strong"
+      },
+      "minimal_data": {
+        "date": "2026-01-19",
+        "Wind_Max_kn": 16.0,
+        "Gust_Max_kn": 21.0,
+        "Wind_Dir_deg": 320,
+        "Wave_Max_m": null,
+        "Visibility_km": null,
+        "Source": "Windy.com",
+        "Notes": ""
+      }
+    },
+    "unit_conversion_reference": {
+      "wind_speed": {
+        "m/s_to_kn": {
+          "formula": "value × 1.944",
+          "examples": [
+            {"input": 10, "output": 19.4},
+            {"input": 15, "output": 29.2},
+            {"input": 20, "output": 38.9}
+          ]
+        },
+        "km/h_to_kn": {
+          "formula": "value × 0.54",
+          "examples": [
+            {"input": 30, "output": 16.2},
+            {"input": 50, "output": 27.0},
+            {"input": 70, "output": 37.8}
+          ]
+        },
+        "mph_to_kn": {
+          "formula": "value × 0.87",
+          "examples": [
+            {"input": 20, "output": 17.4},
+            {"input": 30, "output": 26.1},
+            {"input": 40, "output": 34.8}
+          ]
+        }
+      },
+      "wave_height": {
+        "feet_to_meters": {
+          "formula": "value × 0.3048",
+          "examples": [
+            {"input": 2, "output": 0.61},
+            {"input": 4, "output": 1.22},
+            {"input": 6, "output": 1.83}
+          ]
+        }
+      },
+      "visibility": {
+        "miles_to_km": {
+          "formula": "value × 1.609",
+          "examples": [
+            {"input": 5, "output": 8.0},
+            {"input": 10, "output": 16.1}
+          ]
+        },
+        "meters_to_km": {
+          "formula": "value ÷ 1000",
+          "examples": [
+            {"input": 8000, "output": 8.0},
+            {"input": 5000, "output": 5.0}
+          ]
+        }
+      }
+    },
+    "csv_template_format": {
+      "headers": [
+        "Date",
+        "Wind_Max_kn",
+        "Gust_Max_kn",
+        "Wind_Dir_deg",
+        "Wave_Max_m",
+        "Visibility_km",
+        "Source",
+        "Notes"
+      ],
+      "delimiter": ",",
+      "encoding": "utf-8",
+      "date_format": "YYYY-MM-DD"
+    },
+    "json_output_format": {
+      "structure": {
+        "source": "string",
+        "generated_at": "ISO 8601 datetime",
+        "location": {
+          "name": "string",
+          "latitude": "float",
+          "longitude": "float"
+        },
+        "weather_records": [
+          {
+            "date": "YYYY-MM-DD",
+            "wind_max_kn": "float or null",
+            "gust_max_kn": "float or null",
+            "wind_dir_deg": "float or null",
+            "wave_max_m": "float or null",
+            "visibility_km": "float or null",
+            "source": "string",
+            "notes": "string",
+            "risk_level": "LOW|MEDIUM|HIGH|UNKNOWN",
+            "is_shamal": "boolean"
+          }
+        ]
+      }
+    },
+    "validation_rules": {
+      "date": {
+        "required": true,
+        "format": "YYYY-MM-DD",
+        "range": {
+          "min": "2026-01-06",
+          "max": "2026-02-21"
+        }
+      },
+      "wind_max_kn": {
+        "required": true,
+        "type": "float",
+        "range": [0, 50],
+        "default_if_missing": "interpolated from adjacent days"
+      },
+      "gust_max_kn": {
+        "required": true,
+        "type": "float",
+        "range": [0, 60],
+        "default_if_missing": "wind_max_kn × 1.3"
+      },
+      "wind_dir_deg": {
+        "required": true,
+        "type": "float",
+        "range": [0, 360],
+        "default_if_missing": "interpolated"
+      },
+      "wave_max_m": {
+        "required": false,
+        "type": "float",
+        "range": [0.3, 3.0],
+        "default_if_missing": "wind_max_kn × 0.04 (capped at 2.5)"
+      },
+      "visibility_km": {
+        "required": false,
+        "type": "float",
+        "range": [2, 15],
+        "default_if_missing": 8.0
+      }
+    },
+    "workflow": {
+      "step_1": {
+        "action": "웹 검색",
+        "sources": ["UAE NCM", "Windy.com", "Meteoblue"],
+        "collect": ["풍속", "돌풍", "풍향", "파고", "가시거리"]
+      },
+      "step_2": {
+        "action": "단위 변환",
+        "convert_to": {
+          "wind": "knots",
+          "wave": "meters",
+          "visibility": "kilometers"
+        }
+      },
+      "step_3": {
+        "action": "CSV 입력",
+        "file": "weather_data_template.csv",
+        "format": "comma-separated values"
+      },
+      "step_4": {
+        "action": "JSON 변환",
+        "command": "python convert_weather_csv_to_json.py"
+      },
+      "step_5": {
+        "action": "히트맵 생성",
+        "command": "python UntitSSSed-1.py",
+        "output": "AGI_TR_Weather_Risk_Heatmap_v2.png"
+      }
+    }
+  }
+}
+

@@ -1,0 +1,37 @@
+version: 1.3
+style:
+  language: "KR concise + EN-inline"
+  number_format: "2-dec"
+  section_order: ["ExecSummary","Visual","Options","Roadmap","Automation","QA"]
+scope_guard:
+  allowed_paths: ["src/**"]
+tdd:
+  source_of_truth: "plan.md"
+  go_behavior: "next_unmarked_test"
+  loop: ["Red","Green","Refactor"]
+  test_sla: {unit_s: 0.20, integration_s: 2.00, e2e_min: 5.00}
+git:
+  commits: "Conventional Commits"
+  branch_model: "Trunk + short-lived feature/*"
+  approvals_required: 2
+ci_quality_security:
+  coverage_min: 85.00
+  linters: ["black","flake8","isort"]
+  security: ["bandit","pip-audit --strict","ggshield"]
+python_excel:
+  excel_new: "XlsxWriter"
+  excel_edit: "openpyxl"
+  pandas_role: "IO layer"
+  sheet_update: 'if_sheet_exists="replace"'
+domain_hvdc:
+  triggers:
+    rate_change_pct: 10.00
+    eta_delay_h: 24.00
+    pressure_t_per_m2_max: 4.00
+    cert_expiry_days_min: 30.00
+  human_gate: ["FANR","MOIAT"]
+workspace:
+  config_patch: "v1"
+  docs_autoload: ["Cursor_Project_AutoSetup_Guide.md","README.md"]
+hallucination_ban:
+  tag: "가정:"

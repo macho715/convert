@@ -1,0 +1,8 @@
+Class,Subclass of,Description,Onto-ID
+Material,Asset,"자재 및 기자재(Transformer, Cable, CCU 등)",hvdc-asset-mat
+TransportEvent,Activity,"Inland, Marine, Offloading, SiteReceiving",hvdc-act-trans
+Storage,Location,"Yard, Warehouse, Laydown",hvdc-loc-stor
+Inspection,Process,"MRR, MRI, OSDR",hvdc-proc-insp
+Permit,Document,"PTW, Hot Work, FRA",hvdc-doc-perm
+Actor,Agent,"SCT, ADNOC L&S, Vendor",hvdc-agent-role
+PortOperation,Activity,"RORO/LOLO, Sea Fastening",hvdc-act-port

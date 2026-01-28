@@ -1,0 +1,6 @@
+---
+alwaysApply: true
+---
+- Conventional Commits required
+- Branch model: Trunk(main) + short-lived feature/*
+- PR Gate: CODEOWNERS ≥ 2 approvals

@@ -1,0 +1,48 @@
+ID	WBS	Task	Phase	Owner	Start	End	Duration_days	Notes
+MOB-001	A0	Mobilization (crew/equipment)	Mobilization	Mammoet	2026-01-15	2026-01-15	1.0	SPMT + grillage in MZP
+PREP-001	A0	LCT deck preparations + fenders + mooring	Deck Prep	Mammoet/KFS	2026-01-16	2026-01-18	3.0	MWS pre-check ready
+V1	A1	VOYAGE 1: TR1 Transport	Marine Transport	SCT/Mammoet/KFS	2026-01-19	2026-01-19	0.0	TIDE>=1.90 required (Loadout start)
+LO-01	A1	Loadout TR1 onto LCT	MZP Loadout	Mammoet	2026-01-19	2026-01-19	1.0	OK 2.01m (12:00-16:00)
+SF-01	A1	Sea fastening + MWS checks (TR1)	Sea Fastening	Mammoet/KFS/MWS	2026-01-20	2026-01-20	1.0	Lashing + survey
+SAIL-01	A1	Sail-away MZP→AGI	Sea Passage	LCT	2026-01-21	2026-01-21	1.0	WX gate
+UL-01-1	A1	Unload TR1 at AGI (1 unit/day)	AGI Arrival	Mammoet	2026-01-22	2026-01-22	1.0	RORO + ramp
+TURN-01-1	A1	Turning TR1 (90°)	Onshore SPMT	Mammoet	2026-01-23	2026-01-25	3.0	3.0d/unit
+JD-01-1	A1	Jackdown TR1	Jackdown	Mammoet	2026-01-26	2026-01-26	1.0	1.0d/unit
+RET-01	A1	LCT Return AGI→MZP	Return	LCT	2026-01-27	2026-01-27	1.0	After final JD
+BUF-01	A1	Buffer / reset	Buffer	All	2026-01-28	2026-01-28	1.0	contingency
+V2	A2	VOYAGE 2: TR2-TR3 Transport	Marine Transport	SCT/Mammoet/KFS	2026-01-29	2026-01-29	0.0	TIDE>=1.90 required (Loadout start)
+LO-02	A2	Loadout TR2-TR3 onto LCT	MZP Loadout	Mammoet	2026-01-29	2026-01-30	2.0	OK 2.03m (06:00-09:00, 15:00-18:00)
+SF-02	A2	Sea fastening + MWS checks (TR2-TR3)	Sea Fastening	Mammoet/KFS/MWS	2026-01-31	2026-01-31	1.0	Lashing + survey
+SAIL-02	A2	Sail-away MZP→AGI	Sea Passage	LCT	2026-02-01	2026-02-01	1.0	WX gate
+UL-02-1	A2	Unload TR2 at AGI (1 unit/day)	AGI Arrival	Mammoet	2026-02-02	2026-02-02	1.0	RORO + ramp
+UL-02-2	A2	Unload TR3 at AGI (1 unit/day)	AGI Arrival	Mammoet	2026-02-03	2026-02-03	1.0	RORO + ramp
+TURN-02-1	A2	Turning TR2 (90°)	Onshore SPMT	Mammoet	2026-02-04	2026-02-06	3.0	3.0d/unit
+JD-02-1	A2	Jackdown TR2	Jackdown	Mammoet	2026-02-07	2026-02-07	1.0	1.0d/unit
+TURN-02-2	A2	Turning TR3 (90°)	Onshore SPMT	Mammoet	2026-02-08	2026-02-10	3.0	3.0d/unit
+JD-02-2	A2	Jackdown TR3	Jackdown	Mammoet	2026-02-11	2026-02-11	1.0	1.0d/unit
+RET-02	A2	LCT Return AGI→MZP	Return	LCT	2026-02-12	2026-02-12	1.0	After final JD
+BUF-02	A2	Buffer / reset	Buffer	All	2026-02-13	2026-02-13	1.0	contingency
+V3	A3	VOYAGE 3: TR4-TR5 Transport	Marine Transport	SCT/Mammoet/KFS	2026-02-15	2026-02-15	0.0	TIDE>=1.90 required (Loadout start)
+LO-03	A3	Loadout TR4-TR5 onto LCT	MZP Loadout	Mammoet	2026-02-15	2026-02-16	2.0	OK 1.90m (12:00-15:00)
+SF-03	A3	Sea fastening + MWS checks (TR4-TR5)	Sea Fastening	Mammoet/KFS/MWS	2026-02-17	2026-02-17	1.0	Lashing + survey
+SAIL-03	A3	Sail-away MZP→AGI	Sea Passage	LCT	2026-02-18	2026-02-18	1.0	WX gate
+UL-03-1	A3	Unload TR4 at AGI (1 unit/day)	AGI Arrival	Mammoet	2026-02-19	2026-02-19	1.0	RORO + ramp
+UL-03-2	A3	Unload TR5 at AGI (1 unit/day)	AGI Arrival	Mammoet	2026-02-20	2026-02-20	1.0	RORO + ramp
+TURN-03-1	A3	Turning TR4 (90°)	Onshore SPMT	Mammoet	2026-02-21	2026-02-23	3.0	3.0d/unit
+JD-03-1	A3	Jackdown TR4	Jackdown	Mammoet	2026-02-24	2026-02-24	1.0	1.0d/unit
+TURN-03-2	A3	Turning TR5 (90°)	Onshore SPMT	Mammoet	2026-02-25	2026-02-27	3.0	3.0d/unit
+JD-03-2	A3	Jackdown TR5	Jackdown	Mammoet	2026-02-28	2026-02-28	1.0	1.0d/unit
+RET-03	A3	LCT Return AGI→MZP	Return	LCT	2026-03-01	2026-03-01	1.0	After final JD
+BUF-03	A3	Buffer / reset	Buffer	All	2026-03-02	2026-03-02	1.0	contingency
+V4	A4	VOYAGE 4: TR6-TR7 Transport	Marine Transport	SCT/Mammoet/KFS	2026-03-03	2026-03-03	0.0	TIDE>=1.90 required (Loadout start)
+LO-04	A4	Loadout TR6-TR7 onto LCT	MZP Loadout	Mammoet	2026-03-03	2026-03-04	2.0	TIDE_TBD(after 2026-02-28)
+SF-04	A4	Sea fastening + MWS checks (TR6-TR7)	Sea Fastening	Mammoet/KFS/MWS	2026-03-05	2026-03-05	1.0	Lashing + survey
+SAIL-04	A4	Sail-away MZP→AGI	Sea Passage	LCT	2026-03-06	2026-03-06	1.0	WX gate
+UL-04-1	A4	Unload TR6 at AGI (1 unit/day)	AGI Arrival	Mammoet	2026-03-07	2026-03-07	1.0	RORO + ramp
+UL-04-2	A4	Unload TR7 at AGI (1 unit/day)	AGI Arrival	Mammoet	2026-03-08	2026-03-08	1.0	RORO + ramp
+TURN-04-1	A4	Turning TR6 (90°)	Onshore SPMT	Mammoet	2026-03-09	2026-03-11	3.0	3.0d/unit
+JD-04-1	A4	Jackdown TR6	Jackdown	Mammoet	2026-03-12	2026-03-12	1.0	1.0d/unit
+TURN-04-2	A4	Turning TR7 (90°)	Onshore SPMT	Mammoet	2026-03-13	2026-03-15	3.0	3.0d/unit
+JD-04-2	A4	Jackdown TR7	Jackdown	Mammoet	2026-03-16	2026-03-16	1.0	1.0d/unit
+RET-04	A4	LCT Return AGI→MZP	Return	LCT	2026-03-17	2026-03-17	1.0	After final JD
+BUF-04	A4	Buffer / reset	Buffer	All	2026-03-18	2026-03-18	1.0	contingency

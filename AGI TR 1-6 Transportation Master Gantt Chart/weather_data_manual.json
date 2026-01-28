@@ -1,0 +1,9 @@
+{
+  "source": "Manual Weather Data Entry",
+  "generated_at": "2026-01-08T01:35:26.830942",
+  "location": {
+    "lat": 24.12,
+    "lon": 52.53
+  },
+  "weather_records": []
+}

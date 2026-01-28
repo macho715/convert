@@ -1,0 +1,40 @@
+WBS	Phase	Site	Task/Document	Owner	Approver	Predecessor	Start_Tag	Start_Date	Due_Tag	Due_Date	Duration_days	Risk	Evidence
+A01	Governance	Common	Distribute MoM Action Register (Owner/Due/RAG)	Samsung C&T	-		D-14	2026-01-08	D-13	2026-01-09	2	MED	MoM (user-provided email)
+A02	Governance	Common	Confirm target schedule (PTW 20 Jan / Loadout 23–24 Jan / MWS 24–25 Jan)	Samsung C&T	-	A01	D-13	2026-01-09	D-12	2026-01-10	2	HIGH	Loadout Plan email (2026-01-13)
+A03	Contract/Cost	Common	Close pending VOs (4 items)	Samsung C&T / Mammoet	-	A01	D-12	2026-01-10	Fixed (2026-01-23)	2026-01-23	14	HIGH	MoM: by 2026-01-23
+A04	Port Condition	MZP	Obtain & share Harbour Master confirmation: GBP 10 t/m²	Samsung C&T	Mammoet	A01	D-12	2026-01-10	D-10	2026-01-12	3	CRITICAL	MoM: request to share GBP confirmation
+A05	Resources	Common	Confirm SPMT availability (1st set)	Mammoet	Samsung C&T	A01	D-12	2026-01-10	D-9	2026-01-13	4	HIGH	MoM: SPMT availability
+C07	Base Docs	Common	Vessel Data Package(GA/Stability Booklet/deck spec)	Vessel Operator	Mammoet/Great Waters	A02	D-12	2026-01-10	D-10	2026-01-12	3	HIGH	Assumption: re-circulation required
+A06	Resources/Cost	Common	Confirm availability & cost of 2nd SPMT set	Mammoet / Samsung C&T(PC)	Samsung C&T	A05	D-11	2026-01-11	D-8	2026-01-14	4	HIGH	MoM: 2nd set
+B01	Engineering	Common	Submit final ballasting calculations (incl. Rev/Appendices)	Great Waters	Samsung C&T / Mammoet	A02	D-11	2026-01-11	D-9	2026-01-13	3	CRITICAL	MoM: Great Waters submission
+B02	Engineering	Common	Internal QA of ballasting report (mass SSOT / stages / assumptions)	Samsung C&T	-	B01	D-9	2026-01-13	D-8	2026-01-14	2	HIGH	Internal QA
+B03	Engineering	Common	Update RoRo simulation drawing (reflect new ballast)	Mammoet	Samsung C&T	B01	D-8	2026-01-14	D-6	2026-01-16	3	CRITICAL	MoM: after receipt of ballasting calculations
+C01	Mandatory Docs	Common	Obtain latest Mooring Plan (arrangement / bollards)	ADNOC L&S(MMT)	Harbour Master	B03	D-8	2026-01-14	D-5	2026-01-17	4	CRITICAL	Mandatory Submission Docs
+B04	Engineering	Common	Revise MS for LO/LI and Transportation	Mammoet	Samsung C&T	B03	D-7	2026-01-15	D-5	2026-01-17	3	HIGH	MoM: submission items
+B05	HSE/Risk	Common	Revise MSRA (risk assessment)	Mammoet	Samsung C&T	B03	D-7	2026-01-15	D-5	2026-01-17	3	HIGH	MoM: MSRA revision
+C02	Mandatory Docs	Common	Stowage Plan (positions / weight distribution / contingency)	OFCO	ADNOC L&S(MMT)	B03	D-7	2026-01-15	D-5	2026-01-17	3	HIGH	Mandatory Submission Docs
+C03	Mandatory Docs	Common	Ramp Certificate/Load Test Data	OFCO	MMT/AD Ports	A04	D-7	2026-01-15	D-5	2026-01-17	3	CRITICAL	Mandatory Submission Docs
+C04	Mandatory Docs	Common	Sea Fastening Certificate (lashing & inspection)	OFCO	GC Operations	B04	D-7	2026-01-15	D-5	2026-01-17	3	HIGH	Mandatory Submission Docs
+C05	Mandatory Docs	Common	SPMT Certificate(Load test/inspection)	OFCO	HSE Team	A05	D-7	2026-01-15	D-5	2026-01-17	3	HIGH	Mandatory Submission Docs
+C08	Base Docs	Common	Insurance Certificate	OFCO/Carrier	Samsung C&T	A02	D-6	2026-01-16	D-5	2026-01-17	2	LOW	Common Checklist
+C09	Base Docs	Common	Cargo Manifest	OFCO	Samsung C&T	A02	D-6	2026-01-16	D-5	2026-01-17	2	LOW	Common Checklist
+C10	Base Docs	Common	Emergency Contact List (internal)	All Parties	Samsung C&T	A02	D-6	2026-01-16	D-5	2026-01-17	2	LOW	Common Checklist
+B06	Review	Common	Comment round #1 on MS/MSRA/RoRo drawings	Samsung C&T	-	B04	D-5	2026-01-17	D-4	2026-01-18	2	MED	Internal Review
+B07	Submission	Common	Submit engineering package (MWS/MMT/AD Ports)	Samsung C&T / OFCO	-	B06	D-4	2026-01-18	D-4	2026-01-18	1	CRITICAL	Mandatory Submission Procedure
+C06	Mandatory Docs	Common	Pre-Arrival Cargo Declaration (full cargo details)	OFCO	AD Ports Customs	C02	D-4	2026-01-18	D-3	2026-01-19	2	MED	Mandatory Submission Docs
+D01	HSE	Common	Schedule & conduct FRA session; circulate outcomes	Samsung C&T	All Parties	B05	D-4	2026-01-18	D-3	2026-01-19	2	CRITICAL	MoM: FRA prior to mobilization
+D02	HSE	Common	Update Risk Assessment/Contingency attachments for PTW	Samsung C&T / Mammoet	AD Ports HSE	D01	D-4	2026-01-18	D-3	2026-01-19	2	HIGH	Mandatory Submission Docs
+D07	Sign-off	Common	Update OFCO documents + incorporate LCT Master signed version	OFCO	Samsung C&T	D02	D-4	2026-01-18	D-3	2026-01-19	2	CRITICAL	MoM: instruction dated 2025-12-31
+D11	Sailing / Pilotage	AGI	Pilotage Exemption application/confirmation (if applicable)	Samsung C&T / Mammoet	HM	C01	D-3	2026-01-19	D-2	2026-01-20	2	MED	AGI: Exemption possible
+D05	PTW	AGI	Issue PTW – Working Over Water (≥24h prior)	Mammoet / Samsung C&T / OFCO	AD Ports HSE	D02	D-4	2026-01-18	D-3	2026-01-19	2	HIGH	AGI requirement: ≥24h
+D06	PTW	AGI	Issue PTW – Hot Work (≥24h prior)	Mammoet / Samsung C&T / OFCO	AD Ports HSE	D02	D-4	2026-01-18	D-3	2026-01-19	2	HIGH	AGI requirement: ≥24h
+D09	Access / Gate Pass	AGI	ATLP Gate Pass + AGI ePass(QR, 48h)	OFCO / Samsung C&T	AGI Control	D05	D-3	2026-01-19	D-2	2026-01-20	2	MED	AGI guideline: 48h validity
+E01	Verification/Approval	Common	AD Ports HSE initial review (PTW/Risk)	AD Ports HSE	-	D02	D-3	2026-01-19	D-2	2026-01-20	2	CRITICAL	Submission Procedure
+E02	Verification/Approval	Common	MMT/Marine Warranty review (mooring / simulation)	MMT/MWS	-	B07	D-3	2026-01-19	D-2	2026-01-20	2	CRITICAL	Mandatory Docs + MWS
+E03	Final Approval	Common	Final approval by Harbour Master (package complete)	Harbour Master	-	E01	D-2	2026-01-20	D-2	2026-01-20	1	CRITICAL	Submission Procedure
+E04	Milestone	Common	All approvals received(Go/No-Go)	Samsung C&T	-	E03	D-2	2026-01-20	D-2	2026-01-20	1	CRITICAL	Gate
+E05	Milestone	Common	Commencement Confirm (Start of Loadout Preparation)	Samsung C&T	-	F02	D0	2026-01-22	D0	2026-01-22	1	CRITICAL	Loadout Plan email (2026-01-13)
+F02	Execution	MZP	Mobilization of MMT equipment (SPMT, Linkspan, etc.)	Mammoet	-	E04	D-1	2026-01-21	D-1	2026-01-21	1	HIGH	Loadout Plan email (2026-01-13)
+F03	Execution	MZP	Preparation for Loadout (Hot work, Sea Fastening, etc.) / LCT BUSHRA mobilization	Mammoet / ALS	-	F02	D0	2026-01-22	D0	2026-01-22	1	HIGH	Loadout Plan email (2026-01-13)
+F01	Execution	MZP	Loadout Unit #1 / Unit #2 (RoRo) – Window 23–24 Jan 2026	Mammoet / ALS / Samsung C&T	Harbour Master / AD Ports HSE	F03	D+1	2026-01-23	D+2	2026-01-24	2	HIGH	Loadout Plan email (2026-01-13)
+F04	Execution	MWS	MWS window (tentative)	MWS / Mammoet	Samsung C&T	F01	D+2	2026-01-24	D+3	2026-01-25	2	MED	Loadout Plan email (2026-01-13)

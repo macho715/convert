@@ -1,0 +1,187 @@
+{
+  "sites": {
+    "AGI": [
+      "Al Ghallan",
+      "Al Ghallan Island",
+      "AGI Jetty",
+      "Ghallan"
+    ],
+    "DAS": [
+      "Das Island",
+      "DAS",
+      "Das"
+    ],
+    "MIR": [
+      "Mirfa",
+      "MIR",
+      "Mirfa Port"
+    ],
+    "MOSB": [
+      "Mussafah",
+      "Mussafah Offshore Supply Base",
+      "Mussafah Base",
+      "ALS Yard",
+      "Mussafah Port"
+    ],
+    "SHU": [
+      "Shuweihat",
+      "SHU",
+      "Shuweihat Port"
+    ],
+    "GCC": [
+      "GCC Storage",
+      "GCC Yard"
+    ],
+    "Zayed": [
+      "Zayed Port",
+      "AEZYD",
+      "Mina Zayed"
+    ],
+    "Mugharaq": [
+      "Mugharaq Port",
+      "AEMFA",
+      "Mugharaq"
+    ]
+  },
+  "assets": {
+    "Crane": [
+      "Crane-100T",
+      "Mobile Crane",
+      "Crawler Crane",
+      "Lifting Equipment"
+    ],
+    "Trailer": [
+      "A-frame",
+      "A-frame trailer",
+      "Lowbed",
+      "Flatbed",
+      "SPMT",
+      "Self-Propelled Modular Transporter"
+    ],
+    "Forklift": [
+      "Forklift-10T",
+      "FL-10T",
+      "Wheel Loader"
+    ],
+    "Transformer": [
+      "TR",
+      "Trafo",
+      "Main Transformer",
+      "Converter Transformer"
+    ],
+    "Cable": [
+      "HVDC Cable",
+      "Submarine Cable",
+      "Land Cable"
+    ],
+    "Vessel": [
+      "LCT",
+      "Landing Craft",
+      "Barge",
+      "Tug",
+      "Supply Boat",
+      "OSV"
+    ]
+  },
+  "documents": {
+    "BL": [
+      "Bill of Lading",
+      "B/L",
+      "Master BL",
+      "House BL"
+    ],
+    "DO": [
+      "Delivery Order",
+      "D/O"
+    ],
+    "PL": [
+      "Packing List",
+      "P/L",
+      "Manifest",
+      "Cargo Manifest"
+    ],
+    "CI": [
+      "Commercial Invoice",
+      "C/I",
+      "Invoice"
+    ],
+    "COO": [
+      "Certificate of Origin",
+      "C/O"
+    ],
+    "BOE": [
+      "Bill of Entry",
+      "Customs Declaration",
+      "Import Declaration"
+    ],
+    "MRR": [
+      "Material Receiving Report",
+      "MRR"
+    ],
+    "OSDR": [
+      "Offshore Storage & Delivery Report",
+      "OSDR"
+    ],
+    "Permit": [
+      "DOT Permit",
+      "CICPA",
+      "Gate Pass",
+      "FRA",
+      "PTW",
+      "Work Permit"
+    ]
+  },
+  "flows": {
+    "Flow 0": [
+      "Pre Arrival",
+      "Pre-Arrival",
+      "Planning"
+    ],
+    "Flow 1": [
+      "Direct",
+      "Port to Site",
+      "Direct Delivery"
+    ],
+    "Flow 2": [
+      "WH",
+      "Warehouse",
+      "Storage"
+    ],
+    "Flow 3": [
+      "MOSB",
+      "Port to MOSB",
+      "Hub"
+    ],
+    "Flow 4": [
+      "Full",
+      "Full Chain",
+      "Multi-leg"
+    ],
+    "Flow 5": [
+      "Mixed",
+      "Incomplete",
+      "Pending"
+    ]
+  },
+  "processes": {
+    "Customs": [
+      "Clearance",
+      "Duty",
+      "Inspection",
+      "Bayan",
+      "Dhabi"
+    ],
+    "Transport": [
+      "Haulage",
+      "Trucking",
+      "Shipping",
+      "Voyage"
+    ],
+    "Preservation": [
+      "Nitrogen",
+      "N2",
+      "Dry Air",
+      "Humidity Control"
+    ]
+  }
+}

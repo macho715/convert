@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HVDC TR Transport - Gate Pass & Customs Document Checklist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3a5f 0%, #0d2137 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #e0e6ed;
+        }
+        
+        .dashboard {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.15), rgba(255, 152, 0, 0.1));
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            padding: 25px 35px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header-left h1 {
+            font-size: 26px;
+            color: #ffc107;
+            margin-bottom: 8px;
+        }
+        
+        .header-left .subtitle {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+        
+        .header-right {
+            text-align: right;
+        }
+        
+        .header-right .source {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-bottom: 5px;
+        }
+        
+        .header-right .date {
+            font-size: 14px;
+            color: #ffc107;
+            font-weight: bold;
+        }
+        
+        /* Alert Box */
+        .alert-box {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(220, 38, 38, 0.1));
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            border-radius: 12px;
+            padding: 20px 25px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .alert-box .icon {
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+        
+        .alert-box .content h3 {
+            color: #f87171;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        
+        .alert-box .content p {
+            color: #fca5a5;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        
+        .alert-box .content strong {
+            color: #ffc107;
+        }
+        
+        /* Timeline Summary */
+        .timeline-summary {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .voyage-mini {
+            background: rgba(30, 58, 95, 0.6);
+            border-radius: 12px;
+            padding: 18px;
+            border: 1px solid rgba(100, 116, 139, 0.3);
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .voyage-mini:hover {
+            border-color: #ffc107;
+            transform: translateY(-3px);
+        }
+        
+        .voyage-mini.active {
+            border-color: #ffc107;
+            background: rgba(255, 193, 7, 0.1);
+        }
+        
+        .voyage-mini .v-num {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffc107;
+            margin-bottom: 5px;
+        }
+        
+        .voyage-mini .v-cargo {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-bottom: 8px;
+        }
+        
+        .voyage-mini .v-dates {
+            font-size: 11px;
+            color: #64748b;
+        }
+        
+        .voyage-mini .v-dates .mzp {
+            color: #60a5fa;
+            font-weight: bold;
+        }
+        
+        .voyage-mini .deadline {
+            margin-top: 8px;
+            padding: 4px 10px;
+            background: rgba(239, 68, 68, 0.2);
+            border-radius: 10px;
+            font-size: 10px;
+            color: #f87171;
+            font-weight: bold;
+        }
+        
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .panel {
+            background: rgba(30, 58, 95, 0.5);
+            border-radius: 16px;
+            padding: 25px;
+            border: 1px solid rgba(100, 116, 139, 0.2);
+        }
+        
+        .panel.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .panel h2 {
+            font-size: 18px;
+            color: #ffc107;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(100, 116, 139, 0.2);
+        }
+        
+        .panel h2 .badge {
+            padding: 3px 10px;
+            background: rgba(239, 68, 68, 0.2);
+            color: #f87171;
+            border-radius: 10px;
+            font-size: 11px;
+        }
+        
+        .panel h2 .badge.info {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+        }
+        
+        /* Checklist */
+        .checklist {
+            list-style: none;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 15px;
+            background: rgba(15, 33, 55, 0.5);
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border-left: 3px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .checklist-item:hover {
+            background: rgba(15, 33, 55, 0.8);
+        }
+        
+        .checklist-item.checked {
+            border-left-color: #10b981;
+            opacity: 0.7;
+        }
+        
+        .checklist-item.checked .checkbox {
+            background: #10b981;
+            border-color: #10b981;
+        }
+        
+        .checklist-item.checked .checkbox::after {
+            content: '✓';
+            color: white;
+            font-size: 12px;
+        }
+        
+        .checklist-item .checkbox {
+            width: 22px;
+            height: 22px;
+            border: 2px solid #64748b;
+            border-radius: 5px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .checklist-item .content {
+            flex: 1;
+        }
+        
+        .checklist-item .content .title {
+            font-weight: 600;
+            color: #e2e8f0;
+            margin-bottom: 4px;
+            font-size: 14px;
+        }
+        
+        .checklist-item .content .desc {
+            font-size: 12px;
+            color: #94a3b8;
+        }
+        
+        .checklist-item .content .desc strong {
+            color: #ffc107;
+        }
+        
+        .checklist-item .tag {
+            padding: 3px 8px;
+            border-radius: 8px;
+            font-size: 10px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .checklist-item .tag.critical {
+            background: rgba(239, 68, 68, 0.2);
+            color: #f87171;
+        }
+        
+        .checklist-item .tag.important {
+            background: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+        }
+        
+        .checklist-item .tag.standard {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+        }
+        
+        /* Voyage Detail Section */
+        .voyage-detail {
+            display: none;
+        }
+        
+        .voyage-detail.active {
+            display: block;
+        }
+        
+        .voyage-header-detail {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: rgba(15, 33, 55, 0.5);
+            border-radius: 12px;
+        }
+        
+        .voyage-header-detail .left h3 {
+            font-size: 20px;
+            color: #ffc107;
+            margin-bottom: 5px;
+        }
+        
+        .voyage-header-detail .left .cargo {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+        
+        .voyage-header-detail .right {
+            text-align: right;
+        }
+        
+        .voyage-header-detail .right .date-row {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 8px;
+        }
+        
+        .voyage-header-detail .right .date-item {
+            text-align: center;
+        }
+        
+        .voyage-header-detail .right .date-item .label {
+            font-size: 10px;
+            color: #64748b;
+            text-transform: uppercase;
+        }
+        
+        .voyage-header-detail .right .date-item .value {
+            font-size: 16px;
+            font-weight: bold;
+            color: #60a5fa;
+        }
+        
+        .voyage-header-detail .right .deadline-info {
+            font-size: 12px;
+            color: #f87171;
+            font-weight: bold;
+        }
+        
+        /* Progress Bar */
+        .progress-container {
+            margin-bottom: 25px;
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+        
+        .progress-header .label {
+            color: #94a3b8;
+        }
+        
+        .progress-header .value {
+            color: #ffc107;
+            font-weight: bold;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background: rgba(100, 116, 139, 0.2);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ffc107, #f59e0b);
+            border-radius: 5px;
+            transition: width 0.5s ease;
+        }
+        
+        /* Contact Info */
+        .contact-section {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(15, 33, 55, 0.5);
+            border-radius: 12px;
+        }
+        
+        .contact-section h4 {
+            color: #ffc107;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .contact-item {
+            padding: 12px;
+            background: rgba(30, 58, 95, 0.5);
+            border-radius: 8px;
+        }
+        
+        .contact-item .role {
+            font-size: 11px;
+            color: #64748b;
+            margin-bottom: 5px;
+        }
+        
+        .contact-item .name {
+            font-weight: bold;
+            color: #e2e8f0;
+            margin-bottom: 3px;
+        }
+        
+        .contact-item .email {
+            font-size: 12px;
+            color: #60a5fa;
+        }
+        
+        /* NOC Section */
+        .noc-section {
+            margin-top: 20px;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(124, 58, 237, 0.05));
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 12px;
+        }
+        
+        .noc-section h4 {
+            color: #a78bfa;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Print Button */
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #ffc107, #f59e0b);
+            color: #1e3a5f;
+            border: none;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(255, 193, 7, 0.3);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        
+        .print-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(255, 193, 7, 0.4);
+        }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            .timeline-summary {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .timeline-summary {
+                grid-template-columns: 1fr;
+            }
+            .header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            .header-right {
+                text-align: center;
+            }
+        }
+        
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            .print-btn {
+                display: none;
+            }
+            .panel {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-left">
+                <h1>📋 Gate Pass & Customs Document Checklist</h1>
+                <div class="subtitle">HVDC TR Transport | Option A Confirmed | Based on MZP Arrival</div>
+            </div>
+            <div class="header-right">
+                <div class="source">Source: OFCO Agency (Nanda Kumar)</div>
+                <div class="date">As of: 2026-01-15</div>
+            </div>
+        </div>
+        
+        <!-- Critical Alert -->
+        <div class="alert-box">
+            <div class="icon">⚠️</div>
+            <div class="content">
+                <h3>Key Notes (OFCO Agency Guidance)</h3>
+                <p>
+                    • <strong>Land Permit (SPMT operations)</strong>: Approval takes <strong>2-3 business days</strong>; allow additional time if weekends are included<br>
+                    • <strong>Pre-arrival Meeting</strong>: Mandatory operations planning meeting with Port Authority prior to vessel arrival<br>
+                    • <strong>AD Maritime NOC</strong>: Must be obtained prior to AGI transit
+                </p>
+            </div>
+        </div>
+        
+        <!-- Voyage Timeline Summary -->
+        <div class="timeline-summary">
+            <div class="voyage-mini active" onclick="selectVoyage(1)">
+                <div class="v-num">Voyage 1</div>
+                <div class="v-cargo">TR Units 1-2</div>
+                <div class="v-dates">MZP Arrival: <span class="mzp">01-27</span></div>
+                <div class="v-dates">MZP Departure: 02-01</div>
+                <div class="deadline">Document Deadline: 01-23</div>
+            </div>
+            <div class="voyage-mini" onclick="selectVoyage(2)">
+                <div class="v-num">Voyage 2 ⚡</div>
+                <div class="v-cargo">TR Units 3-4</div>
+                <div class="v-dates">MZP Arrival: <span class="mzp">02-06</span></div>
+                <div class="v-dates">MZP Departure: 02-10</div>
+                <div class="deadline">Document Deadline: 02-03</div>
+            </div>
+            <div class="voyage-mini" onclick="selectVoyage(3)">
+                <div class="v-num">Voyage 3</div>
+                <div class="v-cargo">TR Units 5-6</div>
+                <div class="v-dates">MZP Arrival: <span class="mzp">02-15</span></div>
+                <div class="v-dates">MZP Departure: 02-19</div>
+                <div class="deadline">Document Deadline: 02-12</div>
+            </div>
+            <div class="voyage-mini" onclick="selectVoyage(4)">
+                <div class="v-num">Voyage 4 (Final)</div>
+                <div class="v-cargo">TR Unit 7</div>
+                <div class="v-dates">MZP Arrival: <span class="mzp">02-24</span></div>
+                <div class="v-dates">MZP Departure: 02-27</div>
+                <div class="deadline">Document Deadline: 02-20</div>
+            </div>
+        </div>
+        
+        <!-- Main Content Grid -->
+        <div class="main-content">
+            <!-- PTW & Loading Documents -->
+            <div class="panel">
+                <h2>📄 PTW & Loading/Offloading Documents <span class="badge critical">15 Mandatory Items</span></h2>
+                <ul class="checklist" id="ptw-checklist">
+                    <li class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox"></div>
+                        <div class="content">
+                            <div class="title">1. Risk Assessment</div>
+                            <div class="desc">AD Port form required</div>
+                        </div>
+                        <span class="tag critical">Mandatory</span>
+                    </li>
+                    <li class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox"></div>
+                        <div class="content">
+                            <div class="title">2. PTW Applicant/Receiver Consent Form</div>
+                            <div class="desc">Permit-to-Work applicant/receiver consent form</div>
+                        </div>
+                        <span class="tag critical">Mandatory</span>
+                    </li>
+                    <li class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox"></div>
+                        <div class="content">
+                            <div class="title">3. PTW Application (Land Oversized & Heavy Load)</div>
+                            <div class="desc">SPMT land operations permit | <strong>2-3 days for approval</strong></div>
+                        </div>
+                        <span class="tag critical">Mandatory</span>
+                    </li>
+                    <li class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox"></div>
+                        <div class="content">
+                            <div class="title">4. Stowage Plan</div>
+                            <div class="desc">Cargo stowage plan</div>
+                        </div>
+                        <span class="tag critical">Mandatory</span>
+                    </li>
+                    <li class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox"></div>
+                        <div class="content">
+                            <div class="title">5. Critical Lifting Plan</div>
+                            <div class="desc">Heavy lift plan</div>
+                        </div>
+                        <span class="tag critical">Mandatory</span>
+                    </li>
+                    <li class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox"></div>
+                        <div class="content">
+                            <div class="title">6. Method Statement (incl. Weather Criteria)</div>
+                            <div class="desc">Method statement | AD Port form | Includes weather criteria</div>
+                        </div>
+                        <span class="tag critical">Mandatory</span>
+                    </li>
+                    <li class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox"></div>
+                        <div class="content">
+                            <div class="title">7. Countdown Plan</div>
+                            <div class="desc">Operation countdown schedule</div>
+                        </div>
+                        <span class="tag important">Important</span>
+                    </li>
+                    <li class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox"></div>
+                        <div class="content">
+                            <div class="title">8. Undertaking Letter</div>
+                            <div class="desc">Undertaking letter</div>
+                        </div>
+                        <span class="tag important">Important</span>
+                    </li>
+                    <li class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox"></div>
+                        <div class="content">
+                            <div class="title">9. Stability Calculation</div>
+                            <div class="desc">Vessel stability calculation | AGI TR.PY system</div>
+                        </div>
+                        <span class="tag critical">Mandatory</span>
+                    </li>
+                    <li class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox"></div>
+                        <div class="content">
+                            <div class="title">10. 3rd Party Equipment Certificates</div>
+                            <div class="desc">Third-party equipment certificates (SPMT, crane, etc.)</div>
+                        </div>
+                        <span class="tag important">Important</span>
+                    </li>
+                    <li class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox"></div>
+                        <div class="content">
+                            <div class="title">11. Marine Warranty Survey (MWS)</div>
+                            <div class="desc">Marine warranty survey | Completed prior to sailing</div>
+                        </div>
+                        <span class="tag critical">Mandatory</span>
+                    </li>
+                    <li class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox"></div>
+                        <div class="content">
+                            <div class="title">12. Mooring Plan</div>
+                            <div class="desc">Mooring plan</div>
+                        </div>
+                        <span class="tag standard">Standard</span>
+                    </li>
+                    <li class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox"></div>
+                        <div class="content">
+                            <div class="title">13. Indemnity Letter - Lifting Plan</div>
+                            <div class="desc">Lifting-related indemnity letter</div>
+                        </div>
+                        <span class="tag important">Important</span>
+                    </li>
+                    <li class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox"></div>
+                        <div class="content">
+                            <div class="title">14. Lashing Plan</div>
+                            <div class="desc">Cargo lashing plan</div>
+                        </div>
+                        <span class="tag critical">Mandatory</span>
+                    </li>
+                    <li class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox"></div>
+                        <div class="content">
+                            <div class="title">15. Indemnity Letter</div>
+                            <div class="desc">General indemnity letter</div>
+                        </div>
+                        <span class="tag important">Important</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- AD Maritime NOC Documents -->
+            <div class="panel">
+                <h2>🚢 AD Maritime NOC Documents <span class="badge info">Required prior to AGI transit</span></h2>
+                <div class="noc-section">
+                    <h4>📌 NOC required before AGI entry</h4>
+                    <p style="font-size: 13px; color: #94a3b8; margin-bottom: 15px;">
+                        Without an AD Maritime NOC, transit from Mina Zayed Port to Al Ghallan Island (AGI) is not permitted
+                    </p>
+                </div>
+                
+                <ul class="checklist" id="noc-checklist" style="margin-top: 20px;">
+                    <li class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox"></div>
+                        <div class="content">
+                            <div class="title">1. Local Trading License</div>
+                            <div class="desc">Local trading license / business registration</div>
+                        </div>
+                        <span class="tag critical">Mandatory</span>
+                    </li>
+                    <li class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox"></div>
+                        <div class="content">
+                            <div class="title">2. Detailed Risk Assessment & Emergency Response Plan</div>
+                            <div class="desc">Detailed risk assessment & emergency response plan</div>
+                        </div>
+                        <span class="tag critical">Mandatory</span>
+                    </li>
+                    <li class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox"></div>
+                        <div class="content">
+                            <div class="title">3. No Objection from Relevant Authorities</div>
+                            <div class="desc">No-objection letter from relevant authorities</div>
+                        </div>
+                        <span class="tag critical">Mandatory</span>
+                    </li>
+                    <li class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox"></div>
+                        <div class="content">
+                            <div class="title">4. Voyage Plan</div>
+                            <div class="desc">Voyage plan (MZP → AGI)</div>
+                        </div>
+                        <span class="tag critical">Mandatory</span>
+                    </li>
+                    <li class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox"></div>
+                        <div class="content">
+                            <div class="title">5. Route Map</div>
+                            <div class="desc">Route map</div>
+                        </div>
+                        <span class="tag important">Important</span>
+                    </li>
+                    <li class="checklist-item" onclick="toggleCheck(this)">
+                        <div class="checkbox"></div>
+                        <div class="content">
+                            <div class="title">6. Contract Award Letter Copy</div>
+                            <div class="desc">Copy of contract award letter</div>
+                        </div>
+                        <span class="tag important">Important</span>
+                    </li>
+                </ul>
+                
+                <!-- Contact Section -->
+                <div class="contact-section">
+                    <h4>📞 Key Contacts</h4>
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <div class="role">OFCO Agency</div>
+                            <div class="name">Nanda Kumar</div>
+                            <div class="email">nkk@ofco-int.com</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="role">OFCO Agency</div>
+                            <div class="name">Das Gopal</div>
+                            <div class="email">das@ofco-int.com</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="role">ADNOC L&S</div>
+                            <div class="name">Mahmoud Ouda</div>
+                            <div class="email">moda@adnoc.ae</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="role">LCT Bushra</div>
+                            <div class="name">Vessel Ops</div>
+                            <div class="email">lct.bushra@khalidfarajshipping.com</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="role">Mammoet</div>
+                            <div class="name">Yulia Frolova</div>
+                            <div class="email">Yulia.Frolova@mammoet.com</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="role">DSV Solutions</div>
+                            <div class="name">Jay Manaloto</div>
+                            <div class="email">jay.manaloto@dsv.com</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Voyage-specific Details -->
+            <div class="panel full-width">
+                <h2>📅 Voyage-wise Document Submission Schedule</h2>
+                
+                <!-- Voyage 1 Detail -->
+                <div class="voyage-detail active" id="voyage-1-detail">
+                    <div class="voyage-header-detail">
+                        <div class="left">
+                            <h3>Voyage 1: TR Units 1-2</h3>
+                            <div class="cargo">TR Bay 4 (Unit 1), TR Bay 3 (Unit 2) | 1st Set SPMT</div>
+                        </div>
+                        <div class="right">
+                            <div class="date-row">
+                                <div class="date-item">
+                                    <div class="label">MZP Prep</div>
+                                    <div class="value">01-27</div>
+                                </div>
+                                <div class="date-item">
+                                    <div class="label">Load-out</div>
+                                    <div class="value">01-29~30</div>
+                                </div>
+                                <div class="date-item">
+                                    <div class="label">MZP Departure</div>
+                                    <div class="value">02-01</div>
+                                </div>
+                                <div class="date-item">
+                                    <div class="label">AGI Arrival</div>
+                                    <div class="value">02-02</div>
+                                </div>
+                            </div>
+                            <div class="deadline-info">⚠️ Document Deadline: 2026-01-23 (4 days before arrival)</div>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-header">
+                            <span class="label">Document readiness</span>
+                            <span class="value" id="v1-progress">0/21</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="v1-progress-bar" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Voyage 2 Detail -->
+                <div class="voyage-detail" id="voyage-2-detail">
+                    <div class="voyage-header-detail">
+                        <div class="left">
+                            <h3>Voyage 2: TR Units 3-4 ⚡ Parallel Operation</h3>
+                            <div class="cargo">TR Bay 2 (Unit 3), TR Bay 1 (Unit 4) | 2nd Set SPMT</div>
+                        </div>
+                        <div class="right">
+                            <div class="date-row">
+                                <div class="date-item">
+                                    <div class="label">MZP Arrival</div>
+                                    <div class="value">02-06</div>
+                                </div>
+                                <div class="date-item">
+                                    <div class="label">Load-out</div>
+                                    <div class="value">02-07~08</div>
+                                </div>
+                                <div class="date-item">
+                                    <div class="label">MZP Departure</div>
+                                    <div class="value">02-10</div>
+                                </div>
+                                <div class="date-item">
+                                    <div class="label">AGI Arrival</div>
+                                    <div class="value">02-11</div>
+                                </div>
+                            </div>
+                            <div class="deadline-info">⚠️ Document Deadline: 2026-02-03 (3 days before arrival)</div>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-header">
+                            <span class="label">Document readiness</span>
+                            <span class="value" id="v2-progress">0/21</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="v2-progress-bar" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Voyage 3 Detail -->
+                <div class="voyage-detail" id="voyage-3-detail">
+                    <div class="voyage-header-detail">
+                        <div class="left">
+                            <h3>Voyage 3: TR Units 5-6</h3>
+                            <div class="cargo">TR Bay 5 (Unit 5), TR Bay 6 (Unit 6) | 1st Set SPMT (Reused)</div>
+                        </div>
+                        <div class="right">
+                            <div class="date-row">
+                                <div class="date-item">
+                                    <div class="label">MZP Arrival</div>
+                                    <div class="value">02-15</div>
+                                </div>
+                                <div class="date-item">
+                                    <div class="label">Load-out</div>
+                                    <div class="value">02-16~17</div>
+                                </div>
+                                <div class="date-item">
+                                    <div class="label">MZP Departure</div>
+                                    <div class="value">02-19</div>
+                                </div>
+                                <div class="date-item">
+                                    <div class="label">AGI Arrival</div>
+                                    <div class="value">02-20</div>
+                                </div>
+                            </div>
+                            <div class="deadline-info">⚠️ Document Deadline: 2026-02-12 (3 days before arrival)</div>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-header">
+                            <span class="label">Document readiness</span>
+                            <span class="value" id="v3-progress">0/21</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="v3-progress-bar" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Voyage 4 Detail -->
+                <div class="voyage-detail" id="voyage-4-detail">
+                    <div class="voyage-header-detail">
+                        <div class="left">
+                            <h3>Voyage 4: TR Unit 7 (Final)</h3>
+                            <div class="cargo">TR Bay 7 | 2nd Set SPMT (Reused) | One-way</div>
+                        </div>
+                        <div class="right">
+                            <div class="date-row">
+                                <div class="date-item">
+                                    <div class="label">MZP Arrival</div>
+                                    <div class="value">02-24</div>
+                                </div>
+                                <div class="date-item">
+                                    <div class="label">Load-out</div>
+                                    <div class="value">02-25</div>
+                                </div>
+                                <div class="date-item">
+                                    <div class="label">MZP Departure</div>
+                                    <div class="value">02-27</div>
+                                </div>
+                                <div class="date-item">
+                                    <div class="label">AGI Arrival</div>
+                                    <div class="value">02-28</div>
+                                </div>
+                            </div>
+                            <div class="deadline-info">⚠️ Document Deadline: 2026-02-20 (4 days before arrival)</div>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-header">
+                            <span class="label">Document readiness</span>
+                            <span class="value" id="v4-progress">0/21</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="v4-progress-bar" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Summary Table -->
+                <table style="width: 100%; border-collapse: collapse; margin-top: 25px; font-size: 13px;">
+                    <thead>
+                        <tr style="background: rgba(15, 33, 55, 0.5);">
+                            <th style="padding: 12px; text-align: left; color: #ffc107; border-bottom: 1px solid rgba(100, 116, 139, 0.3);">Voyage</th>
+                            <th style="padding: 12px; text-align: left; color: #ffc107; border-bottom: 1px solid rgba(100, 116, 139, 0.3);">Cargo</th>
+                            <th style="padding: 12px; text-align: left; color: #ffc107; border-bottom: 1px solid rgba(100, 116, 139, 0.3);">MZP Arrival</th>
+                            <th style="padding: 12px; text-align: left; color: #ffc107; border-bottom: 1px solid rgba(100, 116, 139, 0.3);">Document Deadline</th>
+                            <th style="padding: 12px; text-align: left; color: #ffc107; border-bottom: 1px solid rgba(100, 116, 139, 0.3);">Pre-arrival Meeting</th>
+                            <th style="padding: 12px; text-align: left; color: #ffc107; border-bottom: 1px solid rgba(100, 116, 139, 0.3);">Land Permit Application</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 12px; border-bottom: 1px solid rgba(100, 116, 139, 0.2);"><strong>1st</strong></td>
+                            <td style="padding: 12px; border-bottom: 1px solid rgba(100, 116, 139, 0.2);">TR 1-2</td>
+                            <td style="padding: 12px; border-bottom: 1px solid rgba(100, 116, 139, 0.2); color: #60a5fa; font-weight: bold;">01-27</td>
+                            <td style="padding: 12px; border-bottom: 1px solid rgba(100, 116, 139, 0.2); color: #f87171; font-weight: bold;">01-23</td>
+                            <td style="padding: 12px; border-bottom: 1px solid rgba(100, 116, 139, 0.2);">01-24 ~ 01-26</td>
+                            <td style="padding: 12px; border-bottom: 1px solid rgba(100, 116, 139, 0.2);">by 01-22</td>
+                        </tr>
+                        <tr style="background: rgba(100, 255, 218, 0.03);">
+                            <td style="padding: 12px; border-bottom: 1px solid rgba(100, 116, 139, 0.2);"><strong>2nd</strong> ⚡</td>
+                            <td style="padding: 12px; border-bottom: 1px solid rgba(100, 116, 139, 0.2);">TR 3-4</td>
+                            <td style="padding: 12px; border-bottom: 1px solid rgba(100, 116, 139, 0.2); color: #60a5fa; font-weight: bold;">02-06</td>
+                            <td style="padding: 12px; border-bottom: 1px solid rgba(100, 116, 139, 0.2); color: #f87171; font-weight: bold;">02-03</td>
+                            <td style="padding: 12px; border-bottom: 1px solid rgba(100, 116, 139, 0.2);">02-04 ~ 02-05</td>
+                            <td style="padding: 12px; border-bottom: 1px solid rgba(100, 116, 139, 0.2);">by 02-02</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border-bottom: 1px solid rgba(100, 116, 139, 0.2);"><strong>3rd</strong></td>
+                            <td style="padding: 12px; border-bottom: 1px solid rgba(100, 116, 139, 0.2);">TR 5-6</td>
+                            <td style="padding: 12px; border-bottom: 1px solid rgba(100, 116, 139, 0.2); color: #60a5fa; font-weight: bold;">02-15</td>
+                            <td style="padding: 12px; border-bottom: 1px solid rgba(100, 116, 139, 0.2); color: #f87171; font-weight: bold;">02-12</td>
+                            <td style="padding: 12px; border-bottom: 1px solid rgba(100, 116, 139, 0.2);">02-13 ~ 02-14</td>
+                            <td style="padding: 12px; border-bottom: 1px solid rgba(100, 116, 139, 0.2);">by 02-11</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border-bottom: 1px solid rgba(100, 116, 139, 0.2);"><strong>4th</strong></td>
+                            <td style="padding: 12px; border-bottom: 1px solid rgba(100, 116, 139, 0.2);">TR 7</td>
+                            <td style="padding: 12px; border-bottom: 1px solid rgba(100, 116, 139, 0.2); color: #60a5fa; font-weight: bold;">02-24</td>
+                            <td style="padding: 12px; border-bottom: 1px solid rgba(100, 116, 139, 0.2); color: #f87171; font-weight: bold;">02-20</td>
+                            <td style="padding: 12px; border-bottom: 1px solid rgba(100, 116, 139, 0.2);">02-21 ~ 02-23</td>
+                            <td style="padding: 12px; border-bottom: 1px solid rgba(100, 116, 139, 0.2);">by 02-19</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Print Button -->
+        <button class="print-btn" onclick="window.print()">🖨️ Print</button>
+    </div>
+    
+    <script>
+        // Toggle checkbox
+        function toggleCheck(item) {
+            item.classList.toggle('checked');
+            updateProgress();
+        }
+        
+        // Select voyage
+        function selectVoyage(num) {
+            // Update mini cards
+            document.querySelectorAll('.voyage-mini').forEach((card, i) => {
+                card.classList.toggle('active', i === num - 1);
+            });
+            
+            // Update detail sections
+            document.querySelectorAll('.voyage-detail').forEach((detail, i) => {
+                detail.classList.toggle('active', i === num - 1);
+            });
+        }
+        
+        // Update progress
+        function updateProgress() {
+            const totalItems = document.querySelectorAll('.checklist-item').length;
+            const checkedItems = document.querySelectorAll('.checklist-item.checked').length;
+            const percent = Math.round((checkedItems / totalItems) * 100);
+            
+            // Update all voyage progress bars
+            for (let i = 1; i <= 4; i++) {
+                const progressText = document.getElementById(`v${i}-progress`);
+                const progressBar = document.getElementById(`v${i}-progress-bar`);
+                if (progressText && progressBar) {
+                    progressText.textContent = `${checkedItems}/${totalItems}`;
+                    progressBar.style.width = `${percent}%`;
+                }
+            }
+        }
+        
+        // Initialize
+        updateProgress();
+    </script>
+</body>
+</html>

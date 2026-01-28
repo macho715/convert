@@ -1,0 +1,14 @@
+# HVDC 프로젝트 필수 패키지
+pandas>=1.5.0
+numpy>=1.21.0
+matplotlib>=3.5.0
+seaborn>=0.11.0
+networkx>=2.8.0
+openpyxl>=3.0.0
+pathlib2>=2.3.0
+python-dateutil>=2.8.0
+pytz>=2022.1
+tqdm>=4.64.0
+
+# PST 스캔 (libpst 기반)
+# libpff-python은 수동 설치 필요: pip install libpff-python

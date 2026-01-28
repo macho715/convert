@@ -1,0 +1,383 @@
+[
+  {
+    "thread_id": "thread_0",
+    "members": [
+      5,
+      465,
+      466,
+      467,
+      468,
+      469,
+      471
+    ],
+    "start_dt": "2024-10-07T13:28:45+04:00",
+    "end_dt": "2024-10-18T08:21:07+04:00",
+    "subject_norm": "(TRIP-24) SAILAWAY SURVEY - MW4 TARGET JETTY MUSSAFAH",
+    "cases": [
+      "HVDC-ADOPT-TRIP-24",
+      "HVDC-ADOPT-TRIP-25",
+      "HVDC-ADOPT-TRIP-26",
+      "HVDC-ADOPT-TRIP-28",
+      "HVDC-JOPETWIL-71",
+      "HVDC-JOPETWIL-71-CHANGE"
+    ],
+    "sites": [],
+    "lpos": [],
+    "confidence": 0.225
+  },
+  {
+    "thread_id": "thread_1",
+    "members": [
+      14,
+      27
+    ],
+    "start_dt": "2024-10-01T14:47:48+04:00",
+    "end_dt": "2024-10-02T14:57:25+04:00",
+    "subject_norm": "HVDC-AGI-GRM-J71-023- JUMBOBAGS (300TON) - LCT JOPETWIL 71",
+    "cases": [
+      "HVDC-AGI-GRM-J71-023",
+      "HVDC-AGI-GRM-J71-023-",
+      "HVDC-GRM-OFCO",
+      "J71-023",
+      "SCT-HVDC"
+    ],
+    "sites": [
+      "AGI"
+    ],
+    "lpos": [],
+    "confidence": 0.5857
+  },
+  {
+    "thread_id": "thread_2",
+    "members": [
+      16,
+      30,
+      57,
+      203,
+      212,
+      236,
+      237,
+      262,
+      278,
+      294,
+      472,
+      473,
+      477,
+      480,
+      490,
+      492,
+      496
+    ],
+    "start_dt": "2024-10-01T15:58:15+04:00",
+    "end_dt": "2024-10-31T16:49:04+04:00",
+    "subject_norm": "ALS - REQUEST FOR QUOTATION \"OUTDOOR YARD (VP-24 : 4000SQM)",
+    "cases": [
+      "HVDC-ADOPT-VP-24"
+    ],
+    "sites": [],
+    "lpos": [],
+    "confidence": 0.408
+  },
+  {
+    "thread_id": "thread_3",
+    "members": [
+      25,
+      26,
+      483
+    ],
+    "start_dt": "2024-10-02T10:56:34+04:00",
+    "end_dt": "2024-10-02T14:09:57+04:00",
+    "subject_norm": "[HVDC-ALS] - RFQ - ( RENTAL OF 6 X 20' BASKET HALF HEIGHT) 2024.09.29",
+    "cases": [
+      "HVDC-ALS"
+    ],
+    "sites": [],
+    "lpos": [],
+    "confidence": 0.625
+  },
+  {
+    "thread_id": "thread_4",
+    "members": [
+      28,
+      36
+    ],
+    "start_dt": "2024-10-02T14:48:07+04:00",
+    "end_dt": "2024-10-03T07:38:54+04:00",
+    "subject_norm": "(재정리 요청) - RE: [DOCU.REVIEW] PRL-SHU-025-O (HE-0214) CAPACITORS / CNTR",
+    "cases": [
+      "HVDC-ADOPT-HE-0214"
+    ],
+    "sites": [],
+    "lpos": [],
+    "confidence": 0.95
+  },
+  {
+    "thread_id": "thread_5",
+    "members": [
+      47,
+      108
+    ],
+    "start_dt": "2024-10-07T08:17:38+04:00",
+    "end_dt": "2024-10-07T08:19:11+04:00",
+    "subject_norm": "(CHECKING) PAYMENT SCHEDULE RE: INVOICE SUBMISSION: AD_0008283 PRJ118586 - MWS FOR CONDITION SURVEY AND SAILAWAY OF LCT 'JOPETWIL 71' FOR PO: SCT-19LT-PJC-LPO-292",
+    "cases": [
+      "SCT-19LT-PJC-LPO-292"
+    ],
+    "sites": [],
+    "lpos": [
+      "LPO-292"
+    ],
+    "confidence": 0.7
+  },
+  {
+    "thread_id": "thread_6",
+    "members": [
+      51,
+      227,
+      274
+    ],
+    "start_dt": "2024-10-08T08:09:04+04:00",
+    "end_dt": "2024-10-30T11:30:43+04:00",
+    "subject_norm": "[CUSTOM] [HVDC-ADOPT-SCT-0015] 5000735555 / EHV CABLE /LS전선/BUSAN / CNTR_40'HSR(OWH)X9",
+    "cases": [
+      "HVDC-ADOPT-SCT-0015",
+      "SCT-0015"
+    ],
+    "sites": [
+      "MIRFA"
+    ],
+    "lpos": [],
+    "confidence": 0.5
+  },
+  {
+    "thread_id": "thread_7",
+    "members": [
+      58,
+      76,
+      90,
+      99,
+      100,
+      101,
+      112,
+      114,
+      149,
+      158,
+      159,
+      218,
+      251,
+      295,
+      416,
+      464
+    ],
+    "start_dt": "2024-10-01T14:27:26+04:00",
+    "end_dt": "2024-10-31T16:15:37+04:00",
+    "subject_norm": "HVDC-DAS-GWT-MOSB-004 / SCT-19LT-PJC-LPO-358 / GREEN WATER - GREASE TRAP & CHEMICALS - SEP 2024",
+    "cases": [
+      "HVDC-ADOPT-OP-0328",
+      "HVDC-ADOPT-SIM-0005",
+      "HVDC-DAS",
+      "HVDC-DAS-GWT-MOSB-004",
+      "SCT-19LT-PJC-LPO-358"
+    ],
+    "sites": [
+      "AGI",
+      "DAS"
+    ],
+    "lpos": [
+      "LPO-358"
+    ],
+    "confidence": 0.3529
+  },
+  {
+    "thread_id": "thread_8",
+    "members": [
+      75,
+      130,
+      131,
+      136
+    ],
+    "start_dt": "2024-10-11T16:36:33+04:00",
+    "end_dt": "2024-10-15T10:54:46+04:00",
+    "subject_norm": "(보고): [EXTERNAL][HVDC-OFCO] REQUEST FOR QUOTATION OF LCT TO DAS",
+    "cases": [
+      "HVDC-OFCO"
+    ],
+    "sites": [
+      "DAS"
+    ],
+    "lpos": [],
+    "confidence": 0.5714
+  },
+  {
+    "thread_id": "thread_9",
+    "members": [
+      83,
+      84,
+      85,
+      394
+    ],
+    "start_dt": "2024-10-13T09:34:42+04:00",
+    "end_dt": "2024-10-13T10:18:06+04:00",
+    "subject_norm": "(CHECKING) [PVC배관자재 보관조건 확인요청] RE: MATERIALS LIST - MECHANICAL CONTAINER - AREA 2A (HDMU-4744260)",
+    "cases": [
+      "HVDC-ADOPT-HDMU-4744260"
+    ],
+    "sites": [
+      "AGI"
+    ],
+    "lpos": [],
+    "confidence": 0.6143
+  },
+  {
+    "thread_id": "thread_10",
+    "members": [
+      133,
+      155
+    ],
+    "start_dt": "2024-10-15T07:29:07+04:00",
+    "end_dt": "2024-10-16T16:42:26+04:00",
+    "subject_norm": "[HVDC-KFS] RFQ - LCT(ZEHOOR) CHARTERING - DAS - REVISED COMMERCIAL OFFER",
+    "cases": [
+      "HVDC-KFS"
+    ],
+    "sites": [
+      "DAS"
+    ],
+    "lpos": [],
+    "confidence": 0.95
+  },
+  {
+    "thread_id": "thread_11",
+    "members": [
+      160,
+      178,
+      388
+    ],
+    "start_dt": "2024-10-05T12:12:18+04:00",
+    "end_dt": "2024-10-20T09:55:20+04:00",
+    "subject_norm": "(REMINDER!!) [HVDC-MOSB] FORTCARE TECHNICAL_SCT-19LT-PJC-LPO-338_40FT FLAT RACK CONTAINER WITH OFFSHORE APPROVED CERTIFICATES",
+    "cases": [
+      "HVDC-MOSB"
+    ],
+    "sites": [],
+    "lpos": [
+      "LPO-338"
+    ],
+    "confidence": 0.3893
+  },
+  {
+    "thread_id": "thread_12",
+    "members": [
+      161,
+      166,
+      187,
+      255,
+      384,
+      429,
+      434,
+      437
+    ],
+    "start_dt": "2024-10-17T10:32:03+04:00",
+    "end_dt": "2024-10-28T15:49:51+04:00",
+    "subject_norm": "(긴급요청) PRL-ZAK-009-O3 (HE-0205) AGI - TRANSFORMER / BULK",
+    "cases": [
+      "HVDC-ADOPT-HE-0205"
+    ],
+    "sites": [
+      "AGI"
+    ],
+    "lpos": [],
+    "confidence": 0.6561
+  },
+  {
+    "thread_id": "thread_13",
+    "members": [
+      198,
+      201
+    ],
+    "start_dt": "2024-10-21T17:15:34+04:00",
+    "end_dt": "2024-10-22T09:12:18+04:00",
+    "subject_norm": "[HVDC-SHU] SHUWEIHAT SITE WAREHOUSE",
+    "cases": [
+      "HVDC-SHU"
+    ],
+    "sites": [],
+    "lpos": [],
+    "confidence": 0.95
+  },
+  {
+    "thread_id": "thread_14",
+    "members": [
+      231,
+      491
+    ],
+    "start_dt": "2024-10-23T09:36:05+04:00",
+    "end_dt": "2024-10-24T16:29:28+04:00",
+    "subject_norm": "FYI",
+    "cases": [
+      "SCT-ADL-G-LT-00004"
+    ],
+    "sites": [
+      "AGI",
+      "GHALLAN"
+    ],
+    "lpos": [],
+    "confidence": 0.2929
+  },
+  {
+    "thread_id": "thread_15",
+    "members": [
+      233,
+      478,
+      479
+    ],
+    "start_dt": "2024-10-10T17:08:06+04:00",
+    "end_dt": "2024-10-25T08:45:30+04:00",
+    "subject_norm": "ALS - DAMAGE NOTIFICATION AND REPAIR PLAN FOR FLATBED TRAILER # 48383 / LCT BIMA (MUS-3001)",
+    "cases": [
+      "HVDC-ADOPT-MUS-3001"
+    ],
+    "sites": [],
+    "lpos": [],
+    "confidence": 0.6
+  },
+  {
+    "thread_id": "thread_16",
+    "members": [
+      260,
+      288
+    ],
+    "start_dt": "2024-10-29T15:27:59+04:00",
+    "end_dt": "2024-10-31T08:48:37+04:00",
+    "subject_norm": "(DSV) GOT37000027 & GOT37000029 / HVDC-ADOPT-HE-0186, 0202 / HVDC-ADOPT-HE-0204",
+    "cases": [
+      "HVDC-ADOPT-HE-0186",
+      "HVDC-ADOPT-HE-0204"
+    ],
+    "sites": [
+      "DAS",
+      "MIR"
+    ],
+    "lpos": [],
+    "confidence": 0.5857
+  },
+  {
+    "thread_id": "thread_17",
+    "members": [
+      265,
+      266,
+      415
+    ],
+    "start_dt": "2024-10-29T11:38:49+04:00",
+    "end_dt": "2024-10-29T13:21:04+04:00",
+    "subject_norm": "(2) SCT-COMQ-000005: SCT-COMQ-000005_REQUEST FOR REIMBURSEMENT OF UAE CUSTOMS DUTIES (SAMSUNG) ACNXREF<DC2Y5FCBTRD8ZOT25LD13>",
+    "cases": [
+      "SCT-COMQ-",
+      "SCT-COMQ-000004",
+      "SCT-COMQ-000005"
+    ],
+    "sites": [],
+    "lpos": [],
+    "confidence": 0.65
+  }
+]

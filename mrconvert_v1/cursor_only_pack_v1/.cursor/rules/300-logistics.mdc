@@ -1,0 +1,8 @@
+---
+alwaysApply: false
+globs: ["**/*"]
+tags: ["logistics"]
+---
+- ΔRate 10.00%, ETA 24.00h, Pressure ≤ 4.00 t/m², Cert 30d
+- Human Gate: FANR/MOIAT approvals for UAE compliance
+- Include 3PL/WMS/Incoterms/HS/berth/DEM-DET/stowage examples when relevant

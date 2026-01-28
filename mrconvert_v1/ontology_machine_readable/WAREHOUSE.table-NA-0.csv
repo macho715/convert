@@ -1,0 +1,6 @@
+Layer,Ontology 객체/속성,소스 열(예),역할/효과
+장소모델,"Warehouse(Indoor/Outdoor/AAA/MZP/MOSB), Site(AGI/DAS/MIR/SHU)","DSV Indoor/Outdoor, AAA Storage, MOSB, AGI…",창고/현장 계층 표현(Indoor/Outdoor/Offshore) → 의미론적 위치 집계
+이벤트,TransportEvent + hasDate/hasLocation/hasQuantity,"창고/현장 날짜, Pkg/CBM","“언제, 어디로, 몇 개/면적” 이동을 그래프에 기록"
+흐름,hasLogisticsFlowCode(0~4),wh handling 또는 창고 방문 횟수,Port→WH→(MOSB)→Site 경로를 정규화(0=Pre-Arrival…4)
+재고,StockSnapshot,"Status_Location, Status_Location_Date",월말 스냅샷/누계 재고 산출의 기준 노드
+비용,Invoice/InvoiceLineItem + OFCO 매핑,Description/Rate/Amount,AT-COST/CONTRACT 등 비용센터 자동 분류

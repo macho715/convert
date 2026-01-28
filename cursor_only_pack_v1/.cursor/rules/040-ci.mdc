@@ -1,0 +1,7 @@
+---
+alwaysApply: true
+---
+- Coverage ≥ 85.00 (fail_under)
+- Lint/Format 0 warnings (ruff/black/isort)
+- Security: bandit High=0; pip-audit --strict pass
+- Pipeline ≤ 5m (improve if exceeded)

@@ -1,0 +1,219 @@
+/* Premium Dashboard Theme */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+    --primary-color: #2563eb;
+    --primary-light: #eff6ff;
+    --secondary-color: #475569;
+    --background-color: #f8fafc;
+    --card-bg: #ffffff;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --border-color: #e2e8f0;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --accent-gradient: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+}
+
+html,
+body,
+[class*="css"] {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-primary);
+    background-color: var(--background-color);
+}
+
+/* Streamlit Overrides */
+.stApp {
+    background-color: var(--background-color);
+}
+
+[data-testid="stSidebar"] {
+    background-color: #ffffff;
+    border-right: 1px solid var(--border-color);
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: #0f172a;
+}
+
+/* Card Style */
+.search-card {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.search-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: #cbd5e1;
+}
+
+.search-card.context-card {
+    background-color: #f8fafc;
+    border-left: 4px solid #94a3b8;
+}
+
+.search-card.direct-card {
+    border-left: 4px solid var(--primary-color);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+}
+
+.card-subject {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #0f172a;
+    line-height: 1.4;
+    margin-bottom: 0.25rem;
+}
+
+.card-meta {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.card-snippet {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.925rem;
+    line-height: 1.6;
+    color: #334155;
+    background-color: #f1f5f9;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    border-left: 3px solid #cbd5e1;
+}
+
+.card-snippet strong {
+    color: #0f172a;
+    font-weight: 600;
+    background-color: #fef3c7;
+    padding: 0 2px;
+    border-radius: 2px;
+}
+
+.card-tags {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.card-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.tag-case {
+    background-color: #eff6ff;
+    color: #1d4ed8;
+    border: 1px solid #dbeafe;
+}
+
+.tag-site {
+    background-color: #f0fdf4;
+    color: #15803d;
+    border: 1px solid #dcfce7;
+}
+
+.tag-lpo {
+    background-color: #fff7ed;
+    color: #c2410c;
+    border: 1px solid #ffedd5;
+}
+
+.tag-score {
+    background-color: #fdf4ff;
+    color: #86198f;
+    border: 1px solid #fae8ff;
+}
+
+.tag-intent {
+    background-color: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fee2e2;
+}
+
+/* Metrics */
+[data-testid="stMetricValue"] {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+[data-testid="stMetricLabel"] {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #64748b;
+}
+
+/* Buttons */
+button[kind="primary"] {
+    background: var(--accent-gradient);
+    border: none;
+    box-shadow: var(--shadow-sm);
+    transition: opacity 0.2s;
+}
+
+button[kind="primary"]:hover {
+    opacity: 0.9;
+}
+
+/* Inputs */
+input[type="text"] {
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    padding: 0.5rem;
+}
+
+input[type="text"]:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}

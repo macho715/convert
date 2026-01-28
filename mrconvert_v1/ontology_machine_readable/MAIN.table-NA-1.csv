@@ -1,0 +1,5 @@
+트리거(중단),ZERO 액션,재개 조건
+eBL 비정합(DCSA 3.0 스키마 오류),"Berth 확정 보류, 선적명세 수동검증",eBL 재검증 Pass
+BOE 필수필드 미충족(WCO DM),"신고중단, Shipper 보완요청",필드 완전성 ≥ 98.00%
+규제제품 Cert 부재(MOIAT/FANR),DO/게이트패스 발급 금지,유효 CoC/Permit 업로드
+DET 임계 초과 예측(>AED x/TEU),내륙 인도·반납 계획 재조정,비용 추정 < 임계값

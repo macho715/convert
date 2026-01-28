@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "mean_conf": 0.0,
+    "table_acc": 0.0,
+    "numeric_integrity": 1.0
+  },
+  "data": {
+    "DocType": "CIPL",
+    "Invoice_No": "PRL-MIR-032-A2",
+    "Invoice_Date": "2025-12-29",
+    "Project_No": "AD164",
+    "HS_Code": "85371098",
+    "Incoterm": "FOB",
+    "POL": "Chennai International (MAA), India",
+    "POD": "Khalifa Port, Abu Dhabi, UAE",
+    "Carrier": "EK",
+    "Sailing_On_Or_About": "30-Dec-25",
+    "Currency": "SEK",
+    "Packages": 3.0,
+    "Net_Weight_kg": 390.0,
+    "Gross_Weight_kg": 778.0,
+    "Volume_CBM": 4.02,
+    "Total_FOB": 4339743.93,
+    "Freight": 263.15,
+    "Insurance": 433974.39,
+    "Total_CIF": 4773981.47,
+    "Ref_No": "HVDC-ADOPT-HE-0537",
+    "PO_No": "3797122530,32,34,35,36,37,39,40 &41"
+  },
+  "excel": {
+    "file": "CIPL_PRL-MIR-032-A2_2026-01-06.xlsx",
+    "template": "manual-openpyxl",
+    "status": "PASS",
+    "kpi_grade": "WARN"
+  }
+}

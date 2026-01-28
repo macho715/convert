@@ -1,0 +1,5 @@
+preload_docs:
+  - path: "Cursor_Project_AutoSetup_Guide.md"
+    open_on_start: true
+  - path: "README.md"
+    open_on_start: true

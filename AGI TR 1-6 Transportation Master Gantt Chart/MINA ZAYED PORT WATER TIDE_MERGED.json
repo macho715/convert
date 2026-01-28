@@ -1,0 +1,521 @@
+{
+  "source": "MINA ZAYED PORT WATER TIDE",
+  "generated_at": "2026-01-08T00:37:40.090041",
+  "date_range": {
+    "start": "2026-01-06",
+    "end": "2026-03-31"
+  },
+  "total_records": 85,
+  "tide_records": [
+    {
+      "date": "2026-01-06",
+      "high_tide_window": "09:00-13:00",
+      "max_height_m": 2.06,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-01-07",
+      "high_tide_window": "10:00-14:00",
+      "max_height_m": 1.94,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-01-08",
+      "high_tide_window": "10:00-14:00",
+      "max_height_m": 1.79,
+      "risk_level": "MEDIUM"
+    },
+    {
+      "date": "2026-01-09",
+      "high_tide_window": "10:00-14:00",
+      "max_height_m": 1.67,
+      "risk_level": "MEDIUM"
+    },
+    {
+      "date": "2026-01-10",
+      "high_tide_window": "09:00-12:00",
+      "max_height_m": 1.48,
+      "risk_level": "HIGH"
+    },
+    {
+      "date": "2026-01-11",
+      "high_tide_window": "09:00-13:00",
+      "max_height_m": 1.33,
+      "risk_level": "HIGH"
+    },
+    {
+      "date": "2026-01-12",
+      "high_tide_window": "10:00-14:00",
+      "max_height_m": 1.8,
+      "risk_level": "MEDIUM"
+    },
+    {
+      "date": "2026-01-13",
+      "high_tide_window": "10:00-14:00",
+      "max_height_m": 1.83,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-01-14",
+      "high_tide_window": "10:00-15:00",
+      "max_height_m": 1.91,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-01-15",
+      "high_tide_window": "11:00-15:00",
+      "max_height_m": 1.95,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-01-16",
+      "high_tide_window": "11:00-15:00",
+      "max_height_m": 1.99,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-01-17",
+      "high_tide_window": "11:00-15:00",
+      "max_height_m": 2.02,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-01-18",
+      "high_tide_window": "11:00-15:00",
+      "max_height_m": 2.05,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-01-19",
+      "high_tide_window": "12:00-16:00",
+      "max_height_m": 2.01,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-01-20",
+      "high_tide_window": "12:00-16:00",
+      "max_height_m": 1.97,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-01-21",
+      "high_tide_window": "12:00-16:00",
+      "max_height_m": 1.88,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-01-22",
+      "high_tide_window": "13:00-17:00",
+      "max_height_m": 1.91,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-01-23",
+      "high_tide_window": "13:00-17:00",
+      "max_height_m": 1.84,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-01-24",
+      "high_tide_window": "04:00-06:00, 14:00-17:00",
+      "max_height_m": 1.75,
+      "risk_level": "MEDIUM"
+    },
+    {
+      "date": "2026-01-25",
+      "high_tide_window": "04:00-06:00, 14:00-17:00",
+      "max_height_m": 1.82,
+      "risk_level": "MEDIUM"
+    },
+    {
+      "date": "2026-01-26",
+      "high_tide_window": "04:00-07:00, 15:00-17:00",
+      "max_height_m": 1.91,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-01-27",
+      "high_tide_window": "05:00-08:00, 15:00-18:00",
+      "max_height_m": 1.97,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-01-28",
+      "high_tide_window": "05:00-08:00, 15:00-18:00",
+      "max_height_m": 2.0,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-01-29",
+      "high_tide_window": "06:00-09:00, 15:00-18:00",
+      "max_height_m": 2.03,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-01-30",
+      "high_tide_window": "06:00-10:00, 16:00-18:00",
+      "max_height_m": 2.05,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-01-31",
+      "high_tide_window": "07:00-10:00, 16:00-19:00",
+      "max_height_m": 2.07,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-02-01",
+      "high_tide_window": "08:00-12:00",
+      "max_height_m": 2.09,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-02-02",
+      "high_tide_window": "09:00-13:00",
+      "max_height_m": 2.08,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-02-03",
+      "high_tide_window": "10:00-14:00",
+      "max_height_m": 2.04,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-02-04",
+      "high_tide_window": "10:00-14:00",
+      "max_height_m": 1.97,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-02-05",
+      "high_tide_window": "10:00-14:00",
+      "max_height_m": 1.85,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-02-06",
+      "high_tide_window": "11:00-14:00",
+      "max_height_m": 1.74,
+      "risk_level": "MEDIUM"
+    },
+    {
+      "date": "2026-02-07",
+      "high_tide_window": "11:00-14:00",
+      "max_height_m": 1.58,
+      "risk_level": "MEDIUM"
+    },
+    {
+      "date": "2026-02-08",
+      "high_tide_window": "11:00-14:00",
+      "max_height_m": 1.41,
+      "risk_level": "HIGH"
+    },
+    {
+      "date": "2026-02-09",
+      "high_tide_window": "11:00-14:00",
+      "max_height_m": 1.28,
+      "risk_level": "HIGH"
+    },
+    {
+      "date": "2026-02-10",
+      "high_tide_window": "11:00-14:00",
+      "max_height_m": 1.15,
+      "risk_level": "HIGH"
+    },
+    {
+      "date": "2026-02-11",
+      "high_tide_window": "11:00-14:00",
+      "max_height_m": 1.07,
+      "risk_level": "HIGH"
+    },
+    {
+      "date": "2026-02-12",
+      "high_tide_window": "11:00-15:00",
+      "max_height_m": 1.84,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-02-13",
+      "high_tide_window": "11:00-15:00",
+      "max_height_m": 1.84,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-02-14",
+      "high_tide_window": "11:00-15:00",
+      "max_height_m": 1.87,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-02-15",
+      "high_tide_window": "12:00-15:00",
+      "max_height_m": 1.9,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-02-16",
+      "high_tide_window": "12:00-15:00",
+      "max_height_m": 1.94,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-02-17",
+      "high_tide_window": "12:00-15:00",
+      "max_height_m": 1.97,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-02-18",
+      "high_tide_window": "12:00-16:00",
+      "max_height_m": 1.96,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-02-19",
+      "high_tide_window": "12:00-16:00",
+      "max_height_m": 1.91,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-02-20",
+      "high_tide_window": "13:00-16:00",
+      "max_height_m": 1.84,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-02-21",
+      "high_tide_window": "13:00-17:00",
+      "max_height_m": 1.72,
+      "risk_level": "MEDIUM"
+    },
+    {
+      "date": "2026-02-22",
+      "high_tide_window": "13:00-17:00",
+      "max_height_m": 1.56,
+      "risk_level": "MEDIUM"
+    },
+    {
+      "date": "2026-02-23",
+      "high_tide_window": "04:00-06:00, 14:00-17:00",
+      "max_height_m": 1.99,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-02-24",
+      "high_tide_window": "05:00-08:00, 15:00-18:00",
+      "max_height_m": 2.01,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-02-25",
+      "high_tide_window": "05:00-09:00, 15:00-18:00",
+      "max_height_m": 2.01,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-02-26",
+      "high_tide_window": "06:00-09:00, 15:00-18:00",
+      "max_height_m": 1.98,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-02-27",
+      "high_tide_window": "06:00-09:00, 15:00-18:00",
+      "max_height_m": 1.92,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-02-28",
+      "high_tide_window": "07:00-10:00, 16:00-18:00",
+      "max_height_m": 1.93,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-03-01",
+      "high_tide_window": "10:36-12:30",
+      "max_height_m": 1.95,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-03-02",
+      "high_tide_window": "11:35-13:33",
+      "max_height_m": 1.96,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-03-03",
+      "high_tide_window": "12:35-14:17",
+      "max_height_m": 1.95,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-03-04",
+      "high_tide_window": "13:48-14:24",
+      "max_height_m": 1.92,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-03-05",
+      "high_tide_window": "",
+      "max_height_m": 1.84,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-03-06",
+      "high_tide_window": "",
+      "max_height_m": 1.83,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-03-07",
+      "high_tide_window": "",
+      "max_height_m": 1.87,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-03-08",
+      "high_tide_window": "",
+      "max_height_m": 1.9,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-03-09",
+      "high_tide_window": "04:00-05:00",
+      "max_height_m": 1.9,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-03-10",
+      "high_tide_window": "04:48-05:10",
+      "max_height_m": 1.91,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-03-11",
+      "high_tide_window": "",
+      "max_height_m": 1.88,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-03-12",
+      "high_tide_window": "",
+      "max_height_m": 1.85,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-03-13",
+      "high_tide_window": "",
+      "max_height_m": 1.8,
+      "risk_level": "MEDIUM"
+    },
+    {
+      "date": "2026-03-14",
+      "high_tide_window": "",
+      "max_height_m": 1.76,
+      "risk_level": "MEDIUM"
+    },
+    {
+      "date": "2026-03-15",
+      "high_tide_window": "",
+      "max_height_m": 1.76,
+      "risk_level": "MEDIUM"
+    },
+    {
+      "date": "2026-03-16",
+      "high_tide_window": "",
+      "max_height_m": 1.79,
+      "risk_level": "MEDIUM"
+    },
+    {
+      "date": "2026-03-17",
+      "high_tide_window": "",
+      "max_height_m": 1.82,
+      "risk_level": "MEDIUM"
+    },
+    {
+      "date": "2026-03-18",
+      "high_tide_window": "",
+      "max_height_m": 1.84,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-03-19",
+      "high_tide_window": "",
+      "max_height_m": 1.82,
+      "risk_level": "MEDIUM"
+    },
+    {
+      "date": "2026-03-20",
+      "high_tide_window": "",
+      "max_height_m": 1.82,
+      "risk_level": "MEDIUM"
+    },
+    {
+      "date": "2026-03-21",
+      "high_tide_window": "01:56-03:09",
+      "max_height_m": 1.92,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-03-22",
+      "high_tide_window": "01:49-04:17",
+      "max_height_m": 2.02,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-03-23",
+      "high_tide_window": "02:00-05:10",
+      "max_height_m": 2.07,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-03-24",
+      "high_tide_window": "02:27-05:56",
+      "max_height_m": 2.1,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-03-25",
+      "high_tide_window": "03:08-06:35",
+      "max_height_m": 2.07,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-03-26",
+      "high_tide_window": "04:18-07:11",
+      "max_height_m": 2.0,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-03-27",
+      "high_tide_window": "",
+      "max_height_m": 1.9,
+      "risk_level": "LOW"
+    },
+    {
+      "date": "2026-03-28",
+      "high_tide_window": "",
+      "max_height_m": 1.81,
+      "risk_level": "MEDIUM"
+    },
+    {
+      "date": "2026-03-29",
+      "high_tide_window": "",
+      "max_height_m": 1.78,
+      "risk_level": "MEDIUM"
+    },
+    {
+      "date": "2026-03-30",
+      "high_tide_window": "",
+      "max_height_m": 1.78,
+      "risk_level": "MEDIUM"
+    },
+    {
+      "date": "2026-03-31",
+      "high_tide_window": "",
+      "max_height_m": 1.79,
+      "risk_level": "MEDIUM"
+    }
+  ]
+}

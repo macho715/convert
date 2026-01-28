@@ -1,0 +1,66 @@
+ID	WBS	Task	Phase	Owner	Start	End	Duration_days	Notes
+MOB-001	A0	Mobilization (crew/equipment)	Mobilization	Mammoet	2026-01-15	2026-01-15	1.0	SPMT + grillage in MZP
+PREP-001	A0	LCT deck preparations + fenders + mooring	Deck Prep	Mammoet/KFS	2026-01-16	2026-01-18	3.0	MWS pre-check ready
+V1	A1	VOYAGE 1: TR1 Transport	Marine Transport	SCT/Mammoet/KFS	2026-01-19	2026-01-19	0.0	TIDE>=1.90 required (Loadout start)
+LO-01	A1	Loadout TR1 onto LCT	MZP Loadout	Mammoet	2026-01-19	2026-01-19	1.0	OK 2.01m (12:00-16:00)
+SF-01	A1	Sea fastening + MWS checks (TR1)	Sea Fastening	Mammoet/KFS/MWS	2026-01-20	2026-01-20	1.0	Lashing + survey
+SAIL-01	A1	Sail-away MZP→AGI	Sea Passage	LCT	2026-01-21	2026-01-21	1.0	WX gate
+UL-01-1	A1	Unload TR1 at AGI (1 unit/day)	AGI Arrival	Mammoet	2026-01-22	2026-01-22	1.0	RORO + ramp
+TURN-01-1	A1	Turning TR1 (90°)	Onshore SPMT	Mammoet	2026-01-23	2026-01-25	3.0	3.0d/unit
+JD-01-1	A1	Jackdown TR1	Jackdown	Mammoet	2026-01-26	2026-01-26	1.0	1.0d/unit
+RET-01	A1	LCT Return AGI→MZP	Return	LCT	2026-01-27	2026-01-27	1.0	After final JD
+BUF-01	A1	Buffer / reset	Buffer	All	2026-01-28	2026-01-28	1.0	contingency
+V2	A2	VOYAGE 2: TR2 Transport	Marine Transport	SCT/Mammoet/KFS	2026-01-29	2026-01-29	0.0	TIDE>=1.90 required (Loadout start)
+LO-02	A2	Loadout TR2 onto LCT	MZP Loadout	Mammoet	2026-01-29	2026-01-29	1.0	OK 2.03m (06:00-09:00, 15:00-18:00)
+SF-02	A2	Sea fastening + MWS checks (TR2)	Sea Fastening	Mammoet/KFS/MWS	2026-01-30	2026-01-30	1.0	Lashing + survey
+SAIL-02	A2	Sail-away MZP→AGI	Sea Passage	LCT	2026-01-31	2026-01-31	1.0	WX gate
+UL-02-1	A2	Unload TR2 at AGI (1 unit/day)	AGI Arrival	Mammoet	2026-02-01	2026-02-01	1.0	RORO + ramp
+TURN-02-1	A2	Turning TR2 (90°)	Onshore SPMT	Mammoet	2026-02-02	2026-02-04	3.0	3.0d/unit
+JD-02-1	A2	Jackdown TR2	Jackdown	Mammoet	2026-02-05	2026-02-05	1.0	1.0d/unit
+RET-02	A2	LCT Return AGI→MZP	Return	LCT	2026-02-06	2026-02-06	1.0	After final JD
+BUF-02	A2	Buffer / reset	Buffer	All	2026-02-07	2026-02-07	1.0	contingency
+V3	A3	VOYAGE 3: TR3 Transport	Marine Transport	SCT/Mammoet/KFS	2026-02-15	2026-02-15	0.0	TIDE>=1.90 required (Loadout start)
+LO-03	A3	Loadout TR3 onto LCT	MZP Loadout	Mammoet	2026-02-15	2026-02-15	1.0	OK 1.90m (12:00-15:00)
+SF-03	A3	Sea fastening + MWS checks (TR3)	Sea Fastening	Mammoet/KFS/MWS	2026-02-16	2026-02-16	1.0	Lashing + survey
+SAIL-03	A3	Sail-away MZP→AGI	Sea Passage	LCT	2026-02-17	2026-02-17	1.0	WX gate
+UL-03-1	A3	Unload TR3 at AGI (1 unit/day)	AGI Arrival	Mammoet	2026-02-18	2026-02-18	1.0	RORO + ramp
+TURN-03-1	A3	Turning TR3 (90°)	Onshore SPMT	Mammoet	2026-02-19	2026-02-21	3.0	3.0d/unit
+JD-03-1	A3	Jackdown TR3	Jackdown	Mammoet	2026-02-22	2026-02-22	1.0	1.0d/unit
+RET-03	A3	LCT Return AGI→MZP	Return	LCT	2026-02-23	2026-02-23	1.0	After final JD
+BUF-03	A3	Buffer / reset	Buffer	All	2026-02-24	2026-02-24	1.0	contingency
+V4	A4	VOYAGE 4: TR4 Transport	Marine Transport	SCT/Mammoet/KFS	2026-02-25	2026-02-25	0.0	TIDE>=1.90 required (Loadout start)
+LO-04	A4	Loadout TR4 onto LCT	MZP Loadout	Mammoet	2026-02-25	2026-02-25	1.0	OK 2.01m (05:00-09:00, 15:00-18:00)
+SF-04	A4	Sea fastening + MWS checks (TR4)	Sea Fastening	Mammoet/KFS/MWS	2026-02-26	2026-02-26	1.0	Lashing + survey
+SAIL-04	A4	Sail-away MZP→AGI	Sea Passage	LCT	2026-02-27	2026-02-27	1.0	WX gate
+UL-04-1	A4	Unload TR4 at AGI (1 unit/day)	AGI Arrival	Mammoet	2026-02-28	2026-02-28	1.0	RORO + ramp
+TURN-04-1	A4	Turning TR4 (90°)	Onshore SPMT	Mammoet	2026-03-01	2026-03-03	3.0	3.0d/unit
+JD-04-1	A4	Jackdown TR4	Jackdown	Mammoet	2026-03-04	2026-03-04	1.0	1.0d/unit
+RET-04	A4	LCT Return AGI→MZP	Return	LCT	2026-03-05	2026-03-05	1.0	After final JD
+BUF-04	A4	Buffer / reset	Buffer	All	2026-03-06	2026-03-06	1.0	contingency
+V5	A5	VOYAGE 5: TR5 Transport	Marine Transport	SCT/Mammoet/KFS	2026-03-07	2026-03-07	0.0	TIDE>=1.90 required (Loadout start)
+LO-05	A5	Loadout TR5 onto LCT	MZP Loadout	Mammoet	2026-03-07	2026-03-07	1.0	TIDE_TBD(after 2026-02-28)
+SF-05	A5	Sea fastening + MWS checks (TR5)	Sea Fastening	Mammoet/KFS/MWS	2026-03-08	2026-03-08	1.0	Lashing + survey
+SAIL-05	A5	Sail-away MZP→AGI	Sea Passage	LCT	2026-03-09	2026-03-09	1.0	WX gate
+UL-05-1	A5	Unload TR5 at AGI (1 unit/day)	AGI Arrival	Mammoet	2026-03-10	2026-03-10	1.0	RORO + ramp
+TURN-05-1	A5	Turning TR5 (90°)	Onshore SPMT	Mammoet	2026-03-11	2026-03-13	3.0	3.0d/unit
+JD-05-1	A5	Jackdown TR5	Jackdown	Mammoet	2026-03-14	2026-03-14	1.0	1.0d/unit
+RET-05	A5	LCT Return AGI→MZP	Return	LCT	2026-03-15	2026-03-15	1.0	After final JD
+BUF-05	A5	Buffer / reset	Buffer	All	2026-03-16	2026-03-16	1.0	contingency
+V6	A6	VOYAGE 6: TR6 Transport	Marine Transport	SCT/Mammoet/KFS	2026-03-17	2026-03-17	0.0	TIDE>=1.90 required (Loadout start)
+LO-06	A6	Loadout TR6 onto LCT	MZP Loadout	Mammoet	2026-03-17	2026-03-17	1.0	TIDE_TBD(after 2026-02-28)
+SF-06	A6	Sea fastening + MWS checks (TR6)	Sea Fastening	Mammoet/KFS/MWS	2026-03-18	2026-03-18	1.0	Lashing + survey
+SAIL-06	A6	Sail-away MZP→AGI	Sea Passage	LCT	2026-03-19	2026-03-19	1.0	WX gate
+UL-06-1	A6	Unload TR6 at AGI (1 unit/day)	AGI Arrival	Mammoet	2026-03-20	2026-03-20	1.0	RORO + ramp
+TURN-06-1	A6	Turning TR6 (90°)	Onshore SPMT	Mammoet	2026-03-21	2026-03-23	3.0	3.0d/unit
+JD-06-1	A6	Jackdown TR6	Jackdown	Mammoet	2026-03-24	2026-03-24	1.0	1.0d/unit
+RET-06	A6	LCT Return AGI→MZP	Return	LCT	2026-03-25	2026-03-25	1.0	After final JD
+BUF-06	A6	Buffer / reset	Buffer	All	2026-03-26	2026-03-26	1.0	contingency
+V7	A7	VOYAGE 7: TR7 Transport	Marine Transport	SCT/Mammoet/KFS	2026-03-27	2026-03-27	0.0	TIDE>=1.90 required (Loadout start)
+LO-07	A7	Loadout TR7 onto LCT	MZP Loadout	Mammoet	2026-03-27	2026-03-27	1.0	TIDE_TBD(after 2026-02-28)
+SF-07	A7	Sea fastening + MWS checks (TR7)	Sea Fastening	Mammoet/KFS/MWS	2026-03-28	2026-03-28	1.0	Lashing + survey
+SAIL-07	A7	Sail-away MZP→AGI	Sea Passage	LCT	2026-03-29	2026-03-29	1.0	WX gate
+UL-07-1	A7	Unload TR7 at AGI (1 unit/day)	AGI Arrival	Mammoet	2026-03-30	2026-03-30	1.0	RORO + ramp
+TURN-07-1	A7	Turning TR7 (90°)	Onshore SPMT	Mammoet	2026-03-31	2026-04-02	3.0	3.0d/unit
+JD-07-1	A7	Jackdown TR7	Jackdown	Mammoet	2026-04-03	2026-04-03	1.0	1.0d/unit
+RET-07	A7	LCT Return AGI→MZP	Return	LCT	2026-04-04	2026-04-04	1.0	After final JD
+BUF-07	A7	Buffer / reset	Buffer	All	2026-04-05	2026-04-05	1.0	contingency

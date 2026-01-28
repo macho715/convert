@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPTION A Confirmed - TR Transport Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a192f 0%, #112240 50%, #1a365d 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #e6f1ff;
+        }
+        
+        .dashboard {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, rgba(100, 255, 218, 0.1), rgba(45, 212, 191, 0.05));
+            backdrop-filter: blur(10px);
+            padding: 30px 40px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header-left h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+            color: #64ffda;
+        }
+        
+        .header-left .subtitle {
+            color: #8892b0;
+            font-size: 14px;
+        }
+        
+        .header-right {
+            text-align: right;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, #64ffda, #2dd4bf);
+            color: #0a192f;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        
+        .completion-date {
+            color: #64ffda;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        /* KPI Cards */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .kpi-card {
+            background: rgba(17, 34, 64, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(100, 255, 218, 0.3);
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
+        }
+        
+        .kpi-card .icon {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .kpi-card .value {
+            font-size: 28px;
+            font-weight: bold;
+            color: #64ffda;
+            margin-bottom: 5px;
+        }
+        
+        .kpi-card .label {
+            color: #8892b0;
+            font-size: 12px;
+        }
+        
+        /* Navigation */
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-tab {
+            padding: 12px 25px;
+            background: rgba(17, 34, 64, 0.8);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #8892b0;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .nav-tab:hover {
+            border-color: rgba(100, 255, 218, 0.3);
+        }
+        
+        .nav-tab.active {
+            background: linear-gradient(135deg, #64ffda, #2dd4bf);
+            color: #0a192f;
+            border-color: transparent;
+        }
+        
+        .section {
+            display: none;
+        }
+        
+        .section.active {
+            display: block;
+        }
+        
+        /* Panel */
+        .panel {
+            background: rgba(17, 34, 64, 0.8);
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .panel h2 {
+            color: #64ffda;
+            font-size: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Gantt Chart */
+        .gantt-container {
+            overflow-x: auto;
+        }
+        
+        .gantt-chart {
+            min-width: 1200px;
+        }
+        
+        .date-header {
+            display: flex;
+            margin-left: 180px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+            padding-bottom: 10px;
+        }
+        
+        .date-mark {
+            flex: 1;
+            text-align: center;
+            font-size: 11px;
+            color: #64ffda;
+            font-weight: 600;
+        }
+        
+        .gantt-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+        
+        .gantt-label {
+            width: 180px;
+            font-size: 13px;
+            padding-right: 15px;
+            flex-shrink: 0;
+            color: #ccd6f6;
+        }
+        
+        .gantt-label.voyage-header {
+            color: #64ffda;
+            font-weight: bold;
+            font-size: 14px;
+            padding: 12px 0;
+            border-top: 1px solid rgba(100, 255, 218, 0.2);
+            margin-top: 10px;
+        }
+        
+        .gantt-label .set-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 10px;
+            margin-left: 5px;
+        }
+        
+        .gantt-label .set1 { background: #3b82f6; color: white; }
+        .gantt-label .set2 { background: #f43f5e; color: white; }
+        
+        .gantt-track {
+            flex: 1;
+            height: 30px;
+            background: rgba(100, 255, 218, 0.03);
+            border-radius: 5px;
+            position: relative;
+        }
+        
+        .gantt-bar {
+            position: absolute;
+            height: 24px;
+            top: 3px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 600;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            padding: 0 4px;
+        }
+        
+        .gantt-bar:hover {
+            transform: scaleY(1.3);
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        
+        .gantt-bar.prep { background: linear-gradient(135deg, #f59e0b, #d97706); }
+        .gantt-bar.loadout { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+        .gantt-bar.transport { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+        .gantt-bar.loadin { background: linear-gradient(135deg, #10b981, #059669); }
+        .gantt-bar.install { background: linear-gradient(135deg, #ec4899, #db2777); }
+        .gantt-bar.turning { background: linear-gradient(135deg, #f43f5e, #e11d48); }
+        .gantt-bar.jackdown { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+        .gantt-bar.return { background: linear-gradient(135deg, #6b7280, #4b5563); }
+        .gantt-bar.mobilization { background: linear-gradient(135deg, #fbbf24, #f59e0b); }
+        .gantt-bar.parallel { 
+            background: linear-gradient(135deg, #64ffda, #2dd4bf); 
+            color: #0a192f;
+            animation: glow 2s ease-in-out infinite;
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 5px rgba(100, 255, 218, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(100, 255, 218, 0.8); }
+        }
+        
+        /* Legend */
+        .legend {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            color: #8892b0;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 10px;
+            border-radius: 2px;
+        }
+        
+        /* Voyage Cards */
+        .voyage-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .voyage-card {
+            background: rgba(10, 25, 47, 0.5);
+            border-radius: 15px;
+            padding: 20px;
+            border-left: 4px solid;
+        }
+        
+        .voyage-card.v1 { border-color: #3b82f6; }
+        .voyage-card.v2 { border-color: #f43f5e; }
+        .voyage-card.v3 { border-color: #10b981; }
+        .voyage-card.v4 { border-color: #f59e0b; }
+        
+        .voyage-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .voyage-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #ccd6f6;
+        }
+        
+        .voyage-title .cargo {
+            display: block;
+            font-size: 12px;
+            color: #8892b0;
+            font-weight: normal;
+            margin-top: 3px;
+        }
+        
+        .voyage-badge {
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+        
+        .voyage-badge.set1 { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
+        .voyage-badge.set2 { background: rgba(244, 63, 94, 0.2); color: #f43f5e; }
+        
+        .voyage-timeline {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .timeline-step {
+            flex: 1;
+            min-width: 80px;
+            text-align: center;
+            padding: 10px 5px;
+            background: rgba(100, 255, 218, 0.05);
+            border-radius: 8px;
+        }
+        
+        .timeline-step .phase {
+            font-size: 10px;
+            color: #64ffda;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-step .date {
+            font-size: 12px;
+            font-weight: bold;
+            color: #ccd6f6;
+        }
+        
+        .timeline-step.mzp-arrival {
+            background: rgba(59, 130, 246, 0.15);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        
+        .timeline-step.mzp-arrival .phase {
+            color: #60a5fa;
+            font-weight: bold;
+        }
+        
+        /* Parallel Operation */
+        .parallel-section {
+            margin-top: 20px;
+        }
+        
+        .parallel-track-container {
+            margin-bottom: 25px;
+        }
+        
+        .parallel-label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .parallel-track {
+            height: 60px;
+            background: rgba(100, 255, 218, 0.03);
+            border-radius: 10px;
+            position: relative;
+            display: flex;
+            overflow: hidden;
+        }
+        
+        .parallel-block {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: bold;
+            color: white;
+            transition: all 0.3s ease;
+            flex-direction: column;
+            gap: 2px;
+        }
+        
+        .parallel-block:hover {
+            filter: brightness(1.2);
+        }
+        
+        .parallel-block .sub {
+            font-size: 9px;
+            opacity: 0.8;
+        }
+        
+        .overlap-marker {
+            position: absolute;
+            top: -20px;
+            padding: 3px 10px;
+            background: linear-gradient(135deg, #64ffda, #2dd4bf);
+            color: #0a192f;
+            border-radius: 10px;
+            font-size: 10px;
+            font-weight: bold;
+        }
+        
+        /* SPMT Status */
+        .spmt-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .spmt-card {
+            background: rgba(10, 25, 47, 0.5);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .spmt-card h4 {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .spmt-card h4 .badge {
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-size: 11px;
+        }
+        
+        .spmt-card h4 .set1 { background: #3b82f6; }
+        .spmt-card h4 .set2 { background: #f43f5e; }
+        
+        .spmt-stat {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.05);
+        }
+        
+        .spmt-stat:last-child {
+            border-bottom: none;
+        }
+        
+        .spmt-stat .label {
+            color: #8892b0;
+            font-size: 13px;
+        }
+        
+        .spmt-stat .value {
+            color: #64ffda;
+            font-weight: bold;
+        }
+        
+        /* Progress Bar */
+        .progress-container {
+            margin-top: 15px;
+        }
+        
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 12px;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: rgba(100, 255, 218, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+        
+        .progress-fill.set1 { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+        .progress-fill.set2 { background: linear-gradient(90deg, #f43f5e, #fb7185); }
+        
+        /* LCT Summary */
+        .lct-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .lct-table th, .lct-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .lct-table th {
+            color: #64ffda;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .lct-table td {
+            color: #ccd6f6;
+            font-size: 13px;
+        }
+        
+        .lct-table tr:hover td {
+            background: rgba(100, 255, 218, 0.03);
+        }
+        
+        /* Tooltip */
+        .tooltip {
+            position: fixed;
+            background: rgba(10, 25, 47, 0.95);
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 12px;
+            max-width: 280px;
+            z-index: 1000;
+            pointer-events: none;
+            display: none;
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        
+        .tooltip .title {
+            font-weight: bold;
+            color: #64ffda;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .tooltip .detail {
+            color: #ccd6f6;
+            line-height: 1.6;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .kpi-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .voyage-grid, .spmt-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .kpi-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            .header-right {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-left">
+                <h1>🚢 OPTION A Confirmed - TR Transport Dashboard</h1>
+                <div class="subtitle">HVDC Project | SPMT 2-Set Parallel Operations | Mina Zayed → Al Ghallan Island</div>
+            </div>
+            <div class="header-right">
+                <div class="status-badge">✓ Parallel Operation Confirmed</div>
+                <div class="completion-date">Completion Date: 2026-03-07</div>
+            </div>
+        </div>
+        
+        <!-- KPI Cards -->
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="icon">📅</div>
+                <div class="value">40 days</div>
+                <div class="label">Total Project Duration</div>
+            </div>
+            <div class="kpi-card">
+                <div class="icon">📦</div>
+                <div class="value">7 units</div>
+                <div class="label">TR Units</div>
+            </div>
+            <div class="kpi-card">
+                <div class="icon">🚢</div>
+                <div class="value">4 voyages</div>
+                <div class="label">LCT Voyage</div>
+            </div>
+            <div class="kpi-card">
+                <div class="icon">⚡</div>
+                <div class="value">7 days</div>
+                <div class="label">Parallel Operation Duration</div>
+            </div>
+            <div class="kpi-card">
+                <div class="icon">📈</div>
+                <div class="value">85.7%</div>
+                <div class="label">SPMT Utilization</div>
+            </div>
+            <div class="kpi-card">
+                <div class="icon">⏱️</div>
+                <div class="value">22 days</div>
+                <div class="label">Saved (vs Sequential)</div>
+            </div>
+        </div>
+        
+        <!-- Navigation -->
+        <div class="nav-tabs">
+            <div class="nav-tab active" onclick="showSection('gantt')">📊 Gantt Chart</div>
+            <div class="nav-tab" onclick="showSection('voyage')">🚢 Voyage Details</div>
+            <div class="nav-tab" onclick="showSection('parallel')">⚡ Parallel Operation</div>
+            <div class="nav-tab" onclick="showSection('spmt')">🔧 SPMT Status</div>
+            <div class="nav-tab" onclick="showSection('lct')">📋 LCT Summary</div>
+        </div>
+        
+        <!-- Section 1: Gantt Chart -->
+        <div id="gantt-section" class="section active">
+            <div class="panel">
+                <h2>📊 TR Unit Detailed Schedule (2026-01-26 ~ 03-08)</h2>
+                <div class="gantt-container">
+                    <div class="gantt-chart">
+                        <div class="date-header" id="date-header"></div>
+                        <div id="gantt-rows"></div>
+                    </div>
+                </div>
+                <div class="legend">
+                    <div class="legend-item"><div class="legend-color" style="background: linear-gradient(135deg, #fbbf24, #f59e0b);"></div>Mobilization</div>
+                    <div class="legend-item"><div class="legend-color" style="background: linear-gradient(135deg, #f59e0b, #d97706);"></div>Prep</div>
+                    <div class="legend-item"><div class="legend-color" style="background: linear-gradient(135deg, #3b82f6, #2563eb);"></div>Load-out</div>
+                    <div class="legend-item"><div class="legend-color" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);"></div>Transport</div>
+                    <div class="legend-item"><div class="legend-color" style="background: linear-gradient(135deg, #10b981, #059669);"></div>Load-in</div>
+                    <div class="legend-item"><div class="legend-color" style="background: linear-gradient(135deg, #f43f5e, #e11d48);"></div>Turning</div>
+                    <div class="legend-item"><div class="legend-color" style="background: linear-gradient(135deg, #06b6d4, #0891b2);"></div>Jack-down</div>
+                    <div class="legend-item"><div class="legend-color" style="background: linear-gradient(135deg, #6b7280, #4b5563);"></div>Return</div>
+                    <div class="legend-item"><div class="legend-color" style="background: linear-gradient(135deg, #64ffda, #2dd4bf);"></div>Parallel Window</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section 2: Voyage Detail -->
+        <div id="voyage-section" class="section">
+            <div class="panel">
+                <h2>🚢 Voyage Detailed Schedule</h2>
+                <div class="voyage-grid">
+                    <!-- Voyage 1 -->
+                    <div class="voyage-card v1">
+                        <div class="voyage-header">
+                            <div class="voyage-title">
+                                Voyage 1
+                                <span class="cargo">TR Units 1-2 → Bay 4, Bay 3</span>
+                            </div>
+                            <div class="voyage-badge set1">1st Set</div>
+                        </div>
+                        <div class="voyage-timeline">
+                            <div class="timeline-step mzp-arrival">
+                                <div class="phase">MZP Prep</div>
+                                <div class="date">01-27</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="phase">Load-out</div>
+                                <div class="date">01-29~30</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="phase">MZP Departure</div>
+                                <div class="date">02-01</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="phase">AGI Arrival</div>
+                                <div class="date">02-02</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="phase">Load-in</div>
+                                <div class="date">02-03~04</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="phase">Jack-down</div>
+                                <div class="date">02-09, 13</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Voyage 2 -->
+                    <div class="voyage-card v2">
+                        <div class="voyage-header">
+                            <div class="voyage-title">
+                                Voyage 2 ⚡
+                                <span class="cargo">TR Units 3-4 → Bay 2, Bay 1 (Parallel)</span>
+                            </div>
+                            <div class="voyage-badge set2">2nd Set</div>
+                        </div>
+                        <div class="voyage-timeline">
+                            <div class="timeline-step mzp-arrival">
+                                <div class="phase">MZP Arrival</div>
+                                <div class="date">02-06</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="phase">Load-out</div>
+                                <div class="date">02-07~08</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="phase">MZP Departure</div>
+                                <div class="date">02-10</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="phase">AGI Arrival</div>
+                                <div class="date">02-11</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="phase">Load-in</div>
+                                <div class="date">02-12~13</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="phase">Jack-down</div>
+                                <div class="date">02-18, 22</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Voyage 3 -->
+                    <div class="voyage-card v3">
+                        <div class="voyage-header">
+                            <div class="voyage-title">
+                                Voyage 3
+                                <span class="cargo">TR Units 5-6 → Bay 5, Bay 6</span>
+                            </div>
+                            <div class="voyage-badge set1">1st Set (Reused)</div>
+                        </div>
+                        <div class="voyage-timeline">
+                            <div class="timeline-step mzp-arrival">
+                                <div class="phase">MZP Arrival</div>
+                                <div class="date">02-15</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="phase">Load-out</div>
+                                <div class="date">02-16~17</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="phase">MZP Departure</div>
+                                <div class="date">02-19</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="phase">AGI Arrival</div>
+                                <div class="date">02-20</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="phase">Load-in</div>
+                                <div class="date">02-21~22</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="phase">Jack-down</div>
+                                <div class="date">02-27, 03-03</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Voyage 4 -->
+                    <div class="voyage-card v4">
+                        <div class="voyage-header">
+                            <div class="voyage-title">
+                                Voyage 4 (Final)
+                                <span class="cargo">TR Unit 7 → Bay 7 (One-way)</span>
+                            </div>
+                            <div class="voyage-badge set2">2nd Set (Reused)</div>
+                        </div>
+                        <div class="voyage-timeline">
+                            <div class="timeline-step mzp-arrival">
+                                <div class="phase">MZP Arrival</div>
+                                <div class="date">02-24</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="phase">Load-out</div>
+                                <div class="date">02-25</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="phase">MZP Departure</div>
+                                <div class="date">02-27</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="phase">AGI Arrival</div>
+                                <div class="date">02-28</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="phase">Load-in</div>
+                                <div class="date">03-01</div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="phase">Jack-down</div>
+                                <div class="date">03-07 ✓</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section 3: Parallel Operation -->
+        <div id="parallel-section" class="section">
+            <div class="panel">
+                <h2>⚡ Parallel Operation Visualization</h2>
+                
+                <div class="parallel-section">
+                    <!-- 1st Set Track -->
+                    <div class="parallel-track-container">
+                        <div class="parallel-label">
+                            <span style="color: #3b82f6;">🔵 SPMT 1st Set</span>
+                            <span style="font-size: 12px; color: #8892b0;">TR 1-2, 5-6 Assigned</span>
+                        </div>
+                        <div class="parallel-track">
+                            <div class="parallel-block" style="width: 3%; background: linear-gradient(135deg, #fbbf24, #f59e0b);">
+                                <span>MOB</span>
+                            </div>
+                            <div class="parallel-block" style="width: 22%; background: linear-gradient(135deg, #3b82f6, #2563eb);">
+                                <span>TR 1-2</span>
+                                <span class="sub">MZP→AGI Installation</span>
+                            </div>
+                            <div class="parallel-block" style="width: 5%; background: linear-gradient(135deg, #6b7280, #4b5563);">
+                                <span>Return</span>
+                            </div>
+                            <div class="parallel-block" style="width: 5%; background: rgba(100, 255, 218, 0.1);">
+                                <span style="color: #8892b0;">Standby</span>
+                            </div>
+                            <div class="parallel-block" style="width: 28%; background: linear-gradient(135deg, #3b82f6, #2563eb);">
+                                <span>TR 5-6</span>
+                                <span class="sub">MZP→AGI Installation</span>
+                            </div>
+                            <div class="parallel-block" style="width: 5%; background: linear-gradient(135deg, #6b7280, #4b5563);">
+                                <span>Return</span>
+                            </div>
+                            <div class="parallel-block" style="width: 12%; background: rgba(100, 255, 218, 0.1);">
+                                <span style="color: #8892b0;">Complete/Standby</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 2nd Set Track -->
+                    <div class="parallel-track-container">
+                        <div class="parallel-label">
+                            <span style="color: #f43f5e;">🔴 SPMT 2nd Set</span>
+                            <span style="font-size: 12px; color: #8892b0;">TR 3-4, 7 Assigned</span>
+                        </div>
+                        <div class="parallel-track">
+                            <div class="parallel-block" style="width: 20%; background: linear-gradient(135deg, #fbbf24, #f59e0b);">
+                                <span>Mobilization</span>
+                                <span class="sub">01-26 ~ 02-04</span>
+                            </div>
+                            <div class="parallel-block" style="width: 27%; background: linear-gradient(135deg, #64ffda, #2dd4bf); color: #0a192f; position: relative;">
+                                <span>TR 3-4 ⚡Parallel</span>
+                                <span class="sub" style="color: #0a192f;">MZP→AGI Installation</span>
+                                <div class="overlap-marker" style="left: 50%; transform: translateX(-50%);">Parallel Operation</div>
+                            </div>
+                            <div class="parallel-block" style="width: 5%; background: linear-gradient(135deg, #6b7280, #4b5563);">
+                                <span>Return</span>
+                            </div>
+                            <div class="parallel-block" style="width: 5%; background: rgba(100, 255, 218, 0.1);">
+                                <span style="color: #8892b0;">Standby</span>
+                            </div>
+                            <div class="parallel-block" style="width: 23%; background: linear-gradient(135deg, #f43f5e, #e11d48);">
+                                <span>TR 7</span>
+                                <span class="sub">MZP→AGI Installation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Parallel Benefits -->
+                <div style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                    <div style="background: rgba(100, 255, 218, 0.1); padding: 20px; border-radius: 12px; border-left: 4px solid #64ffda;">
+                        <h4 style="color: #64ffda; margin-bottom: 10px;">Parallel Window (02-05 ~ 02-11)</h4>
+                        <p style="font-size: 13px; color: #8892b0; margin-bottom: 10px;">
+                            <strong style="color: #3b82f6;">1st Set:</strong> TR 1-2 installation at AGI<br>
+                            <strong style="color: #f43f5e;">2nd Set:</strong> Load TR 3-4 at MZP
+                        </p>
+                        <div style="font-size: 18px; font-weight: bold; color: #64ffda;">7 days simultaneous operation</div>
+                    </div>
+                    
+                    <div style="background: rgba(100, 255, 218, 0.1); padding: 20px; border-radius: 12px; border-left: 4px solid #64ffda;">
+                        <h4 style="color: #64ffda; margin-bottom: 10px;">Time Savings</h4>
+                        <p style="font-size: 13px; color: #8892b0; margin-bottom: 10px;">
+                            Sequential operation: 62 days<br>
+                            Parallel Operation: 40 days
+                        </p>
+                        <div style="font-size: 18px; font-weight: bold; color: #64ffda;">22 days reduction (35.5%)</div>
+                    </div>
+                    
+                    <div style="background: rgba(100, 255, 218, 0.1); padding: 20px; border-radius: 12px; border-left: 4px solid #64ffda;">
+                        <h4 style="color: #64ffda; margin-bottom: 10px;">SPMT Reuse</h4>
+                        <p style="font-size: 13px; color: #8892b0; margin-bottom: 10px;">
+                            1st Set: TR 1-2 → TR 5-6<br>
+                            2nd Set: TR 3-4 → TR 7
+                        </p>
+                        <div style="font-size: 18px; font-weight: bold; color: #64ffda;">Reused twice each</div>
+                    </div>
+                    
+                    <div style="background: rgba(100, 255, 218, 0.1); padding: 20px; border-radius: 12px; border-left: 4px solid #64ffda;">
+                        <h4 style="color: #64ffda; margin-bottom: 10px;">Beam Backhaul</h4>
+                        <p style="font-size: 13px; color: #8892b0; margin-bottom: 10px;">
+                            Voyage 2: 4 beams backhauled<br>
+                            Voyage 3: 2 beams backhauled
+                        </p>
+                        <div style="font-size: 18px; font-weight: bold; color: #64ffda;">Total 6 (7.45m)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section 4: SPMT Status -->
+        <div id="spmt-section" class="section">
+            <div class="panel">
+                <h2>🔧 SPMT Operations Status</h2>
+                <div class="spmt-grid">
+                    <!-- 1st Set -->
+                    <div class="spmt-card">
+                        <h4><span class="badge set1">1st Set</span> Primary SPMT</h4>
+                        <div class="spmt-stat">
+                            <span class="label">Mobilization</span>
+                            <span class="value">2026-01-26</span>
+                        </div>
+                        <div class="spmt-stat">
+                            <span class="label">Operating Period</span>
+                            <span class="value">01-29 ~ 03-01 (32 days)</span>
+                        </div>
+                        <div class="spmt-stat">
+                            <span class="label">Assigned Units</span>
+                            <span class="value">TR 1-2, TR 5-6</span>
+                        </div>
+                        <div class="spmt-stat">
+                            <span class="label">Port Return</span>
+                            <span class="value">02-11, 03-01</span>
+                        </div>
+                        <div class="spmt-stat">
+                            <span class="label">Demobilization</span>
+                            <span class="value">03-06 ~ 03-07</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-label">
+                                <span>Utilization</span>
+                                <span style="color: #64ffda;">88.9%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill set1" style="width: 88.9%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 2nd Set -->
+                    <div class="spmt-card">
+                        <h4><span class="badge set2">2nd Set</span> Secondary SPMT</h4>
+                        <div class="spmt-stat">
+                            <span class="label">Mobilization</span>
+                            <span class="value">2026-02-04</span>
+                        </div>
+                        <div class="spmt-stat">
+                            <span class="label">Operating Period</span>
+                            <span class="value">02-07 ~ 03-06 (28 days)</span>
+                        </div>
+                        <div class="spmt-stat">
+                            <span class="label">Assigned Units</span>
+                            <span class="value">TR 3-4, TR 7</span>
+                        </div>
+                        <div class="spmt-stat">
+                            <span class="label">Port Return</span>
+                            <span class="value">02-20, 03-06</span>
+                        </div>
+                        <div class="spmt-stat">
+                            <span class="label">Demobilization</span>
+                            <span class="value">02-27</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-label">
+                                <span>Utilization</span>
+                                <span style="color: #64ffda;">82.4%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill set2" style="width: 82.4%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section 5: LCT Summary -->
+        <div id="lct-section" class="section">
+            <div class="panel">
+                <h2>📋 LCT Transport Summary</h2>
+                <table class="lct-table">
+                    <thead>
+                        <tr>
+                            <th>Voyage</th>
+                            <th>Cargo</th>
+                            <th>SPMT</th>
+                            <th>MZP Arrival</th>
+                            <th>MZP Departure</th>
+                            <th>AGI Arrival</th>
+                            <th>Return to MZP</th>
+                            <th>Backhaul Cargo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1st</strong></td>
+                            <td>TR Units 1-2</td>
+                            <td><span style="color: #3b82f6;">1st Set</span></td>
+                            <td style="color: #8892b0;">01-27 (Prep)</td>
+                            <td>02-01</td>
+                            <td>02-02</td>
+                            <td>02-05</td>
+                            <td>-</td>
+                        </tr>
+                        <tr style="background: rgba(100, 255, 218, 0.05);">
+                            <td><strong>2nd</strong> <span style="color: #64ffda;">⚡</span></td>
+                            <td>TR Units 3-4</td>
+                            <td><span style="color: #f43f5e;">2nd Set</span></td>
+                            <td style="color: #60a5fa; font-weight: bold;">02-06</td>
+                            <td>02-10</td>
+                            <td>02-11</td>
+                            <td>02-14</td>
+                            <td>4 beams</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3rd</strong></td>
+                            <td>TR Units 5-6</td>
+                            <td><span style="color: #3b82f6;">1st Set</span></td>
+                            <td style="color: #60a5fa; font-weight: bold;">02-15</td>
+                            <td>02-19</td>
+                            <td>02-20</td>
+                            <td>02-23</td>
+                            <td>2 beams</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4th</strong></td>
+                            <td>TR Unit 7</td>
+                            <td><span style="color: #f43f5e;">2nd Set</span></td>
+                            <td style="color: #60a5fa; font-weight: bold;">02-24</td>
+                            <td>02-27</td>
+                            <td>02-28</td>
+                            <td style="color: #8892b0;">- (One-way)</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div style="margin-top: 25px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    <div style="background: rgba(100, 255, 218, 0.05); padding: 15px; border-radius: 10px; text-align: center;">
+                        <div style="font-size: 24px; font-weight: bold; color: #64ffda;">5 days</div>
+                        <div style="font-size: 12px; color: #8892b0;">Avg. round-trip duration</div>
+                    </div>
+                    <div style="background: rgba(100, 255, 218, 0.05); padding: 15px; border-radius: 10px; text-align: center;">
+                        <div style="font-size: 24px; font-weight: bold; color: #64ffda;">1 day</div>
+                        <div style="font-size: 12px; color: #8892b0;">Sea transit time</div>
+                    </div>
+                    <div style="background: rgba(100, 255, 218, 0.05); padding: 15px; border-radius: 10px; text-align: center;">
+                        <div style="font-size: 24px; font-weight: bold; color: #64ffda;">6</div>
+                        <div style="font-size: 12px; color: #8892b0;">Beam Backhaul (7.45m)</div>
+                    </div>
+                    <div style="background: rgba(100, 255, 218, 0.05); padding: 15px; border-radius: 10px; text-align: center;">
+                        <div style="font-size: 24px; font-weight: bold; color: #64ffda;">4+1</div>
+                        <div style="font-size: 12px; color: #8892b0;">Round-trip + One-way</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Tooltip -->
+    <div class="tooltip" id="tooltip">
+        <div class="title"></div>
+        <div class="detail"></div>
+    </div>
+    
+    <script>
+        // Project dates
+        const projectStart = new Date('2026-01-26');
+        const projectEnd = new Date('2026-03-08');
+        const totalDays = Math.ceil((projectEnd - projectStart) / (1000 * 60 * 60 * 24));
+        
+        // Gantt data based on JSON
+        const ganttData = [
+            { name: 'Mobilization', isHeader: true },
+            { name: '1st Set MOB', activities: [{ start: '2026-01-26', end: '2026-01-26', type: 'mobilization', label: 'MOB' }], set: 1 },
+            { name: '2nd Set MOB', activities: [{ start: '2026-01-26', end: '2026-02-04', type: 'mobilization', label: 'Mobilization' }], set: 2 },
+            
+            { name: 'Voyage 1: TR 1-2', isHeader: true, voyage: 1 },
+            { name: 'TR Unit 1', activities: [
+                { start: '2026-01-29', end: '2026-01-29', type: 'loadout', label: 'Load-out' },
+                { start: '2026-02-01', end: '2026-02-02', type: 'transport', label: 'Transport' },
+                { start: '2026-02-04', end: '2026-02-04', type: 'loadin', label: 'Load-in' },
+                { start: '2026-02-06', end: '2026-02-08', type: 'turning', label: 'Turning' },
+                { start: '2026-02-09', end: '2026-02-09', type: 'jackdown', label: 'JD' }
+            ], set: 1 },
+            { name: 'TR Unit 2', activities: [
+                { start: '2026-01-30', end: '2026-01-30', type: 'loadout', label: 'Load-out' },
+                { start: '2026-02-01', end: '2026-02-02', type: 'transport', label: 'Transport' },
+                { start: '2026-02-03', end: '2026-02-03', type: 'loadin', label: 'Load-in' },
+                { start: '2026-02-10', end: '2026-02-12', type: 'turning', label: 'Turning' },
+                { start: '2026-02-13', end: '2026-02-13', type: 'jackdown', label: 'JD' }
+            ], set: 1 },
+            { name: '1st Set Return', activities: [{ start: '2026-02-11', end: '2026-02-11', type: 'return', label: 'Return' }], set: 1 },
+            
+            { name: 'Voyage 2: TR 3-4 ⚡', isHeader: true, voyage: 2, parallel: true },
+            { name: 'TR Unit 3', activities: [
+                { start: '2026-02-07', end: '2026-02-07', type: 'parallel', label: 'Load-out ⚡' },
+                { start: '2026-02-10', end: '2026-02-11', type: 'parallel', label: 'Transport ⚡' },
+                { start: '2026-02-13', end: '2026-02-13', type: 'loadin', label: 'Load-in' },
+                { start: '2026-02-15', end: '2026-02-17', type: 'turning', label: 'Turning' },
+                { start: '2026-02-18', end: '2026-02-18', type: 'jackdown', label: 'JD' }
+            ], set: 2 },
+            { name: 'TR Unit 4', activities: [
+                { start: '2026-02-08', end: '2026-02-08', type: 'parallel', label: 'Load-out ⚡' },
+                { start: '2026-02-10', end: '2026-02-11', type: 'parallel', label: 'Transport ⚡' },
+                { start: '2026-02-12', end: '2026-02-12', type: 'loadin', label: 'Load-in' },
+                { start: '2026-02-19', end: '2026-02-21', type: 'turning', label: 'Turning' },
+                { start: '2026-02-22', end: '2026-02-22', type: 'jackdown', label: 'JD' }
+            ], set: 2 },
+            { name: '2nd Set Return', activities: [{ start: '2026-02-20', end: '2026-02-20', type: 'return', label: 'Return' }], set: 2 },
+            
+            { name: 'Voyage 3: TR 5-6', isHeader: true, voyage: 3 },
+            { name: 'TR Unit 5', activities: [
+                { start: '2026-02-16', end: '2026-02-16', type: 'loadout', label: 'Load-out' },
+                { start: '2026-02-19', end: '2026-02-20', type: 'transport', label: 'Transport' },
+                { start: '2026-02-22', end: '2026-02-22', type: 'loadin', label: 'Load-in' },
+                { start: '2026-02-24', end: '2026-02-26', type: 'turning', label: 'Turning' },
+                { start: '2026-02-27', end: '2026-02-27', type: 'jackdown', label: 'JD' }
+            ], set: 1 },
+            { name: 'TR Unit 6', activities: [
+                { start: '2026-02-17', end: '2026-02-17', type: 'loadout', label: 'Load-out' },
+                { start: '2026-02-19', end: '2026-02-20', type: 'transport', label: 'Transport' },
+                { start: '2026-02-21', end: '2026-02-21', type: 'loadin', label: 'Load-in' },
+                { start: '2026-02-28', end: '2026-03-02', type: 'turning', label: 'Turning' },
+                { start: '2026-03-03', end: '2026-03-03', type: 'jackdown', label: 'JD' }
+            ], set: 1 },
+            { name: '1st Set Final Return', activities: [{ start: '2026-03-01', end: '2026-03-01', type: 'return', label: 'Return' }], set: 1 },
+            
+            { name: 'Voyage 4: TR 7 (Final)', isHeader: true, voyage: 4 },
+            { name: 'TR Unit 7', activities: [
+                { start: '2026-02-25', end: '2026-02-25', type: 'loadout', label: 'Load-out' },
+                { start: '2026-02-27', end: '2026-02-28', type: 'transport', label: 'Transport' },
+                { start: '2026-03-01', end: '2026-03-01', type: 'loadin', label: 'Load-in' },
+                { start: '2026-03-04', end: '2026-03-06', type: 'turning', label: 'Turning' },
+                { start: '2026-03-07', end: '2026-03-07', type: 'jackdown', label: 'JD ✓' }
+            ], set: 2 },
+            { name: '2nd Set Final Return', activities: [{ start: '2026-03-06', end: '2026-03-06', type: 'return', label: 'Return' }], set: 2 }
+        ];
+        
+        // Generate date header
+        function generateDateHeader() {
+            const header = document.getElementById('date-header');
+            const dates = ['01-26', '01-31', '02-05', '02-10', '02-15', '02-20', '02-25', '03-01', '03-07'];
+            dates.forEach(d => {
+                const mark = document.createElement('div');
+                mark.className = 'date-mark';
+                mark.textContent = d;
+                header.appendChild(mark);
+            });
+        }
+        
+        // Calculate position
+        function calcPosition(startDate, endDate) {
+            const start = new Date(startDate);
+            const end = new Date(endDate);
+            const startDays = Math.ceil((start - projectStart) / (1000 * 60 * 60 * 24));
+            const duration = Math.ceil((end - start) / (1000 * 60 * 60 * 24)) + 1;
+            
+            return {
+                left: (startDays / totalDays) * 100,
+                width: Math.max((duration / totalDays) * 100, 2)
+            };
+        }
+        
+        // Generate Gantt
+        function generateGantt() {
+            const container = document.getElementById('gantt-rows');
+            
+            ganttData.forEach(item => {
+                const row = document.createElement('div');
+                row.className = 'gantt-row';
+                
+                const label = document.createElement('div');
+                label.className = 'gantt-label' + (item.isHeader ? ' voyage-header' : '');
+                
+                if (item.isHeader) {
+                    label.textContent = item.name;
+                } else {
+                    label.innerHTML = item.name;
+                    if (item.set) {
+                        label.innerHTML += `<span class="set-badge set${item.set}">${item.set === 1 ? '1st' : '2nd'}</span>`;
+                    }
+                }
+                row.appendChild(label);
+                
+                const track = document.createElement('div');
+                track.className = 'gantt-track';
+                
+                if (item.activities) {
+                    item.activities.forEach(act => {
+                        const pos = calcPosition(act.start, act.end);
+                        const bar = document.createElement('div');
+                        bar.className = `gantt-bar ${act.type}`;
+                        bar.style.left = pos.left + '%';
+                        bar.style.width = pos.width + '%';
+                        bar.textContent = act.label;
+                        bar.setAttribute('data-info', JSON.stringify({
+                            name: act.label,
+                            start: act.start,
+                            end: act.end,
+                            type: act.type
+                        }));
+                        
+                        bar.addEventListener('mouseenter', showTooltip);
+                        bar.addEventListener('mouseleave', hideTooltip);
+                        bar.addEventListener('mousemove', moveTooltip);
+                        
+                        track.appendChild(bar);
+                    });
+                }
+                
+                row.appendChild(track);
+                container.appendChild(row);
+            });
+        }
+        
+        // Tooltip
+        const tooltip = document.getElementById('tooltip');
+        
+        function showTooltip(e) {
+            const info = JSON.parse(e.target.getAttribute('data-info'));
+            const typeNames = {
+                'mobilization': 'Mobilization',
+                'prep': 'Pre-op preparation',
+                'loadout': 'Load-out (MZP)',
+                'transport': 'Sea transport (LCT)',
+                'loadin': 'Load-in (AGI)',
+                'turning': 'Turning operation',
+                'jackdown': 'Jack-down',
+                'return': 'Return to port',
+                'parallel': 'Parallel Operation Window ⚡'
+            };
+            
+            tooltip.querySelector('.title').textContent = info.name;
+            tooltip.querySelector('.detail').innerHTML = `
+                <strong>Period:</strong> ${info.start} ~ ${info.end}<br>
+                <strong>Type:</strong> ${typeNames[info.type] || info.type}
+            `;
+            tooltip.style.display = 'block';
+        }
+        
+        function hideTooltip() {
+            tooltip.style.display = 'none';
+        }
+        
+        function moveTooltip(e) {
+            tooltip.style.left = (e.pageX + 15) + 'px';
+            tooltip.style.top = (e.pageY + 15) + 'px';
+        }
+        
+        // Section navigation
+        function showSection(name) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+            
+            document.getElementById(name + '-section').classList.add('active');
+            event.target.classList.add('active');
+        }
+        
+        // Initialize
+        generateDateHeader();
+        generateGantt();
+    </script>
+</body>
+</html>

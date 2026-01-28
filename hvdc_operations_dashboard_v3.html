@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#1a1a2e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>HVDC TR Operations Dashboard | Samsung C&T</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ffc107;
+            --primary-dark: #f59e0b;
+            --danger: #ef4444;
+            --success: #10b981;
+            --info: #3b82f6;
+            --bg-dark: #0f172a;
+            --bg-card: rgba(30, 41, 59, 0.8);
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --border: rgba(100, 116, 139, 0.3);
+            --header-height: 60px;
+            --nav-height: 56px;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+            color: var(--text-primary);
+            padding-bottom: calc(var(--nav-height) + 20px);
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* ========== HEADER ========== */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 16px;
+        }
+        
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            color: #0f172a;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo-subtitle {
+            font-size: 10px;
+            color: var(--text-secondary);
+        }
+        
+        .header-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        
+        .status-badge {
+            padding: 6px 12px;
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--success);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .status-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .menu-btn {
+            display: none;
+            width: 40px;
+            height: 40px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text-primary);
+            cursor: pointer;
+            font-size: 18px;
+        }
+        
+        /* ========== ALERT BANNER ========== */
+        .alert-banner {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(220, 38, 38, 0.1));
+            border-bottom: 1px solid rgba(239, 68, 68, 0.3);
+            padding: 12px 16px;
+        }
+        
+        .alert-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+        }
+        
+        .alert-icon { font-size: 20px; }
+        
+        .alert-text {
+            flex: 1;
+            color: #fca5a5;
+        }
+        
+        .alert-text strong { color: var(--primary); }
+        
+        .alert-dismiss {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 4px;
+            font-size: 18px;
+        }
+        
+        /* ========== MAIN CONTAINER ========== */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+        
+        /* ========== QUICK STATS ========== */
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary);
+        }
+        
+        .stat-card.highlight {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.2), rgba(245, 158, 11, 0.1));
+            border-color: rgba(255, 193, 7, 0.4);
+        }
+        
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 11px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 6px;
+        }
+        
+        .stat-trend {
+            font-size: 10px;
+            margin-top: 4px;
+            color: var(--success);
+        }
+        
+        /* ========== TAB NAVIGATION ========== */
+        .tab-nav {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            padding-bottom: 4px;
+        }
+        
+        .tab-nav::-webkit-scrollbar { display: none; }
+        
+        .tab-btn {
+            flex-shrink: 0;
+            padding: 12px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .tab-btn:hover { border-color: var(--primary); }
+        
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #0f172a;
+            border-color: transparent;
+        }
+        
+        .tab-btn .count {
+            background: rgba(0,0,0,0.2);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 11px;
+        }
+        
+        /* ========== TAB CONTENT ========== */
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        
+        /* ========== VOYAGE CARDS ========== */
+        .voyage-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .voyage-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .voyage-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .voyage-card:hover::before,
+        .voyage-card.active::before { opacity: 1; }
+        
+        .voyage-card.active {
+            border-color: var(--primary);
+            background: linear-gradient(180deg, rgba(255, 193, 7, 0.1), transparent);
+        }
+        
+        .voyage-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        
+        .voyage-number {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .voyage-status {
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .voyage-status.upcoming {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+        }
+        
+        .voyage-status.urgent {
+            background: rgba(239, 68, 68, 0.2);
+            color: #f87171;
+        }
+        
+        .voyage-status.ready {
+            background: rgba(16, 185, 129, 0.2);
+            color: #34d399;
+        }
+        
+        .voyage-cargo {
+            font-size: 14px;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        
+        .voyage-dates {
+            display: flex;
+            gap: 16px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+        
+        .voyage-dates .date-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .voyage-dates .label {
+            font-size: 9px;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+        
+        .voyage-dates .value {
+            font-weight: 600;
+            color: var(--info);
+        }
+        
+        .voyage-progress {
+            height: 6px;
+            background: rgba(100, 116, 139, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .voyage-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--success));
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+        
+        .voyage-deadline {
+            margin-top: 10px;
+            font-size: 11px;
+            color: var(--danger);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        /* ========== CHECKLIST PANEL ========== */
+        .checklist-panel {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        
+        .panel-header {
+            padding: 20px;
+            background: rgba(15, 23, 42, 0.5);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .panel-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .panel-badge {
+            padding: 4px 10px;
+            background: rgba(239, 68, 68, 0.2);
+            color: #f87171;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        
+        .panel-actions {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .action-btn {
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .action-btn:hover {
+            background: var(--primary);
+            color: #0f172a;
+            border-color: var(--primary);
+        }
+        
+        /* ========== CHECKLIST SECTIONS ========== */
+        .checklist-section {
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .checklist-section:last-child { border-bottom: none; }
+        
+        .section-header {
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .section-header:hover { background: rgba(255, 255, 255, 0.02); }
+        
+        .section-title {
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-title .icon { font-size: 18px; }
+        
+        .section-progress {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        .section-progress-bar {
+            width: 80px;
+            height: 4px;
+            background: rgba(100, 116, 139, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        
+        .section-progress-fill {
+            height: 100%;
+            background: var(--success);
+            transition: width 0.3s ease;
+        }
+        
+        .section-toggle {
+            transition: transform 0.3s ease;
+        }
+        
+        .section-header.collapsed .section-toggle { transform: rotate(-90deg); }
+        
+        .section-content {
+            padding: 0 20px 20px;
+            display: grid;
+            gap: 8px;
+        }
+        
+        .section-header.collapsed + .section-content { display: none; }
+        
+        /* ========== CHECKLIST ITEMS ========== */
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 14px 16px;
+            background: rgba(15, 23, 42, 0.5);
+            border-radius: 12px;
+            border-left: 3px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .check-item:hover { background: rgba(15, 23, 42, 0.8); }
+        
+        .check-item.checked {
+            border-left-color: var(--success);
+            opacity: 0.6;
+        }
+        
+        .check-item.checked .checkbox {
+            background: var(--success);
+            border-color: var(--success);
+        }
+        
+        .check-item.checked .checkbox::after {
+            content: '✓';
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #64748b;
+            border-radius: 6px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .check-content { flex: 1; }
+        
+        .check-title {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+        
+        .check-desc {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+        
+        .check-desc strong { color: var(--primary); }
+        
+        .check-tag {
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 10px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        
+        .check-tag.critical {
+            background: rgba(239, 68, 68, 0.2);
+            color: #f87171;
+        }
+        
+        .check-tag.important {
+            background: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+        }
+        
+        .check-tag.standard {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+        }
+        
+        /* ========== SITE COMPARISON TABLE ========== */
+        .site-comparison {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .comparison-table th {
+            background: rgba(15, 23, 42, 0.5);
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--primary);
+        }
+        
+        .comparison-table td {
+            font-size: 13px;
+        }
+        
+        .comparison-table tr:last-child td { border-bottom: none; }
+        
+        .comparison-table tr:hover td { background: rgba(255, 255, 255, 0.02); }
+        
+        .site-badge {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        
+        .site-badge.das {
+            background: rgba(139, 92, 246, 0.2);
+            color: #a78bfa;
+        }
+        
+        .site-badge.agi {
+            background: rgba(16, 185, 129, 0.2);
+            color: #34d399;
+        }
+        
+        /* ========== CONTACTS ========== */
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+        
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .contact-role {
+            font-size: 10px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+        
+        .contact-name {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .contact-info {
+            font-size: 12px;
+            color: var(--info);
+            word-break: break-all;
+        }
+        
+        /* ========== BOTTOM NAV ========== */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: var(--nav-height);
+            background: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0 16px;
+            z-index: 100;
+        }
+        
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            padding: 8px 16px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .nav-item:hover,
+        .nav-item.active {
+            color: var(--primary);
+            background: rgba(255, 193, 7, 0.1);
+        }
+        
+        .nav-item .icon { font-size: 20px; }
+        .nav-item .label { font-size: 10px; font-weight: 500; }
+        
+        /* ========== NETWORK GRAPH TAB ========== */
+        .network-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            min-height: 400px;
+        }
+        
+        .network-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .network-controls {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-select {
+            padding: 8px 12px;
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 12px;
+            cursor: pointer;
+        }
+        
+        .filter-select:focus { outline: none; border-color: var(--primary); }
+        
+        #network-graph {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(180deg, #0a0a1a 0%, #1a1a3e 100%);
+        }
+        
+        .network-legend {
+            padding: 16px 20px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            color: var(--text-secondary);
+        }
+        
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 4px;
+        }
+        
+        /* ========== SCHEDULE TAB ========== */
+        .schedule-timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .schedule-timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 24px;
+            padding-left: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid var(--bg-dark);
+        }
+        
+        .timeline-date {
+            font-size: 11px;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        
+        .timeline-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+        }
+        
+        .timeline-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        
+        .timeline-desc {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        /* ========== MOBILE RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .header { padding: 10px 12px; }
+            .logo-title { font-size: 13px; }
+            .logo-subtitle { display: none; }
+            .status-badge { font-size: 10px; padding: 4px 8px; }
+            .menu-btn { display: flex; align-items: center; justify-content: center; }
+            
+            .alert-content { flex-wrap: wrap; }
+            
+            .container { padding: 12px; }
+            
+            .quick-stats { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+            .stat-card { padding: 12px; }
+            .stat-value { font-size: 22px; }
+            .stat-label { font-size: 9px; }
+            
+            .tab-nav { gap: 6px; }
+            .tab-btn { padding: 10px 14px; font-size: 12px; }
+            
+            .voyage-grid { grid-template-columns: 1fr; }
+            .voyage-card { padding: 16px; }
+            .voyage-number { font-size: 18px; }
+            .voyage-dates { flex-wrap: wrap; gap: 12px; }
+            
+            .panel-header { padding: 16px; flex-direction: column; gap: 12px; align-items: flex-start; }
+            .panel-title { font-size: 16px; }
+            .panel-actions { width: 100%; }
+            .action-btn { flex: 1; text-align: center; }
+            
+            .section-header { padding: 14px 16px; }
+            .section-content { padding: 0 16px 16px; }
+            .section-progress-bar { width: 60px; }
+            
+            .check-item { padding: 12px; }
+            .check-title { font-size: 13px; }
+            .check-desc { font-size: 11px; }
+            
+            .comparison-table th,
+            .comparison-table td { padding: 10px 12px; font-size: 11px; }
+            
+            .contacts-grid { grid-template-columns: 1fr; }
+            
+            #network-graph { height: 350px; }
+            .network-controls { width: 100%; }
+            .filter-select { flex: 1; }
+            .network-legend { gap: 10px; }
+        }
+        
+        @media (max-width: 480px) {
+            .quick-stats { gap: 6px; }
+            .stat-card { padding: 10px; }
+            .stat-value { font-size: 18px; }
+            
+            .voyage-dates .date-item { min-width: 60px; }
+            
+            .check-tag { display: none; }
+            
+            .nav-item { padding: 6px 10px; }
+            .nav-item .label { font-size: 9px; }
+        }
+        
+        /* ========== PRINT STYLES ========== */
+        @media print {
+            body { background: white; color: black; padding: 0; }
+            .header, .bottom-nav, .alert-banner { display: none; }
+            .container { max-width: 100%; }
+            .tab-content { display: block !important; }
+            .checklist-panel, .voyage-card { break-inside: avoid; border: 1px solid #ddd; }
+        }
+        
+        /* ========== ANIMATIONS ========== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .tab-content.active { animation: fadeIn 0.3s ease; }
+        
+        .check-item { animation: fadeIn 0.3s ease backwards; }
+        .check-item:nth-child(1) { animation-delay: 0.05s; }
+        .check-item:nth-child(2) { animation-delay: 0.1s; }
+        .check-item:nth-child(3) { animation-delay: 0.15s; }
+        .check-item:nth-child(4) { animation-delay: 0.2s; }
+        .check-item:nth-child(5) { animation-delay: 0.25s; }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">TR</div>
+                <div class="logo-text">
+                    <span class="logo-title">HVDC Operations</span>
+                    <span class="logo-subtitle">Samsung C&T • UAE Project</span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <div class="status-badge">AGI Site Active</div>
+                <button class="menu-btn" onclick="toggleMenu()">☰</button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- ALERT BANNER -->
+    <div class="alert-banner" id="alertBanner">
+        <div class="alert-content">
+            <span class="alert-icon">⚠️</span>
+            <span class="alert-text">
+                <strong>Voyage 1 Document Deadline: January 23, 2026 (Today)</strong> — 
+                Complete all Gate Pass & customs documents before MZP arrival on Jan 27.
+            </span>
+            <button class="alert-dismiss" onclick="dismissAlert()">×</button>
+        </div>
+    </div>
+    
+    <!-- MAIN CONTAINER -->
+    <div class="container">
+        <!-- QUICK STATS -->
+        <div class="quick-stats">
+            <div class="stat-card highlight">
+                <div class="stat-value">4</div>
+                <div class="stat-label">Total Voyages</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">7</div>
+                <div class="stat-label">TR Units</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">21</div>
+                <div class="stat-label">Doc Required</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="totalProgress">0%</div>
+                <div class="stat-label">Completion</div>
+                <div class="stat-trend">↑ Track Progress</div>
+            </div>
+        </div>
+        
+        <!-- TAB NAVIGATION -->
+        <div class="tab-nav">
+            <button class="tab-btn active" onclick="switchTab('checklist')">
+                📋 Document Checklist
+                <span class="count">21</span>
+            </button>
+            <button class="tab-btn" onclick="switchTab('schedule')">
+                📅 Schedule
+            </button>
+            <button class="tab-btn" onclick="switchTab('sites')">
+                🏭 DAS/AGI Sites
+            </button>
+            <button class="tab-btn" onclick="switchTab('contacts')">
+                👥 Contacts
+            </button>
+        </div>
+        
+        <!-- TAB: CHECKLIST -->
+        <div class="tab-content active" id="tab-checklist">
+            <!-- VOYAGE SELECTOR -->
+            <div class="voyage-grid">
+                <div class="voyage-card active" onclick="selectVoyage(1)">
+                    <div class="voyage-header">
+                        <span class="voyage-number">Voyage 1</span>
+                        <span class="voyage-status urgent">Urgent</span>
+                    </div>
+                    <div class="voyage-cargo">TR Units 1-2 | 2 Sets SPMT</div>
+                    <div class="voyage-dates">
+                        <div class="date-item">
+                            <span class="label">MZP Arrival</span>
+                            <span class="value">Jan 27</span>
+                        </div>
+                        <div class="date-item">
+                            <span class="label">Departure</span>
+                            <span class="value">Jan 31</span>
+                        </div>
+                        <div class="date-item">
+                            <span class="label">AGI Arrival</span>
+                            <span class="value">Feb 01</span>
+                        </div>
+                    </div>
+                    <div class="voyage-progress">
+                        <div class="voyage-progress-fill" id="v1-bar" style="width: 0%"></div>
+                    </div>
+                    <div class="voyage-deadline">⚠️ Doc Deadline: Jan 23 (Today)</div>
+                </div>
+                
+                <div class="voyage-card" onclick="selectVoyage(2)">
+                    <div class="voyage-header">
+                        <span class="voyage-number">Voyage 2</span>
+                        <span class="voyage-status upcoming">Upcoming</span>
+                    </div>
+                    <div class="voyage-cargo">TR Units 3-4 | 2nd Set SPMT</div>
+                    <div class="voyage-dates">
+                        <div class="date-item">
+                            <span class="label">MZP Arrival</span>
+                            <span class="value">Feb 06</span>
+                        </div>
+                        <div class="date-item">
+                            <span class="label">Departure</span>
+                            <span class="value">Feb 10</span>
+                        </div>
+                        <div class="date-item">
+                            <span class="label">AGI Arrival</span>
+                            <span class="value">Feb 11</span>
+                        </div>
+                    </div>
+                    <div class="voyage-progress">
+                        <div class="voyage-progress-fill" id="v2-bar" style="width: 0%"></div>
+                    </div>
+                    <div class="voyage-deadline">⚠️ Doc Deadline: Feb 03</div>
+                </div>
+                
+                <div class="voyage-card" onclick="selectVoyage(3)">
+                    <div class="voyage-header">
+                        <span class="voyage-number">Voyage 3</span>
+                        <span class="voyage-status upcoming">Upcoming</span>
+                    </div>
+                    <div class="voyage-cargo">TR Units 5-6 | 1st Set Reused</div>
+                    <div class="voyage-dates">
+                        <div class="date-item">
+                            <span class="label">MZP Arrival</span>
+                            <span class="value">Feb 15</span>
+                        </div>
+                        <div class="date-item">
+                            <span class="label">Departure</span>
+                            <span class="value">Feb 19</span>
+                        </div>
+                        <div class="date-item">
+                            <span class="label">AGI Arrival</span>
+                            <span class="value">Feb 20</span>
+                        </div>
+                    </div>
+                    <div class="voyage-progress">
+                        <div class="voyage-progress-fill" id="v3-bar" style="width: 0%"></div>
+                    </div>
+                    <div class="voyage-deadline">⚠️ Doc Deadline: Feb 12</div>
+                </div>
+                
+                <div class="voyage-card" onclick="selectVoyage(4)">
+                    <div class="voyage-header">
+                        <span class="voyage-number">Voyage 4</span>
+                        <span class="voyage-status upcoming">Final</span>
+                    </div>
+                    <div class="voyage-cargo">TR Unit 7 | One-way Trip</div>
+                    <div class="voyage-dates">
+                        <div class="date-item">
+                            <span class="label">MZP Arrival</span>
+                            <span class="value">Feb 24</span>
+                        </div>
+                        <div class="date-item">
+                            <span class="label">Departure</span>
+                            <span class="value">Feb 27</span>
+                        </div>
+                        <div class="date-item">
+                            <span class="label">AGI Arrival</span>
+                            <span class="value">Feb 28</span>
+                        </div>
+                    </div>
+                    <div class="voyage-progress">
+                        <div class="voyage-progress-fill" id="v4-bar" style="width: 0%"></div>
+                    </div>
+                    <div class="voyage-deadline">⚠️ Doc Deadline: Feb 20</div>
+                </div>
+            </div>
+            
+            <!-- CHECKLIST PANEL -->
+            <div class="checklist-panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">
+                        📋 Gate Pass & Customs Documents
+                        <span class="panel-badge" id="checklist-count">0/21 Complete</span>
+                    </h2>
+                    <div class="panel-actions">
+                        <button class="action-btn" onclick="resetChecklist()">Reset All</button>
+                        <button class="action-btn" onclick="exportChecklist()">Export PDF</button>
+                    </div>
+                </div>
+                
+                <!-- Section 1: Gate Pass -->
+                <div class="checklist-section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span class="section-title">
+                            <span class="icon">🚪</span>
+                            Gate Pass Documents
+                        </span>
+                        <div class="section-progress">
+                            <span class="progress-text">0/6</span>
+                            <div class="section-progress-bar">
+                                <div class="section-progress-fill" style="width: 0%"></div>
+                            </div>
+                            <span class="section-toggle">▼</span>
+                        </div>
+                    </div>
+                    <div class="section-content" data-section="gatepass">
+                        <div class="check-item" onclick="toggleCheck(this)">
+                            <div class="checkbox"></div>
+                            <div class="check-content">
+                                <div class="check-title">ATLP Gate Pass Application</div>
+                                <div class="check-desc">Apply via <strong>ATLP Portal</strong> with Security Clearance • ≥48h before arrival</div>
+                            </div>
+                            <span class="check-tag critical">Critical</span>
+                        </div>
+                        <div class="check-item" onclick="toggleCheck(this)">
+                            <div class="checkbox"></div>
+                            <div class="check-content">
+                                <div class="check-title">Harbor Master Notification</div>
+                                <div class="check-desc">Submit vessel details • ETA • Cargo manifest • <strong>≥72h advance notice</strong></div>
+                            </div>
+                            <span class="check-tag critical">Critical</span>
+                        </div>
+                        <div class="check-item" onclick="toggleCheck(this)">
+                            <div class="checkbox"></div>
+                            <div class="check-content">
+                                <div class="check-title">PTW (Permit to Work)</div>
+                                <div class="check-desc">AGI Site: <strong>≥24h</strong> | DAS Island: <strong>≥48h</strong> with Hot Work restrictions</div>
+                            </div>
+                            <span class="check-tag important">Important</span>
+                        </div>
+                        <div class="check-item" onclick="toggleCheck(this)">
+                            <div class="checkbox"></div>
+                            <div class="check-content">
+                                <div class="check-title">Vehicle/Equipment Access List</div>
+                                <div class="check-desc">SPMT details • Driver IDs • Equipment serial numbers</div>
+                            </div>
+                            <span class="check-tag standard">Standard</span>
+                        </div>
+                        <div class="check-item" onclick="toggleCheck(this)">
+                            <div class="checkbox"></div>
+                            <div class="check-content">
+                                <div class="check-title">Personnel Access Badges</div>
+                                <div class="check-desc">All crew & Mammoet personnel • Valid ID required</div>
+                            </div>
+                            <span class="check-tag standard">Standard</span>
+                        </div>
+                        <div class="check-item" onclick="toggleCheck(this)">
+                            <div class="checkbox"></div>
+                            <div class="check-content">
+                                <div class="check-title">Emergency Contact Sheet</div>
+                                <div class="check-desc">24/7 contacts • HSE • Marine Coordinator • Port Control</div>
+                            </div>
+                            <span class="check-tag standard">Standard</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Section 2: Vessel Documents -->
+                <div class="checklist-section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span class="section-title">
+                            <span class="icon">🚢</span>
+                            Vessel Documents
+                        </span>
+                        <div class="section-progress">
+                            <span class="progress-text">0/5</span>
+                            <div class="section-progress-bar">
+                                <div class="section-progress-fill" style="width: 0%"></div>
+                            </div>
+                            <span class="section-toggle">▼</span>
+                        </div>
+                    </div>
+                    <div class="section-content" data-section="vessel">
+                        <div class="check-item" onclick="toggleCheck(this)">
+                            <div class="checkbox"></div>
+                            <div class="check-content">
+                                <div class="check-title">Stability Calculation Report</div>
+                                <div class="check-desc">AGI Template • MWS verified • <strong>Fwd Draft ≤2.70m compliance</strong></div>
+                            </div>
+                            <span class="check-tag critical">Critical</span>
+                        </div>
+                        <div class="check-item" onclick="toggleCheck(this)">
+                            <div class="checkbox"></div>
+                            <div class="check-content">
+                                <div class="check-title">Cargo Manifest</div>
+                                <div class="check-desc">TR unit weights • Dimensions • Lashing points • CG data</div>
+                            </div>
+                            <span class="check-tag critical">Critical</span>
+                        </div>
+                        <div class="check-item" onclick="toggleCheck(this)">
+                            <div class="checkbox"></div>
+                            <div class="check-content">
+                                <div class="check-title">Vessel Certificates</div>
+                                <div class="check-desc">Class cert • Safety • Insurance • Flag state docs</div>
+                            </div>
+                            <span class="check-tag important">Important</span>
+                        </div>
+                        <div class="check-item" onclick="toggleCheck(this)">
+                            <div class="checkbox"></div>
+                            <div class="check-content">
+                                <div class="check-title">Ramp Angle Calculation</div>
+                                <div class="check-desc">AGI: ≤8° • DAS: As per Berth Load Chart • Tidal window</div>
+                            </div>
+                            <span class="check-tag important">Important</span>
+                        </div>
+                        <div class="check-item" onclick="toggleCheck(this)">
+                            <div class="checkbox"></div>
+                            <div class="check-content">
+                                <div class="check-title">Pre-arrival Checklist</div>
+                                <div class="check-desc">Tank status • Ballast plan • Deck inspection report</div>
+                            </div>
+                            <span class="check-tag standard">Standard</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Section 3: Customs -->
+                <div class="checklist-section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span class="section-title">
+                            <span class="icon">📦</span>
+                            Customs & Import
+                        </span>
+                        <div class="section-progress">
+                            <span class="progress-text">0/5</span>
+                            <div class="section-progress-bar">
+                                <div class="section-progress-fill" style="width: 0%"></div>
+                            </div>
+                            <span class="section-toggle">▼</span>
+                        </div>
+                    </div>
+                    <div class="section-content" data-section="customs">
+                        <div class="check-item" onclick="toggleCheck(this)">
+                            <div class="checkbox"></div>
+                            <div class="check-content">
+                                <div class="check-title">Bill of Entry (BOE)</div>
+                                <div class="check-desc">Customs declaration • <strong>HS Code: 8504.90</strong> • Value declaration</div>
+                            </div>
+                            <span class="check-tag critical">Critical</span>
+                        </div>
+                        <div class="check-item" onclick="toggleCheck(this)">
+                            <div class="checkbox"></div>
+                            <div class="check-content">
+                                <div class="check-title">Commercial Invoice</div>
+                                <div class="check-desc">Incoterms • Unit value • Currency • Bank details</div>
+                            </div>
+                            <span class="check-tag critical">Critical</span>
+                        </div>
+                        <div class="check-item" onclick="toggleCheck(this)">
+                            <div class="checkbox"></div>
+                            <div class="check-content">
+                                <div class="check-title">Packing List</div>
+                                <div class="check-desc">Itemized weights • Dimensions • Package markings</div>
+                            </div>
+                            <span class="check-tag important">Important</span>
+                        </div>
+                        <div class="check-item" onclick="toggleCheck(this)">
+                            <div class="checkbox"></div>
+                            <div class="check-content">
+                                <div class="check-title">Certificate of Origin</div>
+                                <div class="check-desc">Manufacturer origin • Trade agreement eligibility</div>
+                            </div>
+                            <span class="check-tag important">Important</span>
+                        </div>
+                        <div class="check-item" onclick="toggleCheck(this)">
+                            <div class="checkbox"></div>
+                            <div class="check-content">
+                                <div class="check-title">Insurance Certificate</div>
+                                <div class="check-desc">Marine cargo policy • Coverage value • Beneficiary</div>
+                            </div>
+                            <span class="check-tag standard">Standard</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Section 4: RORO Operations -->
+                <div class="checklist-section">
+                    <div class="section-header" onclick="toggleSection(this)">
+                        <span class="section-title">
+                            <span class="icon">⚙️</span>
+                            RORO Operations
+                        </span>
+                        <div class="section-progress">
+                            <span class="progress-text">0/5</span>
+                            <div class="section-progress-bar">
+                                <div class="section-progress-fill" style="width: 0%"></div>
+                            </div>
+                            <span class="section-toggle">▼</span>
+                        </div>
+                    </div>
+                    <div class="section-content" data-section="roro">
+                        <div class="check-item" onclick="toggleCheck(this)">
+                            <div class="checkbox"></div>
+                            <div class="check-content">
+                                <div class="check-title">Mammoet Method Statement</div>
+                                <div class="check-desc">SPMT configuration • Load-out sequence • Risk assessment</div>
+                            </div>
+                            <span class="check-tag critical">Critical</span>
+                        </div>
+                        <div class="check-item" onclick="toggleCheck(this)">
+                            <div class="checkbox"></div>
+                            <div class="check-content">
+                                <div class="check-title">Lashing Plan</div>
+                                <div class="check-desc">AGI: 10 points • DAS: 12 points • Turnbuckle specs</div>
+                            </div>
+                            <span class="check-tag critical">Critical</span>
+                        </div>
+                        <div class="check-item" onclick="toggleCheck(this)">
+                            <div class="checkbox"></div>
+                            <div class="check-content">
+                                <div class="check-title">Ramp Plate Certificate</div>
+                                <div class="check-desc">Load capacity: <strong>150 t/m²</strong> • Inspection date valid</div>
+                            </div>
+                            <span class="check-tag important">Important</span>
+                        </div>
+                        <div class="check-item" onclick="toggleCheck(this)">
+                            <div class="checkbox"></div>
+                            <div class="check-content">
+                                <div class="check-title">Weather Window Approval</div>
+                                <div class="check-desc">Wind ≤15 kts • Wave ≤0.5m • Visibility >5 NM</div>
+                            </div>
+                            <span class="check-tag important">Important</span>
+                        </div>
+                        <div class="check-item" onclick="toggleCheck(this)">
+                            <div class="checkbox"></div>
+                            <div class="check-content">
+                                <div class="check-title">Photo/Video Evidence Pack</div>
+                                <div class="check-desc">Minimum <strong>15 photos</strong> • GPS tagged • Time stamped</div>
+                            </div>
+                            <span class="check-tag standard">Standard</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TAB: SCHEDULE -->
+        <div class="tab-content" id="tab-schedule">
+            <div class="checklist-panel">
+                <div class="panel-header">
+                    <h2 class="panel-title">📅 Transportation Schedule</h2>
+                </div>
+                <div style="padding: 20px;">
+                    <div class="schedule-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">January 23, 2026 (Today)</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">⚠️ Voyage 1 Document Deadline</div>
+                                <div class="timeline-desc">All Gate Pass & Customs documents must be submitted</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">January 27, 2026</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">🚢 Voyage 1: MZP Arrival</div>
+                                <div class="timeline-desc">LCT BUSHRA arrives at Mina Zayed Port • TR Units 1-2 Load-out begins</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">January 28-30, 2026</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">⚙️ Load-out Operations</div>
+                                <div class="timeline-desc">RORO operations • Ballasting • Lashing • Stability verification</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">January 31, 2026</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">🚀 Voyage 1: MZP Departure</div>
+                                <div class="timeline-desc">Depart for AGI Site • Transit time: ~18 hours</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">February 1, 2026</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">🏭 Voyage 1: AGI Arrival</div>
+                                <div class="timeline-desc">Arrive AGI Site • Discharge TR Units 1-2</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">February 6-11, 2026</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">🚢 Voyage 2: TR Units 3-4</div>
+                                <div class="timeline-desc">MZP Arrival: Feb 6 | Departure: Feb 10 | AGI Arrival: Feb 11</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">February 15-20, 2026</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">🚢 Voyage 3: TR Units 5-6</div>
+                                <div class="timeline-desc">MZP Arrival: Feb 15 | Departure: Feb 19 | AGI Arrival: Feb 20</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">February 24-28, 2026</div>
+                            <div class="timeline-content">
+                                <div class="timeline-title">🚢 Voyage 4: TR Unit 7 (Final)</div>
+                                <div class="timeline-desc">MZP Arrival: Feb 24 | Departure: Feb 27 | AGI Arrival: Feb 28</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TAB: SITES -->
+        <div class="tab-content" id="tab-sites">
+            <div class="site-comparison">
+                <div class="panel-header">
+                    <h2 class="panel-title">🏭 DAS Island vs AGI Site Comparison</h2>
+                </div>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th><span class="site-badge das">DAS Island</span></th>
+                            <th><span class="site-badge agi">AGI Site</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Departure Port</strong></td>
+                            <td>Mina Zayed</td>
+                            <td>Khalifa Port</td>
+                        </tr>
+                        <tr>
+                            <td><strong>PTW Lead Time</strong></td>
+                            <td style="color: var(--danger);">≥48 hours</td>
+                            <td style="color: var(--success);">≥24 hours</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pilotage</strong></td>
+                            <td>Mandatory</td>
+                            <td>Exemption Available</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Gate Pass Validity</strong></td>
+                            <td>24 hours</td>
+                            <td>48 hours</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ramp Angle Limit</strong></td>
+                            <td>Per Berth Load Chart</td>
+                            <td>≤8°</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Lashing Points</strong></td>
+                            <td>12 points</td>
+                            <td>10 points</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Trim Limit</strong></td>
+                            <td>Per stability calc</td>
+                            <td>≤0.5m</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Forward Draft</strong></td>
+                            <td>N/A</td>
+                            <td style="color: var(--danger); font-weight: 600;">≤2.70m (Critical)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Incident Report</strong></td>
+                            <td>1 hour (HSE)</td>
+                            <td>2 hours (Control Room)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Photo Evidence</strong></td>
+                            <td>≥18 photos</td>
+                            <td>≥15 photos</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pre-meeting Required</strong></td>
+                            <td>DAS Marine Coordinator</td>
+                            <td>AGI Port Captain</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Contact Email</strong></td>
+                            <td>marine.das@adports.ae</td>
+                            <td>portcontrol.agi@adports.ae</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- TAB: CONTACTS -->
+        <div class="tab-content" id="tab-contacts">
+            <div class="contacts-grid">
+                <div class="contact-card">
+                    <div class="contact-role">Vessel Master</div>
+                    <div class="contact-name">Capt. Joey Rafael Vargas</div>
+                    <div class="contact-info">LCT BUSHRA • +971-XX-XXX-XXXX</div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-role">Heavy Lift Contractor</div>
+                    <div class="contact-name">Mammoet Operations</div>
+                    <div class="contact-info">SPMT Operations Lead</div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-role">Marine Surveyor</div>
+                    <div class="contact-name">Aries Marine</div>
+                    <div class="contact-info">Stability Assessments</div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-role">Client Representative</div>
+                    <div class="contact-name">ADNOC Project Team</div>
+                    <div class="contact-info">AGI Site Coordination</div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-role">DAS Marine Operations</div>
+                    <div class="contact-name">DAS Marine Coordinator</div>
+                    <div class="contact-info">marine.das@adports.ae</div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-role">AGI Port Control</div>
+                    <div class="contact-name">AGI Port Captain</div>
+                    <div class="contact-info">portcontrol.agi@adports.ae</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- BOTTOM NAVIGATION -->
+    <nav class="bottom-nav">
+        <div class="nav-item active" onclick="switchTab('checklist')">
+            <span class="icon">📋</span>
+            <span class="label">Checklist</span>
+        </div>
+        <div class="nav-item" onclick="switchTab('schedule')">
+            <span class="icon">📅</span>
+            <span class="label">Schedule</span>
+        </div>
+        <div class="nav-item" onclick="switchTab('sites')">
+            <span class="icon">🏭</span>
+            <span class="label">Sites</span>
+        </div>
+        <div class="nav-item" onclick="switchTab('contacts')">
+            <span class="icon">👥</span>
+            <span class="label">Contacts</span>
+        </div>
+    </nav>
+    
+    <script>
+        // State management
+        let selectedVoyage = 1;
+        const checklistState = {
+            1: new Set(),
+            2: new Set(),
+            3: new Set(),
+            4: new Set()
+        };
+        
+        // Tab switching
+        function switchTab(tabId) {
+            // Update tab buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll(`.tab-btn`).forEach(btn => {
+                if (btn.textContent.toLowerCase().includes(tabId.substring(0, 4))) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Update nav items
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(item => {
+                if (item.querySelector('.label').textContent.toLowerCase().includes(tabId.substring(0, 4))) {
+                    item.classList.add('active');
+                }
+            });
+            
+            // Update content
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            document.getElementById(`tab-${tabId}`).classList.add('active');
+        }
+        
+        // Voyage selection
+        function selectVoyage(voyageNum) {
+            selectedVoyage = voyageNum;
+            
+            // Update voyage cards
+            document.querySelectorAll('.voyage-card').forEach((card, i) => {
+                card.classList.toggle('active', i === voyageNum - 1);
+            });
+            
+            // Restore checklist state for selected voyage
+            restoreChecklistState();
+        }
+        
+        // Toggle checklist item
+        function toggleCheck(item) {
+            item.classList.toggle('checked');
+            
+            // Track state
+            const itemIndex = Array.from(item.parentElement.children).indexOf(item);
+            const sectionKey = item.parentElement.dataset.section + '-' + itemIndex;
+            
+            if (item.classList.contains('checked')) {
+                checklistState[selectedVoyage].add(sectionKey);
+            } else {
+                checklistState[selectedVoyage].delete(sectionKey);
+            }
+            
+            updateProgress();
+        }
+        
+        // Restore checklist state
+        function restoreChecklistState() {
+            // Reset all items
+            document.querySelectorAll('.check-item').forEach(item => {
+                item.classList.remove('checked');
+            });
+            
+            // Restore saved state
+            checklistState[selectedVoyage].forEach(key => {
+                const [section, index] = key.split('-');
+                const sectionContent = document.querySelector(`[data-section="${section}"]`);
+                if (sectionContent && sectionContent.children[index]) {
+                    sectionContent.children[index].classList.add('checked');
+                }
+            });
+            
+            updateProgress();
+        }
+        
+        // Toggle section collapse
+        function toggleSection(header) {
+            header.classList.toggle('collapsed');
+        }
+        
+        // Update progress
+        function updateProgress() {
+            const totalItems = document.querySelectorAll('.check-item').length;
+            const checkedItems = document.querySelectorAll('.check-item.checked').length;
+            const percentage = Math.round((checkedItems / totalItems) * 100);
+            
+            // Update main stat
+            document.getElementById('totalProgress').textContent = percentage + '%';
+            
+            // Update badge
+            document.getElementById('checklist-count').textContent = `${checkedItems}/${totalItems} Complete`;
+            
+            // Update voyage progress bar
+            document.getElementById(`v${selectedVoyage}-bar`).style.width = percentage + '%';
+            
+            // Update section progress
+            document.querySelectorAll('.checklist-section').forEach(section => {
+                const sectionContent = section.querySelector('.section-content');
+                const sectionItems = sectionContent.querySelectorAll('.check-item');
+                const sectionChecked = sectionContent.querySelectorAll('.check-item.checked');
+                const sectionPercent = sectionItems.length > 0 ? 
+                    Math.round((sectionChecked.length / sectionItems.length) * 100) : 0;
+                
+                section.querySelector('.progress-text').textContent = 
+                    `${sectionChecked.length}/${sectionItems.length}`;
+                section.querySelector('.section-progress-fill').style.width = sectionPercent + '%';
+            });
+        }
+        
+        // Reset checklist
+        function resetChecklist() {
+            if (confirm('Reset all checklist items for this voyage?')) {
+                checklistState[selectedVoyage].clear();
+                restoreChecklistState();
+            }
+        }
+        
+        // Export checklist
+        function exportChecklist() {
+            window.print();
+        }
+        
+        // Dismiss alert
+        function dismissAlert() {
+            document.getElementById('alertBanner').style.display = 'none';
+        }
+        
+        // Toggle mobile menu
+        function toggleMenu() {
+            // Mobile menu implementation
+            alert('Settings menu coming soon');
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            updateProgress();
+        });
+    </script>
+</body>
+</html>

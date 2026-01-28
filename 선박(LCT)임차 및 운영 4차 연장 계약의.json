@@ -1,0 +1,353 @@
+{
+  "document_metadata": {
+    "title": "LCT 임차 및 운영 4차 연장 계약",
+    "project": "UAE HVDC PJT",
+    "vessel": "JOPEWIL 71",
+    "vessel_type": "LCT",
+    "extension_period_days": 90,
+    "document_type": "contract_extension_request",
+    "version": "4차_연장",
+    "total_contract_amount_usd": 8383555,
+    "vat_excluded": true
+  },
+  "summary": {
+    "purpose": "AGI 콘크리트 원자재의 지속적인 공급 및 Concrete Debris 반출, 향후 Concrete 포장용 골재 운송",
+    "extension_days": 90
+  },
+  "contracts": [
+    {
+      "contract_id": "OLCOF24-ALS086_Amend_No.2",
+      "contract_name": "Vessel Time Charter",
+      "contract_name_kr": "선박 타임차터",
+      "contractor": {
+        "name": "Abu Dhabi Marine Operations and Services Company LLC",
+        "name_short": "ADNOC Logistics & Services",
+        "abbreviation": "ADNOC L&S"
+      },
+      "contract_amount_usd": 6443820,
+      "periods": [
+        {
+          "period_type": "기존",
+          "start_date": "2024-07-04",
+          "end_date": "2025-01-07",
+          "days": 180,
+          "daily_rate_usd": null,
+          "amount_usd": null
+        },
+        {
+          "period_type": "1차_연장",
+          "start_date": "2025-01-08",
+          "end_date": "2025-07-07",
+          "days": 180,
+          "daily_rate_usd": 12000,
+          "amount_usd": 2160000
+        },
+        {
+          "period_type": "2차_연장",
+          "start_date": "2025-07-08",
+          "end_date": "2025-10-05",
+          "days": 90,
+          "daily_rate_usd": 12000,
+          "amount_usd": 1080000
+        },
+        {
+          "period_type": "3차_연장",
+          "start_date": "2025-10-26",
+          "end_date": "2025-12-04",
+          "days": 60,
+          "daily_rate_usd": 12000,
+          "amount_usd": 720000
+        },
+        {
+          "period_type": "4차_연장",
+          "start_date": "2025-12-05",
+          "end_date": "2026-03-04",
+          "days": 90,
+          "daily_rate_usd": 12000,
+          "amount_usd": 1080000
+        }
+      ],
+      "additional_items": [
+        {
+          "item": "Deck Upgradation",
+          "item_kr": "갑판 업그레이드",
+          "amount_usd": 294820
+        },
+        {
+          "item": "Padeye Installation",
+          "item_kr": "패드아이 설치",
+          "amount_usd": 77000
+        }
+      ]
+    },
+    {
+      "contract_id": "SCT-19LT-PJC-SA-020_Amend_No.2",
+      "contract_name": "Service Agreement of Jopetwil 71",
+      "contract_name_kr": "Jopetwil 71 서비스 계약",
+      "contractor": {
+        "name": "OFCO Offshore Support & Logistic Services",
+        "name_short": "OFCO"
+      },
+      "contract_amount_usd": 1769735,
+      "unit_rate_usd": 15389,
+      "unit_type": "Trip",
+      "total_units": 115,
+      "periods": [
+        {
+          "period_type": "기존",
+          "start_date": "2024-07-21",
+          "end_date": "2025-01-20",
+          "duration_months": 6
+        },
+        {
+          "period_type": "1차_연장",
+          "start_date": "2025-01-21",
+          "end_date": "2025-07-20",
+          "duration_months": 6
+        },
+        {
+          "period_type": "2차_연장",
+          "start_date": "2025-07-21",
+          "end_date": "2026-01-20",
+          "duration_months": 6
+        },
+        {
+          "period_type": "3차_연장",
+          "start_date": "2026-01-21",
+          "end_date": "2026-07-20",
+          "duration_months": 6
+        }
+      ]
+    },
+    {
+      "contract_id": "SCT-19LT-PJC-LPO-292",
+      "contract_name": "Marine Warranty Survey",
+      "contract_name_kr": "해상 보증 조사",
+      "contractor": {
+        "name": "Global Maritime Consultancy Ltd.",
+        "name_short": "Global"
+      },
+      "contract_amount_usd": 170000,
+      "unit_rate_usd": 1700,
+      "unit_type": "Day",
+      "total_units": 100,
+      "contract_content": "골재 선적시, Sailaway Certificate 발행",
+      "trigger_condition": "골재 운송시"
+    }
+  ],
+  "extension_background": [
+    {
+      "reason": "AGI 콘크리트 생산용 골재 운송",
+      "quantity_ton": 14000,
+      "additional_time_months": 2
+    },
+    {
+      "reason": "AGI 야적장 확보를 위한 Concrete Debris 반출",
+      "quantity_ton": 3600
+    },
+    {
+      "reason": "타 업체 Concrete 판매 공급",
+      "companies": ["Target", "JDN"],
+      "impact": "물량 증가"
+    },
+    {
+      "reason": "콘크리트 포장용 골재 운송",
+      "quantity_ton": 2150,
+      "risk": "설계 미승인으로 추후 연장 Risk 존재"
+    },
+    {
+      "reason": "Adnoc Offshore의 Batch Plan 인계 요청",
+      "status": "Deal 연계 방안 추진 중"
+    }
+  ],
+  "execution_budget": {
+    "total_execution_usd": 4771555,
+    "items": [
+      {
+        "contractor": "ADNOC L&S",
+        "items": [
+          {
+            "description": "기존 계약",
+            "description_en": "Original Contract",
+            "quantity": 180,
+            "quantity_unit": "일",
+            "quantity_unit_en": "days",
+            "unit_price_usd": 10000,
+            "amount_usd": 1800000,
+            "note": null
+          },
+          {
+            "description": "1차 연장",
+            "description_en": "1st Extension",
+            "quantity": 180,
+            "quantity_unit": "일",
+            "quantity_unit_en": "days",
+            "unit_price_usd": 12000,
+            "amount_usd": 2160000,
+            "note": "180일 연장"
+          },
+          {
+            "description": "DryDock",
+            "quantity": 57,
+            "quantity_unit": "일",
+            "quantity_unit_en": "days",
+            "unit_price_usd": 12000,
+            "amount_usd": 684000,
+            "note": "DryDock(57일)",
+            "is_adjustment": true
+          },
+          {
+            "description": "2차 연장",
+            "description_en": "2nd Extension",
+            "quantity": 83,
+            "quantity_unit": "일",
+            "quantity_unit_en": "days",
+            "unit_price_usd": 12000,
+            "amount_usd": 996000,
+            "note": "90일 연장"
+          },
+          {
+            "description": "3차 연장",
+            "description_en": "3rd Extension",
+            "quantity": 60,
+            "quantity_unit": "일",
+            "quantity_unit_en": "days",
+            "unit_price_usd": 12000,
+            "amount_usd": 720000,
+            "note": "60일 연장"
+          },
+          {
+            "description": "4차 연장",
+            "description_en": "4th Extension",
+            "quantity": 90,
+            "quantity_unit": "일",
+            "quantity_unit_en": "days",
+            "unit_price_usd": 12000,
+            "amount_usd": 1080000,
+            "note": "90일 연장"
+          },
+          {
+            "description": "Deck Upgradation",
+            "description_kr": "갑판 업그레이드",
+            "quantity": null,
+            "quantity_unit": null,
+            "unit_price_usd": null,
+            "amount_usd": 294820,
+            "note": null
+          },
+          {
+            "description": "Padeye Installation",
+            "description_kr": "패드아이 설치",
+            "quantity": null,
+            "quantity_unit": null,
+            "unit_price_usd": null,
+            "amount_usd": 77000,
+            "note": null
+          }
+        ],
+        "subtotal_usd": 6443820
+      },
+      {
+        "contractor": "OFCO",
+        "items": [
+          {
+            "description": "Service Agreement",
+            "description_kr": "서비스 계약",
+            "quantity": 115,
+            "quantity_unit": "Trip",
+            "unit_price_usd": 15389,
+            "amount_usd": 1769735,
+            "note": null
+          }
+        ],
+        "subtotal_usd": 1769735
+      },
+      {
+        "contractor": "Global",
+        "items": [
+          {
+            "description": "Marine Warranty Survey",
+            "description_kr": "해상 보증 조사",
+            "quantity": 100,
+            "quantity_unit": "Trip",
+            "unit_price_usd": 1700,
+            "amount_usd": 170000,
+            "note": "골재 운송시"
+          }
+        ],
+        "subtotal_usd": 170000
+      },
+      {
+        "contractor": "Target",
+        "items": [
+          {
+            "description": "콘크리트 판매",
+            "description_en": "Concrete Sales",
+            "quantity": 8000,
+            "quantity_unit": "m³",
+            "unit_price_usd": 789,
+            "amount_usd": 6312000,
+            "note": "콘크리트판매",
+            "is_adjustment": true
+          }
+        ],
+        "subtotal_usd": 6312000
+      },
+      {
+        "contractor": "당사 원가",
+        "contractor_en": "Internal Cost",
+        "items": [
+          {
+            "description": "GRM 원가",
+            "description_en": "GRM Cost",
+            "quantity": 8000,
+            "quantity_unit": "m³",
+            "unit_price_usd": 337.5,
+            "amount_usd": 2700000,
+            "note": "GRM원가 150%"
+          }
+        ],
+        "subtotal_usd": 2700000
+      }
+    ],
+    "notes": [
+      {
+        "note": "실행: GRM사 De-Scoping 예산 2,310,255 USD - 원자재 초기운송 380,000 USD"
+      },
+      {
+        "note": "당초 AGI현장 Granite社 Jopetwil 71을 활용, 골재 운송계약 예정금액: 3,698,315 USD"
+      },
+      {
+        "note": "Target社 요청 약 8,000 m³ 공급 기준으로 단가는 789 USD/m³로 판매하고 있으며, 해당 시나리오 진행 시 3.61백만 USD 손익 확보 가능 (매출 6.3백만불, 원가 2.7백만불)"
+      }
+    ],
+    "financial_summary": {
+      "revenue_usd": 6300000,
+      "cost_usd": 2700000,
+      "profit_usd": 3600000,
+      "profit_million_usd": 3.61
+    }
+  },
+  "additional_notes": [
+    {
+      "topic": "선박 임차 계약",
+      "topic_en": "Vessel Charter Contract",
+      "content": "Time Charter 계약은 Charter Party Agreement(BIMCO 준용) 원 계약에 기준하여 Amendment No.4로 진행 (Hire 비용 변동 없음)"
+    },
+    {
+      "topic": "Vessel 운영",
+      "topic_en": "Vessel Operations",
+      "content": "OFCO와는 Amend No.3로 만료시점(2026-01-20)에 연장 계약 추진"
+    }
+  ],
+  "attachments": [
+    {
+      "file_number": 1,
+      "file_name": "JOPETWIL 71 - Amendment 04_(Draft)"
+    },
+    {
+      "file_number": 2,
+      "file_name": "OFCO [SCT-19LT-PJC-SA-020] Amendment No.3_(Draft)"
+    }
+  ]
+}

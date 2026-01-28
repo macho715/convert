@@ -1,0 +1,524 @@
+{
+  "file_name": "OUTLOOK_HVDC_ALL_rev.xlsx",
+  "total_sheets": 6,
+  "sheets": [
+    {
+      "name": "전체_데이터",
+      "max_row": 21087,
+      "max_column": 20,
+      "dimensions": "21087행 x 20열",
+      "sample_data": [
+        {
+          "0": "no",
+          "1": "Month",
+          "2": "Subject",
+          "3": "SenderName",
+          "4": "SenderEmail",
+          "5": "RecipientTo",
+          "6": "DeliveryTime",
+          "7": "CreationTime",
+          "8": "site",
+          "9": "lpo",
+          "10": "phase",
+          "11": "hvdc_cases",
+          "12": "primary_case",
+          "13": "sites",
+          "14": "primary_site",
+          "15": "lpo_numbers",
+          "16": "stage",
+          "17": "stage_hits",
+          "18": "case_numbers",
+          "19": "PlainTextBody"
+        },
+        {
+          "0": 1,
+          "1": "202410",
+          "2": "황준권",
+          "3": "차민규",
+          "4": NaN,
+          "5": NaN,
+          "6": "2024-10-20 07:47:33.427000",
+          "7": "2024-10-20 07:47:33.426000",
+          "8": NaN,
+          "9": NaN,
+          "10": NaN,
+          "11": NaN,
+          "12": NaN,
+          "13": NaN,
+          "14": NaN,
+          "15": NaN,
+          "16": NaN,
+          "17": NaN,
+          "18": NaN,
+          "19": NaN
+        },
+        {
+          "0": 2,
+          "1": "202410",
+          "2": "(제목 없음)",
+          "3": NaN,
+          "4": NaN,
+          "5": NaN,
+          "6": "2024-10-31 10:32:57.313000",
+          "7": "2024-10-31 10:32:54.538000",
+          "8": NaN,
+          "9": NaN,
+          "10": NaN,
+          "11": NaN,
+          "12": NaN,
+          "13": NaN,
+          "14": NaN,
+          "15": NaN,
+          "16": NaN,
+          "17": NaN,
+          "18": NaN,
+          "19": NaN
+        },
+        {
+          "0": 3,
+          "1": "202410",
+          "2": "(2) [삼성물산][한림] Naffco 생산 현황 공유 요청 건",
+          "3": NaN,
+          "4": NaN,
+          "5": NaN,
+          "6": "2024-10-11 12:23:50.680000",
+          "7": "2024-09-13 09:58:48.732000",
+          "8": NaN,
+          "9": NaN,
+          "10": NaN,
+          "11": NaN,
+          "12": NaN,
+          "13": NaN,
+          "14": NaN,
+          "15": NaN,
+          "16": NaN,
+          "17": NaN,
+          "18": NaN,
+          "19": "장윤주 부사장님께, _x000D_\n _x000D_\n유선상으로 피력하신 NAFFCO 담당자와 업무가 원활하지 않다면, 담당자 연락처를 공유해주시면 저희 측에서 직접 연락 하도록 하겠습니다._x000D_\n _x000D_\n _x000D_\n _x000D_\n _x000D_\n _x000D_\nFrom: 김국일 <kukil.kim@samsung.com> _x000D_\nSent: Thursday, September 12, 2024 3:17 PM_x000D_\nTo: cr.baek@samsung.com; cloud923@hanlimenc.com_x000D_\nCc: foxzero@hanlimenc.com; kkt2407@hanlimenc.com; 'Chad Oh' <ofeo.oh@samsung.com>; 'Taeyoun Kim' <ty1123.kim@samsung.com>; 'CHERRY PARK' <chlim52.park@samsung.com>; 'SangUk Jeong' <su972.jeong@samsung.com>; 'Jinseok Oh' <jinseok26.oh@samsung.com>; 'Seyoun Won' <"
+        },
+        {
+          "0": 4,
+          "1": "202410",
+          "2": "[DSV-견적 요청] 두바이-한국, 항공 운송 - 아부다비 현장 물류팀",
+          "3": NaN,
+          "4": NaN,
+          "5": NaN,
+          "6": "2024-10-11 12:23:50.667000",
+          "7": "2024-09-17 04:48:05.057000",
+          "8": NaN,
+          "9": NaN,
+          "10": NaN,
+          "11": NaN,
+          "12": NaN,
+          "13": NaN,
+          "14": NaN,
+          "15": NaN,
+          "16": NaN,
+          "17": NaN,
+          "18": NaN,
+          "19": " _x000D_\n _x000D_\nFrom: Jung Hyun Lee - DSV <junghyun.lee@dsv.com> _x000D_\nSent: Monday, September 16, 2024 1:55 PM_x000D_\nTo: 차민규 <minkyu.cha@samsung.com>_x000D_\nCc: '김국일' <kukil.kim@samsung.com>_x000D_\nSubject: RE: [견적 요청] 두바이-한국, 항공 운송 - 아부다비 현장 물류팀_x000D_\n _x000D_\n수신 : 차민규 프로님_x000D_\n _x000D_\n임시수출통관의 경우 Item 에 serial number 가 각인되어 있어야 하고 재 수입시 해당 serial number와 화물의 spec이 일치되어야 재수입을 할 수 있습니다._x000D_\n이러한 번거로움이 있어,화물의 value 가 높지 않은 경우 일반 수출을 하고 돌아올 때 duty 를 pay 하고 통관을 합니다._x000D_\n _x000D_\n _x000D_\nBest Regards,_x000D_\nJay (Jung Hyun) Lee_x000D_\nSenior Project Manager / Projects / Air&Sea_x000D_"
+        },
+        {
+          "0": 5,
+          "1": "202410",
+          "2": "(제목 없음)",
+          "3": NaN,
+          "4": NaN,
+          "5": NaN,
+          "6": "2024-10-14 05:27:51.942000",
+          "7": "2024-10-14 05:21:07.684000",
+          "8": NaN,
+          "9": NaN,
+          "10": NaN,
+          "11": NaN,
+          "12": NaN,
+          "13": NaN,
+          "14": NaN,
+          "15": NaN,
+          "16": NaN,
+          "17": NaN,
+          "18": NaN,
+          "19": "DKJ FOODS _x000D_\n_x000D_\n"
+        },
+        {
+          "0": 6,
+          "1": "202410",
+          "2": "[HVDC-Jopetwil-71]  (Trip-28) Sailaway Survey - MW4 Target Jetty Mussafah",
+          "3": NaN,
+          "4": NaN,
+          "5": NaN,
+          "6": "2024-10-17 13:48:16.772000",
+          "7": "2024-10-17 13:45:16.678000",
+          "8": NaN,
+          "9": NaN,
+          "10": NaN,
+          "11": "HVDC-ADOPT-TRIP-28",
+          "12": "HVDC-ADOPT-TRIP-28",
+          "13": NaN,
+          "14": NaN,
+          "15": NaN,
+          "16": NaN,
+          "17": NaN,
+          "18": "HVDC-ADOPT-TRIP-28",
+          "19": "Dear, Mr. Milandro_x000D_\n _x000D_\nGood day._x000D_\n   _x000D_\n28th Trip plan - Loading 12th – Oct -2024 (Estimated Completion Loading ; 17:00pm)_x000D_\n _x000D_\n We kindly request for MWS for sailaway suvey_x000D_\n*12th Oct (Sat), 08:30 to 17:00 _x000D_\n _x000D_\nBest Regards._x000D_\n"
+        },
+        {
+          "0": 7,
+          "1": "202410",
+          "2": "[HVDC]물류팀 조직도",
+          "3": NaN,
+          "4": NaN,
+          "5": NaN,
+          "6": "2024-10-22 05:15:55.091000",
+          "7": "2024-10-22 05:10:14.822000",
+          "8": NaN,
+          "9": NaN,
+          "10": NaN,
+          "11": NaN,
+          "12": NaN,
+          "13": NaN,
+          "14": NaN,
+          "15": NaN,
+          "16": NaN,
+          "17": NaN,
+          "18": NaN,
+          "19": "김수환 프로님, _x000D_\n _x000D_\n요청하신 물류팀 조직도 첨부와 같이 전송 드립니다. / 감사합니다. _x000D_\n _x000D_\n_x000D_\n _x000D_\n"
+        },
+        {
+          "0": 8,
+          "1": "202410",
+          "2": "RE: [Urgent Reminder] RE: ADNOC OFFSHORE PRE-LOADING MANIFEST LCT TAIBAH 1",
+          "3": "정상욱",
+          "4": NaN,
+          "5": "su972.jeong@samsung.com",
+          "6": "2024-10-01 03:51:51",
+          "7": "2024-10-01 04:04:58.545000",
+          "8": NaN,
+          "9": NaN,
+          "10": "shipping",
+          "11": NaN,
+          "12": NaN,
+          "13": NaN,
+          "14": NaN,
+          "15": NaN,
+          "16": "shipping",
+          "17": NaN,
+          "18": NaN,
+          "19": "Adding CC ; Comercial team_x000D_\n_x000D_\n_x000D_\n_x000D_\n_x000D_\nDear, Shibly_x000D_\n_x000D_\nPlease cooperate with this issue.. need alternative dedicated vessel._x000D_\n_x000D_\n_x000D_\n1 LCT for RORO / 1 LCT for LOLO - shall be delivered to DAS asap._x000D_\n_x000D_\n_x000D_\n_x000D_\n_x000D_\nRegards. _x000D_\n_x000D_\nShip No_x000D_\n_x000D_\nPriority_x000D_\nNo_x000D_\n_x000D_\nVENDOR_x000D_\n_x000D_\nCargo Type_x000D_\n_x000D_\nType_x000D_\n_x000D_\nQTY_x000D_\n_x000D_\nID NO._x000D_\n_x000D_\nRequest Date_x000D_\n_x000D_\nWells ID_x000D_\n_x000D_\nInspection_x000D_\n_x000D_\nDAS-168_x000D_\n_x000D_\n7 _x000D_\n_x000D_\nSamsung (Hanlim) - DAS_x000D_\n_x000D_\nForklift_x000D_\n_x000D_\nRORO_x000D_\n_x000D_\n1 _x000D_\n_x000D_\n68425 _x000D_\n_x000D_\n19-Sep-24_x000D_\n_x000D_\n330146_x000D_\n_x000D_\n19-Sep-24_x000D_\n_x000D_\nDAS-170_x000D_\n_x000D_\n1 _x000D_\n_x000D_\nSamsung (SCT) - DAS_x000D_\n_x000D_\n40\" Basket_x000D_\n"
+        },
+        {
+          "0": 9,
+          "1": "202410",
+          "2": "[결재통보] [UAE, HVDC]  ALS, 20ft Half Basket Rental LPO Issue",
+          "3": "정상욱",
+          "4": NaN,
+          "5": "su972.jeong@samsung.com",
+          "6": "2024-10-01 03:51:27",
+          "7": "2024-10-01 04:05:00.527000",
+          "8": NaN,
+          "9": NaN,
+          "10": "procurement",
+          "11": NaN,
+          "12": NaN,
+          "13": NaN,
+          "14": NaN,
+          "15": NaN,
+          "16": "procurement",
+          "17": NaN,
+          "18": NaN,
+          "19": "완결번호 EP-5038BF48C31944149B68932970D2D654_x000D_\n_x000D_\n제목\t [UAE, HVDC] ALS, 20ft Half Basket Rental LPO Issue\t _x000D_\n작성자\t 정상욱 프로 /UAE HVDC (Onshore) / 삼성물산\t _x000D_\n표준 시간\t GMT+4\t _x000D_\n_x000D_\n결재 상황_x000D_\n_x000D_\n완결 _x000D_\n_x000D_\n_x000D_\n순번\t 구분\t 성명\t 부서명\t 처리일시\t _x000D_\n0 \t기안\t 정상욱 프로\t UAE HVDC (Onshore)\t 2024-09-30 11:17\t _x000D_\n\tSiemens 자재(120 pkgs), Cable Tray(40pkgs), Aceco, Zener 자재 등 basket 운송을 위한 Rental 건입니다. _x000D_\n* 현재 운영중인 CNTR/Basket은 UPC 부재, LPO 등 병행하여 진행 예정임 _x000D_\n1 \t통보\t 민석영 프로\t UAE HVDC 아부다비 PMO\t 2024-09-30 11:17\t _x000D_\n2 \t통보\t 김태연 프로\t UAE HVDC 아부다비 PMO\t 2024-09-30 "
+        }
+      ],
+      "column_count": 20
+    },
+    {
+      "name": "월별_요약",
+      "max_row": 14,
+      "max_column": 8,
+      "dimensions": "14행 x 8열",
+      "sample_data": [
+        {
+          "0": "Month",
+          "1": "파일명",
+          "2": "원본_이메일수",
+          "3": "통합후_이메일수",
+          "4": "케이스_수",
+          "5": "사이트_수",
+          "6": "LPO_수",
+          "7": "단계_수"
+        },
+        {
+          "0": "202410",
+          "1": "OUTLOOK_HVDC_202410_rev.xlsx",
+          "2": 732,
+          "3": 732,
+          "4": 126,
+          "5": 238,
+          "6": 13,
+          "7": 267
+        },
+        {
+          "0": "202411",
+          "1": "OUTLOOK_HVDC_202411_rev.xlsx",
+          "2": 341,
+          "3": 341,
+          "4": 84,
+          "5": 89,
+          "6": 1,
+          "7": 144
+        },
+        {
+          "0": "202412",
+          "1": "OUTLOOK_HVDC_202412_rev.xlsx",
+          "2": 249,
+          "3": 249,
+          "4": 67,
+          "5": 63,
+          "6": 1,
+          "7": 107
+        },
+        {
+          "0": "202501",
+          "1": "OUTLOOK_HVDC_202501_rev.xlsx",
+          "2": 403,
+          "3": 403,
+          "4": 0,
+          "5": 110,
+          "6": 7,
+          "7": 132
+        },
+        {
+          "0": "202502",
+          "1": "OUTLOOK_HVDC_202502_rev.xlsx",
+          "2": 329,
+          "3": 329,
+          "4": 43,
+          "5": 112,
+          "6": 3,
+          "7": 95
+        },
+        {
+          "0": "202503",
+          "1": "OUTLOOK_HVDC_202503_rev.xlsx",
+          "2": 569,
+          "3": 569,
+          "4": 104,
+          "5": 137,
+          "6": 7,
+          "7": 179
+        },
+        {
+          "0": "202504",
+          "1": "OUTLOOK_HVDC_202504_rev.xlsx",
+          "2": 1789,
+          "3": 1789,
+          "4": 646,
+          "5": 592,
+          "6": 254,
+          "7": 745
+        },
+        {
+          "0": "202505",
+          "1": "OUTLOOK_HVDC_202505_rev.xlsx",
+          "2": 1567,
+          "3": 1567,
+          "4": 657,
+          "5": 661,
+          "6": 193,
+          "7": 770
+        },
+        {
+          "0": "202506",
+          "1": "OUTLOOK_HVDC_202506_rev.xlsx",
+          "2": 1795,
+          "3": 1795,
+          "4": 705,
+          "5": 835,
+          "6": 189,
+          "7": 868
+        }
+      ],
+      "column_count": 8
+    },
+    {
+      "name": "케이스별_통계",
+      "max_row": 1742,
+      "max_column": 2,
+      "dimensions": "1742행 x 2열",
+      "sample_data": [
+        {
+          "0": "case_numbers",
+          "1": "count"
+        },
+        {
+          "0": "HVDC-ADOPT-APR-2025",
+          "1": 64
+        },
+        {
+          "0": "HVDC-ADOPT-SCT-0110",
+          "1": 63
+        },
+        {
+          "0": "HVDC-ADOPT-SCT-0109",
+          "1": 50
+        },
+        {
+          "0": "HVDC-ADOPT-SCT-0086",
+          "1": 47
+        },
+        {
+          "0": "HVDC-ADOPT-SCT-0096",
+          "1": 47
+        },
+        {
+          "0": "HVDC-ADOPT-JUN-2025",
+          "1": 47
+        },
+        {
+          "0": "HVDC-ADOPT-SCT-0124",
+          "1": 39
+        },
+        {
+          "0": "HVDC-ADOPT-SCT-0134",
+          "1": 38
+        },
+        {
+          "0": "HVDC-ADOPT-SCT-0119",
+          "1": 35
+        }
+      ],
+      "column_count": 2
+    },
+    {
+      "name": "사이트별_통계",
+      "max_row": 6,
+      "max_column": 2,
+      "dimensions": "6행 x 2열",
+      "sample_data": [
+        {
+          "0": "site",
+          "1": "count"
+        },
+        {
+          "0": "DAS",
+          "1": 3981
+        },
+        {
+          "0": "AGI",
+          "1": 3929
+        },
+        {
+          "0": "MIR",
+          "1": 1401
+        },
+        {
+          "0": "MIRFA",
+          "1": 267
+        },
+        {
+          "0": "GHALLAN",
+          "1": 142
+        }
+      ],
+      "column_count": 2
+    },
+    {
+      "name": "LPO별_통계",
+      "max_row": 717,
+      "max_column": 2,
+      "dimensions": "717행 x 2열",
+      "sample_data": [
+        {
+          "0": "lpo",
+          "1": "count"
+        },
+        {
+          "0": "LPO-1453",
+          "1": 72
+        },
+        {
+          "0": "LPO-1487",
+          "1": 59
+        },
+        {
+          "0": "LPO-580",
+          "1": 44
+        },
+        {
+          "0": "LPO-1550",
+          "1": 43
+        },
+        {
+          "0": "LPO-1146",
+          "1": 37
+        },
+        {
+          "0": "LPO-102",
+          "1": 30
+        },
+        {
+          "0": "LPO-1543",
+          "1": 27
+        },
+        {
+          "0": "LPO-1242",
+          "1": 25
+        },
+        {
+          "0": "LPO-1599",
+          "1": 24
+        }
+      ],
+      "column_count": 2
+    },
+    {
+      "name": "단계별_통계",
+      "max_row": 33,
+      "max_column": 2,
+      "dimensions": "33행 x 2열",
+      "sample_data": [
+        {
+          "0": "phase",
+          "1": "count"
+        },
+        {
+          "0": "shipping",
+          "1": 4153
+        },
+        {
+          "0": "procurement",
+          "1": 2462
+        },
+        {
+          "0": "logistics",
+          "1": 1065
+        },
+        {
+          "0": "shipping, logistics",
+          "1": 459
+        },
+        {
+          "0": "customs",
+          "1": 402
+        },
+        {
+          "0": "procurement, shipping",
+          "1": 347
+        },
+        {
+          "0": "procurement, logistics",
+          "1": 333
+        },
+        {
+          "0": "shipping, customs",
+          "1": 229
+        },
+        {
+          "0": "customs, logistics",
+          "1": 116
+        }
+      ],
+      "column_count": 2
+    }
+  ]
+}

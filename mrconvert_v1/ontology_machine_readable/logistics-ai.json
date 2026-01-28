@@ -1,0 +1,190 @@
+{
+  "meta": {
+    "source": "C:\\Users\\minky\\Downloads\\mrconvert_v1\\ONTOLOGY\\LOGISTICS AI.docx",
+    "type": "docx",
+    "pages": null,
+    "parsed_at": "2025-10-19T17:51:47+00:00",
+    "ocr": {
+      "used": false,
+      "engine": "none",
+      "lang": null
+    }
+  },
+  "text": "프로젝트 전체를 온톨로지 관점에서 정리하면, ‘HVDC 물류 생명주기’를 하나의 지식그래프(Ontology) 로 모델링할 수 있습니다.\n핵심은 “물류행위(Activity)”가 아닌 “관계(Relation)” 중심으로 보는 것입니다 — 사람, 문서, 물품, 절차, 시스템 간의 연결망.\n🔶 1. Ontology Root Class\nhvdc-adopt-logiontology\n🔶 2. Core Classes (from Workshop)\n🔶 3. Relation Model (Partial)\nMaterial --hasDocument--> MRR\nMaterial --transportedBy--> TransportEvent\nTransportEvent --operatedAt--> Port\nTransportEvent --requires--> Permit\nPermit --approvedBy--> ADNOC\nStorage --monitoredBy--> SCT\nInspection --reportedAs--> OSDR\nActor(SCT) --usesSystem--> eDAS\n이 관계망은 logiontology.mapping 모듈에서 RDF triple로 구현 가능:\n:TR001 rdf:type :Transformer ;\n       :hasDocument :MRR_20240611 ;\n       :storedAt :Mussafah_Yard ;\n       :handledBy :SCT ;\n       :requiresPermit :FRA_202405 ;\n       :transportedBy :LCT_Operation_202405 .\n🔶 4. Lifecycle Ontology (Material Handling Flow)\nStage 1 – Importation\n→ hasDocument(BL, CI, COO) → customsClearedBy(ADOPT) → storedAt(PortYard)\nStage 2 – Inland/Marine Transport\n→ transportedBy(LCT/SPMT) → requiresPermit(DOT/FRA) → monitoredBy(ALS)\nStage 3 – Site Receiving\n→ inspectedBy(QAQC) → resultsIn(MRR/OSDR) → issuedAs(MIS)\nStage 4 – Preservation & Foundation\n→ preservedBy(HitachiStd) → foundationBy(Mammoet) → approvedBy(OE)\n🔶 5. Alignment with AI-Logi-Guide\n🔶 6. Semantic KPI Layer (Onto-KPI)\n🔶 7. Ontological Integration View\n[Material] \n   ⟶ [Document: CI/PL/COO/eDAS]\n   ⟶ [TransportEvent: LCT/SPMT]\n   ⟶ [Location: Port → Yard → Site]\n   ⟶ [Inspection: MRR/OSDR]\n   ⟶ [Report: KPI/Dashboard]\n   ⟶ [Governance: AI-Logi-Guide Rules]\n이 전체를 hvdc-adopt-ontology.ttl로 export하면,\nGitHub macho715/ontology-insight에서 RDF 시각화 및 reasoning 연결 가능.\n🔶 8. 요약 메타 구조\n{\n \"Ontology\":\"hvdc-adopt-logiontology\",\n \"CoreClasses\":[\"Material\",\"TransportEvent\",\"Storage\",\"Inspection\",\"Permit\",\"Actor\",\"PortOperation\"],\n \"PrimaryRelations\":[\"hasDocument\",\"transportedBy\",\"storedAt\",\"requiresPermit\",\"inspectedBy\",\"approvedBy\"],\n \"AlignmentModule\":\"AI-Logi-Guide v2.1+\",\n \"ExportFormat\":[\"RDF/XML\",\"TTL\",\"JSON-LD\"]\n}\n이 프레임이면, HVDC 프로젝트 전체가 “문서-행위-공간-주체-규정”의 지식망으로 정규화됩니다.\n다음 단계는 logiontology.reasoning 모듈에서 Rule-based inference 정의 — 예컨대 “운송허가가 누락된 자재는 SiteReceiving 단계로 진행 불가” 같은 정책을 OWL constraint로 명세하면 완성됩니다.",
+  "markdown": "프로젝트 전체를 __온톨로지 관점__에서 정리하면, ‘HVDC 물류 생명주기’를 하나의 __지식그래프\\(Ontology\\)__ 로 모델링할 수 있습니다\\.  \n핵심은 __“물류행위\\(Activity\\)”가 아닌 “관계\\(Relation\\)”__ 중심으로 보는 것입니다 — 사람, 문서, 물품, 절차, 시스템 간의 연결망\\.\n\n__🔶 1\\. Ontology Root Class__\n\n__hvdc\\-adopt\\-logiontology__\n\n__Layer__\n\n__Ontology Domain__\n\n__대표 엔티티__\n\n__관계 키\\(Relation\\)__\n\n__L1__\n\nPhysical Flow\n\nMaterial, Cargo, Port, Site, Vessel\n\nmovesFrom, movesTo, storedAt, handledBy\n\n__L2__\n\nDocument Flow\n\nBL, CI, PL, COO, eDAS, MRR, OSDR\n\ncertifies, refersTo, attachedTo\n\n__L3__\n\nActor Flow\n\nSCT, JDN, ALS, ADNOC, Subcon\n\nresponsibleFor, approves, reportsTo\n\n__L4__\n\nRegulatory Flow\n\nMOIAT, FANR, Customs, DOT\n\nrequiresPermit, compliesWith, auditedBy\n\n__L5__\n\nSystem Flow\n\neDAS, SAP, NCM, LDG\n\nfeedsDataTo, validates, monitoredBy\n\n__🔶 2\\. Core Classes \\(from Workshop\\)__\n\n__Class__\n\n__Subclass of__\n\n__Description__\n\n__Onto\\-ID__\n\n__Material__\n\nAsset\n\n자재 및 기자재\\(Transformer, Cable, CCU 등\\)\n\nhvdc\\-asset\\-mat\n\n__TransportEvent__\n\nActivity\n\nInland, Marine, Offloading, SiteReceiving\n\nhvdc\\-act\\-trans\n\n__Storage__\n\nLocation\n\nYard, Warehouse, Laydown\n\nhvdc\\-loc\\-stor\n\n__Inspection__\n\nProcess\n\nMRR, MRI, OSDR\n\nhvdc\\-proc\\-insp\n\n__Permit__\n\nDocument\n\nPTW, Hot Work, FRA\n\nhvdc\\-doc\\-perm\n\n__Actor__\n\nAgent\n\nSCT, ADNOC L&S, Vendor\n\nhvdc\\-agent\\-role\n\n__PortOperation__\n\nActivity\n\nRORO/LOLO, Sea Fastening\n\nhvdc\\-act\\-port\n\n__🔶 3\\. Relation Model \\(Partial\\)__\n\nMaterial \\-\\-hasDocument\\-\\-> MRR\n\nMaterial \\-\\-transportedBy\\-\\-> TransportEvent\n\nTransportEvent \\-\\-operatedAt\\-\\-> Port\n\nTransportEvent \\-\\-requires\\-\\-> Permit\n\nPermit \\-\\-approvedBy\\-\\-> ADNOC\n\nStorage \\-\\-monitoredBy\\-\\-> SCT\n\nInspection \\-\\-reportedAs\\-\\-> OSDR\n\nActor\\(SCT\\) \\-\\-usesSystem\\-\\-> eDAS\n\n이 관계망은 logiontology\\.mapping 모듈에서 RDF triple로 구현 가능:\n\n:TR001 rdf:type :Transformer ;\n\n       :hasDocument :MRR\\_20240611 ;\n\n       :storedAt :Mussafah\\_Yard ;\n\n       :handledBy :SCT ;\n\n       :requiresPermit :FRA\\_202405 ;\n\n       :transportedBy :LCT\\_Operation\\_202405 \\.\n\n__🔶 4\\. Lifecycle Ontology \\(Material Handling Flow\\)__\n\n__Stage 1 – Importation__  \n→ hasDocument\\(BL, CI, COO\\) → customsClearedBy\\(ADOPT\\) → storedAt\\(PortYard\\)\n\n__Stage 2 – Inland/Marine Transport__  \n→ transportedBy\\(LCT/SPMT\\) → requiresPermit\\(DOT/FRA\\) → monitoredBy\\(ALS\\)\n\n__Stage 3 – Site Receiving__  \n→ inspectedBy\\(QAQC\\) → resultsIn\\(MRR/OSDR\\) → issuedAs\\(MIS\\)\n\n__Stage 4 – Preservation & Foundation__  \n→ preservedBy\\(HitachiStd\\) → foundationBy\\(Mammoet\\) → approvedBy\\(OE\\)\n\n__🔶 5\\. Alignment with AI\\-Logi\\-Guide__\n\n__Ontology Node__\n\n__대응 모듈__\n\n__기능적 의미__\n\nActivity\n\npipeline\n\n단계별 절차 정의\n\nDocument\n\nrdfio, validation\n\neDAS·MRR 등 문서형 triple\n\nAgent\n\ncore\n\n역할/권한 모델\n\nLocation\n\nmapping\n\nPort/Site 좌표·거점\n\nRiskEvent\n\nreasoning\n\nWeather\\-Tie·Delay inference\n\nReport\n\nreport\n\nKPI/Inspection 리포트\n\n__🔶 6\\. Semantic KPI Layer \\(Onto\\-KPI\\)__\n\n__KPI Class__\n\n__Onto Property__\n\n__계산식__\n\n__Source__\n\n__On\\-Time Delivery__\n\nmeetsETA\n\nETA vs Actual ≤12%\n\nETA MAPE Rule\n\n__Inspection Compliance__\n\nhasMRR\n\nMRR Count / Total Deliveries\n\nQC Gate\n\n__Storage Efficiency__\n\noccupies\n\nUsed m² / Available m²\n\nWH Forecast\n\n__Safety Conformance__\n\nrequiresPermit\n\nValid PTW/FRA %\n\nHSE Docs\n\n__🔶 7\\. Ontological Integration View__\n\n\\[Material\\] \n\n   ⟶ \\[Document: CI/PL/COO/eDAS\\]\n\n   ⟶ \\[TransportEvent: LCT/SPMT\\]\n\n   ⟶ \\[Location: Port → Yard → Site\\]\n\n   ⟶ \\[Inspection: MRR/OSDR\\]\n\n   ⟶ \\[Report: KPI/Dashboard\\]\n\n   ⟶ \\[Governance: AI\\-Logi\\-Guide Rules\\]\n\n이 전체를 hvdc\\-adopt\\-ontology\\.ttl로 export하면,  \nGitHub macho715/ontology\\-insight에서 RDF 시각화 및 reasoning 연결 가능\\.\n\n__🔶 8\\. 요약 메타 구조__\n\n\\{\n\n \"Ontology\":\"hvdc\\-adopt\\-logiontology\",\n\n \"CoreClasses\":\\[\"Material\",\"TransportEvent\",\"Storage\",\"Inspection\",\"Permit\",\"Actor\",\"PortOperation\"\\],\n\n \"PrimaryRelations\":\\[\"hasDocument\",\"transportedBy\",\"storedAt\",\"requiresPermit\",\"inspectedBy\",\"approvedBy\"\\],\n\n \"AlignmentModule\":\"AI\\-Logi\\-Guide v2\\.1\\+\",\n\n \"ExportFormat\":\\[\"RDF/XML\",\"TTL\",\"JSON\\-LD\"\\]\n\n\\}\n\n이 프레임이면, HVDC 프로젝트 전체가 __“문서\\-행위\\-공간\\-주체\\-규정”의 지식망__으로 정규화됩니다\\.  \n다음 단계는 logiontology\\.reasoning 모듈에서 __Rule\\-based inference__ 정의 — 예컨대 “운송허가가 누락된 자재는 SiteReceiving 단계로 진행 불가” 같은 정책을 OWL constraint로 명세하면 완성됩니다\\.\n\n",
+  "tables": [
+    {
+      "page": null,
+      "index": 0,
+      "rows": [
+        [
+          "Layer",
+          "Ontology Domain",
+          "대표 엔티티",
+          "관계 키(Relation)"
+        ],
+        [
+          "L1",
+          "Physical Flow",
+          "Material, Cargo, Port, Site, Vessel",
+          "movesFrom, movesTo, storedAt, handledBy"
+        ],
+        [
+          "L2",
+          "Document Flow",
+          "BL, CI, PL, COO, eDAS, MRR, OSDR",
+          "certifies, refersTo, attachedTo"
+        ],
+        [
+          "L3",
+          "Actor Flow",
+          "SCT, JDN, ALS, ADNOC, Subcon",
+          "responsibleFor, approves, reportsTo"
+        ],
+        [
+          "L4",
+          "Regulatory Flow",
+          "MOIAT, FANR, Customs, DOT",
+          "requiresPermit, compliesWith, auditedBy"
+        ],
+        [
+          "L5",
+          "System Flow",
+          "eDAS, SAP, NCM, LDG",
+          "feedsDataTo, validates, monitoredBy"
+        ]
+      ]
+    },
+    {
+      "page": null,
+      "index": 1,
+      "rows": [
+        [
+          "Class",
+          "Subclass of",
+          "Description",
+          "Onto-ID"
+        ],
+        [
+          "Material",
+          "Asset",
+          "자재 및 기자재(Transformer, Cable, CCU 등)",
+          "hvdc-asset-mat"
+        ],
+        [
+          "TransportEvent",
+          "Activity",
+          "Inland, Marine, Offloading, SiteReceiving",
+          "hvdc-act-trans"
+        ],
+        [
+          "Storage",
+          "Location",
+          "Yard, Warehouse, Laydown",
+          "hvdc-loc-stor"
+        ],
+        [
+          "Inspection",
+          "Process",
+          "MRR, MRI, OSDR",
+          "hvdc-proc-insp"
+        ],
+        [
+          "Permit",
+          "Document",
+          "PTW, Hot Work, FRA",
+          "hvdc-doc-perm"
+        ],
+        [
+          "Actor",
+          "Agent",
+          "SCT, ADNOC L&S, Vendor",
+          "hvdc-agent-role"
+        ],
+        [
+          "PortOperation",
+          "Activity",
+          "RORO/LOLO, Sea Fastening",
+          "hvdc-act-port"
+        ]
+      ]
+    },
+    {
+      "page": null,
+      "index": 2,
+      "rows": [
+        [
+          "Ontology Node",
+          "대응 모듈",
+          "기능적 의미"
+        ],
+        [
+          "Activity",
+          "pipeline",
+          "단계별 절차 정의"
+        ],
+        [
+          "Document",
+          "rdfio, validation",
+          "eDAS·MRR 등 문서형 triple"
+        ],
+        [
+          "Agent",
+          "core",
+          "역할/권한 모델"
+        ],
+        [
+          "Location",
+          "mapping",
+          "Port/Site 좌표·거점"
+        ],
+        [
+          "RiskEvent",
+          "reasoning",
+          "Weather-Tie·Delay inference"
+        ],
+        [
+          "Report",
+          "report",
+          "KPI/Inspection 리포트"
+        ]
+      ]
+    },
+    {
+      "page": null,
+      "index": 3,
+      "rows": [
+        [
+          "KPI Class",
+          "Onto Property",
+          "계산식",
+          "Source"
+        ],
+        [
+          "On-Time Delivery",
+          "meetsETA",
+          "ETA vs Actual ≤12%",
+          "ETA MAPE Rule"
+        ],
+        [
+          "Inspection Compliance",
+          "hasMRR",
+          "MRR Count / Total Deliveries",
+          "QC Gate"
+        ],
+        [
+          "Storage Efficiency",
+          "occupies",
+          "Used m² / Available m²",
+          "WH Forecast"
+        ],
+        [
+          "Safety Conformance",
+          "requiresPermit",
+          "Valid PTW/FRA %",
+          "HSE Docs"
+        ]
+      ]
+    }
+  ]
+}

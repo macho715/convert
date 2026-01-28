@@ -1,0 +1,5 @@
+KPI Class,Onto Property,계산식,Source
+On-Time Delivery,meetsETA,ETA vs Actual ≤12%,ETA MAPE Rule
+Inspection Compliance,hasMRR,MRR Count / Total Deliveries,QC Gate
+Storage Efficiency,occupies,Used m² / Available m²,WH Forecast
+Safety Conformance,requiresPermit,Valid PTW/FRA %,HSE Docs

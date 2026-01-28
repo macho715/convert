@@ -1,0 +1,5 @@
+Source Field Ontology Property Note
+Rate_1..4 rate:hasRate_i 금액=Σ(EA×Rate)
+Amount (AED) fin:lineAmount 2 decimals
+INVOICE NUMBER (OFCO) id:hasOFCOInvNo Invoice join
+Rotation# (Subject 내) ops:hasRotationNo PortCall link

@@ -1,0 +1,2 @@
+StartDate(YYYY-MM-DD),EndDate(YYYY-MM-DD),RiskLevel(LOW/MED/HIGH),DelayDays_Min,DelayDays_Mode,DelayDays_Max,AppliesTo(Phase),Notes
+2026-01-14,2026-01-18,HIGH,1,2,3,"SAIL,RETURN,LOADOUT,AGI_UNLOAD",Editable high-risk window

@@ -1,0 +1,168 @@
+{
+  "document_metadata": {
+    "title": "Option C AGI Transformer Transport Schedule (1 TR / 1 Voyage, Parallel Like Option A)",
+    "version": "0.1",
+    "generated_at": "2026-01-21T04:26:18Z",
+    "base_reference": "Derived from OPTION A schedules (agi tr schedule.json) and Option A parallel operation docs",
+    "note": "This is a derived baseline schedule for planning; adjust with tide windows, berth availability, and PTW approvals."
+  },
+  "option_definition": {
+    "option": "C",
+    "concept": "1 transformer per voyage; 2 SPMT sets used in parallel (like Option A)",
+    "site": "AGI",
+    "route": "Mina Zayed Port (MZP) ↔ AGI (LCT)",
+    "spmt_sets": [
+      "1st Set",
+      "2nd Set"
+    ],
+    "spmt_assignment_rule": "Alternating sets (odd units: 1st Set; even units: 2nd Set)"
+  },
+  "assumptions": {
+    "single_unit_voyage_pattern": {
+      "deck_prep_day": true,
+      "load_out_days": 1,
+      "final_prep_days": 1,
+      "sail_days": 1,
+      "arrival_unlashing_days": 1,
+      "load_in_days": 1,
+      "return_days": 1,
+      "note": "Pattern mirrors Option A 'Unit 7 single transport' structure: deck prep → load-out → MWS+MPI → sail → arrival → load-in."
+    },
+    "installation_pattern_agi": {
+      "transport_to_bay_days": 1,
+      "turning_days": 3,
+      "jacking_down_days": 1,
+      "note": "Pattern mirrors Option A installation sequence (transport → turning 3 days → jacking down)."
+    }
+  },
+  "schedule": [
+    {
+      "voyage": 1,
+      "unit": 1,
+      "bay": "TR Bay 4",
+      "spmt_set": "1st Set",
+      "deck_prep": null,
+      "load_out": "2026-01-29",
+      "final_prep": "2026-01-30",
+      "sail": "2026-01-31",
+      "arrival": "2026-02-01",
+      "load_in": "2026-02-02",
+      "return": "2026-02-03",
+      "transport_to_bay": "2026-02-03",
+      "turning_start": "2026-02-04",
+      "turning_end": "2026-02-06",
+      "jacking_down": "2026-02-07"
+    },
+    {
+      "voyage": 2,
+      "unit": 2,
+      "bay": "TR Bay 3",
+      "spmt_set": "2nd Set",
+      "deck_prep": "2026-02-04",
+      "load_out": "2026-02-05",
+      "final_prep": "2026-02-06",
+      "sail": "2026-02-07",
+      "arrival": "2026-02-08",
+      "load_in": "2026-02-09",
+      "return": "2026-02-10",
+      "transport_to_bay": "2026-02-10",
+      "turning_start": "2026-02-11",
+      "turning_end": "2026-02-13",
+      "jacking_down": "2026-02-14"
+    },
+    {
+      "voyage": 3,
+      "unit": 3,
+      "bay": "TR Bay 2",
+      "spmt_set": "1st Set",
+      "deck_prep": "2026-02-11",
+      "load_out": "2026-02-12",
+      "final_prep": "2026-02-13",
+      "sail": "2026-02-14",
+      "arrival": "2026-02-15",
+      "load_in": "2026-02-16",
+      "return": "2026-02-17",
+      "transport_to_bay": "2026-02-17",
+      "turning_start": "2026-02-18",
+      "turning_end": "2026-02-20",
+      "jacking_down": "2026-02-21"
+    },
+    {
+      "voyage": 4,
+      "unit": 4,
+      "bay": "TR Bay 1",
+      "spmt_set": "2nd Set",
+      "deck_prep": "2026-02-18",
+      "load_out": "2026-02-19",
+      "final_prep": "2026-02-20",
+      "sail": "2026-02-21",
+      "arrival": "2026-02-22",
+      "load_in": "2026-02-23",
+      "return": "2026-02-24",
+      "transport_to_bay": "2026-02-24",
+      "turning_start": "2026-02-25",
+      "turning_end": "2026-02-27",
+      "jacking_down": "2026-02-28"
+    },
+    {
+      "voyage": 5,
+      "unit": 5,
+      "bay": "TR Bay 5",
+      "spmt_set": "1st Set",
+      "deck_prep": "2026-02-25",
+      "load_out": "2026-02-26",
+      "final_prep": "2026-02-27",
+      "sail": "2026-02-28",
+      "arrival": "2026-03-01",
+      "load_in": "2026-03-02",
+      "return": "2026-03-03",
+      "transport_to_bay": "2026-03-03",
+      "turning_start": "2026-03-04",
+      "turning_end": "2026-03-06",
+      "jacking_down": "2026-03-07"
+    },
+    {
+      "voyage": 6,
+      "unit": 6,
+      "bay": "TR Bay 6",
+      "spmt_set": "2nd Set",
+      "deck_prep": "2026-03-04",
+      "load_out": "2026-03-05",
+      "final_prep": "2026-03-06",
+      "sail": "2026-03-07",
+      "arrival": "2026-03-08",
+      "load_in": "2026-03-09",
+      "return": "2026-03-10",
+      "transport_to_bay": "2026-03-10",
+      "turning_start": "2026-03-11",
+      "turning_end": "2026-03-13",
+      "jacking_down": "2026-03-14"
+    },
+    {
+      "voyage": 7,
+      "unit": 7,
+      "bay": "TR Bay 7",
+      "spmt_set": "1st Set",
+      "deck_prep": "2026-03-11",
+      "load_out": "2026-03-12",
+      "final_prep": "2026-03-13",
+      "sail": "2026-03-14",
+      "arrival": "2026-03-15",
+      "load_in": "2026-03-16",
+      "return": null,
+      "transport_to_bay": "2026-03-17",
+      "turning_start": "2026-03-18",
+      "turning_end": "2026-03-20",
+      "jacking_down": "2026-03-21"
+    }
+  ],
+  "derived_metrics": {
+    "total_units": 7,
+    "total_voyages": 7,
+    "round_trips": 6,
+    "one_way_voyages": 1,
+    "start_date": "2026-01-29",
+    "estimated_completion_date": "2026-03-21",
+    "estimated_total_duration_days_inclusive": 52
+  }
+}

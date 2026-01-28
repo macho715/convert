@@ -1,0 +1,86 @@
+ID	WBS	Task	Phase	Owner	Start	End	Duration_days	Notes
+MOB-001	A0	Mobilization (crew/equipment)	Mobilization	Mammoet	2026-01-15	2026-01-16	1	SPMT + grillage in MZP
+PREP-001	A0	LCT deck preparations + fenders + mooring	Deck Prep	Mammoet/KFS	2026-01-16	2026-01-19	3	MWS pre-check ready
+V1	A1	VOYAGE 1: TR1 Transport (single)	Marine Transport	SCT/Mammoet/KFS	2026-01-18	2026-01-18	0	TIDE>=1.90 required (LO/ARR)
+LO-101	A1	Loadout TR1 onto LCT Bushra	MZP Loadout	Mammoet	2026-01-18	2026-01-18	0.5	High tide window required
+SF-102	A1	Sea fastening TR1	Sea Fastening	Mammoet/KFS	2026-01-19	2026-01-19	0	Weld + lash
+MWS-103	A1	MWS Survey + MPI + Final checks	Survey	MWS/Sterling	2026-01-19	2026-01-19	0	DAS stamp
+SAIL-104	A1	Sail-away (MZP?묨GI)	Sea Passage	KFS	2026-01-19	2026-01-19	0	Weather gate: wind/wave/vis
+ARR-105	A1	Arrive/berth AGI jetty	AGI Arrival	KFS/AD Ports	2026-01-20	2026-01-20	0	Align high tide
+STORE-106	A1	Unload & store TR1 at laydown	AGI Laydown	Mammoet/SCT	2026-01-21	2026-01-21	0.5	Await TR2
+RET-107	A1	LCT Return to MZP	Return	KFS	2026-01-21	2026-01-21	0	After unload
+BUF-108	A1	Buffer / standby	Buffer	SCT	2026-01-22	2026-01-22	1	WX/tide slip
+V2	A2	VOYAGE 2: TR2 Transport + JD-1	Marine Transport	SCT/Mammoet/KFS	2026-01-26	2026-01-26	0	TIDE>=1.90 required (LO/ARR)
+LO-109	A2	Loadout TR2 onto LCT	MZP Loadout	Mammoet	2026-01-26	2026-01-26	0.5	High tide window required
+SF-110	A2	Sea fastening TR2	Sea Fastening	Mammoet/KFS	2026-01-27	2026-01-27	0	Weld + lash
+MWS-110A	A2	MWS Survey + Final checks	Survey	MWS/Sterling	2026-01-27	2026-01-27	0	DAS stamp
+SAIL-111	A2	Sail-away	Sea Passage	KFS	2026-01-27	2026-01-27	0	Weather gate: wind/wave/vis
+ARR-112	A2	Arrive/berth AGI	AGI Arrival	KFS/AD Ports	2026-01-28	2026-01-28	0	Align high tide
+TRN-113	A2	Inland transport TR1 to Bay-1	Onshore SPMT	Mammoet	2026-01-29	2026-01-30	1	SPMT 14 axle (assumption)
+TURN-114	A2	Turn TR1 orientation (Bay-1)	Onshore SPMT	Mammoet	2026-01-30	2026-01-30	0	Bay-1 final alignment
+BRG-115	A2	Steel bridge install (AGI Gate-1)	AGI Gate Prep	Mammoet/ALS	2026-01-29	2026-01-31	2	Gate-1 crossing readiness
+TRN-116	A2	Inland transport TR2 to Bay-2	Onshore SPMT	Mammoet	2026-02-01	2026-02-02	1	SPMT 14 axle (assumption)
+TURN-117	A2	Turn TR2 orientation (Bay-2)	Onshore SPMT	Mammoet	2026-02-02	2026-02-02	0	Bay-2 final alignment
+BUF-118	A2	TR2 Laydown buffer	Buffer	SCT	2026-02-03	2026-02-03	1	Flex / WX hold
+JD-120	A2	JACKDOWN-1: TR1+TR2 set-down in bays	Jackdown	Mammoet	2026-02-05	2026-02-05	0	Tight tolerances / HSE gate
+RET-119	A2	LCT Return after JD-1	Return	KFS	2026-02-06	2026-02-06	0	Post jackdown
+BUF-120	A2	Buffer / Shamal recovery	Buffer	SCT	2026-02-07	2026-02-07	1	Shamal + fog/dust risk
+V3	A3	VOYAGE 3: TR3 Transport	Marine Transport	SCT/Mammoet/KFS	2026-02-16	2026-02-16	0	TIDE>=1.90 required (LO/ARR)
+LO-121	A3	Loadout TR3	MZP Loadout	Mammoet	2026-02-16	2026-02-16	0.5	High tide window required
+SF-122	A3	Sea fastening TR3	Sea Fastening	Mammoet/KFS	2026-02-17	2026-02-17	0	Weld + lash
+MWS-122A	A3	MWS Survey + Final checks	Survey	MWS/Sterling	2026-02-17	2026-02-17	0	DAS stamp
+SAIL-123	A3	Sail-away	Sea Passage	KFS	2026-02-17	2026-02-17	0	Weather gate: wind/wave/vis
+ARR-124	A3	Arrive/berth AGI	AGI Arrival	KFS/AD Ports	2026-02-18	2026-02-18	0	Align high tide
+STORE-125	A3	Unload & store TR3 laydown	AGI Laydown	Mammoet/SCT	2026-02-19	2026-02-19	0.5	Await TR4
+RET-126	A3	LCT Return to MZP	Return	KFS	2026-02-20	2026-02-20	0	After unload
+BUF-127	A3	Buffer	Buffer	SCT	2026-02-21	2026-02-21	1	WX/tide slip
+V4	A4	VOYAGE 4: TR4 Transport + JD-2	Marine Transport	SCT/Mammoet/KFS	2026-02-23	2026-02-23	0	TIDE>=1.90 required (LO/ARR)
+LO-128	A4	Loadout TR4	MZP Loadout	Mammoet	2026-02-23	2026-02-23	0.5	High tide window required
+SF-129	A4	Sea fastening TR4	Sea Fastening	Mammoet/KFS	2026-02-24	2026-02-24	0	Weld + lash
+MWS-129A	A4	MWS Survey + Final checks	Survey	MWS/Sterling	2026-02-24	2026-02-24	0	DAS stamp
+SAIL-130	A4	Sail-away	Sea Passage	KFS	2026-02-24	2026-02-24	0	Weather gate: wind/wave/vis
+ARR-131	A4	Arrive/berth AGI	AGI Arrival	KFS/AD Ports	2026-02-25	2026-02-25	0	Align high tide
+TRN-132	A4	Inland transport TR3 to Bay-3	Onshore SPMT	Mammoet	2026-02-26	2026-02-27	1	SPMT 14 axle (assumption)
+TURN-133	A4	Turn TR3 orientation (Bay-3)	Onshore SPMT	Mammoet	2026-02-27	2026-02-27	0	Bay-3 final alignment
+BUF-134	A4	TR3 Laydown buffer	Buffer	SCT	2026-02-27	2026-02-28	1	Flex between turning & JD
+TRN-135	A4	Inland transport TR4 to Bay-4	Onshore SPMT	Mammoet	2026-02-27	2026-02-28	1	SPMT 14 axle (assumption)
+TURN-136	A4	Turn TR4 orientation (Bay-4)	Onshore SPMT	Mammoet	2026-02-28	2026-02-28	0	Bay-4 final alignment
+BUF-137	A4	TR4 Laydown buffer	Buffer	SCT	2026-02-28	2026-02-28	0	Compressed (risk)
+JD-139	A4	JACKDOWN-2: TR3+TR4	Jackdown	Mammoet	2026-02-28	2026-02-28	0	Tight tolerances / HSE gate
+RET-138	A4	LCT Return after JD-2	Return	KFS	2026-03-01	2026-03-01	0	Post jackdown
+BUF-140	A4	Buffer	Buffer	SCT	2026-03-01	2026-03-01	1	Recovery / handover (compressed)
+V5	A5	VOYAGE 5: TR5 Transport	Marine Transport	SCT/Mammoet/KFS	2026-03-02	2026-03-02	0	TIDE>=1.90 required (LO/ARR)
+LO-140	A5	Loadout TR5	MZP Loadout	Mammoet	2026-03-02	2026-03-02	0.5	High tide window required
+SF-141	A5	Sea fastening TR5	Sea Fastening	Mammoet/KFS	2026-03-02	2026-03-02	0	Same-day to meet tide
+MWS-141A	A5	MWS Survey + Final checks	Survey	MWS/Sterling	2026-03-02	2026-03-02	0	Same-day to meet tide
+SAIL-142	A5	Sail-away	Sea Passage	KFS	2026-03-02	2026-03-02	0	Weather gate: wind/wave/vis
+ARR-143	A5	Arrive/berth AGI	AGI Arrival	KFS/AD Ports	2026-03-03	2026-03-03	0	Align high tide
+STORE-144	A5	Unload & store TR5 laydown	AGI Laydown	Mammoet/SCT	2026-03-04	2026-03-04	0.5	Await TR6
+RET-145	A5	LCT Return to MZP	Return	KFS	2026-03-05	2026-03-05	0	After unload
+BUF-146	A5	Buffer	Buffer	SCT	2026-03-06	2026-03-06	1	WX/tide slip
+V6	A6	VOYAGE 6: TR6 Transport + JD-3	Marine Transport	SCT/Mammoet/KFS	2026-03-09	2026-03-09	0	TIDE>=1.90 required (LO/ARR)
+LO-147	A6	Loadout TR6	MZP Loadout	Mammoet	2026-03-09	2026-03-09	0.5	High tide window required (early AM)
+SF-148	A6	Sea fastening TR6	Sea Fastening	Mammoet/KFS	2026-03-09	2026-03-09	0	Same-day to meet tide
+MWS-148A	A6	MWS Survey + Final checks	Survey	MWS/Sterling	2026-03-09	2026-03-09	0	Same-day to meet tide
+SAIL-149	A6	Sail-away	Sea Passage	KFS	2026-03-09	2026-03-09	0	Weather gate: wind/wave/vis
+ARR-150	A6	Arrive/berth AGI	AGI Arrival	KFS/AD Ports	2026-03-10	2026-03-10	0	Align high tide (early AM)
+TRN-151	A6	Inland transport TR5 to Bay-5	Onshore SPMT	Mammoet	2026-03-11	2026-03-12	1	SPMT 14 axle (assumption)
+TURN-152	A6	Turn TR5 orientation (Bay-5)	Onshore SPMT	Mammoet	2026-03-12	2026-03-12	0	Bay-5 final alignment
+TRN-154	A6	Inland transport TR6 to Bay-6	Onshore SPMT	Mammoet	2026-03-16	2026-03-17	1	SPMT 14 axle (assumption)
+TURN-155	A6	Turn TR6 orientation (Bay-6)	Onshore SPMT	Mammoet	2026-03-17	2026-03-17	0	Bay-6 final alignment
+BUF-156	A6	TR6 Laydown buffer	Buffer	SCT	2026-03-17	2026-03-18	1	Flex / WX hold
+JD-157	A6	JACKDOWN-3: TR5+TR6	Jackdown	Mammoet	2026-03-19	2026-03-19	0	Tight tolerances / HSE gate
+RET-158	A6	LCT Return after JD-3	Return	KFS	2026-03-20	2026-03-20	0	Post jackdown
+BUF-159	A6	Buffer	Buffer	SCT	2026-03-21	2026-03-21	1	WX/tide slip
+V7	A7	VOYAGE 7: TR7 Transport + JD-4	Marine Transport	SCT/Mammoet/KFS	2026-03-24	2026-03-24	0	TIDE>=1.90 required (LO/ARR)
+LO-201	A7	Loadout TR7	MZP Loadout	Mammoet	2026-03-24	2026-03-24	0.5	High tide window required (early AM)
+SF-202	A7	Sea fastening TR7	Sea Fastening	Mammoet/KFS	2026-03-24	2026-03-24	0	Same-day to meet tide
+MWS-202A	A7	MWS Survey + Final checks	Survey	MWS/Sterling	2026-03-24	2026-03-24	0	Same-day to meet tide
+SAIL-203	A7	Sail-away	Sea Passage	KFS	2026-03-24	2026-03-24	0	Weather gate: wind/wave/vis
+ARR-204	A7	Arrive/berth AGI	AGI Arrival	KFS/AD Ports	2026-03-25	2026-03-25	0	Align high tide (early AM)
+TRN-205	A7	Inland transport TR7 to Bay-7	Onshore SPMT	Mammoet	2026-03-26	2026-03-27	1	SPMT 14 axle (assumption)
+TURN-206	A7	Turn TR7 orientation (Bay-7)	Onshore SPMT	Mammoet	2026-03-27	2026-03-27	0	Bay-7 final alignment
+JD-207	A7	JACKDOWN-4: TR7	Jackdown	Mammoet	2026-03-31	2026-03-31	0	Final set-down
+RET-208	A7	LCT Final return	Return	KFS	2026-04-01	2026-04-01	0	Backhaul + close
+DEMOB-999	A9	Demobilization & closeout	Demobilization	Mammoet/SCT	2026-04-02	2026-04-02	1	SPMT demob + docs
+END-000	A9	PROJECT END / Handover	Handover	SCT	2026-04-03	2026-04-03	0	Mechanical completion handover

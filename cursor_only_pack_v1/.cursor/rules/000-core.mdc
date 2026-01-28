@@ -1,0 +1,8 @@
+---
+alwaysApply: true
+globs: ["**/*"]
+---
+- Outputs must follow: ExecSummary → Visual → Options → Roadmap → Automation → QA
+- Numerics fixed to 2 decimals
+- Scope limited to src/**
+- NDA/PII must be removed

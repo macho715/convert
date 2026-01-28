@@ -1,0 +1,9 @@
+명령,클래스/속성,효과
+/revise,Command,"문장 재구성, 용어 정합 유지"
+/reply,Command,의도 기반 응답 생성
+/reply-note,Command,응답 요지 생성
+/costtable,Command + Cost_Item,"표 생성, 합계 계산"
+/doccheck,Verification_Action,문서 규칙 확인
+/ocr-note,Document_Ingest,문자 인식 정리
+/logi-master,Orchestrator,KPI·비용·스케줄 연동
+/update-lib,Regulation_Update,규범 버전 갱신

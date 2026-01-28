@@ -1,0 +1,18 @@
+invoice_no	line_no	tariff_id	description	unit1	unit2	unit3	rate	amount_excl_tax	tax_rate_pct	tax_amount	total_incl_tax	evidence	status
+INV-68082	1	102.3	Port Dues Cargo 16-Aug-2025 23:55:00 to 17-Aug-2025 22:45:00 (2 Days)	1.00	1.00	1.00	2500.00	2500.00	0.00	0.00	2500.00	img1-left,row1	OK
+INV-68082	2	6.3	Waste Handling First Domestic Skip 16-Aug-2025 23:55:00 to 17-Aug-2025 22:45:00 (2 Days)	1.00	1.00	1.00	300.00	300.00	0.00	0.00	300.00	img1-left,row2	OK
+INV042508008531	1	2.20	VAT - Document Processing Charge (Bulk)	0.00	0.00	1.00	35.00	35.00	5.00	0.00	35.00	img1-right,row1	OK
+INV042508008531	2	201.18	VAT - Freeport Liquid Bulk including bunker Fuels	23.00	0.00	0.00	15.00	345.00	5.00	0.00	345.00	img1-right,row2	UNMAPPED(tariff)
+INV042508008532	1	2.20	VAT - Document Processing Charge (Project)	0.00	0.00	1.00	35.00	35.00	5.00	0.00	35.00	img2-left,row1	OK
+INV042508008532	2	201.7	Heavy lift 20 Freight Tons or over (Other Cargo) - Direct Delivery	69.69	0.00	0.00	19.00	1324.11	0.00	0.00	1324.11	img2-left,row2	REVIEW(mapping)
+INV042508008532	3	201.8	Iron and Steel - Direct Delivery (Other STEEL)	132.50	0.00	0.00	16.00	2120.00	0.00	0.00	2120.00	img2-left,row3	UNMAPPED(tariff)
+INV042508008533	1	2.20	VAT - Document Processing Charge (Project)	0.00	0.00	1.00	35.00	35.00	5.00	0.00	35.00	img2-right,row1	OK
+INV042508008533	2	201.6	General Cargo NOS (Not Otherwise Specified) - Direct Delivery	204.68	0.00	0.00	16.00	3274.83	0.00	0.00	3274.83	img2-right,row2	OK
+INV-70924	1	10.1	Berthing Unberthing and Shifting Normal-Vessel 23-Aug-2025 01:03:00 to 23-Aug-2025 01:06:00 (3 minutes)	1.00	1.00	1.00	320.00	320.00	0.00	0.00	320.00	img3-left,row1	REVIEW(tariff)
+INV-70924	2	10.1	Berthing Unberthing and Shifting Normal-Vessel 22-Aug-2025 09:32:00 to 22-Aug-2025 09:44:00 (12 minutes)	1.00	1.00	1.00	320.00	320.00	0.00	0.00	320.00	img3-left,row2	REVIEW(tariff)
+INV-70924	3	8.1	Pilot Launch AL SAFEER 2 23-Aug-2025 00:40:00 to 23-Aug-2025 02:00:00 (1 Hours 20 minutes)	1.00	1.00	1.00	2000.00	2000.00	0.00	0.00	2000.00	img3-left,row3	REVIEW(tariff)
+INV-70924	4	8.1	Pilot Launch AL SAFEER 2 22-Aug-2025 09:15:00 to 22-Aug-2025 10:45:00 (1 Hours 30 minutes)	1.00	1.00	1.00	2000.00	2000.00	0.00	0.00	2000.00	img3-left,row4	REVIEW(tariff)
+INV-70924	5	7.1	Pilotage Normal-Vessel 22-Aug-2025 08:00:00 to 22-Aug-2025 10:00:00 (2 Hours)	1.00	1.00	1.00	1000.00	1000.00	0.00	0.00	1000.00	img3-left,row5	REVIEW(tariff)
+INV-70924	6	7.1	Pilotage Normal-Vessel 23-Aug-2025 00:50:00 to 23-Aug-2025 01:45:00 (55 minutes)	1.00	1.00	1.00	500.00	500.00	0.00	0.00	500.00	img3-left,row6	REVIEW(tariff)
+INV-71182	1	6.3	Waste Handling First Domestic Skip 22-Aug-2025 09:32:00 to 23-Aug-2025 01:06:00 (2 Days)	1.00	1.00	1.00	300.00	300.00	0.00	0.00	300.00	img3-right,row1	OK
+INV-71182	2	102.3	Port Dues Cargo 22-Aug-2025 09:32:00 to 23-Aug-2025 01:06:00 (2 Days)	1.00	1.00	1.00	2500.00	2500.00	0.00	0.00	2500.00	img3-right,row2	OK

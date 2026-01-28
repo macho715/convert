@@ -1,0 +1,140 @@
+Activity ID	Activity ID	Activity ID	Activity Name	Original Duration	Planned Start	Planned Finish
+MOBILIZATION			MOBILIZATION	10.00	2026-01-26	2026-02-04
+MOBILIZATION	SPMT		SPMT	10.00	2026-01-26	2026-02-04
+MOBILIZATION	SPMT	A1000	Mobilization of 1st set of SPMT; Asembly + Function Test	1.00	2026-01-26	2026-01-26
+MOBILIZATION	SPMT	A1010	Mobilization of 2nd set of SPMT; Assembly + Function test	1.00	2026-02-04	2026-02-04
+MOBILIZATION	MARINE		MARINE	0.50	2026-01-26	2026-01-26
+MOBILIZATION	MARINE	A1001	Mobilization of Marine Equipment and Steelworks	0.50	2026-01-26	2026-01-26
+MOBILIZATION	JACKING EQUIPMENT, STEEL BRIDGE		JACKING EQUIPMENT, STEEL BRIDGE	1.00	2026-01-29	2026-01-30
+MOBILIZATION	JACKING EQUIPMENT, STEEL BRIDGE	A2010	Mobilization of Jacking Equipment and Steel bridge (prior LCT's arrival to AGI with TR 1&2!))	1.00	2026-01-29	2026-01-30
+DEMOBILIZATION			DEMOBILIZATION	55.00	2026-01-27	2026-03-22
+DEMOBILIZATION	SPMT		SPMT	5.50	2026-03-15	2026-03-20
+DEMOBILIZATION	SPMT	A1980	Demobilization of 2nd set of SPMT	1.00	2026-03-15	2026-03-15
+DEMOBILIZATION	SPMT	A1990	Demobilization of 1st set of SPMT	1.00	2026-03-19	2026-03-20
+DEMOBILIZATION	MARINE		MARINE	1.00	2026-01-27	2026-01-27
+DEMOBILIZATION	MARINE	A2000	Demobilization of Marine Equipment and Steelworks	1.00	2026-01-27	2026-01-27
+DEMOBILIZATION	JACKING EQUIPMENT, STEEL BRIDGE		JACKING EQUIPMENT, STEEL BRIDGE	1.00	2026-03-22	2026-03-22
+DEMOBILIZATION	JACKING EQUIPMENT, STEEL BRIDGE	A2020	Demobilization of Jacking Equipment and Steel bridge	1.00	2026-03-22	2026-03-22
+OPERATIONAL			OPERATIONAL	54.00	2026-01-27	2026-03-21
+OPERATIONAL	Beam Replacement		Beam Replacement	44.00	2026-01-27	2026-03-11
+OPERATIONAL	Beam Replacement	A1002	Beam Replacement AGI TR Unit 1 (TR Bay 4) - Two 5t forklifts required	1.00	2026-01-27	2026-01-27
+OPERATIONAL	Beam Replacement	A1003	Beam Replacement AGI TR Unit 2 (TR Bay 3) - Two 5t forklifts required	1.00	2026-01-28	2026-01-28
+OPERATIONAL	Beam Replacement	A1013	Beam Replacement AGI TR Unit 3 (TR Bay 2) - Two 5t forklifts required	1.00	2026-02-11	2026-02-11
+OPERATIONAL	Beam Replacement	A1023	Beam Replacement AGI TR Unit 4 (TR Bay 1) - Two 5t forklifts required	1.00	2026-02-18	2026-02-18
+OPERATIONAL	Beam Replacement	A1033	Beam Replacement AGI TR Unit 5 (TR Bay 5) - Two 5t forklifts required	1.00	2026-02-25	2026-02-25
+OPERATIONAL	Beam Replacement	A1043	Beam Replacement AGI TR Unit 6 (TR Bay 6) - Two 5t forklifts required	1.00	2026-03-04	2026-03-04
+OPERATIONAL	Beam Replacement	A1053	Beam Replacement AGI TR Unit 7 (TR Bay 7) - Two 5t forklifts required	1.00	2026-03-11	2026-03-11
+OPERATIONAL	Deck Preparations		Deck Preparations	2.00	2026-01-27	2026-01-28
+OPERATIONAL	Deck Preparations	A1004	Deck Preparations (D-ring cutting; marking, steel sets installation) - One 5t forklift and Crane required	1.00	2026-01-27	2026-01-27
+OPERATIONAL	Deck Preparations	A1005	Deck Preparations (Steel sets installation, welding) - Crane Required for steel sets installation	1.00	2026-01-28	2026-01-28
+OPERATIONAL	AGI TR Unit 1		AGI TR Unit 1	10.00	2026-01-29	2026-02-07
+OPERATIONAL	AGI TR Unit 1	A1030	Loading of AGI TR Unit 1 on SPMT; lashing; Shifting to Mina Zayed Port RoRo Jetty area	0.30	2026-01-29	2026-01-29
+OPERATIONAL	AGI TR Unit 1	A1040	RoRo Ramp Installation - 5t Frokift and Crane required	0.30	2026-01-29	2026-01-29
+OPERATIONAL	AGI TR Unit 1	A1060	Load-out of AGL TR Unit 1; stool down (8am-10am)	0.20	2026-01-29	2026-01-29
+OPERATIONAL	AGI TR Unit 1	A1070	RoRo ramp removal; Seafastening AGL TR Unit 1 - Crane required	1.50	2026-01-29	2026-01-30
+OPERATIONAL	AGI TR Unit 1	A1081	MWS; MPI; Sail-away - Marine Transportation by LCT to Al Ghallan Island	1.00	2026-01-31	2026-01-31
+OPERATIONAL	AGI TR Unit 1	A1090	MMT Crew Mob to AGI; Site Induction; Meeting with Client	0.50	2026-02-01	2026-02-01
+OPERATIONAL	AGI TR Unit 1	A1091	LCT Arrival; Berthing at AGL RoRo Jetty	0.50	2026-02-01	2026-02-01
+OPERATIONAL	AGI TR Unit 1	A1100	Unlashing and cutting; steel sets preparations - Forklift required	0.50	2026-02-01	2026-02-01
+OPERATIONAL	AGI TR Unit 1	A1110	Load-in of AGI TR Unit 1 (including RoRo Ramp Installation); store on Jetty - Crane required	1.00	2026-02-02	2026-02-02
+OPERATIONAL	AGI TR Unit 1	A1121	LCT Sails back to MZP to collect TR Unit 1	1.00	2026-02-03	2026-02-03
+OPERATIONAL	AGI TR Unit 1	A1122	Steel bridge Installation - Crane required	0.30	2026-02-03	2026-02-03
+OPERATIONAL	AGI TR Unit 1	A1140	AGL TR Unit 1 (TR Bay 4) load on SPMT; lashing; Transportation and JD (steel set to be delivered to bay area by trailer)	0.70	2026-02-03	2026-02-03
+OPERATIONAL	AGI TR Unit 1	A1141	Turning of AGI TR Unit 1 (TR Bay 4) - 10t Forklift required	3.00	2026-02-04	2026-02-06
+OPERATIONAL	AGI TR Unit 1	A1150	Jacking down of AGI TR Unit 1 (TR Bay 4) on temporary support - Forklift required	1.00	2026-02-07	2026-02-07
+OPERATIONAL	AGI TR Unit 1	A1181	SPMT shifting back to Port	0.50	2026-02-05	2026-02-05
+OPERATIONAL	AGI TR Unit 2		AGI TR Unit 2	11.00	2026-02-04	2026-02-14
+OPERATIONAL	AGI TR Unit 2	A2029	LCT Arrives at MZP; Deck preparations	1.00	2026-02-04	2026-02-04
+OPERATIONAL	AGI TR Unit 2	A2030	Loading of AGI TR Unit 2 on SPMT; lashing; Shifting to Mina Zayed Port RoRo Jetty area	0.30	2026-02-05	2026-02-05
+OPERATIONAL	AGI TR Unit 2	A2040	RoRo Ramp Installation - 5t Frokift and Crane required	0.30	2026-02-05	2026-02-05
+OPERATIONAL	AGI TR Unit 2	A2050	Load-out of AGL TR Unit 2; stool down	0.20	2026-02-05	2026-02-05
+OPERATIONAL	AGI TR Unit 2	A2060	RoRo ramp removal; Seafastening AGL TR Unit 2 - Crane required	1.50	2026-02-05	2026-02-06
+OPERATIONAL	AGI TR Unit 2	A2070	MWS; MPI; Sail-away - Marine Transportation by LCT to Al Ghallan Island	1.00	2026-02-07	2026-02-07
+OPERATIONAL	AGI TR Unit 2	A2090	LCT Arrival; Berthing at AGL RoRo Jetty	0.50	2026-02-08	2026-02-08
+OPERATIONAL	AGI TR Unit 2	A2100	Unlashing and cutting; steel sets preparations - Forklift required	0.50	2026-02-08	2026-02-08
+OPERATIONAL	AGI TR Unit 2	A2110	Load-in of AGI TR Unit 2 (including RoRo Ramp Installation); store on Jetty - Crane required	1.00	2026-02-09	2026-02-09
+OPERATIONAL	AGI TR Unit 2	A2120	LCT Sails back to MZP to collect TR Unit 3 (SPMT to bring back 2pcs of 7.45m transport beam)	1.00	2026-02-10	2026-02-10
+OPERATIONAL	AGI TR Unit 2	A2130	Steel bridge Installation - Crane required	0.30	2026-02-10	2026-02-10
+OPERATIONAL	AGI TR Unit 2	A2140	AGL TR Unit 2 (TR Bay 3) load on SPMT; lashing; Transportation and JD (steel set to be delivered to bay area by trailer)	0.70	2026-02-10	2026-02-10
+OPERATIONAL	AGI TR Unit 2	A2150	Turning of AGI TR Unit 2 (TR Bay 3) - 10t Forklift required	3.00	2026-02-11	2026-02-13
+OPERATIONAL	AGI TR Unit 2	A2160	Jacking down of AGI TR Unit 2 (TR Bay 3) on temporary support - Forklift required	1.00	2026-02-14	2026-02-14
+OPERATIONAL	AGI TR Unit 2	A2170	SPMT shifting back to Port	0.50	2026-02-12	2026-02-12
+OPERATIONAL	AGI TR Unit 3		AGI TR Unit 3	11.00	2026-02-11	2026-02-21
+OPERATIONAL	AGI TR Unit 3	A2180	LCT Arrives at MZP; Deck preparations; Beam replacement	1.00	2026-02-11	2026-02-11
+OPERATIONAL	AGI TR Unit 3	A2190	Loading of AGI TR Unit 3 on SPMT; lashing; Shifting to Mina Zayed Port RoRo Jetty area	0.30	2026-02-12	2026-02-12
+OPERATIONAL	AGI TR Unit 3	A2200	RoRo Ramp Installation - 5t Frokift and Crane required	0.30	2026-02-12	2026-02-12
+OPERATIONAL	AGI TR Unit 3	A2210	Load-out of AGL TR Unit 3; stool down	0.20	2026-02-12	2026-02-12
+OPERATIONAL	AGI TR Unit 3	A2220	RoRo ramp removal; Seafastening AGL TR Unit 3 - Crane required	1.50	2026-02-12	2026-02-13
+OPERATIONAL	AGI TR Unit 3	A2230	MWS; MPI; Sail-away - Marine Transportation by LCT to Al Ghallan Island	1.00	2026-02-14	2026-02-14
+OPERATIONAL	AGI TR Unit 3	A2250	LCT Arrival; Berthing at AGL RoRo Jetty	0.50	2026-02-15	2026-02-15
+OPERATIONAL	AGI TR Unit 3	A2260	Unlashing and cutting; steel sets preparations - Forklift required	0.50	2026-02-15	2026-02-15
+OPERATIONAL	AGI TR Unit 3	A2270	Load-in of AGI TR Unit 3 (including RoRo Ramp Installation); store on Jetty - Crane required	1.00	2026-02-16	2026-02-16
+OPERATIONAL	AGI TR Unit 3	A2280	LCT Sails back to MZP to collect TR Unit 4	1.00	2026-02-17	2026-02-17
+OPERATIONAL	AGI TR Unit 3	A2290	Steel bridge Installation - Crane required	0.30	2026-02-17	2026-02-17
+OPERATIONAL	AGI TR Unit 3	A2300	AGL TR Unit 3 (TR Bay 2) load on SPMT; lashing; Transportation and JD (steel set to be delivered to bay area by trailer)	0.70	2026-02-17	2026-02-17
+OPERATIONAL	AGI TR Unit 3	A2310	Turning of AGI TR Unit 3 (TR Bay 2) - 10t Forklift required	3.00	2026-02-18	2026-02-20
+OPERATIONAL	AGI TR Unit 3	A2320	Jacking down of AGI TR Unit 3 (TR Bay 2) on temporary support - Forklift required	1.00	2026-02-21	2026-02-21
+OPERATIONAL	AGI TR Unit 3	A2330	SPMT shifting back to Port	0.50	2026-02-19	2026-02-19
+OPERATIONAL	AGI TR Unit 4		AGI TR Unit 4	11.00	2026-02-18	2026-02-28
+OPERATIONAL	AGI TR Unit 4	A2340	LCT Arrives at MZP; Deck preparations; Beam replacement	1.00	2026-02-18	2026-02-18
+OPERATIONAL	AGI TR Unit 4	A2350	Loading of AGI TR Unit 4 on SPMT; lashing; Shifting to Mina Zayed Port RoRo Jetty area	0.30	2026-02-19	2026-02-19
+OPERATIONAL	AGI TR Unit 4	A2360	RoRo Ramp Installation - 5t Frokift and Crane required	0.30	2026-02-19	2026-02-19
+OPERATIONAL	AGI TR Unit 4	A2370	Load-out of AGL TR Unit 4; stool down	0.20	2026-02-19	2026-02-19
+OPERATIONAL	AGI TR Unit 4	A2380	RoRo ramp removal; Seafastening AGL TR Unit 4 - Crane required	1.50	2026-02-19	2026-02-20
+OPERATIONAL	AGI TR Unit 4	A2390	MWS; MPI; Sail-away - Marine Transportation by LCT to Al Ghallan Island	1.00	2026-02-21	2026-02-21
+OPERATIONAL	AGI TR Unit 4	A2410	LCT Arrival; Berthing at AGL RoRo Jetty	0.50	2026-02-22	2026-02-22
+OPERATIONAL	AGI TR Unit 4	A2420	Unlashing and cutting; steel sets preparations - Forklift required	0.50	2026-02-22	2026-02-22
+OPERATIONAL	AGI TR Unit 4	A2430	Load-in of AGI TR Unit 4 (including RoRo Ramp Installation); store on Jetty - Crane required	1.00	2026-02-23	2026-02-23
+OPERATIONAL	AGI TR Unit 4	A2440	LCT Sails back to MZP to collect TR Unit 5	1.00	2026-02-24	2026-02-24
+OPERATIONAL	AGI TR Unit 4	A2450	Steel bridge Installation - Crane required	0.30	2026-02-24	2026-02-24
+OPERATIONAL	AGI TR Unit 4	A2460	AGL TR Unit 4 (TR Bay 1) load on SPMT; lashing; Transportation and JD (steel set to be delivered to bay area by trailer)	0.70	2026-02-24	2026-02-24
+OPERATIONAL	AGI TR Unit 4	A2470	Turning of AGI TR Unit 4 (TR Bay 1) - 10t Forklift required	3.00	2026-02-25	2026-02-27
+OPERATIONAL	AGI TR Unit 4	A2480	Jacking down of AGI TR Unit 4 (TR Bay 1) on temporary support - Forklift required	1.00	2026-02-28	2026-02-28
+OPERATIONAL	AGI TR Unit 4	A2490	SPMT shifting back to Port	0.50	2026-02-26	2026-02-26
+OPERATIONAL	AGI TR Unit 5		AGI TR Unit 5	11.00	2026-02-25	2026-03-07
+OPERATIONAL	AGI TR Unit 5	A2500	LCT Arrives at MZP; Deck preparations; Beam replacement	1.00	2026-02-25	2026-02-25
+OPERATIONAL	AGI TR Unit 5	A2510	Loading of AGI TR Unit 5 on SPMT; lashing; Shifting to Mina Zayed Port RoRo Jetty area	0.30	2026-02-26	2026-02-26
+OPERATIONAL	AGI TR Unit 5	A2520	RoRo Ramp Installation - 5t Frokift and Crane required	0.30	2026-02-26	2026-02-26
+OPERATIONAL	AGI TR Unit 5	A2530	Load-out of AGL TR Unit 5; stool down	0.20	2026-02-26	2026-02-26
+OPERATIONAL	AGI TR Unit 5	A2540	RoRo ramp removal; Seafastening AGL TR Unit 5 - Crane required	1.50	2026-02-26	2026-02-27
+OPERATIONAL	AGI TR Unit 5	A2550	MWS; MPI; Sail-away - Marine Transportation by LCT to Al Ghallan Island	1.00	2026-02-28	2026-02-28
+OPERATIONAL	AGI TR Unit 5	A2560	LCT Arrival; Berthing at AGL RoRo Jetty	0.50	2026-03-01	2026-03-01
+OPERATIONAL	AGI TR Unit 5	A2570	Unlashing and cutting; steel sets preparations - Forklift required	0.50	2026-03-01	2026-03-01
+OPERATIONAL	AGI TR Unit 5	A2580	Load-in of AGI TR Unit 5 (including RoRo Ramp Installation); store on Jetty - Crane required	1.00	2026-03-02	2026-03-02
+OPERATIONAL	AGI TR Unit 5	A2590	LCT Sails back to MZP to collect TR Unit 6	1.00	2026-03-03	2026-03-03
+OPERATIONAL	AGI TR Unit 5	A2600	Steel bridge Installation - Crane required	0.30	2026-03-03	2026-03-03
+OPERATIONAL	AGI TR Unit 5	A2610	AGL TR Unit 5 (TR Bay 5) load on SPMT; lashing; Transportation and JD (steel set to be delivered to bay area by trailer)	0.70	2026-03-03	2026-03-03
+OPERATIONAL	AGI TR Unit 5	A2620	Turning of AGI TR Unit 5 (TR Bay 5) - 10t Forklift required	3.00	2026-03-04	2026-03-06
+OPERATIONAL	AGI TR Unit 5	A2630	Jacking down of AGI TR Unit 5 (TR Bay 5) on temporary support - Forklift required	1.00	2026-03-07	2026-03-07
+OPERATIONAL	AGI TR Unit 5	A2640	SPMT shifting back to Port	0.50	2026-03-05	2026-03-05
+OPERATIONAL	AGI TR Unit 6		AGI TR Unit 6	11.00	2026-03-04	2026-03-14
+OPERATIONAL	AGI TR Unit 6	A2650	LCT Arrives at MZP; Deck preparations; Beam replacement	1.00	2026-03-04	2026-03-04
+OPERATIONAL	AGI TR Unit 6	A2660	Loading of AGI TR Unit 6 on SPMT; lashing; Shifting to Mina Zayed Port RoRo Jetty area	0.30	2026-03-05	2026-03-05
+OPERATIONAL	AGI TR Unit 6	A2670	RoRo Ramp Installation - 5t Frokift and Crane required	0.30	2026-03-05	2026-03-05
+OPERATIONAL	AGI TR Unit 6	A2680	Load-out of AGL TR Unit 6; stool down	0.20	2026-03-05	2026-03-05
+OPERATIONAL	AGI TR Unit 6	A2690	RoRo ramp removal; Seafastening AGL TR Unit 6 - Crane required	1.50	2026-03-05	2026-03-06
+OPERATIONAL	AGI TR Unit 6	A2700	MWS; MPI; Sail-away - Marine Transportation by LCT to Al Ghallan Island	1.00	2026-03-07	2026-03-07
+OPERATIONAL	AGI TR Unit 6	A2710	LCT Arrival; Berthing at AGL RoRo Jetty	0.50	2026-03-08	2026-03-08
+OPERATIONAL	AGI TR Unit 6	A2720	Unlashing and cutting; steel sets preparations - Forklift required	0.50	2026-03-08	2026-03-08
+OPERATIONAL	AGI TR Unit 6	A2730	Load-in of AGI TR Unit 6 (including RoRo Ramp Installation); store on Jetty - Crane required	1.00	2026-03-09	2026-03-09
+OPERATIONAL	AGI TR Unit 6	A2740	LCT Sails back to MZP to collect TR Unit 7	1.00	2026-03-10	2026-03-10
+OPERATIONAL	AGI TR Unit 6	A2750	Steel bridge Installation - Crane required	0.30	2026-03-10	2026-03-10
+OPERATIONAL	AGI TR Unit 6	A2760	AGL TR Unit 6 (TR Bay 6) load on SPMT; lashing; Transportation and JD (steel set to be delivered to bay area by trailer)	0.70	2026-03-10	2026-03-10
+OPERATIONAL	AGI TR Unit 6	A2770	Turning of AGI TR Unit 6 (TR Bay 6) - 10t Forklift required	3.00	2026-03-11	2026-03-13
+OPERATIONAL	AGI TR Unit 6	A2780	Jacking down of AGI TR Unit 6 (TR Bay 6) on temporary support - Forklift required	1.00	2026-03-14	2026-03-14
+OPERATIONAL	AGI TR Unit 6	A2790	SPMT shifting back to Port	0.50	2026-03-12	2026-03-12
+OPERATIONAL	AGI TR Unit 7		AGI TR Unit 7	11.00	2026-03-11	2026-03-21
+OPERATIONAL	AGI TR Unit 7	A2800	LCT Arrives at MZP; Deck preparations; Beam replacement	1.00	2026-03-11	2026-03-11
+OPERATIONAL	AGI TR Unit 7	A2810	Loading of AGI TR Unit 7 on SPMT; lashing; Shifting to Mina Zayed Port RoRo Jetty area	0.30	2026-03-12	2026-03-12
+OPERATIONAL	AGI TR Unit 7	A2820	RoRo Ramp Installation - 5t Frokift and Crane required	0.30	2026-03-12	2026-03-12
+OPERATIONAL	AGI TR Unit 7	A2830	Load-out of AGL TR Unit 7; stool down	0.20	2026-03-12	2026-03-12
+OPERATIONAL	AGI TR Unit 7	A2840	RoRo ramp removal; Seafastening AGL TR Unit 7 - Crane required	1.50	2026-03-12	2026-03-13
+OPERATIONAL	AGI TR Unit 7	A2850	MWS; MPI; Sail-away - Marine Transportation by LCT to Al Ghallan Island	1.00	2026-03-14	2026-03-14
+OPERATIONAL	AGI TR Unit 7	A2860	LCT Arrival; Berthing at AGL RoRo Jetty	0.50	2026-03-15	2026-03-15
+OPERATIONAL	AGI TR Unit 7	A2870	Unlashing and cutting; steel sets preparations - Forklift required	0.50	2026-03-15	2026-03-15
+OPERATIONAL	AGI TR Unit 7	A2880	Load-in of AGI TR Unit 7 (including RoRo Ramp Installation); store on Jetty - Crane required	1.00	2026-03-16	2026-03-16
+OPERATIONAL	AGI TR Unit 7	A2900	Steel bridge Installation - Crane required	0.30	2026-03-17	2026-03-17
+OPERATIONAL	AGI TR Unit 7	A2910	AGL TR Unit 7 (TR Bay 7) load on SPMT; lashing; Transportation and JD (steel set to be delivered to bay area by trailer)	0.70	2026-03-17	2026-03-17
+OPERATIONAL	AGI TR Unit 7	A2920	Turning of AGI TR Unit 7 (TR Bay 7) - 10t Forklift required	3.00	2026-03-18	2026-03-20
+OPERATIONAL	AGI TR Unit 7	A2930	Jacking down of AGI TR Unit 7 (TR Bay 7) on temporary support - Forklift required	1.00	2026-03-21	2026-03-21
+OPERATIONAL	AGI TR Unit 7	A2940	SPMT shifting back to Port	0.50	2026-03-19	2026-03-19

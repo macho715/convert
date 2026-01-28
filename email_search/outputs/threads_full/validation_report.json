@@ -1,0 +1,146 @@
+{
+  "threads_validation": {
+    "total_threads": 542,
+    "sampled": 100,
+    "issues_found": 33,
+    "issues": [
+      {
+        "thread_id": "thread_494",
+        "issue": "low_confidence",
+        "confidence": 0.2857,
+        "severity": "medium"
+      },
+      {
+        "thread_id": "thread_238",
+        "issue": "low_confidence",
+        "confidence": 0.2371,
+        "severity": "medium"
+      },
+      {
+        "thread_id": "thread_473",
+        "issue": "low_confidence",
+        "confidence": 0.1964,
+        "severity": "medium"
+      },
+      {
+        "thread_id": "thread_139",
+        "issue": "low_confidence",
+        "confidence": 0.2143,
+        "severity": "medium"
+      },
+      {
+        "thread_id": "thread_363",
+        "issue": "low_confidence",
+        "confidence": 0.2,
+        "severity": "medium"
+      },
+      {
+        "thread_id": "thread_175",
+        "issue": "low_confidence",
+        "confidence": 0.2857,
+        "severity": "medium"
+      },
+      {
+        "thread_id": "thread_488",
+        "issue": "low_confidence",
+        "confidence": 0.2,
+        "severity": "medium"
+      },
+      {
+        "thread_id": "thread_75",
+        "issue": "low_confidence",
+        "confidence": 0.2,
+        "severity": "medium"
+      },
+      {
+        "thread_id": "thread_66",
+        "issue": "low_confidence",
+        "confidence": 0.2571,
+        "severity": "medium"
+      },
+      {
+        "thread_id": "thread_208",
+        "issue": "low_confidence",
+        "confidence": 0.0,
+        "severity": "medium"
+      },
+      {
+        "thread_id": "thread_449",
+        "issue": "low_confidence",
+        "confidence": 0.2738,
+        "severity": "medium"
+      },
+      {
+        "thread_id": "thread_72",
+        "issue": "low_confidence",
+        "confidence": 0.0,
+        "severity": "medium"
+      },
+      {
+        "thread_id": "thread_527",
+        "issue": "low_confidence",
+        "confidence": 0.2881,
+        "severity": "medium"
+      },
+      {
+        "thread_id": "thread_370",
+        "issue": "low_confidence",
+        "confidence": 0.2929,
+        "severity": "medium"
+      },
+      {
+        "thread_id": "thread_203",
+        "issue": "low_confidence",
+        "confidence": 0.2857,
+        "severity": "medium"
+      },
+      {
+        "thread_id": "thread_243",
+        "issue": "low_confidence",
+        "confidence": 0.2482,
+        "severity": "medium"
+      },
+      {
+        "thread_id": "thread_207",
+        "issue": "low_confidence",
+        "confidence": 0.063,
+        "severity": "medium"
+      },
+      {
+        "thread_id": "thread_160",
+        "issue": "low_confidence",
+        "confidence": 0.0057,
+        "severity": "medium"
+      },
+      {
+        "thread_id": "thread_461",
+        "issue": "low_confidence",
+        "confidence": 0.2137,
+        "severity": "medium"
+      },
+      {
+        "thread_id": "thread_61",
+        "issue": "low_confidence",
+        "confidence": 0.2714,
+        "severity": "medium"
+      }
+    ]
+  },
+  "edges_validation": {
+    "total_edges": 2414,
+    "issues_found": 1,
+    "issues": [
+      {
+        "issue": "potential_cycles",
+        "count": 1300,
+        "severity": "low"
+      }
+    ],
+    "confidence_stats": {
+      "min": 0.0,
+      "max": 0.95,
+      "mean": 0.6177381938690969,
+      "median": 0.68
+    }
+  }
+}

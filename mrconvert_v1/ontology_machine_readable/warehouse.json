@@ -1,0 +1,59 @@
+{
+  "meta": {
+    "source": "C:\\Users\\minky\\Downloads\\mrconvert_v1\\ONTOLOGY\\WAREHOUSE.docx",
+    "type": "docx",
+    "pages": null,
+    "parsed_at": "2025-10-19T17:51:47+00:00",
+    "ocr": {
+      "used": false,
+      "engine": "none",
+      "lang": null
+    }
+  },
+  "text": "ExecSummary\n창고 pjt를 온톨로지(지식그래프) 관점으로 보면, 엑셀/ERP의 각 행은 TransportEvent(이동), StockSnapshot(재고 스냅샷), Invoice(청구), Case(개별 케이스) 같은 클래스로 귀속되고, 열들은 hasDate/hasLocation/hasQuantity/hasLogisticsFlowCode 같은 속성으로 정규화됩니다. 이 구조가 “창고 트랙(WH)”·“현장 트랙(Site)”·“Flow Code(0–4)”를 한 장의 그래프로 동일 실체에 묶어 줍니다. (Any-key in → Resolve→Cluster→Downstream) \n매핑된 데이터는 RDF/OWL로 변환되어 SPARQL로 검증/집계가 가능하고, 비용 분류(OFCO)나 월별 입출고·재고·SQM 과금까지 한 체계에서 굴러갑니다. \n핵심은 “2-트랙 날짜 컬럼(창고 vs 현장)”과 시간순 출고 판정·이중계산 방지·Flow 0–4 일관성을 코드 레벨로 보증하는 것입니다.\nVisual — Ontology Map (요약표)\n파이프라인 to KG (요약)\nIngest(Excel) → 정규화(헤더/날짜/공백) → 매핑(JSON rules) → RDF 변환 → SPARQL 검증(12 rules) → Flow/WH·Site 집계 → 리포트/과금(SQM) \nHow it works (핵심 동작 원리, EN-KR one-liners)\n2-트랙 날짜 모델: 창고 컬럼(DSV Indoor/Al Markaz/AAA/MOSB…)과 현장 컬럼(AGI/DAS/MIR/SHU)을 분리 인식 → 최신 위치/이동 추론 강화. \nFlow Code 계산(0–4): Pre-Arrival(0)~WH/MOSB 경유~Site 도착까지 hop 수+오프쇼어 경유로 표준화.\n출고 판정(시간순): “창고에 찍힌 날짜 < 다음 위치(다른 창고/현장) 날짜”일 때만 출고로 인정(동일일자 중복 방지). \n이중계산 방지 + 검증: 창고간 이동 목적지는 입고에서 제외, 재고는 Status_Location vs 물리위치 교차검증(불일치 0건 목표). \nRDF/OWL & SPARQL: DataFrame→RDF 자동 변환, 금액/패키지/위치/시간 일관성 규칙 12종으로 품질게이트. \n리포팅 아키텍처: 5-시트 요약(Flow/WH·Site 월별/Pre-Arrival/전체 트랜잭션) + 27시트 스냅샷(B5 날짜 기반 시계열) + SQM 과금.\nOptions (구현 옵션 ≥3 · pros/cons/$/risk/time)\nOption A — Lite KG(매핑+피벗 중심)\nPros: 빠른 적용, 5-시트 리포트 즉시화, 기존 엑셀 호환 우수. \nCons: 실시간 추론/질의 한계, 규칙 변경 시 수작업 많음.\nCost/Time: $ · 1–2주.\nRisk: 규칙 누락/헤더 변형에 민감(중).\nOption B — Full KG(+SPARQL 검증/자동 추론)\nPros: RDF 변환+12개 규칙 검증, 의미론 질의/벤더·월·창고 통합 시계열 안정. \nCons: 온톨로지/삼중저장소 운영 필요.\nCost/Time: $$ · 3–5주.\nRisk: 초기 스키마 설계 미스매치(중).\nOption C — Ops Twin(+Flow 추적·SQM 과금)\nPros: 시간순 출고·이중계산 방지, SQM 누적/요율 기반 월별 과금 자동화. \nCons: 데이터 품질(SQM 실측률)에 민감.\nCost/Time: $$ · 4–6주.\nRisk: 일부 항목 SQM 추정치 사용 시 오차(중). \nRoadmap (Prepare→Pilot→Build→Operate→Scale + KPI)\nPrepare (1주)\n헤더/날짜 정규화, 전각공백(‘\\u3000’) 처리, 중복제거 파이프라인 정리. KPI: 정제 성공률 ≥ 94.60%. \nPilot (1–2주)\n2-트랙 매핑 + Flow 0–4 적용, 5-시트 리포트 생성. KPI: Flow 계산 일치율 100.00%. \nBuild (2–3주)\nRDF 변환 + SPARQL 12규칙, OFCO 비용센터 매핑 연결. KPI: 검증 규칙 통과율 100.00%. \nOperate (지속)\n시간순 출고/재고 교차검증, 이중계산 0건 유지, SQM 월별 과금. KPI: PKG Accuracy ≥ 99.00% / Inventory 불일치 0건. \nScale (지속)\n27시트 스냅샷 도입(B5 기반 시계열), 트렌드/변동 자동 감지. KPI: 스냅샷 커버리지 100.00%. \nAutomation Hooks (RPA+LLM)\n/logi-master kpi-dash: Flow/WH·Site 월별 피벗 + KPI 리포트 생성. \n/logi-master report --deep: RDF 변환→SPARQL 검증→요약 리포트. \n/logi-master cert-chk | invoice-audit: OFCO/비용센터 라벨링과 교차 검증. \n/visualize_data --type=pkg-flow: Port→WH→(MOSB)→Site 흐름 시각화(Flow 0–4). \nQA / Gap 체크리스트\n창고 vs 현장 컬럼 완전 분리 적용 여부(이중계산 방지). \n출고 판정이 “다음 위치가 더 늦은 날짜” 규칙을 지키는가. \nFlow 0–4 경로 정의와 hop 계산 일치 여부. \n전처리(전각공백/날짜 정규화/중복제거) 성공 여부. \nSPARQL 12 규칙 통과(금액 음수/패키지 양수/시간 일관성 등). \nSQM 실측 vs 추정 비율 보고(정책: 실측 비중을 단계적으로 상향). \nCmdRec (바로 실행)\n/logi-master kpi-dash --KRsummary → 월별 WH/Site·Flow 요약 5-시트 생성. \n/logi-master report --deep → RDF 변환+SPARQL 검증+OFCO 라벨링. \n/visualize_data --type=pkg-flow → Flow 0–4 동선 확인(이상 경로 탐지). \n한 줄 정리\n창고 pjt의 ‘한 몸체’는 온톨로지다. 장소·시간·흐름·재고·비용을 하나의 그래프에 올려두면, 어떤 키로 들어와도(케이스·BL·Site…) 같은 실체로 모이고, 그다음은 계산이 아니라 질의가 된다. (그리고, 그게 가장 덜 고생한다.)",
+  "markdown": "__ExecSummary__\n\n창고 pjt를 __온톨로지\\(지식그래프\\) 관점__으로 보면, 엑셀/ERP의 각 행은 TransportEvent\\(이동\\), StockSnapshot\\(재고 스냅샷\\), Invoice\\(청구\\), Case\\(개별 케이스\\) 같은 __클래스__로 귀속되고, 열들은 hasDate/hasLocation/hasQuantity/hasLogisticsFlowCode 같은 __속성__으로 정규화됩니다\\. 이 구조가 “창고 트랙\\(WH\\)”·“현장 트랙\\(Site\\)”·“Flow Code\\(0–4\\)”를 한 장의 그래프로 __동일 실체__에 묶어 줍니다\\. \\(Any\\-key in → Resolve→Cluster→Downstream\\)   \n매핑된 데이터는 __RDF/OWL__로 변환되어 SPARQL로 검증/집계가 가능하고, 비용 분류\\(OFCO\\)나 월별 입출고·재고·SQM 과금까지 __한 체계__에서 굴러갑니다\\.   \n핵심은 “2\\-트랙 날짜 컬럼\\(창고 vs 현장\\)”과 __시간순 출고 판정__·__이중계산 방지__·__Flow 0–4 일관성__을 코드 레벨로 보증하는 것입니다\\.\n\n__Visual — Ontology Map \\(요약표\\)__\n\n__Layer__\n\n__Ontology 객체/속성__\n\n__소스 열\\(예\\)__\n\n__역할/효과__\n\n장소모델\n\nWarehouse\\(Indoor/Outdoor/AAA/MZP/MOSB\\), Site\\(AGI/DAS/MIR/SHU\\)\n\nDSV Indoor/Outdoor, AAA Storage, MOSB, AGI…\n\n창고/현장 계층 표현\\(Indoor/Outdoor/Offshore\\) → 의미론적 위치 집계\n\n이벤트\n\nTransportEvent \\+ hasDate/hasLocation/hasQuantity\n\n창고/현장 날짜, Pkg/CBM\n\n“언제, 어디로, 몇 개/면적” 이동을 그래프에 기록\n\n흐름\n\nhasLogisticsFlowCode\\(0~4\\)\n\nwh handling 또는 창고 방문 횟수\n\nPort→WH→\\(MOSB\\)→Site 경로를 정규화\\(0=Pre\\-Arrival…4\\)\n\n재고\n\nStockSnapshot\n\nStatus\\_Location, Status\\_Location\\_Date\n\n월말 스냅샷/누계 재고 산출의 기준 노드\n\n비용\n\nInvoice/InvoiceLineItem \\+ OFCO 매핑\n\nDescription/Rate/Amount\n\nAT\\-COST/CONTRACT 등 비용센터 자동 분류\n\n__파이프라인 to KG \\(요약\\)__  \nIngest\\(Excel\\) → 정규화\\(헤더/날짜/공백\\) → 매핑\\(JSON rules\\) → RDF 변환 → SPARQL 검증\\(12 rules\\) → Flow/WH·Site 집계 → 리포트/과금\\(SQM\\) \n\n__How it works \\(핵심 동작 원리, EN\\-KR one\\-liners\\)__\n\n1. __2\\-트랙 날짜 모델__: 창고 컬럼\\(DSV Indoor/Al Markaz/AAA/MOSB…\\)과 현장 컬럼\\(AGI/DAS/MIR/SHU\\)을 분리 인식 → 최신 위치/이동 추론 강화\\. \n2. __Flow Code 계산\\(0–4\\)__: Pre\\-Arrival\\(0\\)~WH/MOSB 경유~Site 도착까지 hop 수\\+오프쇼어 경유로 표준화\\.\n3. __출고 판정\\(시간순\\)__: “창고에 찍힌 날짜 < 다음 위치\\(다른 창고/현장\\) 날짜”일 때만 출고로 인정\\(동일일자 중복 방지\\)\\. \n4. __이중계산 방지 \\+ 검증__: 창고간 이동 목적지는 입고에서 제외, 재고는 Status\\_Location vs 물리위치 __교차검증__\\(불일치 0건 목표\\)\\. \n5. __RDF/OWL & SPARQL__: DataFrame→RDF 자동 변환, 금액/패키지/위치/시간 일관성 규칙 12종으로 품질게이트\\. \n6. __리포팅 아키텍처__: 5\\-시트 요약\\(Flow/WH·Site 월별/Pre\\-Arrival/전체 트랜잭션\\) \\+ 27시트 스냅샷\\(B5 날짜 기반 시계열\\) \\+ SQM 과금\\.\n\n__Options \\(구현 옵션 ≥3 · pros/cons/$/risk/time\\)__\n\n1. __Option A — Lite KG\\(매핑\\+피벗 중심\\)__\n\n- Pros: 빠른 적용, 5\\-시트 리포트 즉시화, 기존 엑셀 호환 우수\\. \n- Cons: 실시간 추론/질의 한계, 규칙 변경 시 수작업 많음\\.\n- Cost/Time: $ · 1–2주\\.\n- Risk: 규칙 누락/헤더 변형에 민감\\(중\\)\\.\n\n1. __Option B — Full KG\\(\\+SPARQL 검증/자동 추론\\)__\n\n- Pros: RDF 변환\\+12개 규칙 검증, 의미론 질의/벤더·월·창고 통합 시계열 안정\\. \n- Cons: 온톨로지/삼중저장소 운영 필요\\.\n- Cost/Time: $$ · 3–5주\\.\n- Risk: 초기 스키마 설계 미스매치\\(중\\)\\.\n\n1. __Option C — Ops Twin\\(\\+Flow 추적·SQM 과금\\)__\n\n- Pros: 시간순 출고·이중계산 방지, SQM 누적/요율 기반 월별 과금 자동화\\. \n- Cons: 데이터 품질\\(SQM 실측률\\)에 민감\\.\n- Cost/Time: $$ · 4–6주\\.\n- Risk: 일부 항목 SQM 추정치 사용 시 오차\\(중\\)\\. \n\n__Roadmap \\(Prepare→Pilot→Build→Operate→Scale \\+ KPI\\)__\n\n__Prepare \\(1주\\)__\n\n- 헤더/날짜 정규화, 전각공백\\(‘\\\\u3000’\\) 처리, 중복제거 파이프라인 정리\\. *KPI: 정제 성공률 ≥ 94\\.60%\\.* \n\n__Pilot \\(1–2주\\)__\n\n- 2\\-트랙 매핑 \\+ Flow 0–4 적용, 5\\-시트 리포트 생성\\. *KPI: Flow 계산 일치율 100\\.00%\\.* \n\n__Build \\(2–3주\\)__\n\n- RDF 변환 \\+ SPARQL 12규칙, OFCO 비용센터 매핑 연결\\. *KPI: 검증 규칙 통과율 100\\.00%\\.* \n\n__Operate \\(지속\\)__\n\n- 시간순 출고/재고 교차검증, 이중계산 0건 유지, SQM 월별 과금\\. *KPI: PKG Accuracy ≥ 99\\.00% / Inventory 불일치 0건\\.* \n\n__Scale \\(지속\\)__\n\n- 27시트 스냅샷 도입\\(B5 기반 시계열\\), 트렌드/변동 자동 감지\\. *KPI: 스냅샷 커버리지 100\\.00%\\.* \n\n__Automation Hooks \\(RPA\\+LLM\\)__\n\n- __/logi\\-master kpi\\-dash__: Flow/WH·Site 월별 피벗 \\+ KPI 리포트 생성\\. \n- __/logi\\-master report \\-\\-deep__: RDF 변환→SPARQL 검증→요약 리포트\\. \n- __/logi\\-master cert\\-chk | invoice\\-audit__: OFCO/비용센터 라벨링과 교차 검증\\. \n- __/visualize\\_data \\-\\-type=pkg\\-flow__: Port→WH→\\(MOSB\\)→Site 흐름 시각화\\(Flow 0–4\\)\\. \n\n__QA / Gap 체크리스트__\n\n- 창고 vs 현장 컬럼 __완전 분리__ 적용 여부\\(이중계산 방지\\)\\. \n- 출고 판정이 “다음 위치가 더 늦은 날짜” 규칙을 지키는가\\. \n- Flow 0–4 경로 정의와 hop 계산 일치 여부\\. \n- 전처리\\(전각공백/날짜 정규화/중복제거\\) 성공 여부\\. \n- SPARQL 12 규칙 통과\\(금액 음수/패키지 양수/시간 일관성 등\\)\\. \n- SQM 실측 vs 추정 비율 보고\\(정책: 실측 비중을 단계적으로 상향\\)\\. \n\n__CmdRec \\(바로 실행\\)__\n\n1. __/logi\\-master kpi\\-dash \\-\\-KRsummary__ → 월별 WH/Site·Flow 요약 5\\-시트 생성\\. \n2. __/logi\\-master report \\-\\-deep__ → RDF 변환\\+SPARQL 검증\\+OFCO 라벨링\\. \n3. __/visualize\\_data \\-\\-type=pkg\\-flow__ → Flow 0–4 동선 확인\\(이상 경로 탐지\\)\\. \n\n__한 줄 정리__\n\n__창고 pjt의 ‘한 몸체’는 온톨로지다\\.__ 장소·시간·흐름·재고·비용을 __하나의 그래프__에 올려두면, 어떤 키로 들어와도\\(케이스·BL·Site…\\) 같은 실체로 모이고, 그다음은 계산이 아니라 __질의__가 된다\\. \\(그리고, 그게 가장 덜 고생한다\\.\\)\n\n",
+  "tables": [
+    {
+      "page": null,
+      "index": 0,
+      "rows": [
+        [
+          "Layer",
+          "Ontology 객체/속성",
+          "소스 열(예)",
+          "역할/효과"
+        ],
+        [
+          "장소모델",
+          "Warehouse(Indoor/Outdoor/AAA/MZP/MOSB), Site(AGI/DAS/MIR/SHU)",
+          "DSV Indoor/Outdoor, AAA Storage, MOSB, AGI…",
+          "창고/현장 계층 표현(Indoor/Outdoor/Offshore) → 의미론적 위치 집계"
+        ],
+        [
+          "이벤트",
+          "TransportEvent + hasDate/hasLocation/hasQuantity",
+          "창고/현장 날짜, Pkg/CBM",
+          "“언제, 어디로, 몇 개/면적” 이동을 그래프에 기록"
+        ],
+        [
+          "흐름",
+          "hasLogisticsFlowCode(0~4)",
+          "wh handling 또는 창고 방문 횟수",
+          "Port→WH→(MOSB)→Site 경로를 정규화(0=Pre-Arrival…4)"
+        ],
+        [
+          "재고",
+          "StockSnapshot",
+          "Status_Location, Status_Location_Date",
+          "월말 스냅샷/누계 재고 산출의 기준 노드"
+        ],
+        [
+          "비용",
+          "Invoice/InvoiceLineItem + OFCO 매핑",
+          "Description/Rate/Amount",
+          "AT-COST/CONTRACT 등 비용센터 자동 분류"
+        ]
+      ]
+    }
+  ]
+}

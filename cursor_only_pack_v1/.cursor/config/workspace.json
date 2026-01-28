@@ -1,0 +1,22 @@
+{
+  "openOnStart": [
+    "docs/Cursor_Project_AutoSetup_Guide.md",
+    "README.md"
+  ],
+  "terminals": {
+    "shortcuts": [
+      {
+        "name": "pre-commit",
+        "cmd": "pre-commit run --all-files"
+      },
+      {
+        "name": "pytest",
+        "cmd": "pytest -q"
+      },
+      {
+        "name": "lint",
+        "cmd": "ruff check . && ruff format --check . && black --check . && isort --check-only ."
+      }
+    ]
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "meta": {
+    "source": "C:\\Users\\minky\\Downloads\\mrconvert_v1\\ONTOLOGY\\Ofco 시스템 — 온톨로지 관점 (hvdc Logistics Unified V4.pdf",
+    "type": "pdf",
+    "pages": 5,
+    "parsed_at": "2025-10-19T17:51:47+00:00",
+    "ocr": {
+      "used": false,
+      "engine": "none",
+      "lang": "kor+eng"
+    }
+  },
+  "text": "OFCO 시스템 — 온톨로지 관점 (HVDC Logistics\nUnified v4.1)\n핵심 한 줄: OFCO는 ‘항만 대행(Agency)·항만요금·장비/인력·수배(수자원/게이트패스) 서비스를 묶\n는 온톨로지 기반 Port Ops & Invoice 허브이며, 문서(Invoice)↔운영(PortCall/ServiceEvent)↔\n요율(Tariff/PriceCenter)을 Multi‑Key Identity Graph로 한 번에 해석한다. (EN‑KR: Any‑key in\n→ Resolve → PortCall & Services → Rate & Cost mapping.)\n0) Executive Summary (3–5)\n• Multi‑Key Identity Graph: 입력 키는 OFCO/SAFEEN/ADP 인보이스번호, Rotation#, Samsung Ref,\nhvdc_code 등 아무 키든 OK → 동일 실체(PortCall·Shipment·Invoice) 클러스터로 귀결.\n• Ontology‑First: Invoice, InvoiceLine, ServiceEvent(채널크로싱/접안/예인/조종/PHC/장비/인력/수배/게\n이트패스/문서수수료), PortCall, Rotation, TariffRef, PriceCenter, CostCenter(A/B/C) 클래스로 정규화.\n• 검증 표준: LDG v8.2 ↔ OCR v2.4 연동, KPI(MeanConf≥0.92, TableAcc≥0.98,\nNumericIntegrity=1.00), ZERO failsafe.\n• 매핑 규칙: Cost Center v2.5 17‑Regex + Subject 패턴(“SAFEEN”→Channel Transit, “ADP INV + Port\nDues”→Port Dues, “Cargo Clearance/Arranging FW/BA/5000 IG FW” 등) → Price Center 3‑Way(A/\nB/C) 분개.\n• 회계 일관성: EA×Rate 합=Amount(±0.01), Σ라인=Invoice Total(±2.00%), 통화/VAT 100.00% 일치,\n[EXT] 메타 금액 집계 제외.\n1) Ontology Core (RDF/OWL)\n1.1 주요 클래스\n• org:Organization ⟶ ofco:OFCO, adports:ADPorts, safeen:SAFEEN, sct:SCT\n• vsl:Vessel / vsl:Voyage / port:PortCall(RotationNo 포함)\n• fin:Invoice(source=OFCO), fin:InvoiceLine(최대 4 RatePair)\n• ops:ServiceEvent ⟶ ops:ChannelCrossing, ops:Berthing, ops:Pilotage, ops:PilotLaunch,\nops:PHC_BulkHandling, ops:PortDues, ops:Waste, ops:FW_Supply, ops:EquipmentHire,\nops:Manpower, ops:GatePass, ops:DocProcessing\n• rate:TariffRef / rate:RatePair(EA,Rate,Amount)\n• cost:CostCenterA/B, cost:PriceCenter(A/B/C 3‑Way)\n• id:Key ⟶ id:OFCOInvNo, id:SAFEENInvNo, id:ADPInvNo, id:RotationNo, id:SamsungRef,\nid:HVDCCode\n1.2 핵심 프로퍼티(요지)\n• ops:relatesToPortCall(InvoiceLine→PortCall), ops:hasRotationNo, fin:belongsToInvoice,\nfin:lineNo(NO.), fin:subject(SUBJECT), fin:currency(AED), fin:vat(0.00/5.00), rate:hasEA_i /\nhasRate_i / lineAmount, cost:hasCostCenterA/B / hasPriceCenter,\nprov:hasEvidence(file,page,line or ref‑row), id:hasSamsungRef / hasOFCOInvNo /\nhasRotationNo / hasHVDCCode.\n1\n\n1.3 예시 IRI 정책(요지)\n• ofco:invoice/OFCO-INV-0000181\n• ofco:line/OFCO-INV-0000181#2015 (NO.=2015)\n• ops:portcall/ROT-2504053298 (RotationNo)\n• id:samsung/HVDC-AGI-GRM-J71-50\n1.4 Mini‑TTL 예시\nofco:invoice/OFCO‑INV‑0000181afin:Invoice;\nfin:currency\"AED\"; fin:total \"2799.99\"^^xsd:decimal .\nofco:line/OFCO‑INV‑0000181#2002afin:InvoiceLine;\nfin:belongsToInvoiceofco:invoice/OFCO‑INV‑0000181;\nfin:lineNo2002; fin:subject \"SAFEEN … Channel Crossing – Rot# 2503123133\" ;\nrate:hasEA_12.00; rate:hasRate_1 3091.25 ;\nrate:hasEA_22.00; rate:hasRate_2 100.00 ;\nrate:hasEA_31.00; rate:hasRate_3 239.00 ;\nfin:lineAmount6621.52;\nops:relatesToPortCallops:portcall/ROT‑2503123133;\ncost:hasCostCenterAcost:PORT_HANDLING_CHARGE;\ncost:hasCostCenterBcost:CHANNEL_TRANSIT_CHARGES;\ncost:hasPriceCenter cost:CHANNEL_TRANSIT_CHARGES.\n2) Multi‑Key Identity Graph\n문제: 단일 키 의존 시 연쇄조인 실패·누락 위험.\n해법: id:Key 슈퍼클래스 아래 모든 키를 동등 1급 엔터티로 수집하고, Same‑As/LinkSet으로 실체를 클러스터링.\n링크 소스(예) ‑ InvoiceNo(OFCO/SAFEEN/ADP), RotationNo, SamsungRef(HVDC‑AGI‑…), HVDCCode,\nVessel+ETA.\n클러스터링 규칙(요지) 1) RotationNo 같고, 날짜 창(±7d)·항만 동일 → 같은 PortCall 후보. 2) SamsungRef\n동일 + Subject 패턴 일치 → 같은 Operation Batch. 3) InvoiceNo 묶음 Σ(lineAmount) = Invoice\nTotal(±2.00%) → 같은 Invoice.\n3) SHACL 검증(요약)\n• InvoiceLineShape\n• rate:hasEA_* × rate:hasRate_* 의 합 = fin:lineAmount ±0.01\n• RatePair 최대 4, 결측 시 0.00 채움\n• fin:currency = \"AED\" , fin:vat ∈ {0.00, 5.00}\n• prov:hasEvidence 필수\n• InvoiceShape\n• Σ(InvoiceLine.fin:lineAmount) = fin:total ±2.00%\n• [EXT] 라벨 행 금액 집계 제외\n2\n\n• PortCallLinkShape\n• Subject에 Rot# 있으면 ops:relatesToPortCall 필수\n4) Cost/Price Center 매핑 규칙(OFCO 전용)\n• Regex v2.5 + Subject 패턴(요지)\n• \"SAFEEN\" → PORT HANDLING CHARGE / CHANNEL TRANSIT CHARGES\n• \"ADP INV\" + \"Port Dues\" → PORT HANDLING CHARGE / PORT DUES & SERVICES\nCHARGES\n• \"Cargo Clearance\" → CONTRACT / AF FOR CC\n• \"Arranging FW Supply\"|\"FW Supply\" → CONTRACT / AF FOR FW SA\n• \"Berthing Arrangement\" → CONTRACT / AF FOR BA\n• \"5000 IG FW\" → AT COST / AT COST(WATER SUPPLY)\n• PRICE CENTER 3‑Way\n• A/B: Tariff·키워드 기반(예: Channel Crossing/Port Dues/PHC/Equipment/Manpower)\n• C: 수수료/Pass/Document(예: Gate Pass, Doc Processing)\n• 규칙: C=0 의심 재검토, A>B 또는 B<0 시 일부 C로 이동, A+B+C=Original_TOTAL, Diff=0.00\n5) 파이프라인(운영·검증)\n1) Pre‑Prep: 회전/데스큐/샤프닝(DPI<300 경고) 2) OCR v2.4: 레이아웃·토큰 conf 수집 3) Smart Table Parser\n2.1: 병합셀 해제·세로표 가로화·단위/통화 분리 4) NLP Refine: NULL/단위 보정, 추정 금지 5) Field Tagger:\nParties/IDs/Incoterms/Rotation/Subject 6) LDG Payload Build: 해시·CrossLinks·Evidence 7) Mapping &\nQC: EA×Rate 분해, Cost/Price Center 적용, VAT·통화·합계 검증 8) COST‑GUARD: 기준요율 대비 Δ% 밴드\n(PASS/WARN/HIGH/CRITICAL) 9) Report(7+2): Discrepancy Table, Compliance Matrix, DEM/DET Forecast\n등\nKPI 게이트: MeanConf≥0.92, TableAcc≥0.98, NumericIntegrity=1.00 → 미달 시 ZERO 중단 로그.\n6) 데이터 맵(Excel/JSON → Ontology)\nSource Field Ontology Property Note\nNO. fin:lineNo Row key\nSUBJECT fin:subject 패턴 매핑 트리거\nSAMSUNG REF id:hasSamsungRef 클러스터 anchor\nChannel Crossing fin:lineAmount 또는 금액→Line, EA/\nCharges… 등 금액열 rate:hasRate_i / rate:hasEA_i Rate 분해\nEA_1..4 rate:hasEA_i 최대 4 쌍\n3\n\nSource Field Ontology Property Note\nRate_1..4 rate:hasRate_i 금액=Σ(EA×Rate)\nAmount (AED) fin:lineAmount 2 decimals\nINVOICE NUMBER (OFCO) id:hasOFCOInvNo Invoice join\nRotation# (Subject 내) ops:hasRotationNo PortCall link\n7) Report 표준(7+2)\n1) Auto Guard Summary\n1.5) Risk Assessment(등급/동인/신뢰도)\n2) Discrepancy Table(Δ·허용오차·상태)\n3) Compliance Matrix(UAE·근거 링크)\n4) Auto‑Fill(Freight/Insurance)\n5) Auto Action Hooks(명령·가이드)\n6) DEM/DET & Gate‑Out Forecast\n7) Evidence & Citations\n8) Weak Spot & Improvements\n9) Changelog\n8) 운영 명령 & 자동화 훅\n• 인식/검증: /ocr_basic {file} mode:LDG+ → KPI Pass 확인 → /ocr_table / /ocr_retry\n• 코스트가드: /switch_mode COST-GUARD + /logi-master invoice-audit --AEDonly\n• 매핑: /mapping run → /run pricecenter map → /mapping update pricecenter\n• 규제 체크: /logi-master cert-chk (MOIAT/FANR/TRA)\n• 배치: /workflow bulk … → /export excel\n9) 운영 규칙(정합성)\n• Σ(BB:BI)=BJ ±2.00% / EA 결측 시 EA=1.00 & Rate=Amount 규칙 허용(내 ±2.00%)\n• VAT=0.00% 또는 5.00% 외 [MISMATCH]\n• [EXT] 메타는 금액 집계 제외, 근거(M열) 필수\n• 증거(Evidence): 파일명/페이지/라인 또는 참조시트(Row) 필수 기록\n10) 로드맵 (P→Pi→B→O→S + KPI)\n• Prepare(2주): 스키마/네임스페이스/IRI 설계, SHACL 초안, 키‑링크 룰 정의\nKPI: 스키마 커버리지 ≥90.00%\n• Pilot(3주): 1개 인보이스 묶음(예: OFCO‑INV‑0000181) E2E, Δ오차≤2.00%\nKPI: ZERO 트리거=0, Evidence 100.00%\n4\n\n• Build(4주): CostCenter v2.5·3‑Way 분개·COST‑GUARD 통합\nKPI: Pass율≥95.00%\n• Operate(지속): 배치 처리 및 리포트(7+2) 자동 발행\nKPI: TAT ≤ 0.50h/건\n• Scale(지속): SAFEEN/ADP 직조인, PortCall API, DEM/DET 2.0 연계\nKPI: 오탐율 ≤ 2.00%\n11) 리스크 & 완화\n• 키 불일치/누락: Multi‑Key 흡수 + 휴리스틱 윈도우(±7d)\n• OCR 품질 저하: KPI 게이트 + /ocr_lowres_fix + ZERO 중단\n• 요율 변동: TariffRef 버전드(유효일) + COST‑GUARD Δ% 밴드\n12) 부록 — Subject→Cost/PriceCenter 예시(발췌)\nSubject 큐 Cost A Cost B PriceCenter\nSAFEEN … Channel PORT HANDLING CHANNEL TRANSIT CHANNEL TRANSIT\nCrossing CHARGE CHARGES CHARGES\nADP INV … Port PORT HANDLING PORT DUES &\nPORT DUES\nDues CHARGE SERVICES CHARGES\nAgency fee: Cargo AGENCY FEE FOR CARGO\nCONTRACT AF FOR CC\nClearance CLEARANCE\nArranging FW\nCONTRACT AF FOR FW SA SUPPLY WATER 5000IG\nSupply\nBerthing CONTRACT(AF FOR AGENCY FEE FOR BERTHING\nCONTRACT\nArrangement BA) ARRANGEMENT\nAT COST(WATER\n5000 IG FW AT COST SUPPLY WATER 5000IG\nSUPPLY)\n13) 구현 노트\n• 코드베이스: logiontology/ (mapping/validation/reasoning/rdfio/report/pipeline)\n• SHACL Runner 옵션, JSON‑LD 컨텍스트 제공, RDFLib + DuckDB로 라인‑레벨 집계 검증.\n• 외부 연계: PortCall(AD Ports)·SAFEEN 청구 스냅샷 → TariffRef Evidence로 보관.\n끝. (숫자 2 decimals, ISO 날짜 사용, NDA/PII 마스킹 준수)\n5",
+  "markdown": null,
+  "tables": [
+    {
+      "page": 2,
+      "index": 0,
+      "rows": [
+        [
+          "ofco:invoice/OFCO-INV-0000181"
+        ],
+        [
+          "ofco:line/OFCO-INV-0000181#2015"
+        ],
+        [
+          "ops:portcall/ROT-2504053298"
+        ],
+        [
+          "id:samsung/HVDC-AGI-GRM-J71-50"
+        ]
+      ]
+    },
+    {
+      "page": 2,
+      "index": 1,
+      "rows": [
+        [
+          "fin:currency = \"AED\""
+        ],
+        [
+          "prov:hasEvidence"
+        ]
+      ]
+    },
+    {
+      "page": 3,
+      "index": 0,
+      "rows": [
+        [
+          "\"SAFEEN\""
+        ],
+        [
+          "\"ADP INV\""
+        ],
+        [
+          "CHARGES"
+        ]
+      ]
+    },
+    {
+      "page": 3,
+      "index": 1,
+      "rows": [
+        [
+          "\"Arranging FW Supply\"|\"FW Supply\"",
+          "→",
+          "CONTRACT / AF FOR FW SA"
+        ]
+      ]
+    },
+    {
+      "page": 3,
+      "index": 2,
+      "rows": [
+        [
+          "Source Field Ontology Property Note"
+        ],
+        [
+          "NO. fin:lineNo Row key"
+        ],
+        [
+          "SUBJECT fin:subject 패턴 매핑 트리거"
+        ],
+        [
+          "SAMSUNG REF id:hasSamsungRef 클러스터 anchor"
+        ],
+        [
+          "Channel Crossing fin:lineAmount 또는 금액→Line, EA/\nCharges… 등 금액열 rate:hasRate_i / rate:hasEA_i Rate 분해"
+        ],
+        [
+          "EA_1..4 rate:hasEA_i 최대 4 쌍"
+        ]
+      ]
+    },
+    {
+      "page": 4,
+      "index": 0,
+      "rows": [
+        [
+          "Source Field Ontology Property Note"
+        ],
+        [
+          "Rate_1..4 rate:hasRate_i 금액=Σ(EA×Rate)"
+        ],
+        [
+          "Amount (AED) fin:lineAmount 2 decimals"
+        ],
+        [
+          "INVOICE NUMBER (OFCO) id:hasOFCOInvNo Invoice join"
+        ],
+        [
+          "Rotation# (Subject 내) ops:hasRotationNo PortCall link"
+        ]
+      ]
+    },
+    {
+      "page": 4,
+      "index": 1,
+      "rows": [
+        [
+          "/switch_mode COST-GUARD + /logi-master invoice-audit --AEDonly",
+          null
+        ],
+        [
+          null,
+          "/mapping update pricecenter"
+        ]
+      ]
+    },
+    {
+      "page": 4,
+      "index": 2,
+      "rows": [
+        [
+          "/mapping run",
+          "→",
+          "/run pricecenter map"
+        ]
+      ]
+    },
+    {
+      "page": 5,
+      "index": 0,
+      "rows": [
+        [
+          "Subject 큐 Cost A Cost B PriceCenter"
+        ],
+        [
+          "SAFEEN … Channel PORT HANDLING CHANNEL TRANSIT CHANNEL TRANSIT\nCrossing CHARGE CHARGES CHARGES"
+        ],
+        [
+          "ADP INV … Port PORT HANDLING PORT DUES &\nPORT DUES\nDues CHARGE SERVICES CHARGES"
+        ],
+        [
+          "Agency fee: Cargo AGENCY FEE FOR CARGO\nCONTRACT AF FOR CC\nClearance CLEARANCE"
+        ],
+        [
+          "Arranging FW\nCONTRACT AF FOR FW SA SUPPLY WATER 5000IG\nSupply"
+        ],
+        [
+          "Berthing CONTRACT(AF FOR AGENCY FEE FOR BERTHING\nCONTRACT\nArrangement BA) ARRANGEMENT"
+        ],
+        [
+          "AT COST(WATER\n5000 IG FW AT COST SUPPLY WATER 5000IG\nSUPPLY)"
+        ]
+      ]
+    }
+  ]
+}

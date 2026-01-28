@@ -1,0 +1,54 @@
+{
+  "task": "full_export",
+  "input_file": "C:\\Users\\SAMSUNG\\Downloads\\CONVERT\\email_search\\data\\OUTLOOK_HVDC_ALL_rev.xlsx",
+  "sheet": "전체_데이터",
+  "rows_processed": 21086,
+  "threads_found": 542,
+  "edges_found": 2414,
+  "search_results": 24,
+  "elapsed_seconds": {
+    "load": 11.11,
+    "init": 21.75,
+    "export": 21.7,
+    "total": 54.56
+  },
+  "performance": {
+    "rows_per_second": 969.0,
+    "threads_per_second": 24.92
+  },
+  "thread_stats": {
+    "total": 542,
+    "with_multiple": 542,
+    "size_min": 2,
+    "size_max": 105,
+    "size_avg": 5.45,
+    "confidence_min": 0.0,
+    "confidence_max": 0.95,
+    "confidence_avg": 0.485,
+    "low_confidence_count": 334
+  },
+  "output_files": {
+    "threads_json": "C:\\Users\\SAMSUNG\\Downloads\\CONVERT\\email_search\\outputs\\threads_full\\threads.json",
+    "edges_csv": "C:\\Users\\SAMSUNG\\Downloads\\CONVERT\\email_search\\outputs\\threads_full\\edges.csv",
+    "search_result_csv": "C:\\Users\\SAMSUNG\\Downloads\\CONVERT\\email_search\\outputs\\threads_full\\search_result.csv"
+  },
+  "options": {
+    "flag_below_threshold": true,
+    "filter_below_threshold": false,
+    "assume_local_time": true
+  },
+  "search_context": {
+    "total_found": 24,
+    "total_with_context": 24,
+    "threads_included": 0,
+    "entities_found": {
+      "cases": [],
+      "sites": [],
+      "lpos": [
+        "LPO-1599"
+      ]
+    },
+    "avg_confidence": 0.0
+  },
+  "generated_at": "2026-01-23T07:19:35.908561"
+}

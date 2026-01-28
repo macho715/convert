@@ -1,0 +1,43 @@
+{
+  "OUTLOOK_HVDC_ALL_rev.xlsx": {
+    "전체_데이터": {
+      "subject": ["제목", "Subject", "subject"],
+      "from": ["발신자", "From", "SenderName", "SenderEmail"],
+      "to": ["수신자", "To", "RecipientTo"],
+      "body": ["본문", "Body", "PlainTextBody"],
+      "case": ["케이스번호", "CaseNumber", "case_numbers", "hvdc_cases"],
+      "site": ["사이트", "Site", "sites", "primary_site"],
+      "lpo": ["LPO", "lpo", "lpo_numbers"],
+      "delivery_time": ["수신일시", "DeliveryTime", "ReceivedTime"],
+      "creation_time": ["생성일시", "CreationTime", "SentTime"],
+      "cc": ["참조", "Cc", "RecipientCc"],
+      "bcc": ["숨은참조", "Bcc", "RecipientBcc"],
+      "hasattachment": ["첨부파일", "HasAttachment"],
+      "isflagged": ["중요표시", "IsFlagged"],
+      "category": ["카테고리", "Category"]
+    },
+    "Sheet2": {
+      "subject": ["제목", "Subject"],
+      "from": ["발신자", "From"]
+    }
+  },
+  "OTHER_FILE.xlsx": {
+    "Sheet1": {
+      "subject": ["Title", "Subject"],
+      "from": ["Sender", "From"]
+    }
+  },
+  "default": {
+    "subject": ["Subject", "subject"],
+    "from": ["SenderName", "SenderEmail", "From", "from", "Sender"],
+    "to": ["RecipientTo", "To", "to", "Recipients"],
+    "body": ["PlainTextBody", "Body", "body", "TextBody"],
+    "delivery_time": ["DeliveryTime", "ReceivedTime", "SentOn", "Received"],
+    "creation_time": ["CreationTime", "SentTime", "Created"],
+    "cc": ["RecipientCc", "Cc", "cc"],
+    "bcc": ["RecipientBcc", "Bcc", "bcc"],
+    "hasattachment": ["HasAttachment", "hasattachment"],
+    "isflagged": ["IsFlagged", "isflagged"],
+    "category": ["Category", "category"]
+  }
+}

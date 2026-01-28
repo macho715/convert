@@ -1,0 +1,196 @@
+두 파일을 확인해 전체 운송 일정을 항차별로 요약 중입니다.
+
+
+[2 tools called]
+
+
+TSV와 JSON 파일 분석 완료. LCT 항차별 전체 운송 일정 요약 보고서 작성 중입니다.
+
+
+[1 tool called]
+
+
+# OPTION A 전체 운송 일정 - LCT 항차별 요약 보고서
+
+## Executive Summary
+- 총 항차: 4회 (TR Units 1-2, 3-4, 5-6, Unit 7)
+- 총 운송 기간: 40일 (2026-01-29 ~ 2026-03-07)
+- LCT 운송 횟수: MZP ↔ AGI 왕복 4회 + 단방향 1회
+- 병렬 운영 기간: 2026-02-05 ~ 02-11 (7일)
+
+---
+
+## 항차 1: TR Units 1-2
+
+### 운송 개요
+- 운송 물량: AGI TR Unit 1, AGI TR Unit 2
+- 적재 위치: TR Bay 4 (Unit 1), TR Bay 3 (Unit 2)
+- 사용 SPMT: 1st Set
+
+### 상세 일정
+
+| 날짜 | 활동 | 위치 | 주요 작업 |
+|------|------|------|-----------|
+| 2026-01-29 | Load-out 준비 | MZP | TR Unit 1 SPMT 적재, RoRo Ramp 설치 |
+| 2026-01-29 | Load-out | MZP | TR Unit 1 Load-out (10:00-11:00) |
+| 2026-01-30 | Load-out | MZP | TR Unit 2 Load-out (08:00-09:00) |
+| 2026-01-31 | 최종 준비 | MZP | MWS + MPI + 최종 준비 |
+| 2026-02-01 | 출항 | MZP → AGI | LCT 출항 |
+| 2026-02-02 | 입항 | AGI | LCT 입항, MMT 크루 모빌라이제이션 |
+| 2026-02-03 | Load-in | AGI | TR Unit 2 Load-in (Jetty 저장) |
+| 2026-02-04 | Load-in | AGI | TR Unit 1 Load-in (Jetty 저장) |
+| 2026-02-05 | 복귀 | AGI → MZP | LCT MZP 복귀 (TR Units 3-4 적재 준비) |
+
+### 현장 설치 일정 (AGI)
+- 2026-02-05: TR Unit 1 → TR Bay 4 SPMT 적재/운송
+- 2026-02-06 ~ 02-08: TR Unit 1 Turning (3일)
+- 2026-02-09: TR Unit 1 Jacking down 완료
+- 2026-02-09: TR Unit 2 → TR Bay 3 SPMT 적재/운송
+- 2026-02-10 ~ 02-12: TR Unit 2 Turning (3일)
+- 2026-02-11: 1st Set SPMT Port 복귀
+- 2026-02-13: TR Unit 2 Jacking down 완료
+
+---
+
+## 항차 2: TR Units 3-4
+
+### 운송 개요
+- 운송 물량: AGI TR Unit 3, AGI TR Unit 4
+- 적재 위치: TR Bay 2 (Unit 3), TR Bay 1 (Unit 4)
+- 사용 SPMT: 2nd Set
+- 특징: 항차 1과 병렬 운영 (2026-02-05 ~ 02-11)
+
+### 상세 일정
+
+| 날짜 | 활동 | 위치 | 주요 작업 |
+|------|------|------|-----------|
+| 2026-02-06 | LCT 도착 | MZP | LCT MZP 도착, Deck 준비 |
+| 2026-02-07 | Load-out 준비 | MZP | TR Unit 3 SPMT 적재, RoRo Ramp 설치 |
+| 2026-02-07 | Load-out | MZP | TR Unit 3 Load-out, TR Unit 4 적재 준비 |
+| 2026-02-08 | Load-out | MZP | TR Unit 4 Load-out |
+| 2026-02-09 | 최종 준비 | MZP | MWS + MPI + 최종 준비 |
+| 2026-02-10 | 출항 | MZP → AGI | LCT 출항 (병렬 운영 중) |
+| 2026-02-11 | 입항 | AGI | LCT AGI 입항 (병렬 운영 중) |
+| 2026-02-12 | Load-in | AGI | TR Unit 4 Load-in (Jetty 저장) |
+| 2026-02-13 | Load-in | AGI | TR Unit 3 Load-in (Jetty 저장) |
+| 2026-02-14 | 복귀 | AGI → MZP | LCT MZP 복귀 (7.45m beam 4개 반송, TR Units 5-6 적재 준비) |
+
+### 현장 설치 일정 (AGI)
+- 2026-02-14: TR Unit 3 → TR Bay 2 SPMT 적재/운송
+- 2026-02-15 ~ 02-17: TR Unit 3 Turning (3일)
+- 2026-02-18: TR Unit 3 Jacking down 완료
+- 2026-02-18: TR Unit 4 → TR Bay 1 SPMT 적재/운송
+- 2026-02-19 ~ 02-21: TR Unit 4 Turning (3일)
+- 2026-02-20: 2nd Set SPMT Port 복귀
+- 2026-02-22: TR Unit 4 Jacking down 완료
+
+---
+
+## 항차 3: TR Units 5-6
+
+### 운송 개요
+- 운송 물량: AGI TR Unit 5, AGI TR Unit 6
+- 적재 위치: TR Bay 5 (Unit 5), TR Bay 6 (Unit 6)
+- 사용 SPMT: 1st Set (재활용)
+- 특징: 2nd Set가 TR Units 3-4 작업 중 병렬 운영
+
+### 상세 일정
+
+| 날짜 | 활동 | 위치 | 주요 작업 |
+|------|------|------|-----------|
+| 2026-02-15 | LCT 도착 | MZP | LCT MZP 도착, Deck 준비 |
+| 2026-02-16 | Load-out 준비 | MZP | TR Unit 5 SPMT 적재, RoRo Ramp 설치 |
+| 2026-02-16 | Load-out | MZP | TR Unit 5 Load-out, TR Unit 6 적재 준비 |
+| 2026-02-17 | Load-out | MZP | TR Unit 6 Load-out |
+| 2026-02-18 | 최종 준비 | MZP | MWS + MPI + 최종 준비 |
+| 2026-02-19 | 출항 | MZP → AGI | LCT 출항 |
+| 2026-02-20 | 입항 | AGI | LCT AGI 입항 |
+| 2026-02-21 | Load-in | AGI | TR Unit 6 Load-in (Jetty 저장) |
+| 2026-02-22 | Load-in | AGI | TR Unit 5 Load-in (Jetty 저장) |
+| 2026-02-23 | 복귀 | AGI → MZP | LCT MZP 복귀 (7.45m beam 2개 반송, TR Unit 7 적재 준비) |
+
+### 현장 설치 일정 (AGI)
+- 2026-02-23: TR Unit 5 → TR Bay 5 SPMT 적재/운송
+- 2026-02-24 ~ 02-26: TR Unit 5 Turning (3일)
+- 2026-02-27: TR Unit 5 Jacking down 완료
+- 2026-02-27: TR Unit 6 → TR Bay 6 SPMT 적재/운송
+- 2026-02-28 ~ 03-02: TR Unit 6 Turning (3일)
+- 2026-03-01: 1st Set SPMT Port 복귀 (최종)
+- 2026-03-03: TR Unit 6 Jacking down 완료
+
+---
+
+## 항차 4: TR Unit 7
+
+### 운송 개요
+- 운송 물량: AGI TR Unit 7 (단독 운송)
+- 적재 위치: TR Bay 7
+- 사용 SPMT: 2nd Set (재활용)
+- 특징: 최종 단독 운송
+
+### 상세 일정
+
+| 날짜 | 활동 | 위치 | 주요 작업 |
+|------|------|------|-----------|
+| 2026-02-24 | LCT 도착 | MZP | LCT MZP 도착, Deck 준비 |
+| 2026-02-25 | Load-out 준비 | MZP | TR Unit 7 SPMT 적재, RoRo Ramp 설치 |
+| 2026-02-25 | Load-out | MZP | TR Unit 7 Load-out |
+| 2026-02-26 | 최종 준비 | MZP | MWS + MPI + 최종 준비 |
+| 2026-02-27 | 출항 | MZP → AGI | LCT 출항 |
+| 2026-02-28 | 입항 | AGI | LCT AGI 입항 |
+| 2026-03-01 | Load-in | AGI | TR Unit 7 Load-in (Jetty 저장) |
+
+### 현장 설치 일정 (AGI)
+- 2026-03-02: TR Unit 7 → TR Bay 7 SPMT 적재/운송
+- 2026-03-04 ~ 03-06: TR Unit 7 Turning (3일)
+- 2026-03-06: 2nd Set SPMT Port 복귀
+- 2026-03-07: TR Unit 7 Jacking down 완료 (전체 작업 완료)
+
+---
+
+## LCT 운송 현황 요약
+
+### 항차별 통계
+
+| 항차 | 운송 물량 | 출항일 | 입항일 | 운송 소요 | 복귀일 | 총 소요일 |
+|------|----------|--------|--------|-----------|--------|-----------|
+| 1차 | TR Units 1-2 | 2026-02-01 | 2026-02-02 | 1일 | 2026-02-05 | 5일 |
+| 2차 | TR Units 3-4 | 2026-02-10 | 2026-02-11 | 1일 | 2026-02-14 | 5일 |
+| 3차 | TR Units 5-6 | 2026-02-19 | 2026-02-20 | 1일 | 2026-02-23 | 5일 |
+| 4차 | TR Unit 7 | 2026-02-27 | 2026-02-28 | 1일 | - | 2일 (단방향) |
+
+### 주요 특징
+- LCT 왕복 시간: 각 항차당 약 5일 (적재 3일 + 운송 1일 + 하역 1일)
+- 병렬 운영 기간: 2026-02-05 ~ 02-11 (항차 1 복귀 중 항차 2 적재 진행)
+- Beam 반송: 항차 2에서 4개, 항차 3에서 2개 반송 (재활용)
+
+---
+
+## SPMT 세트별 운영 요약
+
+### 1st Set SPMT
+- 모빌라이제이션: 2026-01-26
+- 운영 기간: 2026-01-29 ~ 2026-03-01 (32일)
+- 담당 Units: TR Units 1-2, 5-6
+- Port 복귀: 2026-02-11 (1차), 2026-03-01 (최종)
+- 디모빌라이제이션: 2026-03-06 ~ 03-07
+
+### 2nd Set SPMT
+- 모빌라이제이션: 2026-02-04
+- 운영 기간: 2026-02-07 ~ 2026-03-06 (28일)
+- 담당 Units: TR Units 3-4, 7
+- Port 복귀: 2026-02-20 (1차), 2026-03-06 (최종)
+- 디모빌라이제이션: 2026-02-27
+
+---
+
+## 총 결산
+- 총 프로젝트 기간: 40일 (순차 운영 대비 22일 단축)
+- SPMT 활용도: 85%+ (병렬 운영 효과)
+- LCT 운송 효율: 4회 항차로 7개 TR Unit 완료
+- 병렬 운영 절약: 22일 (순차 운영 62일 → 병렬 운영 40일)
+
+---
+
+보고서 생성일: 2026-01-18  
+데이터 소스: OPTION A.tsv, OPTION A_병렬 운영.json

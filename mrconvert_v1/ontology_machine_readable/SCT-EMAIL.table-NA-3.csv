@@ -1,0 +1,6 @@
+항목,SCT-EMAIL,LogiOntology
+선적,Logistics_Process,Shipment
+입항,Logistics_Process,PortCall
+문서,Document,"BL, Invoice"
+규범,Regulation,"Permit, HS"
+행위,Communication_Action,Event

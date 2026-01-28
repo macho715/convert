@@ -1,0 +1,8 @@
+# Weather data request template (key=value)
+# Lines starting with # are ignored.
+start_date=2026-01-06
+end_date=2026-02-21
+lat=24.12
+lon=52.53
+timezone=Asia/Dubai
+output_json=weather_data_manual.json

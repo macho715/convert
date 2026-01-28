@@ -1,0 +1,116 @@
+Activity ID	Activity Name	Original Duration	Planned Start	Planned Finish	Actual Start	Actual Finish
+MOBILIZATION	1.00	12-Jan-26	13-Jan-26		
+SPMT	1.00	12-Jan-26	13-Jan-26		
+A1000	Mobilization of SPMTs; Assembly + Function Test	1.00	12-Jan-26	13-Jan-26		
+MARINE	0.50	12-Jan-26	13-Jan-26		
+A1001	Mobilization of Marine Equipment and Steelworks	0.50	12-Jan-26	13-Jan-26		
+DEMOBILIZATION	0.00					
+OPERATIONAL	58.00	13-Jan-26	10-Mar-26		
+Beam Replacement	2.00	13-Jan-26	14-Jan-26		
+A1002	Beam Replacement AGI TR Unit 1 (TR Bay 4) - Two 5t forklifts required	1.00	13-Jan-26	13-Jan-26		
+A1003	Beam Replacement AGI TR Unit 2 (TR Bay 3) - Two 5t forklifts required	1.00	14-Jan-26	14-Jan-26		
+Deck Preparations	3.00	13-Jan-26	16-Jan-26		
+A1004	Deck Preparations (D-ring cutting; marking, steel sets installation) - One 5t forklift and Crane required	1.00	13-Jan-26	13-Jan-26		
+A1005	Deck Preparations (Steel sets installation, welding) - Crane Required for steel sets installation	2.00	14-Jan-26	16-Jan-26		
+AGI TR Units 1-2	16.00	23-Jan-26	03-Feb-26		
+A1030	Loading of AGI TR Unit 1 on SPMT; lashing; Shifting to Mina Zayed Port RoRo Jetty area	0.30	23-Jan-26	23-Jan-26		
+A1040	RoRo Ramp Installation - 5t Forklift and Crane required	0.30	23-Jan-26	23-Jan-26		
+A1060	Load-out of AGI TR Unit 1; stool down	0.20	23-Jan-26	23-Jan-26		
+A1070	RoRo ramp removal; Seafastening AGI TR Unit 1 - Crane required	1.00	23-Jan-26	24-Jan-26		
+A1071	Loading of AGI TR Unit 2 on SPMT; lashing	0.50	23-Jan-26	23-Jan-26		
+A1072	Shifting of AGI TR Unit 2 to Jetty area	0.05	24-Jan-26	24-Jan-26		
+A1073	RoRo Ramp Installation - Crane required	0.30	24-Jan-26	24-Jan-26		
+A1074	Load-out of AGI TR Unit 2; stoold down; securing of SPMT	0.30	24-Jan-26	24-Jan-26		
+A1075	Removal of RoRo Ramp; Sea fastening AGI TR Unit 2 - Crane required	1.00	24-Jan-26	25-Jan-26		
+A1080	MWS + MPI + Final Preparations	0.20	25-Jan-26	25-Jan-26		
+A1081	Sail-away - Marine Transportation by LCT to Al Ghallan Island	1.00	26-Jan-26	26-Jan-26		
+A1090	MMT Crew Mob to AGI; Site Induction; Meeting with Client	0.50	27-Jan-26	27-Jan-26		
+A1091	LCT Arrival; Berthing at AGI RoRo Jetty	0.50	27-Jan-26	27-Jan-26		
+A1100	Unlashing and cutting; steel sets preparations - Forklift required	0.50	27-Jan-26	27-Jan-26		
+A1110	Load-in of AGI TR Unit 2 (including RoRo Ramp Installation); store on Jetty - Crane required	1.00	28-Jan-26	28-Jan-26		
+A1120	Load-in of AGI TR Unit 1 (including RoRo Ramp Installation); store on Jetty - Crane required	1.00	27-Jan-26	27-Jan-26		
+A1121	Steel bridge Installation 1 - Crane required	0.30	29-Jan-26	29-Jan-26		
+A1140	AGI TR Unit 1 load on SPMT; lashing; Transportation and JD (steel set to be delivered to bay area by trailer)	0.70	29-Jan-26	29-Jan-26		
+A1141	Turning of AGI TR Unit 1 - 10t Forklift required	3.00	29-Jan-26	31-Jan-26		
+A1150	Jacking down of AGI TR Unit 1 on temporary support - Forklift required	1.00	01-Feb-26	01-Feb-26		
+A1160	Steel bridge Installation 2 - Crane required	0.30	01-Feb-26	01-Feb-26		
+A1170	AGI TR Unit 2 load on SPMT; lashing; Transportation and JD (steel set to be delivered to bay area by trailer)	0.70	01-Feb-26	01-Feb-26		
+A1180	Turning of AGI TR Unit 2 - 10t Forklift required	3.00	02-Feb-26	04-Feb-26		
+A1190	Jacking down of AGI TR Unit 2 on temporary support - Forklift and Crane required	1.00	05-Feb-26	05-Feb-26		
+A1200	SPMT shifting from TR Bay Area to Jetty; Loading on LCT (if tide allows)	1.00	02-Feb-26	02-Feb-26		
+A1210	LCT Sail-away back to Mina Zayed Port; MMT SPMT Crew Demobilization	0.00	02-Feb-26		
+A1220	MMT Jacking Crew Demobilization	0.00	03-Feb-26		
+AGI TR Units 3-4	16.00	04-Feb-26	15-Feb-26		
+A2030	Loading of AGI TR Unit 3 on SPMT; lashing; Shifting to Mina Zayed Port RoRo Jetty area	0.30	04-Feb-26	04-Feb-26		
+A2040	RoRo Ramp Installation - 5t Forklift and Crane required	0.30	04-Feb-26	04-Feb-26		
+A2060	Load-out of AGI TR Unit 3; stool down	0.20	04-Feb-26	04-Feb-26		
+A2070	RoRo ramp removal; Seafastening AGI TR Unit 3 - Crane required	1.00	04-Feb-26	05-Feb-26		
+A2071	Loading of AGI TR Unit 4 on SPMT; lashing	0.50	04-Feb-26	04-Feb-26		
+A2072	Shifting of AGI TR Unit 4 to Jetty area	0.05	05-Feb-26	05-Feb-26		
+A2073	RoRo Ramp Installation - Crane required	0.30	05-Feb-26	05-Feb-26		
+A2074	Load-out of AGI TR Unit 4; stoold down; securing of SPMT	0.30	05-Feb-26	05-Feb-26		
+A2075	Removal of RoRo Ramp; Sea fastening AGI TR Unit 4 - Crane required	1.00	05-Feb-26	06-Feb-26		
+A2080	MWS + MPI + Final Preparations	0.20	06-Feb-26	06-Feb-26		
+A2081	Sail-away - Marine Transportation by LCT to Al Ghallan Island	1.00	07-Feb-26	07-Feb-26		
+A2090	MMT Crew Mob to AGI; Site Induction; Meeting with Client	0.50	08-Feb-26	08-Feb-26		
+A2091	LCT Arrival; Berthing at AGI RoRo Jetty	0.50	08-Feb-26	08-Feb-26		
+A2100	Unlashing and cutting; steel sets preparations - Forklift required	0.50	08-Feb-26	08-Feb-26		
+A2110	Load-in of AGI TR Unit 4 (including RoRo Ramp Installation); store on Jetty - Crane required	1.00	09-Feb-26	09-Feb-26		
+A2120	Load-in of AGI TR Unit 3 (including RoRo Ramp Installation); store on Jetty - Crane required	1.00	08-Feb-26	08-Feb-26		
+A2121	Steel bridge Installation 1 - Crane required	0.30	10-Feb-26	10-Feb-26		
+A2140	AGI TR Unit 3 load on SPMT; lashing; Transportation and JD (steel set to be delivered to bay area by trailer)	0.70	10-Feb-26	10-Feb-26		
+A2141	Turning of AGI TR Unit 3 - 10t Forklift required	3.00	10-Feb-26	12-Feb-26		
+A2150	Jacking down of AGI TR Unit 3 on temporary support - Forklift required	1.00	13-Feb-26	13-Feb-26		
+A2160	Steel bridge Installation 2 - Crane required	0.30	13-Feb-26	13-Feb-26		
+A2170	AGI TR Unit 4 load on SPMT; lashing; Transportation and JD (steel set to be delivered to bay area by trailer)	0.70	13-Feb-26	13-Feb-26		
+A2180	Turning of AGI TR Unit 4 - 10t Forklift required	3.00	14-Feb-26	16-Feb-26		
+A2190	Jacking down of AGI TR Unit 4 on temporary support - Forklift and Crane required	1.00	17-Feb-26	17-Feb-26		
+A2200	SPMT shifting from TR Bay Area to Jetty; Loading on LCT (if tide allows)	1.00	14-Feb-26	14-Feb-26		
+A2210	LCT Sail-away back to Mina Zayed Port; MMT SPMT Crew Demobilization	0.00	14-Feb-26		
+A2220	MMT Jacking Crew Demobilization	0.00	15-Feb-26		
+AGI TR Units 5-6	16.00	17-Feb-26	28-Feb-26		
+A3030	Loading of AGI TR Unit 5 on SPMT; lashing; Shifting to Mina Zayed Port RoRo Jetty area	0.30	17-Feb-26	17-Feb-26		
+A3040	RoRo Ramp Installation - 5t Forklift and Crane required	0.30	17-Feb-26	17-Feb-26		
+A3060	Load-out of AGI TR Unit 5; stool down	0.20	17-Feb-26	17-Feb-26		
+A3070	RoRo ramp removal; Seafastening AGI TR Unit 5 - Crane required	1.00	17-Feb-26	18-Feb-26		
+A3071	Loading of AGI TR Unit 6 on SPMT; lashing	0.50	17-Feb-26	17-Feb-26		
+A3072	Shifting of AGI TR Unit 6 to Jetty area	0.05	18-Feb-26	18-Feb-26		
+A3073	RoRo Ramp Installation - Crane required	0.30	18-Feb-26	18-Feb-26		
+A3074	Load-out of AGI TR Unit 6; stoold down; securing of SPMT	0.30	18-Feb-26	18-Feb-26		
+A3075	Removal of RoRo Ramp; Sea fastening AGI TR Unit 6 - Crane required	1.00	18-Feb-26	19-Feb-26		
+A3080	MWS + MPI + Final Preparations	0.20	19-Feb-26	19-Feb-26		
+A3081	Sail-away - Marine Transportation by LCT to Al Ghallan Island	1.00	20-Feb-26	20-Feb-26		
+A3090	MMT Crew Mob to AGI; Site Induction; Meeting with Client	0.50	21-Feb-26	21-Feb-26		
+A3091	LCT Arrival; Berthing at AGI RoRo Jetty	0.50	21-Feb-26	21-Feb-26		
+A3100	Unlashing and cutting; steel sets preparations - Forklift required	0.50	21-Feb-26	21-Feb-26		
+A3110	Load-in of AGI TR Unit 6 (including RoRo Ramp Installation); store on Jetty - Crane required	1.00	22-Feb-26	22-Feb-26		
+A3120	Load-in of AGI TR Unit 5 (including RoRo Ramp Installation); store on Jetty - Crane required	1.00	21-Feb-26	21-Feb-26		
+A3121	Steel bridge Installation 1 - Crane required	0.30	23-Feb-26	23-Feb-26		
+A3140	AGI TR Unit 5 load on SPMT; lashing; Transportation and JD (steel set to be delivered to bay area by trailer)	0.70	23-Feb-26	23-Feb-26		
+A3141	Turning of AGI TR Unit 5 - 10t Forklift required	3.00	23-Feb-26	25-Feb-26		
+A3150	Jacking down of AGI TR Unit 5 on temporary support - Forklift required	1.00	26-Feb-26	26-Feb-26		
+A3160	Steel bridge Installation 2 - Crane required	0.30	26-Feb-26	26-Feb-26		
+A3170	AGI TR Unit 6 load on SPMT; lashing; Transportation and JD (steel set to be delivered to bay area by trailer)	0.70	26-Feb-26	26-Feb-26		
+A3180	Turning of AGI TR Unit 6 - 10t Forklift required	3.00	27-Feb-26	01-Mar-26		
+A3190	Jacking down of AGI TR Unit 6 on temporary support - Forklift and Crane required	1.00	02-Mar-26	02-Mar-26		
+A3200	SPMT shifting from TR Bay Area to Jetty; Loading on LCT (if tide allows)	1.00	27-Feb-26	27-Feb-26		
+A3210	LCT Sail-away back to Mina Zayed Port; MMT SPMT Crew Demobilization	0.00	27-Feb-26		
+A3220	MMT Jacking Crew Demobilization	0.00	28-Feb-26		
+AGI TR Unit 7	10.00	01-Mar-26	10-Mar-26		
+A4030	Loading of AGI TR Unit 7 on SPMT; lashing; Shifting to Mina Zayed Port RoRo Jetty area	0.30	01-Mar-26	01-Mar-26		
+A4040	RoRo Ramp Installation - 5t Forklift and Crane required	0.30	01-Mar-26	01-Mar-26		
+A4060	Load-out of AGI TR Unit 7; stool down	0.20	01-Mar-26	01-Mar-26		
+A4070	RoRo ramp removal; Seafastening AGI TR Unit 7 - Crane required	1.00	01-Mar-26	02-Mar-26		
+A4080	MWS + MPI + Final Preparations	0.20	02-Mar-26	02-Mar-26		
+A4081	Sail-away - Marine Transportation by LCT to Al Ghallan Island	1.00	03-Mar-26	03-Mar-26		
+A4090	MMT Crew Mob to AGI; Site Induction; Meeting with Client	0.50	04-Mar-26	04-Mar-26		
+A4091	LCT Arrival; Berthing at AGI RoRo Jetty	0.50	04-Mar-26	04-Mar-26		
+A4100	Unlashing and cutting; steel sets preparations - Forklift required	0.50	04-Mar-26	04-Mar-26		
+A4120	Load-in of AGI TR Unit 7 (including RoRo Ramp Installation); store on Jetty - Crane required	1.00	04-Mar-26	04-Mar-26		
+A4121	Steel bridge Installation 1 - Crane required	0.30	05-Mar-26	05-Mar-26		
+A4140	AGI TR Unit 7 load on SPMT; lashing; Transportation and JD (steel set to be delivered to bay area by trailer)	0.70	05-Mar-26	05-Mar-26		
+A4141	Turning of AGI TR Unit 7 - 10t Forklift required	3.00	05-Mar-26	07-Mar-26		
+A4150	Jacking down of AGI TR Unit 7 on temporary support - Forklift and Crane required	1.00	08-Mar-26	08-Mar-26		
+A4200	SPMT shifting from TR Bay Area to Jetty; Loading on LCT (if tide allows)	1.00	09-Mar-26	09-Mar-26		
+A4210	LCT Sail-away back to Mina Zayed Port; MMT SPMT Crew Demobilization	0.00	09-Mar-26		
+A4220	MMT Jacking Crew Demobilization	0.00	10-Mar-26		

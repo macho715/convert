@@ -1,0 +1,366 @@
+{
+  "cost_items": [
+    {
+      "code": "AGENCY_FEE_FOR_CARGO_CLEARANCE",
+      "description": "화물 통관 대행 수수료",
+      "unit": "건당",
+      "condition": "화물 통관 대행 시",
+      "qty_field": "AGENCY_FEE_FOR_CARGO_CLEARANCE_QTY",
+      "amount_field": "AGENCY_FEE_FOR_CARGO_CLEARANCE_AMOUNT"
+    },
+    {
+      "code": "AGENCY_FEE_FOR_BERTHING_ARRANGEMENT",
+      "description": "접안 배치 대행 수수료",
+      "unit": "건당",
+      "condition": "접안 배치 대행 시",
+      "qty_field": "AGENCY_FEE_FOR_BERTHING_ARRANGEMENT_QTY",
+      "amount_field": "AGENCY_FEE_FOR_BERTHING_ARRANGEMENT_AMOUNT"
+    },
+    {
+      "code": "AGENCY_FEE_FOR_FW_SUPPLY_ARRANGEMENT",
+      "description": "담수 공급 배치 대행 수수료",
+      "unit": "건당",
+      "condition": "담수 공급 배치 대행 시",
+      "qty_field": "AGENCY_FEE_FOR_FW_SUPPLY_ARRANGEMENT_QTY",
+      "amount_field": "AGENCY_FEE_FOR_FW_SUPPLY_ARRANGEMENT_AMOUNT"
+    },
+    {
+      "code": "AGENCY_FOR_ARRANGEMENT_PTW",
+      "description": "PTW 배치 대행 수수료",
+      "unit": "건당",
+      "condition": "PTW 배치 대행 시",
+      "qty_field": "AGENCY_FOR_ARRANGEMENT_PTW_QTY",
+      "amount_field": "AGENCY_FOR_ARRANGEMENT_PTW_AMOUNT"
+    },
+    {
+      "code": "YARD",
+      "description": "야드 사용료",
+      "unit": "CBM/일",
+      "condition": "야드 사용 시",
+      "qty_field": "YARD_QTY",
+      "amount_field": "YARD_AMOUNT"
+    },
+    {
+      "code": "OFCO_HANDLING_FEE",
+      "description": "OFCO 하역 수수료",
+      "unit": "톤/CBM",
+      "condition": "OFCO 하역 작업 시",
+      "qty_field": "OFCO_HANDLING_FEE_QTY",
+      "amount_field": "OFCO_HANDLING_FEE_AMOUNT"
+    },
+    {
+      "code": "SUPPLY_WATER_5001IG",
+      "description": "담수 공급 비용 (5001IG 이상)",
+      "unit": "톤",
+      "condition": "담수 공급 시",
+      "qty_field": "SUPPLY_WATER_5001IG_QTY",
+      "amount_field": "SUPPLY_WATER_5001IG_AMOUNT"
+    },
+    {
+      "code": "FORKLIFT_HIRE_CHARGE",
+      "description": "지게차 임대료",
+      "unit": "시간",
+      "condition": "지게차 임대 시",
+      "qty_field": "FORKLIFT_HIRE_CHARGE_QTY",
+      "amount_field": "FORKLIFT_HIRE_CHARGE_AMOUNT"
+    },
+    {
+      "code": "FORKLIFT_MOB_DE_MOB_CHARGE",
+      "description": "지게차 이동/철수 비용",
+      "unit": "건당",
+      "condition": "지게차 이동/철수 시",
+      "qty_field": "FORKLIFT_MOB_DE_MOB_CHARGE_QTY",
+      "amount_field": "FORKLIFT_MOB_DE_MOB_CHARGE_AMOUNT"
+    },
+    {
+      "code": "CONSUMABLES",
+      "description": "소모품 비용",
+      "unit": "건당",
+      "condition": "소모품 사용 시",
+      "qty_field": "CONSUMABLES_QTY",
+      "amount_field": "CONSUMABLES_AMOUNT"
+    },
+    {
+      "code": "DIESEL_VESSEL",
+      "description": "선박용 경유 공급 비용",
+      "unit": "톤",
+      "condition": "경유 공급 시",
+      "qty_field": "DIESEL_VESSEL_QTY",
+      "amount_field": "DIESEL_VESSEL_AMOUNT"
+    },
+    {
+      "code": "DOCUMENT_PROCESSING_CHARGE",
+      "description": "선적/하역/통관 서류를 항만 시스템에 등록·처리하는 수수료",
+      "unit": "건당",
+      "condition": "BL/DO 발급·수정·재발행·통관 신고 시 발생",
+      "qty_field": "DOCUMENT_PROCESSING_CHARGE_QTY",
+      "amount_field": "DOCUMENT_PROCESSING_CHARGE_AMOUNT"
+    },
+    {
+      "code": "BULK_MATERIAL_SOLIDS_A_PARCEL_SIZE_0_10_001_TONS_DIRECT_DELIVERY",
+      "description": "0~10,001톤 벌크 고형 화물의 직배송 하역·이동 수수료",
+      "unit": "톤(MT)",
+      "condition": "부두→차량 직배송",
+      "qty_field": "BULK_MATERIAL_SOLIDS_A_PARCEL_SIZE_0_10_001_TONS_DIRECT_DELIVERY_QTY",
+      "amount_field": "BULK_MATERIAL_SOLIDS_A_PARCEL_SIZE_0_10_001_TONS_DIRECT_DELIVERY_AMOUNT"
+    },
+    {
+      "code": "BULK_MATERIAL_BAGGED_CARGO_14",
+      "description": "포대 형태 벌크 화물의 하역·이동·적치 비용(코드14)",
+      "unit": "톤/CBM",
+      "condition": "포장 규격 14 적용",
+      "qty_field": "BULK_MATERIAL_BAGGED_CARGO_14_QTY",
+      "amount_field": "BULK_MATERIAL_BAGGED_CARGO_14_AMOUNT"
+    },
+    {
+      "code": "BULK_MATERIAL_BAGGED_CARGO_15",
+      "description": "포대 형태 벌크 화물의 하역·이동·적치 비용(코드15)",
+      "unit": "톤/CBM",
+      "condition": "포장 규격 15 적용",
+      "qty_field": "BULK_MATERIAL_BAGGED_CARGO_15_QTY",
+      "amount_field": "BULK_MATERIAL_BAGGED_CARGO_15_AMOUNT"
+    },
+    {
+      "code": "BULK_MATERIAL_BAGGED_CARGO_16",
+      "description": "포대 형태 벌크 화물의 하역·이동·적치 비용(코드16)",
+      "unit": "톤/CBM",
+      "condition": "포장 규격 16 적용",
+      "qty_field": "BULK_MATERIAL_BAGGED_CARGO_16_QTY",
+      "amount_field": "BULK_MATERIAL_BAGGED_CARGO_16_AMOUNT"
+    },
+    {
+      "code": "BULK_MATERIAL_BAGGED_CARGO_19",
+      "description": "포대 형태 벌크 화물의 하역·이동·적치 비용(코드19)",
+      "unit": "톤/CBM",
+      "condition": "포장 규격 19 적용",
+      "qty_field": "BULK_MATERIAL_BAGGED_CARGO_19_QTY",
+      "amount_field": "BULK_MATERIAL_BAGGED_CARGO_19_AMOUNT"
+    },
+    {
+      "code": "PEC_CHANGES",
+      "description": "Port Entry Certificate 변경·재발급 수수료",
+      "unit": "건당",
+      "condition": "ETA/선박 변경 시",
+      "qty_field": "PEC_CHANGES_QTY",
+      "amount_field": "PEC_CHANGES_AMOUNT"
+    },
+    {
+      "code": "ANCHORAGE_FEES_FOR_NON_CARGO_VESSELS",
+      "description": "화물 없는 선박의 Anchorage 정박료",
+      "unit": "GT/시간",
+      "condition": "비화물선 정박 시",
+      "qty_field": "ANCHORAGE_FEES_FOR_NON_CARGO_VESSELS_QTY",
+      "amount_field": "ANCHORAGE_FEES_FOR_NON_CARGO_VESSELS_AMOUNT"
+    },
+    {
+      "code": "CHANNEL_TRANSIT_CROSSING_REQUEST",
+      "description": "항만 채널 통과 허가 요청 수수료",
+      "unit": "건당",
+      "condition": "채널 통과 허가 필요 시",
+      "qty_field": "CHANNEL_TRANSIT_CROSSING_REQUEST_QTY",
+      "amount_field": "CHANNEL_TRANSIT_CROSSING_REQUEST_AMOUNT"
+    },
+    {
+      "code": "CHANNEL_CROSSING_CHARGES_FOR_VESSELS_WITH_1000_TO_3_001_GT",
+      "description": "1,000~3,001GT 선박 채널 통과 비용",
+      "unit": "GT",
+      "condition": "채널 통과",
+      "qty_field": "CHANNEL_CROSSING_CHARGES_FOR_VESSELS_WITH_1000_TO_3_001_GT_QTY",
+      "amount_field": "CHANNEL_CROSSING_CHARGES_FOR_VESSELS_WITH_1000_TO_3_001_GT_AMOUNT"
+    },
+    {
+      "code": "GENERAL_WASTE_SERVICE",
+      "description": "일반 폐기물 수거·처리 비용",
+      "unit": "CBM/톤",
+      "condition": "생활 폐기물 처리",
+      "qty_field": "GENERAL_WASTE_SERVICE_QTY",
+      "amount_field": "GENERAL_WASTE_SERVICE_AMOUNT"
+    },
+    {
+      "code": "PORT_DUES_FOR_VESSELS_WITH_ABOVE_1_000_UP_TO_3_001GT",
+      "description": "1,000~3,001GT 선박 항만 이용료",
+      "unit": "GT×일수",
+      "condition": "항만 접안",
+      "qty_field": "PORT_DUES_FOR_VESSELS_WITH_ABOVE_1_000_UP_TO_3_001GT_QTY",
+      "amount_field": "PORT_DUES_FOR_VESSELS_WITH_ABOVE_1_000_UP_TO_3_001GT_AMOUNT"
+    },
+    {
+      "code": "BUNKERING_LUBE_OIL_SLUDGE_SULPHUR_BILGE_TRANSFER_BUNKERING_PERMIT",
+      "description": "연료유·윤활유 공급, 폐유·슬러지·빌지수 처리 허가 수수료",
+      "unit": "건당",
+      "condition": "작업 허가 발급 시",
+      "qty_field": "BUNKERING_LUBE_OIL_SLUDGE_SULPHUR_BILGE_TRANSFER_BUNKERING_PERMIT_QTY",
+      "amount_field": "BUNKERING_LUBE_OIL_SLUDGE_SULPHUR_BILGE_TRANSFER_BUNKERING_PERMIT_AMOUNT"
+    },
+    {
+      "code": "PORT_DUE_CARGO",
+      "description": "화물 처리에 따른 항만 사용료",
+      "unit": "톤/CBM",
+      "condition": "화물 하역 시",
+      "qty_field": "PORT_DUE_CARGO_QTY",
+      "amount_field": "PORT_DUE_CARGO_AMOUNT"
+    },
+    {
+      "code": "WASTE_HANDLING",
+      "description": "폐기물 처리·운반·처리비",
+      "unit": "CBM/톤",
+      "condition": "폐기물 발생 시",
+      "qty_field": "WASTE_HANDLING_QTY",
+      "amount_field": "WASTE_HANDLING_AMOUNT"
+    },
+    {
+      "code": "BERTHING_SHIFTING",
+      "description": "선박 접안 위치 변경 비용",
+      "unit": "GT/건당",
+      "condition": "Berth 변경 시",
+      "qty_field": "BERTHING_SHIFTING_QTY",
+      "amount_field": "BERTHING_SHIFTING_AMOUNT"
+    },
+    {
+      "code": "PILOTAGE",
+      "description": "항만 입·출항 시 항해사 승선 비용",
+      "unit": "GT×횟수",
+      "condition": "Pilot 승선",
+      "qty_field": "PILOTAGE_QTY",
+      "amount_field": "PILOTAGE_AMOUNT"
+    },
+    {
+      "code": "PILOT_LAUNCH",
+      "description": "Pilot Boat 이용료",
+      "unit": "GT×횟수",
+      "condition": "Pilot 승하선",
+      "qty_field": "PILOT_LAUNCH_QTY",
+      "amount_field": "PILOT_LAUNCH_AMOUNT"
+    },
+    {
+      "code": "GENERAL_CARGO",
+      "description": "컨테이너·벌크 외 일반 화물 하역료",
+      "unit": "톤/CBM",
+      "condition": "일반 화물 하역 시",
+      "qty_field": "GENERAL_CARGO_QTY",
+      "amount_field": "GENERAL_CARGO_AMOUNT"
+    },
+    {
+      "code": "GATE_PASS",
+      "description": "항만 출입 인원·차량 Gate Pass 발급 수수료",
+      "unit": "건당",
+      "condition": "항만 출입 시",
+      "qty_field": "GATE_PASS_QTY",
+      "amount_field": "GATE_PASS_AMOUNT"
+    },
+    {
+      "code": "PORT_DUE",
+      "description": "항만 시설 이용 기본료",
+      "unit": "GT×일수",
+      "condition": "항만 이용 시",
+      "qty_field": "PORT_DUE_QTY",
+      "amount_field": "PORT_DUE_AMOUNT"
+    },
+    {
+      "code": "WASTE_HANDLING2",
+      "description": "폐기물 처리·운반·처리비(2차 코드)",
+      "unit": "CBM/톤",
+      "condition": "폐기물 발생 시",
+      "qty_field": "WASTE_HANDLING2_QTY",
+      "amount_field": "WASTE_HANDLING2_AMOUNT"
+    },
+    {
+      "code": "BUNKERING",
+      "description": "연료유 공급 작업",
+      "unit": "톤/건당",
+      "condition": "Bunkering 작업 시",
+      "qty_field": "BUNKERING_QTY",
+      "amount_field": "BUNKERING_AMOUNT"
+    },
+    {
+      "code": "HEAVY_LIFT_20FRT_PROJECT",
+      "description": "20톤 이상 중량물 프로젝트 화물 하역료",
+      "unit": "톤/CBM",
+      "condition": "중량물 하역 시",
+      "qty_field": "HEAVY_LIFT_20FRT_PROJECT_QTY",
+      "amount_field": "HEAVY_LIFT_20FRT_PROJECT_AMOUNT"
+    },
+    {
+      "code": "MANPOWER_RIGGER",
+      "description": "리거 인력 비용",
+      "unit": "시간/인",
+      "condition": "리거 작업 시",
+      "qty_field": "MANPOWER_RIGGER_QTY",
+      "amount_field": "MANPOWER_RIGGER_AMOUNT"
+    },
+    {
+      "code": "MANPOWER_BANKSMAN",
+      "description": "뱅크스맨 인력 비용",
+      "unit": "시간/인",
+      "condition": "뱅크스맨 작업 시",
+      "qty_field": "MANPOWER_BANKSMAN_QTY",
+      "amount_field": "MANPOWER_BANKSMAN_AMOUNT"
+    },
+    {
+      "code": "MANPOWER_FOREMAN",
+      "description": "포어맨 인력 비용",
+      "unit": "시간/인",
+      "condition": "포어맨 작업 시",
+      "qty_field": "MANPOWER_FOREMAN_QTY",
+      "amount_field": "MANPOWER_FOREMAN_AMOUNT"
+    },
+    {
+      "code": "MANPOWER_SUPERVISOR",
+      "description": "감독자 인력 비용",
+      "unit": "시간/인",
+      "condition": "감독 작업 시",
+      "qty_field": "MANPOWER_SUPERVISOR_QTY",
+      "amount_field": "MANPOWER_SUPERVISOR_AMOUNT"
+    },
+    {
+      "code": "EQUIPMENT_75TON_CRANE",
+      "description": "75톤 크레인 장비 비용",
+      "unit": "시간",
+      "condition": "75톤 크레인 사용 시",
+      "qty_field": "EQUIPMENT_75TON_CRANE_QTY",
+      "amount_field": "EQUIPMENT_75TON_CRANE_AMOUNT"
+    },
+    {
+      "code": "EQUIPMENT_100TON_CRAN",
+      "description": "100톤 크레인 장비 비용",
+      "unit": "시간",
+      "condition": "100톤 크레인 사용 시",
+      "qty_field": "EQUIPMENT_100TON_CRAN_QTY",
+      "amount_field": "EQUIPMENT_100TON_CRAN_AMOUNT"
+    },
+    {
+      "code": "EQUIPMENT_150TON_CRANE",
+      "description": "150톤 크레인 장비 비용",
+      "unit": "시간",
+      "condition": "150톤 크레인 사용 시",
+      "qty_field": "EQUIPMENT_150TON_CRANE_QTY",
+      "amount_field": "EQUIPMENT_150TON_CRANE_AMOUNT"
+    },
+    {
+      "code": "EQUIPMENT_SPREAD",
+      "description": "스프레더 장비 비용",
+      "unit": "시간",
+      "condition": "스프레더 사용 시",
+      "qty_field": "EQUIPMENT_SPREAD_QTY",
+      "amount_field": "EQUIPMENT_SPREAD_AMOUNT"
+    },
+    {
+      "code": "OTHERS",
+      "description": "기타 비용",
+      "unit": "건당",
+      "condition": "기타 비용 발생 시",
+      "qty_field": "OTHERS_QTY",
+      "amount_field": "OTHERS_AMOUNT"
+    }
+  ],
+  "metadata": {
+    "total_items": 42,
+    "total_fields": 84,
+    "last_updated": "2025-01-27",
+    "source_files": [
+      "비용 항목 설명 단위 발생 조건.MD",
+      "cost_item_fields_GROUPL.JSON",
+      "cost_item_fields.JSON"
+    ]
+  }
+}

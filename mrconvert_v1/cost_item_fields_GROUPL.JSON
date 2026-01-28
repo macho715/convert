@@ -1,0 +1,224 @@
+{
+  "cost_items": [
+    {
+      "code": "AGENCY_FEE_FOR_CARGO_CLEARANCE",
+      "qty_field": "AGENCY_FEE_FOR_CARGO_CLEARANCE_QTY",
+      "amount_field": "AGENCY_FEE_FOR_CARGO_CLEARANCE_AMOUNT"
+    },
+    {
+      "code": "AGENCY_FEE_FOR_BERTHING_ARRANGEMENT",
+      "qty_field": "AGENCY_FEE_FOR_BERTHING_ARRANGEMENT_QTY",
+      "amount_field": "AGENCY_FEE_FOR_BERTHING_ARRANGEMENT_AMOUNT"
+    },
+    {
+      "code": "AGENCY_FEE_FOR_FW_SUPPLY_ARRANGEMENT",
+      "qty_field": "AGENCY_FEE_FOR_FW_SUPPLY_ARRANGEMENT_QTY",
+      "amount_field": "AGENCY_FEE_FOR_FW_SUPPLY_ARRANGEMENT_AMOUNT"
+    },
+    {
+      "code": "AGENCY_FOR_ARRANGEMENT_PTW",
+      "qty_field": "AGENCY_FOR_ARRANGEMENT_PTW_QTY",
+      "amount_field": "AGENCY_FOR_ARRANGEMENT_PTW_AMOUNT"
+    },
+    {
+      "code": "YARD",
+      "qty_field": "YARD_QTY",
+      "amount_field": "YARD_AMOUNT"
+    },
+    {
+      "code": "OFCO_HANDLING_FEE",
+      "qty_field": "OFCO_HANDLING_FEE_QTY",
+      "amount_field": "OFCO_HANDLING_FEE_AMOUNT"
+    },
+    {
+      "code": "SUPPLY_WATER_5001IG",
+      "qty_field": "SUPPLY_WATER_5001IG_QTY",
+      "amount_field": "SUPPLY_WATER_5001IG_AMOUNT"
+    },
+    {
+      "code": "FORKLIFT_HIRE_CHARGE",
+      "qty_field": "FORKLIFT_HIRE_CHARGE_QTY",
+      "amount_field": "FORKLIFT_HIRE_CHARGE_AMOUNT"
+    },
+    {
+      "code": "FORKLIFT_MOB_DE_MOB_CHARGE",
+      "qty_field": "FORKLIFT_MOB_DE_MOB_CHARGE_QTY",
+      "amount_field": "FORKLIFT_MOB_DE_MOB_CHARGE_AMOUNT"
+    },
+    {
+      "code": "CONSUMABLES",
+      "qty_field": "CONSUMABLES_QTY",
+      "amount_field": "CONSUMABLES_AMOUNT"
+    },
+    {
+      "code": "DIESEL_VESSEL",
+      "qty_field": "DIESEL_VESSEL_QTY",
+      "amount_field": "DIESEL_VESSEL_AMOUNT"
+    },
+    {
+      "code": "DOCUMENT_PROCESSING_CHARGE",
+      "qty_field": "DOCUMENT_PROCESSING_CHARGE_QTY",
+      "amount_field": "DOCUMENT_PROCESSING_CHARGE_AMOUNT"
+    },
+    {
+      "code": "BULK_MATERIAL_SOLIDS_A_PARCEL_SIZE_0_10_001_TONS_DIRECT_DELIVERY",
+      "qty_field": "BULK_MATERIAL_SOLIDS_A_PARCEL_SIZE_0_10_001_TONS_DIRECT_DELIVERY_QTY",
+      "amount_field": "BULK_MATERIAL_SOLIDS_A_PARCEL_SIZE_0_10_001_TONS_DIRECT_DELIVERY_AMOUNT"
+    },
+    {
+      "code": "BULK_MATERIAL_BAGGED_CARGO_14",
+      "qty_field": "BULK_MATERIAL_BAGGED_CARGO_14_QTY",
+      "amount_field": "BULK_MATERIAL_BAGGED_CARGO_14_AMOUNT"
+    },
+    {
+      "code": "BULK_MATERIAL_BAGGED_CARGO_15",
+      "qty_field": "BULK_MATERIAL_BAGGED_CARGO_15_QTY",
+      "amount_field": "BULK_MATERIAL_BAGGED_CARGO_15_AMOUNT"
+    },
+    {
+      "code": "BULK_MATERIAL_BAGGED_CARGO_16",
+      "qty_field": "BULK_MATERIAL_BAGGED_CARGO_16_QTY",
+      "amount_field": "BULK_MATERIAL_BAGGED_CARGO_16_AMOUNT"
+    },
+    {
+      "code": "BULK_MATERIAL_BAGGED_CARGO_19",
+      "qty_field": "BULK_MATERIAL_BAGGED_CARGO_19_QTY",
+      "amount_field": "BULK_MATERIAL_BAGGED_CARGO_19_AMOUNT"
+    },
+    {
+      "code": "PEC_CHANGES",
+      "qty_field": "PEC_CHANGES_QTY",
+      "amount_field": "PEC_CHANGES_AMOUNT"
+    },
+    {
+      "code": "ANCHORAGE_FEES_FOR_NON_CARGO_VESSELS",
+      "qty_field": "ANCHORAGE_FEES_FOR_NON_CARGO_VESSELS_QTY",
+      "amount_field": "ANCHORAGE_FEES_FOR_NON_CARGO_VESSELS_AMOUNT"
+    },
+    {
+      "code": "CHANNEL_TRANSIT_CROSSING_REQUEST",
+      "qty_field": "CHANNEL_TRANSIT_CROSSING_REQUEST_QTY",
+      "amount_field": "CHANNEL_TRANSIT_CROSSING_REQUEST_AMOUNT"
+    },
+    {
+      "code": "CHANNEL_CROSSING_CHARGES_FOR_VESSELS_WITH_1000_TO_3_001_GT",
+      "qty_field": "CHANNEL_CROSSING_CHARGES_FOR_VESSELS_WITH_1000_TO_3_001_GT_QTY",
+      "amount_field": "CHANNEL_CROSSING_CHARGES_FOR_VESSELS_WITH_1000_TO_3_001_GT_AMOUNT"
+    },
+    {
+      "code": "GENERAL_WASTE_SERVICE",
+      "qty_field": "GENERAL_WASTE_SERVICE_QTY",
+      "amount_field": "GENERAL_WASTE_SERVICE_AMOUNT"
+    },
+    {
+      "code": "PORT_DUES_FOR_VESSELS_WITH_ABOVE_1_000_UP_TO_3_001GT",
+      "qty_field": "PORT_DUES_FOR_VESSELS_WITH_ABOVE_1_000_UP_TO_3_001GT_QTY",
+      "amount_field": "PORT_DUES_FOR_VESSELS_WITH_ABOVE_1_000_UP_TO_3_001GT_AMOUNT"
+    },
+    {
+      "code": "BUNKERING_LUBE_OIL_SLUDGE_SULPHUR_BILGE_TRANSFER_BUNKERING_PERMIT",
+      "qty_field": "BUNKERING_LUBE_OIL_SLUDGE_SULPHUR_BILGE_TRANSFER_BUNKERING_PERMIT_QTY",
+      "amount_field": "BUNKERING_LUBE_OIL_SLUDGE_SULPHUR_BILGE_TRANSFER_BUNKERING_PERMIT_AMOUNT"
+    },
+    {
+      "code": "PORT_DUE_CARGO",
+      "qty_field": "PORT_DUE_CARGO_QTY",
+      "amount_field": "PORT_DUE_CARGO_AMOUNT"
+    },
+    {
+      "code": "WASTE_HANDLING",
+      "qty_field": "WASTE_HANDLING_QTY",
+      "amount_field": "WASTE_HANDLING_AMOUNT"
+    },
+    {
+      "code": "BERTHING_SHIFTING",
+      "qty_field": "BERTHING_SHIFTING_QTY",
+      "amount_field": "BERTHING_SHIFTING_AMOUNT"
+    },
+    {
+      "code": "PILOTAGE",
+      "qty_field": "PILOTAGE_QTY",
+      "amount_field": "PILOTAGE_AMOUNT"
+    },
+    {
+      "code": "PILOT_LAUNCH",
+      "qty_field": "PILOT_LAUNCH_QTY",
+      "amount_field": "PILOT_LAUNCH_AMOUNT"
+    },
+    {
+      "code": "GENERAL_CARGO",
+      "qty_field": "GENERAL_CARGO_QTY",
+      "amount_field": "GENERAL_CARGO_AMOUNT"
+    },
+    {
+      "code": "GATE_PASS",
+      "qty_field": "GATE_PASS_QTY",
+      "amount_field": "GATE_PASS_AMOUNT"
+    },
+    {
+      "code": "PORT_DUE",
+      "qty_field": "PORT_DUE_QTY",
+      "amount_field": "PORT_DUE_AMOUNT"
+    },
+    {
+      "code": "WASTE_HANDLING2",
+      "qty_field": "WASTE_HANDLING2_QTY",
+      "amount_field": "WASTE_HANDLING2_AMOUNT"
+    },
+    {
+      "code": "BUNKERING",
+      "qty_field": "BUNKERING_QTY",
+      "amount_field": "BUNKERING_AMOUNT"
+    },
+    {
+      "code": "HEAVY_LIFT_20FRT_PROJECT",
+      "qty_field": "HEAVY_LIFT_20FRT_PROJECT_QTY",
+      "amount_field": "HEAVY_LIFT_20FRT_PROJECT_AMOUNT"
+    },
+    {
+      "code": "MANPOWER_RIGGER",
+      "qty_field": "MANPOWER_RIGGER_QTY",
+      "amount_field": "MANPOWER_RIGGER_AMOUNT"
+    },
+    {
+      "code": "MANPOWER_BANKSMAN",
+      "qty_field": "MANPOWER_BANKSMAN_QTY",
+      "amount_field": "MANPOWER_BANKSMAN_AMOUNT"
+    },
+    {
+      "code": "MANPOWER_FOREMAN",
+      "qty_field": "MANPOWER_FOREMAN_QTY",
+      "amount_field": "MANPOWER_FOREMAN_AMOUNT"
+    },
+    {
+      "code": "MANPOWER_SUPERVISOR",
+      "qty_field": "MANPOWER_SUPERVISOR_QTY",
+      "amount_field": "MANPOWER_SUPERVISOR_AMOUNT"
+    },
+    {
+      "code": "EQUIPMENT_75TON_CRANE",
+      "qty_field": "EQUIPMENT_75TON_CRANE_QTY",
+      "amount_field": "EQUIPMENT_75TON_CRANE_AMOUNT"
+    },
+    {
+      "code": "EQUIPMENT_100TON_CRAN",
+      "qty_field": "EQUIPMENT_100TON_CRAN_QTY",
+      "amount_field": "EQUIPMENT_100TON_CRAN_AMOUNT"
+    },
+    {
+      "code": "EQUIPMENT_150TON_CRANE",
+      "qty_field": "EQUIPMENT_150TON_CRANE_QTY",
+      "amount_field": "EQUIPMENT_150TON_CRANE_AMOUNT"
+    },
+    {
+      "code": "EQUIPMENT_SPREAD",
+      "qty_field": "EQUIPMENT_SPREAD_QTY",
+      "amount_field": "EQUIPMENT_SPREAD_AMOUNT"
+    },
+    {
+      "code": "OTHERS",
+      "qty_field": "OTHERS_QTY",
+      "amount_field": "OTHERS_AMOUNT"
+    }
+  ]
+}

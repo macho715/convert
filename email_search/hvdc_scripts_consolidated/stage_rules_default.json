@@ -1,0 +1,79 @@
+{
+  "procurement": [
+    "rfq",
+    "quotation",
+    "quote",
+    "proforma",
+    "pr ",
+    "po ",
+    "lpo",
+    "supplier"
+  ],
+  "shipping": [
+    "booking",
+    "awb",
+    "mawb",
+    "hawb",
+    "bl ",
+    "b/l",
+    "vessel",
+    "eta",
+    "etd",
+    "sail",
+    "voyage"
+  ],
+  "customs": [
+    "boe",
+    "import code",
+    "customs",
+    "vat",
+    "duty",
+    "declaration",
+    "clearance",
+    "inspection",
+    "fanr",
+    "moiat",
+    "coo",
+    "cert of origin",
+    "gate pass"
+  ],
+  "logistics": [
+    "warehouse",
+    "delivery",
+    "pickup",
+    "trailer",
+    "berth",
+    "jetty",
+    "lolo",
+    "roro",
+    "stow",
+    "grn",
+    "wms",
+    "putaway",
+    "picking"
+  ],
+  "installation": [
+    "install",
+    "erection",
+    "fit up",
+    "site work",
+    "site installation"
+  ],
+  "testing": [
+    "test ",
+    "fat",
+    "sat",
+    "load test",
+    "pressure test",
+    "stability"
+  ],
+  "certification": [
+    "certificate",
+    "approval",
+    "permit",
+    "ms",
+    "method statement",
+    "coe",
+    "sow"
+  ]
+}

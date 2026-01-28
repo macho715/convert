@@ -1,0 +1,26 @@
+﻿항차,TR Unit,날짜,작업 내용,기간(일),종료일,SPMT 세트,적재 위치
+1차,"AGI TR Unit 1, AGI TR Unit 2",2026-02-05,TR Unit 1 → TR Bay 4 SPMT 적재/운송,,,1st Set,"TR Bay 4 (Unit 1), TR Bay 3 (Unit 2)"
+1차,"AGI TR Unit 1, AGI TR Unit 2",2026-02-06,TR Unit 1 Turning 시작,3,2026-02-08,1st Set,"TR Bay 4 (Unit 1), TR Bay 3 (Unit 2)"
+1차,"AGI TR Unit 1, AGI TR Unit 2",2026-02-09,TR Unit 1 Jacking down 완료,,,1st Set,"TR Bay 4 (Unit 1), TR Bay 3 (Unit 2)"
+1차,"AGI TR Unit 1, AGI TR Unit 2",2026-02-09,TR Unit 2 → TR Bay 3 SPMT 적재/운송,,,1st Set,"TR Bay 4 (Unit 1), TR Bay 3 (Unit 2)"
+1차,"AGI TR Unit 1, AGI TR Unit 2",2026-02-10,TR Unit 2 Turning 시작,3,2026-02-12,1st Set,"TR Bay 4 (Unit 1), TR Bay 3 (Unit 2)"
+1차,"AGI TR Unit 1, AGI TR Unit 2",2026-02-11,1st Set SPMT Port 복귀,,,1st Set,"TR Bay 4 (Unit 1), TR Bay 3 (Unit 2)"
+1차,"AGI TR Unit 1, AGI TR Unit 2",2026-02-13,TR Unit 2 Jacking down 완료,,,1st Set,"TR Bay 4 (Unit 1), TR Bay 3 (Unit 2)"
+2차,"AGI TR Unit 3, AGI TR Unit 4",2026-02-14,TR Unit 3 → TR Bay 2 SPMT 적재/운송,,,2nd Set,"TR Bay 2 (Unit 3), TR Bay 1 (Unit 4)"
+2차,"AGI TR Unit 3, AGI TR Unit 4",2026-02-15,TR Unit 3 Turning 시작,3,2026-02-17,2nd Set,"TR Bay 2 (Unit 3), TR Bay 1 (Unit 4)"
+2차,"AGI TR Unit 3, AGI TR Unit 4",2026-02-18,TR Unit 3 Jacking down 완료,,,2nd Set,"TR Bay 2 (Unit 3), TR Bay 1 (Unit 4)"
+2차,"AGI TR Unit 3, AGI TR Unit 4",2026-02-18,TR Unit 4 → TR Bay 1 SPMT 적재/운송,,,2nd Set,"TR Bay 2 (Unit 3), TR Bay 1 (Unit 4)"
+2차,"AGI TR Unit 3, AGI TR Unit 4",2026-02-19,TR Unit 4 Turning 시작,3,2026-02-21,2nd Set,"TR Bay 2 (Unit 3), TR Bay 1 (Unit 4)"
+2차,"AGI TR Unit 3, AGI TR Unit 4",2026-02-20,2nd Set SPMT Port 복귀,,,2nd Set,"TR Bay 2 (Unit 3), TR Bay 1 (Unit 4)"
+2차,"AGI TR Unit 3, AGI TR Unit 4",2026-02-22,TR Unit 4 Jacking down 완료,,,2nd Set,"TR Bay 2 (Unit 3), TR Bay 1 (Unit 4)"
+3차,"AGI TR Unit 5, AGI TR Unit 6",2026-02-23,TR Unit 5 → TR Bay 5 SPMT 적재/운송,,,1st Set (재활용),"TR Bay 5 (Unit 5), TR Bay 6 (Unit 6)"
+3차,"AGI TR Unit 5, AGI TR Unit 6",2026-02-24,TR Unit 5 Turning 시작,3,2026-02-26,1st Set (재활용),"TR Bay 5 (Unit 5), TR Bay 6 (Unit 6)"
+3차,"AGI TR Unit 5, AGI TR Unit 6",2026-02-27,TR Unit 5 Jacking down 완료,,,1st Set (재활용),"TR Bay 5 (Unit 5), TR Bay 6 (Unit 6)"
+3차,"AGI TR Unit 5, AGI TR Unit 6",2026-02-27,TR Unit 6 → TR Bay 6 SPMT 적재/운송,,,1st Set (재활용),"TR Bay 5 (Unit 5), TR Bay 6 (Unit 6)"
+3차,"AGI TR Unit 5, AGI TR Unit 6",2026-02-28,TR Unit 6 Turning 시작,3,2026-03-02,1st Set (재활용),"TR Bay 5 (Unit 5), TR Bay 6 (Unit 6)"
+3차,"AGI TR Unit 5, AGI TR Unit 6",2026-03-01,1st Set SPMT Port 복귀 (최종),,,1st Set (재활용),"TR Bay 5 (Unit 5), TR Bay 6 (Unit 6)"
+3차,"AGI TR Unit 5, AGI TR Unit 6",2026-03-03,TR Unit 6 Jacking down 완료,,,1st Set (재활용),"TR Bay 5 (Unit 5), TR Bay 6 (Unit 6)"
+4차,AGI TR Unit 7,2026-03-02,TR Unit 7 → TR Bay 7 SPMT 적재/운송,,,2nd Set (재활용),TR Bay 7
+4차,AGI TR Unit 7,2026-03-04,TR Unit 7 Turning 시작,3,2026-03-06,2nd Set (재활용),TR Bay 7
+4차,AGI TR Unit 7,2026-03-06,2nd Set SPMT Port 복귀,,,2nd Set (재활용),TR Bay 7
+4차,AGI TR Unit 7,2026-03-07,TR Unit 7 Jacking down 완료 (전체 작업 완료),,,2nd Set (재활용),TR Bay 7

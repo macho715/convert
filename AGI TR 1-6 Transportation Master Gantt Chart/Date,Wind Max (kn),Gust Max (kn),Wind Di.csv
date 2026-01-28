@@ -1,0 +1,33 @@
+Date,Wind Max (kn),Gust Max (kn),Wind Dir (deg),Wave Max (m),Wave Period (s),Wave Dir (deg),Visibility (km),Risk Level,Is Shamal,Notes
+2026-01-15,15,19.5,292 (WNW),0.6,3.5,292,9,Medium,False,"Slight sea; fair weather, low waves."
+2026-01-16,5,6.5,247 (WSW),0.3,3.0,247,9,Low,False,"Calm sea; minimal wind, flat waves."
+2026-01-17,10,13,292 (WNW),0.4,3.2,292,9,Medium,False,"Slight sea; light winds, small waves."
+2026-01-18,20,26,315 (NW),1.0,4.0,315,7,High,True,"Moderate sea; shamal start, increasing dust."
+2026-01-19,30,39,315 (NW),1.8,5.0,315,5,High,True,"Rough sea; strong shamal, blowing sand, high energy waves."
+2026-01-20,35,45.5,315 (NW),2.0,5.5,315,4,High,True,"Very rough sea; peak shamal, reduced visibility, caution for operations."
+2026-01-21,20,26,315 (NW),1.0,4.0,315,7,High,True,"Moderate sea; continuing shamal, dusty conditions."
+2026-01-22,25,32.5,315 (NW),1.5,4.5,315,6,High,True,"Rough sea; shamal easing, persistent dust."
+2026-01-23,16,20.8,315 (NW),0.6,3.5,315,9,Medium,False,"Slight to moderate sea; typical calm, based on climatology; possible fog."
+2026-01-24,16,20.8,315 (NW),0.6,3.5,315,9,Medium,False,"Slight sea; fair weather, low humidity effects."
+2026-01-25,16,20.8,315 (NW),0.6,3.5,315,9,Medium,False,Calm conditions; climatology suggests low rain chance.
+2026-01-26,16,20.8,315 (NW),0.6,3.5,315,9,Medium,False,Slight sea; average temp ~18°C.
+2026-01-27,16,20.8,315 (NW),0.6,3.5,315,9,Medium,False,Typical winter calm; monitor for mist.
+2026-01-28,16,20.8,315 (NW),0.6,3.5,315,9,Medium,False,Slight sea; low precipitation expected.
+2026-01-29,16,20.8,315 (NW),0.6,3.5,315,9,Medium,False,"Calm; humidity ~63%, possible early fog."
+2026-01-30,16,20.8,315 (NW),0.6,3.5,315,9,Medium,False,Slight sea; end of January averages.
+2026-01-31,16,20.8,315 (NW),0.6,3.5,315,9,Medium,False,Typical calm; transition to February patterns.
+2026-02-01,16,20.8,315 (NW),0.6,3.5,315,9,Medium,False,Slight sea; warmer sea temp ~21°C.
+2026-02-02,16,20.8,315 (NW),0.6,3.5,315,9,Medium,False,Calm; climatology indicates windier month.
+2026-02-03,16,20.8,315 (NW),0.6,3.5,315,9,Medium,False,Slight sea; low rain risk.
+2026-02-04,16,20.8,315 (NW),0.6,3.5,315,9,Medium,False,Typical calm; possible dust increase.
+2026-02-05,22,28.6,300 (NW),1.2,4.5,300,5,High,True,Moderate to rough sea; potential shamal based on climatology.
+2026-02-06,22,28.6,300 (NW),1.2,4.5,300,5,High,True,"Rough sea; dusty, high waves."
+2026-02-07,22,28.6,300 (NW),1.2,4.5,300,5,High,True,Continuing shamal; caution advised.
+2026-02-08,22,28.6,300 (NW),1.2,4.5,300,5,High,True,Rough sea; reduced visibility.
+2026-02-09,22,28.6,300 (NW),1.2,4.5,300,5,High,True,Shamal conditions; blowing sand.
+2026-02-10,22,28.6,300 (NW),1.2,4.5,300,5,High,True,Moderate waves; persistent dust.
+2026-02-11,22,28.6,300 (NW),1.2,4.5,300,5,High,True,Rough sea; high risk for operations.
+2026-02-12,22,28.6,300 (NW),1.2,4.5,300,5,High,True,Shamal easing toward end; monitor updates.
+2026-02-13,22,28.6,300 (NW),1.2,4.5,300,5,High,True,Rough conditions; climatology-based.
+2026-02-14,22,28.6,300 (NW),1.2,4.5,300,5,High,True,Final shamal day; waves subsiding.
+2026-02-15,16,20.8,315 (NW),0.6,3.5,315,9,Medium,False,"Slight sea; return to calm, fair weather."

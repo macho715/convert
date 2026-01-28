@@ -1,0 +1,59 @@
+ExecSummary
+창고 pjt를 온톨로지(지식그래프) 관점으로 보면, 엑셀/ERP의 각 행은 TransportEvent(이동), StockSnapshot(재고 스냅샷), Invoice(청구), Case(개별 케이스) 같은 클래스로 귀속되고, 열들은 hasDate/hasLocation/hasQuantity/hasLogisticsFlowCode 같은 속성으로 정규화됩니다. 이 구조가 “창고 트랙(WH)”·“현장 트랙(Site)”·“Flow Code(0–4)”를 한 장의 그래프로 동일 실체에 묶어 줍니다. (Any-key in → Resolve→Cluster→Downstream) 
+매핑된 데이터는 RDF/OWL로 변환되어 SPARQL로 검증/집계가 가능하고, 비용 분류(OFCO)나 월별 입출고·재고·SQM 과금까지 한 체계에서 굴러갑니다. 
+핵심은 “2-트랙 날짜 컬럼(창고 vs 현장)”과 시간순 출고 판정·이중계산 방지·Flow 0–4 일관성을 코드 레벨로 보증하는 것입니다.
+Visual — Ontology Map (요약표)
+파이프라인 to KG (요약)
+Ingest(Excel) → 정규화(헤더/날짜/공백) → 매핑(JSON rules) → RDF 변환 → SPARQL 검증(12 rules) → Flow/WH·Site 집계 → 리포트/과금(SQM) 
+How it works (핵심 동작 원리, EN-KR one-liners)
+2-트랙 날짜 모델: 창고 컬럼(DSV Indoor/Al Markaz/AAA/MOSB…)과 현장 컬럼(AGI/DAS/MIR/SHU)을 분리 인식 → 최신 위치/이동 추론 강화. 
+Flow Code 계산(0–4): Pre-Arrival(0)~WH/MOSB 경유~Site 도착까지 hop 수+오프쇼어 경유로 표준화.
+출고 판정(시간순): “창고에 찍힌 날짜 < 다음 위치(다른 창고/현장) 날짜”일 때만 출고로 인정(동일일자 중복 방지). 
+이중계산 방지 + 검증: 창고간 이동 목적지는 입고에서 제외, 재고는 Status_Location vs 물리위치 교차검증(불일치 0건 목표). 
+RDF/OWL & SPARQL: DataFrame→RDF 자동 변환, 금액/패키지/위치/시간 일관성 규칙 12종으로 품질게이트. 
+리포팅 아키텍처: 5-시트 요약(Flow/WH·Site 월별/Pre-Arrival/전체 트랜잭션) + 27시트 스냅샷(B5 날짜 기반 시계열) + SQM 과금.
+Options (구현 옵션 ≥3 · pros/cons/$/risk/time)
+Option A — Lite KG(매핑+피벗 중심)
+Pros: 빠른 적용, 5-시트 리포트 즉시화, 기존 엑셀 호환 우수. 
+Cons: 실시간 추론/질의 한계, 규칙 변경 시 수작업 많음.
+Cost/Time: $ · 1–2주.
+Risk: 규칙 누락/헤더 변형에 민감(중).
+Option B — Full KG(+SPARQL 검증/자동 추론)
+Pros: RDF 변환+12개 규칙 검증, 의미론 질의/벤더·월·창고 통합 시계열 안정. 
+Cons: 온톨로지/삼중저장소 운영 필요.
+Cost/Time: $$ · 3–5주.
+Risk: 초기 스키마 설계 미스매치(중).
+Option C — Ops Twin(+Flow 추적·SQM 과금)
+Pros: 시간순 출고·이중계산 방지, SQM 누적/요율 기반 월별 과금 자동화. 
+Cons: 데이터 품질(SQM 실측률)에 민감.
+Cost/Time: $$ · 4–6주.
+Risk: 일부 항목 SQM 추정치 사용 시 오차(중). 
+Roadmap (Prepare→Pilot→Build→Operate→Scale + KPI)
+Prepare (1주)
+헤더/날짜 정규화, 전각공백(‘\u3000’) 처리, 중복제거 파이프라인 정리. KPI: 정제 성공률 ≥ 94.60%. 
+Pilot (1–2주)
+2-트랙 매핑 + Flow 0–4 적용, 5-시트 리포트 생성. KPI: Flow 계산 일치율 100.00%. 
+Build (2–3주)
+RDF 변환 + SPARQL 12규칙, OFCO 비용센터 매핑 연결. KPI: 검증 규칙 통과율 100.00%. 
+Operate (지속)
+시간순 출고/재고 교차검증, 이중계산 0건 유지, SQM 월별 과금. KPI: PKG Accuracy ≥ 99.00% / Inventory 불일치 0건. 
+Scale (지속)
+27시트 스냅샷 도입(B5 기반 시계열), 트렌드/변동 자동 감지. KPI: 스냅샷 커버리지 100.00%. 
+Automation Hooks (RPA+LLM)
+/logi-master kpi-dash: Flow/WH·Site 월별 피벗 + KPI 리포트 생성. 
+/logi-master report --deep: RDF 변환→SPARQL 검증→요약 리포트. 
+/logi-master cert-chk | invoice-audit: OFCO/비용센터 라벨링과 교차 검증. 
+/visualize_data --type=pkg-flow: Port→WH→(MOSB)→Site 흐름 시각화(Flow 0–4). 
+QA / Gap 체크리스트
+창고 vs 현장 컬럼 완전 분리 적용 여부(이중계산 방지). 
+출고 판정이 “다음 위치가 더 늦은 날짜” 규칙을 지키는가. 
+Flow 0–4 경로 정의와 hop 계산 일치 여부. 
+전처리(전각공백/날짜 정규화/중복제거) 성공 여부. 
+SPARQL 12 규칙 통과(금액 음수/패키지 양수/시간 일관성 등). 
+SQM 실측 vs 추정 비율 보고(정책: 실측 비중을 단계적으로 상향). 
+CmdRec (바로 실행)
+/logi-master kpi-dash --KRsummary → 월별 WH/Site·Flow 요약 5-시트 생성. 
+/logi-master report --deep → RDF 변환+SPARQL 검증+OFCO 라벨링. 
+/visualize_data --type=pkg-flow → Flow 0–4 동선 확인(이상 경로 탐지). 
+한 줄 정리
+창고 pjt의 ‘한 몸체’는 온톨로지다. 장소·시간·흐름·재고·비용을 하나의 그래프에 올려두면, 어떤 키로 들어와도(케이스·BL·Site…) 같은 실체로 모이고, 그다음은 계산이 아니라 질의가 된다. (그리고, 그게 가장 덜 고생한다.)

@@ -1,0 +1,6 @@
+Layer,Ontology Domain,대표 엔티티,관계 키(Relation)
+L1,Physical Flow,"Material, Cargo, Port, Site, Vessel","movesFrom, movesTo, storedAt, handledBy"
+L2,Document Flow,"BL, CI, PL, COO, eDAS, MRR, OSDR","certifies, refersTo, attachedTo"
+L3,Actor Flow,"SCT, JDN, ALS, ADNOC, Subcon","responsibleFor, approves, reportsTo"
+L4,Regulatory Flow,"MOIAT, FANR, Customs, DOT","requiresPermit, compliesWith, auditedBy"
+L5,System Flow,"eDAS, SAP, NCM, LDG","feedsDataTo, validates, monitoredBy"

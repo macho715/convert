@@ -1,0 +1,344 @@
+{
+  "file_name": "C:\\Users\\SAMSUNG\\Downloads\\CONVERT\\OUTLOOK_HVDC_ALL_rev.xlsx",
+  "file_name_only": "OUTLOOK_HVDC_ALL_rev.xlsx",
+  "generated_at": "2026-01-23T05:49:23.695681",
+  "sheet_name": "전체_데이터",
+  "total_rows": 21086,
+  "total_columns": 20,
+  "mapping": {
+    "subject": [
+      "Subject"
+    ],
+    "from": [
+      "SenderEmail",
+      "SenderName"
+    ],
+    "to": [
+      "RecipientTo"
+    ],
+    "body": [
+      "PlainTextBody"
+    ],
+    "delivery_time": [
+      "DeliveryTime"
+    ],
+    "creation_time": [
+      "CreationTime"
+    ],
+    "case": [
+      "case_numbers",
+      "hvdc_cases"
+    ],
+    "site": [
+      "sites",
+      "primary_site"
+    ],
+    "lpo": [
+      "lpo",
+      "lpo_numbers"
+    ]
+  },
+  "resolved_aliases": {
+    "subject": {
+      "resolved_columns": [
+        "Subject"
+      ],
+      "first_match": "Subject",
+      "source": "merged",
+      "all_aliases_tried": [
+        "제목",
+        "Subject",
+        "subject"
+      ],
+      "matched_aliases": [
+        "Subject"
+      ],
+      "unmatched_aliases": [
+        "제목",
+        "subject"
+      ]
+    },
+    "from": {
+      "resolved_columns": [
+        "SenderEmail",
+        "SenderName"
+      ],
+      "first_match": "SenderEmail",
+      "source": "merged",
+      "all_aliases_tried": [
+        "발신자",
+        "From",
+        "SenderEmail",
+        "SenderName",
+        "from",
+        "Sender"
+      ],
+      "matched_aliases": [
+        "SenderEmail",
+        "SenderName"
+      ],
+      "unmatched_aliases": [
+        "발신자",
+        "From",
+        "from",
+        "Sender"
+      ]
+    },
+    "to": {
+      "resolved_columns": [
+        "RecipientTo"
+      ],
+      "first_match": "RecipientTo",
+      "source": "merged",
+      "all_aliases_tried": [
+        "수신자",
+        "To",
+        "RecipientTo",
+        "to",
+        "Recipients"
+      ],
+      "matched_aliases": [
+        "RecipientTo"
+      ],
+      "unmatched_aliases": [
+        "수신자",
+        "To",
+        "to",
+        "Recipients"
+      ]
+    },
+    "body": {
+      "resolved_columns": [
+        "PlainTextBody"
+      ],
+      "first_match": "PlainTextBody",
+      "source": "merged",
+      "all_aliases_tried": [
+        "본문",
+        "Body",
+        "PlainTextBody",
+        "body",
+        "TextBody"
+      ],
+      "matched_aliases": [
+        "PlainTextBody"
+      ],
+      "unmatched_aliases": [
+        "본문",
+        "Body",
+        "body",
+        "TextBody"
+      ]
+    },
+    "delivery_time": {
+      "resolved_columns": [
+        "DeliveryTime"
+      ],
+      "first_match": "DeliveryTime",
+      "source": "merged",
+      "all_aliases_tried": [
+        "수신일시",
+        "DeliveryTime",
+        "ReceivedTime",
+        "SentOn",
+        "Received"
+      ],
+      "matched_aliases": [
+        "DeliveryTime"
+      ],
+      "unmatched_aliases": [
+        "수신일시",
+        "ReceivedTime",
+        "SentOn",
+        "Received"
+      ]
+    },
+    "creation_time": {
+      "resolved_columns": [
+        "CreationTime"
+      ],
+      "first_match": "CreationTime",
+      "source": "merged",
+      "all_aliases_tried": [
+        "생성일시",
+        "CreationTime",
+        "SentTime",
+        "Created"
+      ],
+      "matched_aliases": [
+        "CreationTime"
+      ],
+      "unmatched_aliases": [
+        "생성일시",
+        "SentTime",
+        "Created"
+      ]
+    },
+    "case": {
+      "resolved_columns": [
+        "case_numbers",
+        "hvdc_cases"
+      ],
+      "first_match": "case_numbers",
+      "source": "config",
+      "all_aliases_tried": [
+        "케이스번호",
+        "CaseNumber",
+        "case_numbers",
+        "hvdc_cases"
+      ],
+      "matched_aliases": [
+        "case_numbers",
+        "hvdc_cases"
+      ],
+      "unmatched_aliases": [
+        "케이스번호",
+        "CaseNumber"
+      ]
+    },
+    "site": {
+      "resolved_columns": [
+        "sites",
+        "primary_site"
+      ],
+      "first_match": "sites",
+      "source": "config",
+      "all_aliases_tried": [
+        "사이트",
+        "Site",
+        "sites",
+        "primary_site"
+      ],
+      "matched_aliases": [
+        "sites",
+        "primary_site"
+      ],
+      "unmatched_aliases": [
+        "사이트",
+        "Site"
+      ]
+    },
+    "lpo": {
+      "resolved_columns": [
+        "lpo",
+        "lpo_numbers"
+      ],
+      "first_match": "lpo",
+      "source": "config",
+      "all_aliases_tried": [
+        "LPO",
+        "lpo",
+        "lpo_numbers"
+      ],
+      "matched_aliases": [
+        "lpo",
+        "lpo_numbers"
+      ],
+      "unmatched_aliases": [
+        "LPO"
+      ]
+    }
+  },
+  "missing_required": [],
+  "missing_optional": [
+    "cc",
+    "bcc",
+    "hasattachment",
+    "isflagged",
+    "category"
+  ],
+  "available_columns": [
+    "no",
+    "Month",
+    "Subject",
+    "SenderName",
+    "SenderEmail",
+    "RecipientTo",
+    "DeliveryTime",
+    "CreationTime",
+    "site",
+    "lpo",
+    "phase",
+    "hvdc_cases",
+    "primary_case",
+    "sites",
+    "primary_site",
+    "lpo_numbers",
+    "stage",
+    "stage_hits",
+    "case_numbers",
+    "PlainTextBody"
+  ],
+  "config_file_used": "C:\\Users\\SAMSUNG\\Downloads\\CONVERT\\config\\aqs_column_aliases.json",
+  "custom_aliases_applied": {
+    "subject": [
+      "제목",
+      "Subject",
+      "subject"
+    ],
+    "from": [
+      "발신자",
+      "From",
+      "SenderEmail"
+    ],
+    "to": [
+      "수신자",
+      "To",
+      "RecipientTo"
+    ],
+    "body": [
+      "본문",
+      "Body",
+      "PlainTextBody"
+    ],
+    "case": [
+      "케이스번호",
+      "CaseNumber",
+      "case_numbers",
+      "hvdc_cases"
+    ],
+    "site": [
+      "사이트",
+      "Site",
+      "sites",
+      "primary_site"
+    ],
+    "lpo": [
+      "LPO",
+      "lpo",
+      "lpo_numbers"
+    ],
+    "delivery_time": [
+      "수신일시",
+      "DeliveryTime",
+      "ReceivedTime"
+    ],
+    "creation_time": [
+      "생성일시",
+      "CreationTime",
+      "SentTime"
+    ],
+    "cc": [
+      "참조",
+      "Cc",
+      "RecipientCc"
+    ],
+    "bcc": [
+      "숨은참조",
+      "Bcc",
+      "RecipientBcc"
+    ],
+    "hasattachment": [
+      "첨부파일",
+      "HasAttachment"
+    ],
+    "isflagged": [
+      "중요표시",
+      "IsFlagged"
+    ],
+    "category": [
+      "카테고리",
+      "Category"
+    ]
+  }
+}

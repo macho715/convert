@@ -1,0 +1,82 @@
+| ID        |  WBS | Task                             | Phase        | Owner         | Start      | End        | Duration | Notes                                         |
+| --------- | ---: | -------------------------------- | ------------ | ------------- | ---------- | ---------- | -------: | --------------------------------------------- |
+| MOB-001   |  1.0 | MOBILIZATION                     | MOBILIZATION | Mammoet       | 2026-01-15 | 2026-01-16 |     1.00 | SPMT Assembly + Marine Equipment Mobilization |
+| PREP-001  |  1.1 | Deck Preparations                | DECK_PREP    | Mammoet       | 2026-01-16 | 2026-01-19 |     3.00 | One-time setup for all voyages                |
+| V1        |  2.0 | VOYAGE 1: TR1 Transport          | MILESTONE    | All           | 2026-01-18 | 2026-01-18 |     0.00 | ✅ Good Weather Window                         |
+| LO-101    |  2.1 | TR1 Load-out on LCT              | LOADOUT      | Mammoet       | 2026-01-18 | 2026-01-18 |     0.50 | High tide required                            |
+| SF-102    |  2.2 | TR1 Sea Fastening                | SEAFAST      | Mammoet       | 2026-01-19 | 2026-01-19 |     0.00 | 12-point lashing                              |
+| MWS-103   |  2.3 | MWS + MPI + Final Check          | BUFFER       | Aries/Captain | 2026-01-19 | 2026-01-19 |     0.00 | Marine Warranty Surveyor                      |
+| SAIL-104  |  2.4 | V1 Sail-away: MZP→AGI            | SAIL         | LCT Bushra    | 2026-01-20 | 2026-01-20 |     0.00 | ✅ Good Weather Window                         |
+| ARR-105   |  2.5 | AGI Arrival + TR1 RORO Unload    | AGI_UNLOAD   | Mammoet       | 2026-01-21 | 2026-01-21 |     0.00 | AGI FWD Draft ≤ 2.70m                         |
+| STORE-106 |  2.6 | TR1 Stored on AGI Laydown        | BUFFER       | Mammoet       | 2026-01-22 | 2026-01-22 |     0.00 | Awaiting pair TR2                             |
+| RET-107   |  2.7 | V1 LCT Return: AGI→MZP           | RETURN       | LCT Bushra    | 2026-01-22 | 2026-01-22 |     0.00 | Quick turnaround                              |
+| BUF-108   | 2.99 | V1 Buffer / Equipment Reset      | BUFFER       | All           | 2026-01-23 | 2026-01-23 |     0.00 | Weather contingency                           |
+| V2        |  3.0 | VOYAGE 2: TR2 Transport + JD-1   | MILESTONE    | All           | 2026-01-24 | 2026-01-24 |     0.00 | ✅ Good Weather Window (before Shamal)         |
+| LO-109    |  3.1 | TR2 Load-out on LCT              | LOADOUT      | Mammoet       | 2026-01-24 | 2026-01-24 |     0.50 | High tide required                            |
+| SF-110    |  3.2 | TR2 Sea Fastening                | SEAFAST      | Mammoet       | 2026-01-25 | 2026-01-25 |     0.00 | 12-point lashing                              |
+| MWS-110A  | 3.25 | MWS + MPI + Final Check          | BUFFER       | Aries/Captain | 2026-01-25 | 2026-01-25 |     0.00 | Pre-sail verification                         |
+| SAIL-111  |  3.3 | V2 Sail-away: MZP→AGI            | SAIL         | LCT Bushra    | 2026-01-25 | 2026-01-25 |     0.00 | ⚠️ Near Shamal start                          |
+| ARR-112   |  3.4 | AGI Arrival + TR2 RORO Unload    | AGI_UNLOAD   | Mammoet       | 2026-01-26 | 2026-01-26 |     0.00 | AGI FWD Draft ≤ 2.70m                         |
+| TRN-113   |  3.5 | TR1 Transport to Bay-1           | TURNING      | Mammoet       | 2026-01-27 | 2026-01-28 |     1.00 | Steel bridge install                          |
+| TURN-114  |  3.6 | TR1 Turning (90° rotation)       | TURNING      | Mammoet       | 2026-01-28 | 2026-01-28 |     0.00 | 10t Forklift required                         |
+| TRN-116   |  3.8 | TR2 Transport to Bay-2           | TURNING      | Mammoet       | 2026-02-01 | 2026-02-02 |     1.00 |                                               |
+| TURN-117  |  3.9 | TR2 Turning (90° rotation)       | TURNING      | Mammoet       | 2026-02-02 | 2026-02-02 |     0.00 |                                               |
+| JD-120    | 3.95 | ★ JD-1 Jack-Down Batch (TR1+TR2) | JACKDOWN     | Mammoet       | 2026-02-05 | 2026-02-05 |     0.00 | MILESTONE: TR1+TR2 Complete (Batch)           |
+| RET-119   | 3.11 | V2 LCT Return: AGI→MZP           | RETURN       | LCT Bushra    | 2026-02-06 | 2026-02-06 |     0.00 | Return after JD-1                             |
+| BUF-120   | 3.99 | V2 Buffer / Shamal Recovery      | BUFFER       | All           | 2026-02-07 | 2026-02-07 |     0.00 | Post-Shamal weather check                     |
+| V3        |  4.0 | VOYAGE 3: TR3 Transport          | MILESTONE    | All           | 2026-02-08 | 2026-02-08 |     0.00 | ✅ Post-Shamal Window                          |
+| LO-121    |  4.1 | TR3 Load-out on LCT              | LOADOUT      | Mammoet       | 2026-02-08 | 2026-02-08 |     0.50 |                                               |
+| SF-122    |  4.2 | TR3 Sea Fastening                | SEAFAST      | Mammoet       | 2026-02-09 | 2026-02-09 |     0.00 |                                               |
+| MWS-122A  | 4.25 | MWS + MPI + Final Check          | BUFFER       | Aries/Captain | 2026-02-09 | 2026-02-09 |     0.00 |                                               |
+| SAIL-123  |  4.3 | V3 Sail-away: MZP→AGI            | SAIL         | LCT Bushra    | 2026-02-09 | 2026-02-09 |     0.00 | Good weather                                  |
+| ARR-124   |  4.4 | AGI Arrival + TR3 RORO Unload    | AGI_UNLOAD   | Mammoet       | 2026-02-10 | 2026-02-10 |     0.00 |                                               |
+| STORE-125 |  4.5 | TR3 Stored on AGI Laydown        | BUFFER       | Mammoet       | 2026-02-11 | 2026-02-11 |     0.00 | Awaiting pair TR4                             |
+| RET-126   |  4.6 | V3 LCT Return: AGI→MZP           | RETURN       | LCT Bushra    | 2026-02-12 | 2026-02-12 |     0.00 |                                               |
+| BUF-127   | 4.99 | V3 Buffer                        | BUFFER       | All           | 2026-02-13 | 2026-02-13 |     0.00 |                                               |
+| V4        |  5.0 | VOYAGE 4: TR4 Transport + JD-2   | MILESTONE    | All           | 2026-02-14 | 2026-02-14 |     0.00 |                                               |
+| LO-128    |  5.1 | TR4 Load-out on LCT              | LOADOUT      | Mammoet       | 2026-02-14 | 2026-02-14 |     0.50 |                                               |
+| SF-129    |  5.2 | TR4 Sea Fastening                | SEAFAST      | Mammoet       | 2026-02-15 | 2026-02-15 |     0.00 |                                               |
+| MWS-129A  | 5.25 | MWS + MPI + Final Check          | BUFFER       | Aries/Captain | 2026-02-15 | 2026-02-15 |     0.00 |                                               |
+| SAIL-130  |  5.3 | V4 Sail-away: MZP→AGI            | SAIL         | LCT Bushra    | 2026-02-15 | 2026-02-15 |     0.00 |                                               |
+| ARR-131   |  5.4 | AGI Arrival + TR4 RORO Unload    | AGI_UNLOAD   | Mammoet       | 2026-02-16 | 2026-02-16 |     0.00 |                                               |
+| TRN-132   |  5.5 | TR3 Transport to Bay-3           | TURNING      | Mammoet       | 2026-02-17 | 2026-02-18 |     1.00 |                                               |
+| TURN-133  |  5.6 | TR3 Turning (90° rotation)       | TURNING      | Mammoet       | 2026-02-18 | 2026-02-18 |     0.00 |                                               |
+| TRN-135   |  5.8 | TR4 Transport to Bay-4           | TURNING      | Mammoet       | 2026-02-22 | 2026-02-23 |     1.00 |                                               |
+| TURN-136  |  5.9 | TR4 Turning (90° rotation)       | TURNING      | Mammoet       | 2026-02-23 | 2026-02-23 |     0.00 |                                               |
+| JD-139    | 5.95 | ★ JD-2 Jack-Down Batch (TR3+TR4) | JACKDOWN     | Mammoet       | 2026-02-26 | 2026-02-26 |     0.00 | MILESTONE: TR3+TR4 Complete (Batch)           |
+| RET-138   | 5.11 | V4 LCT Return: AGI→MZP           | RETURN       | LCT Bushra    | 2026-02-27 | 2026-02-27 |     0.00 | Return after JD-2                             |
+| BUF-140   | 5.99 | V4 Buffer                        | BUFFER       | All           | 2026-02-28 | 2026-02-28 |     0.00 |                                               |
+| V5        |  6.0 | VOYAGE 5: TR5 Transport          | MILESTONE    | All           | 2026-03-01 | 2026-03-01 |     0.00 |                                               |
+| LO-140    |  6.1 | TR5 Load-out on LCT              | LOADOUT      | Mammoet       | 2026-03-01 | 2026-03-01 |     0.50 |                                               |
+| SF-141    |  6.2 | TR5 Sea Fastening                | SEAFAST      | Mammoet       | 2026-03-02 | 2026-03-02 |     0.00 |                                               |
+| MWS-141A  | 6.25 | MWS + MPI + Final Check          | BUFFER       | Aries/Captain | 2026-03-02 | 2026-03-02 |     0.00 |                                               |
+| SAIL-142  |  6.3 | V5 Sail-away: MZP→AGI            | SAIL         | LCT Bushra    | 2026-03-02 | 2026-03-02 |     0.00 |                                               |
+| ARR-143   |  6.4 | AGI Arrival + TR5 RORO Unload    | AGI_UNLOAD   | Mammoet       | 2026-03-03 | 2026-03-03 |     0.00 |                                               |
+| STORE-144 |  6.5 | TR5 Stored on AGI Laydown        | BUFFER       | Mammoet       | 2026-03-04 | 2026-03-04 |     0.00 | Awaiting pair TR6                             |
+| RET-145   |  6.6 | V5 LCT Return: AGI→MZP           | RETURN       | LCT Bushra    | 2026-03-05 | 2026-03-05 |     0.00 |                                               |
+| BUF-146   | 6.99 | V5 Buffer                        | BUFFER       | All           | 2026-03-06 | 2026-03-06 |     0.00 |                                               |
+| V6        |  7.0 | VOYAGE 6: TR6 Transport + JD-3   | MILESTONE    | All           | 2026-03-07 | 2026-03-07 |     0.00 |                                               |
+| LO-147    |  7.1 | TR6 Load-out on LCT              | LOADOUT      | Mammoet       | 2026-03-07 | 2026-03-07 |     0.50 |                                               |
+| SF-148    |  7.2 | TR6 Sea Fastening                | SEAFAST      | Mammoet       | 2026-03-08 | 2026-03-08 |     0.00 |                                               |
+| MWS-148A  | 7.25 | MWS + MPI + Final Check          | BUFFER       | Aries/Captain | 2026-03-08 | 2026-03-08 |     0.00 |                                               |
+| SAIL-149  |  7.3 | V6 Sail-away: MZP→AGI            | SAIL         | LCT Bushra    | 2026-03-08 | 2026-03-08 |     0.00 |                                               |
+| ARR-150   |  7.4 | AGI Arrival + TR6 RORO Unload    | AGI_UNLOAD   | Mammoet       | 2026-03-09 | 2026-03-09 |     0.00 |                                               |
+| TRN-151   |  7.5 | TR5 Transport to Bay-5           | TURNING      | Mammoet       | 2026-03-10 | 2026-03-11 |     1.00 |                                               |
+| TURN-152  |  7.6 | TR5 Turning (90° rotation)       | TURNING      | Mammoet       | 2026-03-11 | 2026-03-11 |     0.00 |                                               |
+| TRN-154   |  7.8 | TR6 Transport to Bay-6           | TURNING      | Mammoet       | 2026-03-15 | 2026-03-16 |     1.00 |                                               |
+| TURN-155  |  7.9 | TR6 Turning (90° rotation)       | TURNING      | Mammoet       | 2026-03-16 | 2026-03-16 |     0.00 |                                               |
+| JD-157    | 7.95 | ★ JD-3 Jack-Down Batch (TR5+TR6) | JACKDOWN     | Mammoet       | 2026-03-19 | 2026-03-19 |     0.00 | MILESTONE: TR5+TR6 Complete (Batch)           |
+| RET-158   | 7.11 | V6 LCT Return: AGI→MZP           | RETURN       | LCT Bushra    | 2026-03-20 | 2026-03-20 |     0.00 | Return after JD-3                             |
+| BUF-159   | 7.99 | V6 Buffer / Reset for V7         | BUFFER       | All           | 2026-03-21 | 2026-03-21 |     0.00 |                                               |
+| V7        |  8.0 | VOYAGE 7: TR7 Transport + JD-4   | MILESTONE    | All           | 2026-03-22 | 2026-03-22 |     0.00 | Final unit                                    |
+| LO-201    |  8.1 | TR7 Load-out on LCT              | LOADOUT      | Mammoet       | 2026-03-22 | 2026-03-22 |     0.50 | High tide required                            |
+| SF-202    |  8.2 | TR7 Sea Fastening                | SEAFAST      | Mammoet       | 2026-03-23 | 2026-03-23 |     0.00 | 12-point lashing                              |
+| MWS-202A  | 8.25 | MWS + MPI + Final Check          | BUFFER       | Aries/Captain | 2026-03-23 | 2026-03-23 |     0.00 |                                               |
+| SAIL-203  |  8.3 | V7 Sail-away: MZP→AGI            | SAIL         | LCT Bushra    | 2026-03-24 | 2026-03-24 |     0.00 | Weather window required                       |
+| ARR-204   |  8.4 | AGI Arrival + TR7 RORO Unload    | AGI_UNLOAD   | Mammoet       | 2026-03-25 | 2026-03-25 |     0.00 | AGI FWD Draft ≤ 2.70m                         |
+| TRN-205   |  8.5 | TR7 Transport to Bay-7           | TURNING      | Mammoet       | 2026-03-26 | 2026-03-27 |     1.00 | Steel bridge install                          |
+| TURN-206  |  8.6 | TR7 Turning (90° rotation)       | TURNING      | Mammoet       | 2026-03-27 | 2026-03-27 |     0.00 | 10t Forklift required                         |
+| JD-207    |  8.7 | ★ JD-4 Jack-Down (TR7)           | JACKDOWN     | Mammoet       | 2026-03-31 | 2026-03-31 |     0.00 | MILESTONE: TR7 Complete                       |
+| RET-208   |  8.8 | V7 LCT Final Return: AGI→MZP     | RETURN       | LCT Bushra    | 2026-04-01 | 2026-04-01 |     0.00 | Final return                                  |
+| DEMOB     |  9.0 | DEMOBILIZATION                   | MOBILIZATION | Mammoet       | 2026-04-02 | 2026-04-02 |     0.00 | Equipment return                              |
+| END       | 99.0 | ★★★ PROJECT COMPLETE ★★★         | MILESTONE    | All           | 2026-04-03 | 2026-04-03 |     0.00 | All 7 TRs Installed                           |

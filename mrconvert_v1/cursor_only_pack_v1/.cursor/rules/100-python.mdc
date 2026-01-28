@@ -1,0 +1,6 @@
+---
+alwaysApply: true
+---
+- Target Python 3.13 (latest patch)
+- Excel: XlsxWriter(new), openpyxl(edit), pandas for IO
+- Sheet update: if_sheet_exists="replace"

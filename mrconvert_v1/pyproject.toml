@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mrconvert"
+version = "0.1.0"
+description = "Convert PDF and Word (DOCX) to machine-readable TXT/MD/JSON with optional OCR."
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Your Team"}]
+requires-python = ">=3.11"
+dependencies = [
+    "pdfplumber>=0.11",
+    "mammoth>=1.5",
+    "python-docx>=1.1",
+    "rich>=13.7",
+    "tqdm>=4.66",
+    "pdf2docx>=0.5.8",
+    "docx2pdf>=0.1.1",
+    "markdown>=3.5",
+    "openpyxl>=3.1"
+]
+
+[project.optional-dependencies]
+ocr = ["pytesseract>=0.3", "pillow>=10.0", "pymupdf>=1.24"]
+outlook = ["pywin32>=306"]
+
+[project.scripts]
+mrconvert = "mrconvert.cli:run"

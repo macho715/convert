@@ -1,0 +1,629 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://samsung-ct.com/schemas/cipl-input-v2.4.1.json",
+  "title": "CIPL_INPUT Schema v2.4.1 (Commons Mode)",
+  "description": "Input schema for make_cipl_set.py (Commons Mode). Keys required by CIPL.py _require must exist. Values may be null prior to PrefillAdapter; builder should receive non-null after prefill.",
+  "type": "object",
+  "required": [
+    "commons",
+    "static_parties"
+  ],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "description": "생성/추출 메타데이터 (빌더는 무시 가능)",
+      "properties": {
+        "schema_version": {
+          "type": "string",
+          "default": "2.4.1"
+        },
+        "created_at": {
+          "type": "string",
+          "description": "ISO 8601 datetime",
+          "format": "date-time"
+        },
+        "source": {
+          "type": "string",
+          "description": "예: user_upload/pdf/scan/text"
+        },
+        "doc_hash": {
+          "type": "string"
+        },
+        "generator": {
+          "type": "string",
+          "description": "예: LDG CIPL Builder"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "commons": {
+      "type": "object",
+      "description": "공통 운송/인보이스 정보 (CIPL.py commons mode)",
+      "required": [
+        "pol",
+        "pod",
+        "carrier",
+        "sailing_on",
+        "invoice_no",
+        "invoice_date",
+        "hs_code",
+        "manufacturer_name",
+        "manufacturer_address_1",
+        "manufacturer_address_2",
+        "item_description",
+        "package_no",
+        "net_weight_kg",
+        "gross_weight_kg",
+        "dimension_cbm",
+        "item",
+        "quantity_pkgs",
+        "freight_usd",
+        "insurance_usd",
+        "total_cif_usd"
+      ],
+      "properties": {
+        "pol": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Port of Loading (적재항)",
+          "maxLength": 64
+        },
+        "pod": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Port of Discharge (양하항)",
+          "maxLength": 128
+        },
+        "carrier": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "운송선사/선박명/항차",
+          "maxLength": 128
+        },
+        "sailing_on": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "출항일 (허용: dd-MMM-yy 또는 ISO 8601 date/date-time)",
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^\\d{2}-[A-Za-z]{3}-\\d{2}$"
+            },
+            {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            },
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "invoice_no": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "인보이스 번호",
+          "maxLength": 64
+        },
+        "invoice_date": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "인보이스 날짜 (허용: dd-MMM-yy 또는 ISO 8601 date/date-time)",
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^\\d{2}-[A-Za-z]{3}-\\d{2}$"
+            },
+            {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            },
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "hs_code": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "HS 코드 (예: 7303.00.1090)",
+          "maxLength": 24,
+          "pattern": "^\\d{4}(?:\\.\\d{2})?(?:\\.\\d{2,4})?(?:\\.\\d{1,4})?$"
+        },
+        "manufacturer_name": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "제조사명",
+          "maxLength": 128
+        },
+        "manufacturer_address_1": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "제조사 주소 1행",
+          "maxLength": 256
+        },
+        "manufacturer_address_2": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "제조사 주소 2행",
+          "maxLength": 256
+        },
+        "item_description": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "품목 설명",
+          "maxLength": 256
+        },
+        "package_no": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "패키지 표기 (예: 5 PACKAGES)",
+          "maxLength": 64
+        },
+        "net_weight_kg": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "순중량 (kg)",
+          "minimum": 0,
+          "multipleOf": 0.01
+        },
+        "gross_weight_kg": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "총중량 (kg)",
+          "minimum": 0,
+          "multipleOf": 0.01
+        },
+        "dimension_cbm": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "체적 (CBM)",
+          "minimum": 0,
+          "multipleOf": 0.001
+        },
+        "item": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "품목명",
+          "maxLength": 128
+        },
+        "quantity_pkgs": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "description": "패키지 수량",
+          "minimum": 0
+        },
+        "freight_usd": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "운임 (USD)",
+          "minimum": 0,
+          "multipleOf": 0.01
+        },
+        "insurance_usd": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "보험료 (USD)",
+          "minimum": 0,
+          "multipleOf": 0.01
+        },
+        "total_cif_usd": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "총 CIF 금액 (USD)",
+          "minimum": 0,
+          "multipleOf": 0.01
+        },
+        "currency": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "통화 (기본 USD)",
+          "default": "USD",
+          "maxLength": 8
+        },
+        "country_of_origin": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "원산지(선택)",
+          "maxLength": 64
+        },
+        "ci_qty": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "CI Rider 수량(선택)",
+          "minimum": 0
+        },
+        "ci_unit": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "CI Rider 단위(선택, 예: M)",
+          "maxLength": 16
+        },
+        "pl_qty": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "PL Rider 수량(선택)",
+          "minimum": 0
+        },
+        "pl_unit": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "PL Rider 단위(선택, 예: M)",
+          "maxLength": 16
+        }
+      },
+      "dependencies": {
+        "ci_qty": [
+          "ci_unit"
+        ],
+        "ci_unit": [
+          "ci_qty"
+        ],
+        "pl_qty": [
+          "pl_unit"
+        ],
+        "pl_unit": [
+          "pl_qty"
+        ]
+      },
+      "additionalProperties": false
+    },
+    "static_parties": {
+      "type": "object",
+      "description": "고정 당사자 정보 (Shipper/Consignee/Notify/Project)",
+      "required": [
+        "shipper_name",
+        "shipper_addr1",
+        "shipper_addr2",
+        "consignee_name1",
+        "consignee_name2",
+        "consignee_addr1",
+        "consignee_addr2",
+        "consignee_addr3",
+        "notify_name",
+        "notify_addr1",
+        "notify_addr2",
+        "project_no",
+        "project_name",
+        "po_no",
+        "country_of_origin"
+      ],
+      "properties": {
+        "shipper_name": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "송하인명",
+          "maxLength": 128
+        },
+        "shipper_addr1": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "송하인 주소 1행",
+          "maxLength": 256
+        },
+        "shipper_addr2": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "송하인 주소 2행",
+          "maxLength": 256
+        },
+        "consignee_name1": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "수하인명 1행",
+          "maxLength": 128
+        },
+        "consignee_name2": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "수하인명 2행",
+          "maxLength": 128
+        },
+        "consignee_addr1": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "수하인 주소 1행",
+          "maxLength": 256
+        },
+        "consignee_addr2": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "수하인 주소 2행",
+          "maxLength": 256
+        },
+        "consignee_addr3": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "수하인 주소 3행",
+          "maxLength": 256
+        },
+        "notify_name": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "통지인명",
+          "maxLength": 128
+        },
+        "notify_addr1": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "통지인 주소 1행",
+          "maxLength": 256
+        },
+        "notify_addr2": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "통지인 주소 2행",
+          "maxLength": 256
+        },
+        "project_no": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "프로젝트 번호",
+          "maxLength": 32
+        },
+        "project_name": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "프로젝트명",
+          "maxLength": 256
+        },
+        "po_no": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "PO 번호",
+          "maxLength": 64
+        },
+        "country_of_origin": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "원산지",
+          "maxLength": 64
+        },
+        "pol_country": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "적재항 국가(선택, 기본 KOREA)",
+          "default": "KOREA",
+          "maxLength": 64
+        },
+        "pod_country": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "양하항 국가(선택, 기본 U.A.E.)",
+          "default": "U.A.E.",
+          "maxLength": 64
+        }
+      },
+      "additionalProperties": false
+    },
+    "ci_rider_items": {
+      "type": "array",
+      "description": "CI Rider 아이템 목록 (선택; 비어있거나 없으면 자동 생성)",
+      "default": [],
+      "items": {
+        "type": "object",
+        "required": [
+          "description",
+          "qty",
+          "unit",
+          "unit_price",
+          "amount"
+        ],
+        "properties": {
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 256
+          },
+          "qty": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "unit": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 16
+          },
+          "unit_price": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "multipleOf": 0.01
+          },
+          "amount": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "multipleOf": 0.01
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "pl_rider_items": {
+      "type": "array",
+      "description": "PL Rider 아이템 목록 (선택; 비어있거나 없으면 자동 생성)",
+      "default": [],
+      "items": {
+        "type": "object",
+        "required": [
+          "package_no",
+          "description",
+          "qty",
+          "unit",
+          "net_weight_kg",
+          "gross_weight_kg",
+          "dimension_cbm"
+        ],
+        "properties": {
+          "package_no": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 64
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 256
+          },
+          "qty": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "unit": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 16
+          },
+          "net_weight_kg": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "multipleOf": 0.01
+          },
+          "gross_weight_kg": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "multipleOf": 0.01
+          },
+          "dimension_cbm": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "multipleOf": 0.001
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "ext": {
+      "type": "object",
+      "description": "확장/커스텀 필드 (스키마 breaking 없이 확장)",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

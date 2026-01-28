@@ -1,0 +1,8 @@
+Layer,표준/근거,범위,당신 업무 매핑(예)
+Upper,"IOF/BFO Supply Chain Ontology, ISO 15926",상위 개념(행위자/행위/자산/이벤트)·플랜트 라이프사이클,"자산(크레인, 스키드, 모듈)·작업(리깅, 해상 보급)·상태(검사/격납) 정합성 프레임"
+Reference Data (Process/Data),UN/CEFACT Buy-Ship-Pay RDM & CCL,주문–선적–결제 전과정 공통 데이터·용어,"Party, Shipment, Consignment, Transport Means, Invoice/LineItem 공통 정의"
+Border/Customs,"WCO Data Model v4.2.0, HS 2022",신고/승인/통관 데이터·코드셋,"BOE(수입신고), 원산지·보증·증명, HS 분류·위험도"
+Ocean/Carrier,DCSA Booking 2.0 & eBL 3.0,예약/BL 데이터 모델·API,"BL 데이터 정규화, eBL 규칙·검증"
+Trade Terms,ICC Incoterms® 2020,비용/리스크 이전 지점,EXW/FOB/CIF/DAP별 의무·리스크 노드 매핑
+UAE Reg.,"MOIAT ECAS/EQM, FANR 수입허가, CICPA/ADNOC 출입",규제/인증/출입 통제,"CertChk(MOIAT·FANR), 게이트패스 제약, 위험물 통제"
+Offshore 계약,BIMCO SUPPLYTIME 2017,OSV 타임차터 KfK 책임체계,보트/바지선 운영 KPI·책임 분기 조건

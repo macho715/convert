@@ -1,0 +1,7 @@
+=== HEADERS ===
+Section 0 header:
+  P0 ''
+  P1 ''
+
+=== FOOTERS ===
+Section 0 footer:

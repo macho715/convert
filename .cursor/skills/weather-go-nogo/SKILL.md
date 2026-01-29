@@ -1,15 +1,22 @@
 ---
 name: weather-go-nogo
-description: SEA TRANSIT(해상 운행) 전용 Go/No-Go 의사결정 로직. Wave(ft)·Wind(kt) 입력, 3단 Gate(임계값·Squall/피크파 버퍼·연속 Weather window) 적용. Use when user asks for sea transit Go/No-Go, weather window, Hs/Hmax, squall buffer, or marine weather decision.
+description: 통합 파이프라인 4단계. SEA TRANSIT(해상 운행) 전용 Go/No-Go 의사결정 로직. Wave(ft)·Wind(kt) 입력, 3단 Gate(임계값·Squall/피크파 버퍼·연속 Weather window) 적용.
 ---
 
 # Weather Go/No-Go (SEA TRANSIT)
+
+## 파이프라인 위치
+
+- **통합 파이프라인(에이전트)** 에서 **항상 4번째**로 적용되는 스킬이다.
+- 순서: 1) agi-schedule-shift → 2) agi-schedule-daily-update → 3) agi-schedule-pipeline-check → **4) weather-go-nogo**.
+- 파고·풍속·한도값(또는 파싱 JSON) 제공 시 Go/No-Go 평가 실행; 미제공 시 "입력 시 평가 가능" 안내.
 
 ## 언제 사용
 
 - **해상 운행(SEA TRANSIT)** Go/No-Go 판단 요청 시
 - "weather window", "Hs/Hmax", "squall buffer", "연속 GO", "marine weather decision" 언급 시
 - 파이프라인(parsed_to_weather_json, WEATHER.PY)에서 추출한 wave_ft·wind_kt를 **운항 의사결정**으로 평가할 때
+- 입력 데이터는 `AGI TR 1-6 Transportation Master Gantt Chart/files/` 내 파싱 결과(예: `files/out/weather_parsed/YYYYMMDD/weather_for_weather_py.json`) 사용 가능.
 
 ## 입력·출력
 
@@ -35,16 +42,16 @@ description: SEA TRANSIT(해상 운행) 전용 Go/No-Go 의사결정 로직. Wav
 
 - `Hs_m(t) = wave_ft(t) × 0.3048`
 - `Wind_kt(t) = wind_kt(t)`
-- **GO(t)** iff `Hs_m(t) ≤ Hs_limit_m` AND `Wind_kt(t) ≤ Wind_limit_kt`  
+- **GO(t)** iff `Hs_m(t) ≤ Hs_limit_m` AND `Wind_kt(t) ≤ Wind_limit_kt`
   아니면 **NO-GO(t)**
 
 ### 2) Gate-B: Squall/피크파 보수화 (옵션 B·C)
 
-- 차트에 "squall 미반영"이면:  
-  `Hs_eff = Hs_m + ΔHs_squall_m`, `Wind_eff = Wind_kt + ΔGust_kt`  
+- 차트에 "squall 미반영"이면:
+  `Hs_eff = Hs_m + ΔHs_squall_m`, `Wind_eff = Wind_kt + ΔGust_kt`
   → 위 조건을 Hs_eff, Wind_eff로 평가.
-- 피크파 기준 사용 시:  
-  `Hmax_est = 1.86 × Hs_eff` ([infoplaza.com])  
+- 피크파 기준 사용 시:
+  `Hmax_est = 1.86 × Hs_eff` ([infoplaza.com])
   **NO-GO(t)** if `Hmax_est > Hmax_allow_m`
 
 ### 3) Gate-C: 연속 Weather window
@@ -72,5 +79,5 @@ description: SEA TRANSIT(해상 운행) 전용 Go/No-Go 의사결정 로직. Wav
 
 ## 상세 로직·출처
 
-- 전체 규칙·로직 테이블·출처 링크: [reference.md](reference.md)  
+- 전체 규칙·로직 테이블·출처 링크: [reference.md](reference.md)
 - 원문: `AGI TR 1-6 Transportation Master Gantt Chart/weathergonnologic.md`

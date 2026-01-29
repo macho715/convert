@@ -1,0 +1,46 @@
+Office
+Sap Nr.
+Doc. Nr.
+Status
+Sheet info:
+Condition
+Our Terms and Conditions apply to all our offers and agreements and any commitments rising therefrom. 
+We expressly deny the applicability of any other terms and conditions.
+Rev.:
+Description:
+Date:
+Ref.:
+Checked:
+Without unauthorized signatures this document in uncontrolled, not binding and for indicative purpose only.
+00
+For Approval
+08-12-2025
+SAhm
+EMan
+971615
+971580
+Project:
+Subject:
+MIND ID:
+Sheet revision:
+Client:
+Samsung C&T
+HVDC Lightning Al Ghallan Island 
+Check of 12m RoRo Ramp
+Mammoet Europe B.V.
+Karel Doormanweg 47, Haven 580
+3115 JD Schiedam
+P.O. Box 570
+3100 AN Schiedam
+The Netherlands
+Phone +31 (0) 10 2042 424
+Fax +31 (0) 10 2042 442
+Website www.mammoet.com
+CALCULATION
+4000266270
+15111578-E-C16-00
+For Approval
+Sheet name:
+12m RoRo Ramp 
+MIND0-1868024057-3636 
+2.0

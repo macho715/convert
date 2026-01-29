@@ -1,0 +1,31 @@
+=== SECTIONS ===
+Section 0 page 7560310 10692130 margins: 457200 457200 431800 457200
+
+=== TABLES ===
+Table 0: 4 x 2
+  R0 ['Mammoet Malaysia Sdn Bhd', '28 January 2026']
+  R1 ['PLO 729 & 734 Jalan Keluli, Kawasan Perindustrian Pasir Guda', 'Ref: MMMY/HVDC/LS/CoC/Rev00']
+  R2 ['81700 Pasir Gudang, Johor, Malaysia', '']
+  R3 ['Website: www.mammoet.com', '']
+Table 1: 4 x 2
+  R0 ['Authorized Signatory:', '______________________________']
+  R1 [' Name / Title:', '______________________________']
+  R2 [' Signature / Stamp:', '______________________________']
+  R3 [' Date:', '28 January 2026']
+
+=== PARAGRAPHS ===
+2 pt=10.0 To: Harbor Master / Port Authority
+Mina Zayed Port (MZP) – RoRo Jetty
+
+4 pt=10.0 Subject: Submission – Supplier Certificate of Conformity (CoC) and Sup
+6 pt=10.0 Dear Sir/Madam,
+7 pt=10.0 Mammoet Malaysia Sdn Bhd (the equipment owner/supplier) hereby submits
+8 pt=10.0 The supporting dossier is provided for your technical review and inclu
+9 pt=10.0 We respectfully request the Harbor Master / Port Authority to review a
+10 pt=10.0 Should you require any additional information, clarifications, or site
+11 pt=10.0 Yours faithfully,
+12 pt=10.0 For and on behalf of Mammoet Malaysia Sdn Bhd
+13 pt=10.0 Attachments:
+14 pt=10.0 1) Supplier Certificate of Conformity (CoC) – 12m Linkspan / RoRo Ramp
+15 pt=10.0 2) Supporting Dossier – Calculations / GA / RoRo Simulation / Aries Ma
+17 pt=8.0 Note: This letter is valid only when signed by an authorized represent

@@ -32,13 +32,18 @@ TZ = "Asia/Dubai"
 LAT = 24.12
 LON = 52.53
 
-# Schedule 4-day mode
+# Schedule 4-day mode (set TARGET_DATE for "tomorrow" run, e.g. date(2026, 1, 29); None = today)
+TARGET_DATE = None
 SCHEDULE_4DAY_MODE = True
 if SCHEDULE_4DAY_MODE:
-    _update = date.today()
+    _update = TARGET_DATE if TARGET_DATE else date.today()
     START_DATE = _update
     END_DATE = _update + timedelta(days=3)
-    _script_dir = os.path.dirname(os.path.abspath(__file__)) if "__file__" in globals() else os.getcwd()
+    _script_dir = (
+        os.path.dirname(os.path.abspath(__file__))
+        if "__file__" in globals()
+        else os.getcwd()
+    )
     _out_dir = os.path.join(_script_dir, "out")
     os.makedirs(_out_dir, exist_ok=True)
     OUTPUT_PATH = os.path.join(_out_dir, "weather_4day_heatmap.png")
@@ -49,26 +54,89 @@ else:
 
 # Weather data source settings
 USE_MANUAL_JSON = True
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__)) if "__file__" in globals() else os.getcwd()
-WEATHER_JSON_PATH = os.path.join(os.path.dirname(SCRIPT_DIR), "weather_data_20260106.json")
+SCRIPT_DIR = (
+    os.path.dirname(os.path.abspath(__file__))
+    if "__file__" in globals()
+    else os.getcwd()
+)
+WEATHER_JSON_PATH = os.path.join(
+    os.path.dirname(SCRIPT_DIR), "weather_data_20260106.json"
+)
 WEATHER_REQUEST_PATH = os.path.join(SCRIPT_DIR, "weather_data_requests.txt")
 
 if SCHEDULE_4DAY_MODE:
-    # Script may be in GanttChart/files/; CONVERT root is two levels up
+    # Prefer files/out/weather_parsed/YYYYMMDD (files-only pipeline), then CONVERT root
+    _parsed_in_files = os.path.join(
+        SCRIPT_DIR,
+        "out",
+        "weather_parsed",
+        _update.strftime("%Y%m%d"),
+        "weather_for_weather_py.json",
+    )
     _convert_root = os.path.dirname(os.path.dirname(SCRIPT_DIR))
     _parsed_candidate = os.path.join(
-        _convert_root, "out", "weather_parsed",
-        _update.strftime("%Y%m%d"), "weather_for_weather_py.json"
+        _convert_root,
+        "out",
+        "weather_parsed",
+        _update.strftime("%Y%m%d"),
+        "weather_for_weather_py.json",
     )
-    if os.path.exists(_parsed_candidate):
+    if os.path.exists(_parsed_in_files):
+        WEATHER_JSON_PATH = _parsed_in_files
+    elif os.path.exists(_parsed_candidate):
         WEATHER_JSON_PATH = _parsed_candidate
 
-# Voyage overlay
+# Voyage overlay (7 voyages; SSOT: agi tr final schedule.json parent "AGI TR Unit N" planned_start/finish)
 VOYAGES = [
-    {"name": "V1", "start": date(2026, 1, 18), "end": date(2026, 1, 22), "label": "TR1", "type": "transport"},
-    {"name": "V2", "start": date(2026, 1, 24), "end": date(2026, 2, 6), "label": "TR2+JD-1", "type": "jackdown"},
-    {"name": "V3", "start": date(2026, 2, 8), "end": date(2026, 2, 12), "label": "TR3", "type": "transport"},
-    {"name": "V4", "start": date(2026, 2, 14), "end": date(2026, 2, 15), "label": "TR4+JD-2", "type": "jackdown"},
+    {
+        "name": "V1",
+        "start": date(2026, 1, 31),
+        "end": date(2026, 2, 9),
+        "label": "TR1",
+        "type": "transport",
+    },
+    {
+        "name": "V2",
+        "start": date(2026, 2, 6),
+        "end": date(2026, 2, 16),
+        "label": "TR2",
+        "type": "jackdown",
+    },
+    {
+        "name": "V3",
+        "start": date(2026, 2, 13),
+        "end": date(2026, 2, 23),
+        "label": "TR3",
+        "type": "transport",
+    },
+    {
+        "name": "V4",
+        "start": date(2026, 2, 20),
+        "end": date(2026, 3, 2),
+        "label": "TR4",
+        "type": "jackdown",
+    },
+    {
+        "name": "V5",
+        "start": date(2026, 2, 27),
+        "end": date(2026, 3, 9),
+        "label": "TR5",
+        "type": "transport",
+    },
+    {
+        "name": "V6",
+        "start": date(2026, 3, 6),
+        "end": date(2026, 3, 16),
+        "label": "TR6",
+        "type": "jackdown",
+    },
+    {
+        "name": "V7",
+        "start": date(2026, 3, 13),
+        "end": date(2026, 3, 23),
+        "label": "TR7",
+        "type": "transport",
+    },
 ]
 
 MANUAL_SHAMAL_PERIODS = [
@@ -84,31 +152,26 @@ DASHBOARD_THEME = {
     "bg_secondary": "#111827",
     "bg_tertiary": "#1f2937",
     "bg_card": "#0d1525",
-    
     # Accent colors
-    "accent_primary": "#06b6d4",    # Cyan/Teal
+    "accent_primary": "#06b6d4",  # Cyan/Teal
     "accent_secondary": "#14b8a6",  # Teal
-    "accent_gold": "#f59e0b",       # Amber
-    
+    "accent_gold": "#f59e0b",  # Amber
     # Text colors
     "text_primary": "#f1f5f9",
     "text_secondary": "#94a3b8",
     "text_muted": "#64748b",
-    
     # Status colors (matching dashboard)
     "status": {
-        "GO": "#10b981",      # Emerald green
-        "HOLD": "#eab308",    # Yellow
-        "NO-GO": "#ef4444",   # Red
+        "GO": "#10b981",  # Emerald green
+        "HOLD": "#eab308",  # Yellow
+        "NO-GO": "#ef4444",  # Red
     },
-    
     # Risk band backgrounds (subtle)
     "risk_band": {
         "GO": "#10b98115",
         "HOLD": "#eab30815",
         "NO-GO": "#ef444415",
     },
-    
     # Heatmap colormap (Teal gradient for dark theme)
     "cmap": [
         "#0a0f1a",  # Dark base
@@ -121,16 +184,13 @@ DASHBOARD_THEME = {
         "#67e8f9",  # Cyan lighter
         "#a5f3fc",  # Cyan very light
     ],
-    
     # Voyage colors
     "voyage": {
         "transport": "#3b82f6",  # Blue
-        "jackdown": "#8b5cf6",   # Purple
+        "jackdown": "#8b5cf6",  # Purple
         "default": "#64748b",
     },
-    
     "shamal": "#f59e0b",  # Gold for Shamal highlight
-    
     # Grid and border
     "grid_color": "#1e3a5f",
     "border_color": "#06b6d420",
@@ -207,20 +267,22 @@ def load_weather_data_from_json(json_path, start_date=None, end_date=None):
         if start_date and end_date and (d < start_date or d > end_date):
             continue
 
-        weather_records.append({
-            "date": date_str,
-            "wind_max_kn": record.get("wind_max_kn"),
-            "gust_max_kn": record.get("gust_max_kn"),
-            "wind_dir_deg": record.get("wind_dir_deg"),
-            "wave_max_m": record.get("wave_max_m"),
-            "wave_period_s": record.get("wave_period_s"),
-            "wave_dir_deg": record.get("wave_dir_deg"),
-            "visibility_km": record.get("visibility_km"),
-            "source": record.get("source", "MANUAL"),
-            "notes": record.get("notes", ""),
-            "risk_level": record.get("risk_level"),
-            "is_shamal": record.get("is_shamal"),
-        })
+        weather_records.append(
+            {
+                "date": date_str,
+                "wind_max_kn": record.get("wind_max_kn"),
+                "gust_max_kn": record.get("gust_max_kn"),
+                "wind_dir_deg": record.get("wind_dir_deg"),
+                "wave_max_m": record.get("wave_max_m"),
+                "wave_period_s": record.get("wave_period_s"),
+                "wave_dir_deg": record.get("wave_dir_deg"),
+                "visibility_km": record.get("visibility_km"),
+                "source": record.get("source", "MANUAL"),
+                "notes": record.get("notes", ""),
+                "risk_level": record.get("risk_level"),
+                "is_shamal": record.get("is_shamal"),
+            }
+        )
 
     print(f"[OK] Loaded {len(weather_records)} weather records from JSON")
     return weather_records
@@ -267,19 +329,29 @@ def fetch_weather_model(model_name: str, base_url: str, d0: date, d1: date) -> d
         "wind_speed_unit": "kn",
         "start_date": d0.isoformat(),
         "end_date": d1.isoformat(),
-        "daily": ",".join(["wind_speed_10m_max", "wind_gusts_10m_max", "wind_direction_10m_dominant"]),
+        "daily": ",".join(
+            ["wind_speed_10m_max", "wind_gusts_10m_max", "wind_direction_10m_dominant"]
+        ),
         "hourly": ",".join(["visibility"]),
         "forecast_days": 16,
     }
     j = request_json(base_url, params)
 
     daily_time = safe_get(j, "daily", "time", default=[])
-    wind_max = np.array(safe_get(j, "daily", "wind_speed_10m_max", default=[]), dtype=float)
-    gust_max = np.array(safe_get(j, "daily", "wind_gusts_10m_max", default=[]), dtype=float)
-    wind_dir = np.array(safe_get(j, "daily", "wind_direction_10m_dominant", default=[]), dtype=float)
+    wind_max = np.array(
+        safe_get(j, "daily", "wind_speed_10m_max", default=[]), dtype=float
+    )
+    gust_max = np.array(
+        safe_get(j, "daily", "wind_gusts_10m_max", default=[]), dtype=float
+    )
+    wind_dir = np.array(
+        safe_get(j, "daily", "wind_direction_10m_dominant", default=[]), dtype=float
+    )
 
     hourly_time = safe_get(j, "hourly", "time", default=[])
-    hourly_vis_m = np.array(safe_get(j, "hourly", "visibility", default=[]), dtype=float)
+    hourly_vis_m = np.array(
+        safe_get(j, "hourly", "visibility", default=[]), dtype=float
+    )
 
     vis_min_km = np.full(len(daily_time), np.nan, dtype=float)
     if len(hourly_time) == len(hourly_vis_m) and len(daily_time) > 0:
@@ -311,18 +383,28 @@ def fetch_archive(d0: date, d1: date) -> dict:
         "wind_speed_unit": "kn",
         "start_date": d0.isoformat(),
         "end_date": d1.isoformat(),
-        "daily": ",".join(["wind_speed_10m_max", "wind_gusts_10m_max", "wind_direction_10m_dominant"]),
+        "daily": ",".join(
+            ["wind_speed_10m_max", "wind_gusts_10m_max", "wind_direction_10m_dominant"]
+        ),
         "hourly": "visibility",
     }
     j = request_json(ARCHIVE_URL, params)
 
     daily_time = safe_get(j, "daily", "time", default=[])
-    wind_max = np.array(safe_get(j, "daily", "wind_speed_10m_max", default=[]), dtype=float)
-    gust_max = np.array(safe_get(j, "daily", "wind_gusts_10m_max", default=[]), dtype=float)
-    wind_dir = np.array(safe_get(j, "daily", "wind_direction_10m_dominant", default=[]), dtype=float)
+    wind_max = np.array(
+        safe_get(j, "daily", "wind_speed_10m_max", default=[]), dtype=float
+    )
+    gust_max = np.array(
+        safe_get(j, "daily", "wind_gusts_10m_max", default=[]), dtype=float
+    )
+    wind_dir = np.array(
+        safe_get(j, "daily", "wind_direction_10m_dominant", default=[]), dtype=float
+    )
 
     hourly_time = safe_get(j, "hourly", "time", default=[])
-    hourly_vis_m = np.array(safe_get(j, "hourly", "visibility", default=[]), dtype=float)
+    hourly_vis_m = np.array(
+        safe_get(j, "hourly", "visibility", default=[]), dtype=float
+    )
 
     vis_min_km = np.full(len(daily_time), np.nan, dtype=float)
     if len(hourly_time) == len(hourly_vis_m) and len(daily_time) > 0:
@@ -358,7 +440,9 @@ def fetch_marine_waves(d0: date, d1: date) -> dict:
     }
     j = request_json(MARINE_URL, params)
     daily_time = safe_get(j, "daily", "time", default=[])
-    wave_max = np.array(safe_get(j, "daily", "wave_height_max", default=[]), dtype=float)
+    wave_max = np.array(
+        safe_get(j, "daily", "wave_height_max", default=[]), dtype=float
+    )
     return {"dates": daily_time, "wave_max_m": wave_max}
 
 
@@ -456,7 +540,9 @@ def main():
                         if record.get("is_shamal") is not None:
                             shamal_override[i] = parse_bool(record["is_shamal"])
                 except Exception as e:
-                    print(f"[WARN] Weather data processing error ({record.get('date', 'Unknown')}): {e}")
+                    print(
+                        f"[WARN] Weather data processing error ({record.get('date', 'Unknown')}): {e}"
+                    )
         else:
             print("[WARN] Unable to load weather data.")
 
@@ -468,8 +554,11 @@ def main():
             try:
                 arc = fetch_archive(START_DATE, archive_end)
                 for d_str, w, g, wd, v in zip(
-                    arc["dates"], arc["wind_max_kn"], arc["gust_max_kn"],
-                    arc["wind_dir_deg"], arc["vis_min_km"],
+                    arc["dates"],
+                    arc["wind_max_kn"],
+                    arc["gust_max_kn"],
+                    arc["wind_dir_deg"],
+                    arc["vis_min_km"],
                 ):
                     d = date.fromisoformat(d_str)
                     if d in idx:
@@ -484,7 +573,9 @@ def main():
             model_payloads = []
             for name, url in MODEL_URLS.items():
                 try:
-                    model_payloads.append(fetch_weather_model(name, url, remaining_start, END_DATE))
+                    model_payloads.append(
+                        fetch_weather_model(name, url, remaining_start, END_DATE)
+                    )
                 except Exception:
                     pass
 
@@ -524,7 +615,10 @@ def main():
         if missing.any():
             try:
                 clim = fetch_climate_wind_max(START_DATE, END_DATE)
-                clim_map = {date.fromisoformat(t): v for t, v in zip(clim["dates"], clim["wind_max_kn"])}
+                clim_map = {
+                    date.fromisoformat(t): v
+                    for t, v in zip(clim["dates"], clim["wind_max_kn"])
+                }
                 for d in days:
                     i = idx[d]
                     if np.isnan(wind_kn[i]) and d in clim_map:
@@ -541,20 +635,32 @@ def main():
 
         for i in range(n):
             if np.isnan(wind_kn[i]):
-                prev_val = wind_kn[i - 1] if i > 0 and not np.isnan(wind_kn[i - 1]) else None
-                next_val = wind_kn[i + 1] if i < n - 1 and not np.isnan(wind_kn[i + 1]) else None
+                prev_val = (
+                    wind_kn[i - 1] if i > 0 and not np.isnan(wind_kn[i - 1]) else None
+                )
+                next_val = (
+                    wind_kn[i + 1]
+                    if i < n - 1 and not np.isnan(wind_kn[i + 1])
+                    else None
+                )
 
                 if prev_val is not None and next_val is not None:
                     wind_kn[i] = (prev_val + next_val) / 2
-                    gust_kn[i] = wind_kn[i] * 1.3 if np.isnan(gust_kn[i]) else gust_kn[i]
+                    gust_kn[i] = (
+                        wind_kn[i] * 1.3 if np.isnan(gust_kn[i]) else gust_kn[i]
+                    )
                     coverage[i] = "INTERPOLATED"
                 elif prev_val is not None:
                     wind_kn[i] = prev_val
-                    gust_kn[i] = wind_kn[i] * 1.3 if np.isnan(gust_kn[i]) else gust_kn[i]
+                    gust_kn[i] = (
+                        wind_kn[i] * 1.3 if np.isnan(gust_kn[i]) else gust_kn[i]
+                    )
                     coverage[i] = "INTERPOLATED"
                 elif next_val is not None:
                     wind_kn[i] = next_val
-                    gust_kn[i] = wind_kn[i] * 1.3 if np.isnan(gust_kn[i]) else gust_kn[i]
+                    gust_kn[i] = (
+                        wind_kn[i] * 1.3 if np.isnan(gust_kn[i]) else gust_kn[i]
+                    )
                     coverage[i] = "INTERPOLATED"
                 else:
                     wind_kn[i] = 12.0
@@ -573,7 +679,10 @@ def main():
     # Calculate risk
     risk = calc_risk_score(wind_kn, gust_kn, wave_m, vis_km)
     status = [op_status_from_score(s) for s in risk]
-    shamal = np.array([is_shamal_day(wdir_deg[i], wind_kn[i], gust_kn[i]) for i in range(n)], dtype=bool)
+    shamal = np.array(
+        [is_shamal_day(wdir_deg[i], wind_kn[i], gust_kn[i]) for i in range(n)],
+        dtype=bool,
+    )
 
     risk_map = {"LOW": 20.0, "MEDIUM": 45.0, "HIGH": 75.0}
     for i, level in enumerate(risk_level_override):
@@ -598,45 +707,54 @@ def main():
     # DASHBOARD-OPTIMIZED VISUALIZATION
     # =====================================================
     theme = DASHBOARD_THEME
-    
+
     # Set dark theme for matplotlib
-    mpl.rcParams.update({
-        "font.family": "sans-serif",
-        "font.sans-serif": ["Arial", "DejaVu Sans", "Helvetica"],
-        "axes.unicode_minus": False,
-        "figure.dpi": 150,
-        "axes.titlesize": 12,
-        "axes.labelsize": 10,
-        "xtick.labelsize": 9,
-        "ytick.labelsize": 9,
-        "axes.facecolor": theme["bg_secondary"],
-        "axes.edgecolor": theme["grid_color"],
-        "axes.labelcolor": theme["text_primary"],
-        "axes.titlecolor": theme["text_primary"],
-        "xtick.color": theme["text_secondary"],
-        "ytick.color": theme["text_secondary"],
-        "text.color": theme["text_primary"],
-        "figure.facecolor": theme["bg_primary"],
-        "axes.grid": True,
-        "grid.color": theme["grid_color"],
-        "grid.alpha": 0.3,
-        "grid.linewidth": 0.5,
-        "axes.spines.top": False,
-        "axes.spines.right": False,
-    })
+    mpl.rcParams.update(
+        {
+            "font.family": "sans-serif",
+            "font.sans-serif": ["Arial", "DejaVu Sans", "Helvetica"],
+            "axes.unicode_minus": False,
+            "figure.dpi": 150,
+            "axes.titlesize": 12,
+            "axes.labelsize": 10,
+            "xtick.labelsize": 9,
+            "ytick.labelsize": 9,
+            "axes.facecolor": theme["bg_secondary"],
+            "axes.edgecolor": theme["grid_color"],
+            "axes.labelcolor": theme["text_primary"],
+            "axes.titlecolor": theme["text_primary"],
+            "xtick.color": theme["text_secondary"],
+            "ytick.color": theme["text_secondary"],
+            "text.color": theme["text_primary"],
+            "figure.facecolor": theme["bg_primary"],
+            "axes.grid": True,
+            "grid.color": theme["grid_color"],
+            "grid.alpha": 0.3,
+            "grid.linewidth": 0.5,
+            "axes.spines.top": False,
+            "axes.spines.right": False,
+        }
+    )
 
     # Heatmap parameters
-    params = ["Risk (0-100)", "Dir (deg)", "Vis (km)", "Wave (m)", "Gust (kt)", "Wind (kt)"]
+    params = [
+        "Risk (0-100)",
+        "Dir (deg)",
+        "Vis (km)",
+        "Wave (m)",
+        "Gust (kt)",
+        "Wind (kt)",
+    ]
     data_matrix = np.vstack([risk, wdir_deg, vis_km, wave_m, gust_kn, wind_kn])
 
     # Fixed ranges for normalization
     ranges = [
-        (0.0, 100.0),   # risk
-        (0.0, 360.0),   # dir deg
-        (0.0, 10.0),    # vis km
-        (0.0, 2.5),     # wave m
-        (0.0, 30.0),    # gust kn
-        (0.0, 25.0),    # wind kn
+        (0.0, 100.0),  # risk
+        (0.0, 360.0),  # dir deg
+        (0.0, 10.0),  # vis km
+        (0.0, 2.5),  # wave m
+        (0.0, 30.0),  # gust kn
+        (0.0, 25.0),  # wind kn
     ]
 
     data_norm = np.zeros_like(data_matrix, dtype=float)
@@ -645,14 +763,15 @@ def main():
 
     cmap = LinearSegmentedColormap.from_list("dashboard_risk", theme["cmap"], N=256)
 
-    # Compact figure size for mobile/web; 80% transparency (alpha=0.2) for figure/axes
+    # Compact figure size for mobile/web; 50% transparency (alpha=0.5) for figure/axes
     fig = plt.figure(figsize=(12, 8))
     fig.patch.set_facecolor(theme["bg_primary"])
-    fig.patch.set_alpha(0.2)
+    fig.patch.set_alpha(0.5)
 
     gs = fig.add_gridspec(
-        3, 2,
-        height_ratios=[2.0, 1.0, 0.5],
+        3,
+        2,
+        height_ratios=[2.0, 1.0, 0.6],
         width_ratios=[1, 0.04],
         hspace=0.25,
         wspace=0.03,
@@ -665,7 +784,7 @@ def main():
 
     for ax in (ax1, ax2, ax3, ax_cbar):
         ax.set_facecolor(theme["bg_secondary"])
-        ax.patch.set_alpha(0.2)
+        ax.patch.set_alpha(0.5)
 
     date_labels = [d.strftime("%m/%d") for d in days]
     x_limits = (-0.5, n - 0.5)
@@ -683,7 +802,9 @@ def main():
     )
 
     ax1.set_yticks(range(len(params)))
-    ax1.set_yticklabels(params, fontsize=10, fontweight="bold", color=theme["text_primary"])
+    ax1.set_yticklabels(
+        params, fontsize=10, fontweight="bold", color=theme["text_primary"]
+    )
     ax1.set_xlim(x_limits)
     ax1.set_xticks(x_ticks)
     ax1.tick_params(labelbottom=False)
@@ -700,29 +821,54 @@ def main():
             else:
                 txt = f"{val:.1f}"
             # High contrast text
-            color_txt = theme["text_primary"] if data_norm[r, c] > 0.5 else theme["bg_primary"]
-            ax1.text(c, r, txt, ha="center", va="center", fontsize=9, color=color_txt, fontweight="bold")
+            color_txt = (
+                theme["text_primary"] if data_norm[r, c] > 0.5 else theme["bg_primary"]
+            )
+            ax1.text(
+                c,
+                r,
+                txt,
+                ha="center",
+                va="center",
+                fontsize=9,
+                color=color_txt,
+                fontweight="bold",
+            )
 
     # Colorbar
     cbar = fig.colorbar(im, cax=ax_cbar, orientation="vertical", aspect=30)
-    cbar.set_label("Normalized (fixed ranges)", fontsize=9, color=theme["text_secondary"])
+    cbar.set_label(
+        "Normalized (fixed ranges)", fontsize=9, color=theme["text_secondary"]
+    )
     cbar.ax.yaxis.set_tick_params(color=theme["text_secondary"])
     cbar.outline.set_edgecolor(theme["grid_color"])
-    plt.setp(plt.getp(cbar.ax.axes, 'yticklabels'), color=theme["text_secondary"])
+    plt.setp(plt.getp(cbar.ax.axes, "yticklabels"), color=theme["text_secondary"])
 
     # Risk timeline
     ax2.fill_between(range(n), risk, alpha=0.3, color=theme["accent_primary"])
-    ax2.plot(range(n), risk, "o-", linewidth=2, markersize=5, color=theme["accent_primary"])
-    
+    ax2.plot(
+        range(n), risk, "o-", linewidth=2, markersize=5, color=theme["accent_primary"]
+    )
+
     # Risk bands
     ax2.axhspan(0, 30, color=theme["risk_band"]["GO"], zorder=0)
     ax2.axhspan(30, 60, color=theme["risk_band"]["HOLD"], zorder=0)
     ax2.axhspan(60, 100, color=theme["risk_band"]["NO-GO"], zorder=0)
-    
-    ax2.axhline(y=30, linestyle="--", linewidth=1.5, color=theme["status"]["GO"], 
-                label="GO Threshold (30)")
-    ax2.axhline(y=60, linestyle="--", linewidth=1.5, color=theme["status"]["NO-GO"], 
-                label="NO-GO Threshold (60)")
+
+    ax2.axhline(
+        y=30,
+        linestyle="--",
+        linewidth=1.5,
+        color=theme["status"]["GO"],
+        label="GO Threshold (30)",
+    )
+    ax2.axhline(
+        y=60,
+        linestyle="--",
+        linewidth=1.5,
+        color=theme["status"]["NO-GO"],
+        label="NO-GO Threshold (60)",
+    )
 
     # Voyage overlays
     voyage_colors = theme["voyage"]
@@ -737,18 +883,33 @@ def main():
         ax2.axvspan(xs, xe, alpha=0.15, color=color, zorder=0)
         mid = (xs + xe) / 2
         ax2.text(
-            mid, 85, f'{v["name"]}\n{v["label"]}',
-            ha="center", va="top", fontsize=9, fontweight="bold",
+            mid,
+            85,
+            f'{v["name"]}\n{v["label"]}',
+            ha="center",
+            va="top",
+            fontsize=9,
+            fontweight="bold",
             color=color,
-            bbox=dict(boxstyle="round,pad=0.3", facecolor=theme["bg_card"], 
-                      alpha=0.9, edgecolor=color, linewidth=1.5),
+            bbox=dict(
+                boxstyle="round,pad=0.3",
+                facecolor=theme["bg_card"],
+                alpha=0.9,
+                edgecolor=color,
+                linewidth=1.5,
+            ),
         )
 
     ax2.set_xlim(x_limits)
     ax2.set_ylim(0, 100)
     ax2.set_xticks(x_ticks)
     ax2.tick_params(labelbottom=False)
-    ax2.set_ylabel("Risk Score (0-100)", fontsize=10, fontweight="bold", color=theme["text_primary"])
+    ax2.set_ylabel(
+        "Risk Score (0-100)",
+        fontsize=10,
+        fontweight="bold",
+        color=theme["text_primary"],
+    )
     ax2.set_title(
         "Composite Weather Risk Score (Ensemble + Marine + Archive/Climate)",
         fontsize=11,
@@ -756,9 +917,14 @@ def main():
         color=theme["accent_secondary"],
         pad=10,
     )
-    ax2.legend(loc="upper right", fontsize=8, framealpha=0.9, 
-               facecolor=theme["bg_card"], edgecolor=theme["grid_color"],
-               labelcolor=theme["text_secondary"])
+    ax2.legend(
+        loc="upper right",
+        fontsize=8,
+        framealpha=0.9,
+        facecolor=theme["bg_card"],
+        edgecolor=theme["grid_color"],
+        labelcolor=theme["text_secondary"],
+    )
 
     # Status summary box
     go_n = status.count("GO")
@@ -778,9 +944,17 @@ def main():
         f"Max Wave (m): {np.nanmax(wave_m):.2f}\n"
     )
     stats_box = AnchoredText(
-        stats_text, loc="lower left",
-        prop={"size": 8, "family": "monospace", "weight": "bold", "color": theme["text_primary"]},
-        pad=0.8, borderpad=0.8, frameon=True,
+        stats_text,
+        loc="lower left",
+        prop={
+            "size": 8,
+            "family": "monospace",
+            "weight": "bold",
+            "color": theme["text_primary"],
+        },
+        pad=0.8,
+        borderpad=0.8,
+        frameon=True,
     )
     stats_box.patch.set_facecolor(theme["bg_card"])
     stats_box.patch.set_alpha(0.1)  # 90% transparency
@@ -793,9 +967,12 @@ def main():
     cov_lines = "\n".join([f"{k}: {v}" for k, v in cov_counts.items()])
     cov_text = f"Data Coverage\n{'─'*14}\n{cov_lines}\n\nNote: CLIMATE FILL is modelled baseline, not actual measurement."
     cov_box = AnchoredText(
-        cov_text, loc="lower right",
+        cov_text,
+        loc="lower right",
         prop={"size": 7, "family": "monospace", "color": theme["text_secondary"]},
-        pad=0.8, borderpad=0.8, frameon=True,
+        pad=0.8,
+        borderpad=0.8,
+        frameon=True,
     )
     cov_box.patch.set_facecolor(theme["bg_card"])
     cov_box.patch.set_alpha(0.1)  # 90% transparency
@@ -808,6 +985,7 @@ def main():
     bars = ax3.bar(
         range(n),
         [1] * n,
+        width=0.9,
         color=[status_colors[s] for s in status],
         edgecolor=theme["bg_primary"],
         linewidth=1,
@@ -816,8 +994,14 @@ def main():
     ax3.set_xlim(x_limits)
     ax3.set_ylim(0, 1.3)
     ax3.set_xticks(x_ticks)
-    ax3.set_xticklabels(x_tick_labels, rotation=45, ha="right", fontsize=10, 
-                        color=theme["text_primary"], fontweight="bold")
+    ax3.set_xticklabels(
+        x_tick_labels,
+        rotation=0,
+        ha="center",
+        fontsize=10,
+        color=theme["text_primary"],
+        fontweight="bold",
+    )
     ax3.tick_params(axis="x", pad=8)
     ax3.set_yticks([])
     ax3.set_title(
@@ -835,8 +1019,12 @@ def main():
     nogo_patch = mpatches.Patch(color=status_colors["NO-GO"], label="NO-GO (>=60)")
     ax3.legend(
         handles=[go_patch, hold_patch, nogo_patch],
-        loc="upper left", ncol=3, fontsize=9, framealpha=0.9,
-        facecolor=theme["bg_card"], edgecolor=theme["grid_color"],
+        loc="upper left",
+        ncol=3,
+        fontsize=9,
+        framealpha=0.9,
+        facecolor=theme["bg_card"],
+        edgecolor=theme["grid_color"],
         labelcolor=theme["text_primary"],
     )
 
@@ -844,11 +1032,13 @@ def main():
     for i in range(n):
         if shamal[i]:
             for ax in (ax1, ax2, ax3):
-                ax.axvspan(i - 0.5, i + 0.5, alpha=0.15, color=theme["shamal"], zorder=0)
+                ax.axvspan(
+                    i - 0.5, i + 0.5, alpha=0.15, color=theme["shamal"], zorder=0
+                )
 
-    plt.subplots_adjust(left=0.08, right=0.94, top=0.94, bottom=0.12)
+    plt.subplots_adjust(left=0.08, right=0.94, top=0.94, bottom=0.10)
 
-    # Save with 80% transparent background (alpha=0.2) for HTML overlay
+    # Save with 50% transparent background (alpha=0.5) for HTML overlay
     plt.savefig(
         OUTPUT_PATH,
         dpi=150,

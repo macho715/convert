@@ -13,7 +13,7 @@
       "activity_name": "MOBILIZATION",
       "duration": 10.0,
       "planned_start": "2026-01-26",
-      "planned_finish": "2026-02-04"
+      "planned_finish": "2026-02-05"
     },
     {
       "level1": "MOBILIZATION",
@@ -22,7 +22,7 @@
       "activity_name": "SPMT",
       "duration": 10.0,
       "planned_start": "2026-01-26",
-      "planned_finish": "2026-02-04"
+      "planned_finish": "2026-02-05"
     },
     {
       "level1": "MOBILIZATION",
@@ -39,8 +39,8 @@
       "activity_id": "A1010",
       "activity_name": "Mobilization of 2nd set of SPMT; Assembly + Function test",
       "duration": 1.0,
-      "planned_start": "2026-02-04",
-      "planned_finish": "2026-02-04"
+      "planned_start": "2026-02-05",
+      "planned_finish": "2026-02-05"
     },
     {
       "level1": "MOBILIZATION",
@@ -66,8 +66,8 @@
       "activity_id": null,
       "activity_name": "JACKING EQUIPMENT, STEEL BRIDGE",
       "duration": 1.0,
-      "planned_start": "2026-01-29",
-      "planned_finish": "2026-01-30"
+      "planned_start": "2026-01-30",
+      "planned_finish": "2026-01-31"
     },
     {
       "level1": "MOBILIZATION",
@@ -75,8 +75,8 @@
       "activity_id": "A2010",
       "activity_name": "Mobilization of Jacking Equipment and Steel bridge (prior LCT's arrival to AGI with TR 1&2!))",
       "duration": 1.0,
-      "planned_start": "2026-01-29",
-      "planned_finish": "2026-01-30"
+      "planned_start": "2026-01-30",
+      "planned_finish": "2026-01-31"
     },
     {
       "level1": "DEMOBILIZATION",
@@ -85,7 +85,7 @@
       "activity_name": "DEMOBILIZATION",
       "duration": 55.0,
       "planned_start": "2026-01-27",
-      "planned_finish": "2026-03-22"
+      "planned_finish": "2026-03-23"
     },
     {
       "level1": "DEMOBILIZATION",
@@ -93,8 +93,8 @@
       "activity_id": null,
       "activity_name": "SPMT",
       "duration": 5.5,
-      "planned_start": "2026-03-15",
-      "planned_finish": "2026-03-20"
+      "planned_start": "2026-03-16",
+      "planned_finish": "2026-03-21"
     },
     {
       "level1": "DEMOBILIZATION",
@@ -102,8 +102,8 @@
       "activity_id": "A1980",
       "activity_name": "Demobilization of 2nd set of SPMT",
       "duration": 1.0,
-      "planned_start": "2026-03-15",
-      "planned_finish": "2026-03-15"
+      "planned_start": "2026-03-16",
+      "planned_finish": "2026-03-16"
     },
     {
       "level1": "DEMOBILIZATION",
@@ -111,8 +111,8 @@
       "activity_id": "A1990",
       "activity_name": "Demobilization of 1st set of SPMT",
       "duration": 1.0,
-      "planned_start": "2026-03-19",
-      "planned_finish": "2026-03-20"
+      "planned_start": "2026-03-20",
+      "planned_finish": "2026-03-21"
     },
     {
       "level1": "DEMOBILIZATION",
@@ -138,8 +138,8 @@
       "activity_id": null,
       "activity_name": "JACKING EQUIPMENT, STEEL BRIDGE",
       "duration": 1.0,
-      "planned_start": "2026-03-22",
-      "planned_finish": "2026-03-22"
+      "planned_start": "2026-03-23",
+      "planned_finish": "2026-03-23"
     },
     {
       "level1": "DEMOBILIZATION",
@@ -147,8 +147,8 @@
       "activity_id": "A2020",
       "activity_name": "Demobilization of Jacking Equipment and Steel bridge",
       "duration": 1.0,
-      "planned_start": "2026-03-22",
-      "planned_finish": "2026-03-22"
+      "planned_start": "2026-03-23",
+      "planned_finish": "2026-03-23"
     },
     {
       "level1": "OPERATIONAL",
@@ -157,7 +157,7 @@
       "activity_name": "OPERATIONAL",
       "duration": 54.0,
       "planned_start": "2026-01-27",
-      "planned_finish": "2026-03-21"
+      "planned_finish": "2026-03-22"
     },
     {
       "level1": "OPERATIONAL",
@@ -166,7 +166,7 @@
       "activity_name": "Beam Replacement",
       "duration": 44.0,
       "planned_start": "2026-01-27",
-      "planned_finish": "2026-03-11"
+      "planned_finish": "2026-03-12"
     },
     {
       "level1": "OPERATIONAL",
@@ -192,8 +192,8 @@
       "activity_id": "A1013",
       "activity_name": "Beam Replacement AGI TR Unit 3 (TR Bay 2) - Two 5t forklifts required",
       "duration": 1.0,
-      "planned_start": "2026-02-11",
-      "planned_finish": "2026-02-11"
+      "planned_start": "2026-02-12",
+      "planned_finish": "2026-02-12"
     },
     {
       "level1": "OPERATIONAL",
@@ -201,8 +201,8 @@
       "activity_id": "A1023",
       "activity_name": "Beam Replacement AGI TR Unit 4 (TR Bay 1) - Two 5t forklifts required",
       "duration": 1.0,
-      "planned_start": "2026-02-18",
-      "planned_finish": "2026-02-18"
+      "planned_start": "2026-02-19",
+      "planned_finish": "2026-02-19"
     },
     {
       "level1": "OPERATIONAL",
@@ -210,8 +210,8 @@
       "activity_id": "A1033",
       "activity_name": "Beam Replacement AGI TR Unit 5 (TR Bay 5) - Two 5t forklifts required",
       "duration": 1.0,
-      "planned_start": "2026-02-25",
-      "planned_finish": "2026-02-25"
+      "planned_start": "2026-02-26",
+      "planned_finish": "2026-02-26"
     },
     {
       "level1": "OPERATIONAL",
@@ -219,8 +219,8 @@
       "activity_id": "A1043",
       "activity_name": "Beam Replacement AGI TR Unit 6 (TR Bay 6) - Two 5t forklifts required",
       "duration": 1.0,
-      "planned_start": "2026-03-04",
-      "planned_finish": "2026-03-04"
+      "planned_start": "2026-03-05",
+      "planned_finish": "2026-03-05"
     },
     {
       "level1": "OPERATIONAL",
@@ -228,8 +228,8 @@
       "activity_id": "A1053",
       "activity_name": "Beam Replacement AGI TR Unit 7 (TR Bay 7) - Two 5t forklifts required",
       "duration": 1.0,
-      "planned_start": "2026-03-11",
-      "planned_finish": "2026-03-11"
+      "planned_start": "2026-03-12",
+      "planned_finish": "2026-03-12"
     },
     {
       "level1": "OPERATIONAL",
@@ -264,8 +264,8 @@
       "activity_id": null,
       "activity_name": "AGI TR Unit 1",
       "duration": 10.0,
-      "planned_start": "2026-01-29",
-      "planned_finish": "2026-02-07"
+      "planned_start": "2026-01-30",
+      "planned_finish": "2026-02-08"
     },
     {
       "level1": "OPERATIONAL",
@@ -273,8 +273,8 @@
       "activity_id": "A1030",
       "activity_name": "Loading of AGI TR Unit 1 on SPMT; lashing; Shifting to Mina Zayed Port RoRo Jetty area",
       "duration": 0.3,
-      "planned_start": "2026-01-29",
-      "planned_finish": "2026-01-29"
+      "planned_start": "2026-01-30",
+      "planned_finish": "2026-01-30"
     },
     {
       "level1": "OPERATIONAL",
@@ -282,8 +282,8 @@
       "activity_id": "A1040",
       "activity_name": "RoRo Ramp Installation - 5t Frokift and Crane required",
       "duration": 0.3,
-      "planned_start": "2026-01-29",
-      "planned_finish": "2026-01-29"
+      "planned_start": "2026-01-30",
+      "planned_finish": "2026-01-30"
     },
     {
       "level1": "OPERATIONAL",
@@ -291,8 +291,8 @@
       "activity_id": "A1060",
       "activity_name": "Load-out of AGL TR Unit 1; stool down (8am-10am)",
       "duration": 0.2,
-      "planned_start": "2026-01-29",
-      "planned_finish": "2026-01-29"
+      "planned_start": "2026-01-30",
+      "planned_finish": "2026-01-30"
     },
     {
       "level1": "OPERATIONAL",
@@ -300,8 +300,8 @@
       "activity_id": "A1070",
       "activity_name": "RoRo ramp removal; Seafastening AGL TR Unit 1 - Crane required",
       "duration": 1.5,
-      "planned_start": "2026-01-29",
-      "planned_finish": "2026-01-30"
+      "planned_start": "2026-01-30",
+      "planned_finish": "2026-01-31"
     },
     {
       "level1": "OPERATIONAL",
@@ -309,8 +309,8 @@
       "activity_id": "A1081",
       "activity_name": "MWS; MPI; Sail-away - Marine Transportation by LCT to Al Ghallan Island",
       "duration": 1.0,
-      "planned_start": "2026-01-31",
-      "planned_finish": "2026-01-31"
+      "planned_start": "2026-02-01",
+      "planned_finish": "2026-02-01"
     },
     {
       "level1": "OPERATIONAL",
@@ -318,8 +318,8 @@
       "activity_id": "A1090",
       "activity_name": "MMT Crew Mob to AGI; Site Induction; Meeting with Client",
       "duration": 0.5,
-      "planned_start": "2026-02-01",
-      "planned_finish": "2026-02-01"
+      "planned_start": "2026-02-02",
+      "planned_finish": "2026-02-02"
     },
     {
       "level1": "OPERATIONAL",
@@ -327,8 +327,8 @@
       "activity_id": "A1091",
       "activity_name": "LCT Arrival; Berthing at AGL RoRo Jetty",
       "duration": 0.5,
-      "planned_start": "2026-02-01",
-      "planned_finish": "2026-02-01"
+      "planned_start": "2026-02-02",
+      "planned_finish": "2026-02-02"
     },
     {
       "level1": "OPERATIONAL",
@@ -336,8 +336,8 @@
       "activity_id": "A1100",
       "activity_name": "Unlashing and cutting; steel sets preparations - Forklift required",
       "duration": 0.5,
-      "planned_start": "2026-02-01",
-      "planned_finish": "2026-02-01"
+      "planned_start": "2026-02-02",
+      "planned_finish": "2026-02-02"
     },
     {
       "level1": "OPERATIONAL",
@@ -345,8 +345,8 @@
       "activity_id": "A1110",
       "activity_name": "Load-in of AGI TR Unit 1 (including RoRo Ramp Installation); store on Jetty - Crane required",
       "duration": 1.0,
-      "planned_start": "2026-02-02",
-      "planned_finish": "2026-02-02"
+      "planned_start": "2026-02-03",
+      "planned_finish": "2026-02-03"
     },
     {
       "level1": "OPERATIONAL",
@@ -354,8 +354,8 @@
       "activity_id": "A1121",
       "activity_name": "LCT Sails back to MZP to collect TR Unit 1",
       "duration": 1.0,
-      "planned_start": "2026-02-03",
-      "planned_finish": "2026-02-03"
+      "planned_start": "2026-02-04",
+      "planned_finish": "2026-02-04"
     },
     {
       "level1": "OPERATIONAL",
@@ -363,8 +363,8 @@
       "activity_id": "A1122",
       "activity_name": "Steel bridge Installation - Crane required",
       "duration": 0.3,
-      "planned_start": "2026-02-03",
-      "planned_finish": "2026-02-03"
+      "planned_start": "2026-02-04",
+      "planned_finish": "2026-02-04"
     },
     {
       "level1": "OPERATIONAL",
@@ -372,8 +372,8 @@
       "activity_id": "A1140",
       "activity_name": "AGL TR Unit 1 (TR Bay 4) load on SPMT; lashing; Transportation and JD (steel set to be delivered to bay area by trailer)",
       "duration": 0.7,
-      "planned_start": "2026-02-03",
-      "planned_finish": "2026-02-03"
+      "planned_start": "2026-02-04",
+      "planned_finish": "2026-02-04"
     },
     {
       "level1": "OPERATIONAL",
@@ -381,8 +381,8 @@
       "activity_id": "A1141",
       "activity_name": "Turning of AGI TR Unit 1 (TR Bay 4) - 10t Forklift required",
       "duration": 3.0,
-      "planned_start": "2026-02-04",
-      "planned_finish": "2026-02-06"
+      "planned_start": "2026-02-05",
+      "planned_finish": "2026-02-07"
     },
     {
       "level1": "OPERATIONAL",
@@ -390,8 +390,8 @@
       "activity_id": "A1150",
       "activity_name": "Jacking down of AGI TR Unit 1 (TR Bay 4) on temporary support - Forklift required",
       "duration": 1.0,
-      "planned_start": "2026-02-07",
-      "planned_finish": "2026-02-07"
+      "planned_start": "2026-02-08",
+      "planned_finish": "2026-02-08"
     },
     {
       "level1": "OPERATIONAL",
@@ -399,8 +399,8 @@
       "activity_id": "A1181",
       "activity_name": "SPMT shifting back to Port",
       "duration": 0.5,
-      "planned_start": "2026-02-05",
-      "planned_finish": "2026-02-05"
+      "planned_start": "2026-02-06",
+      "planned_finish": "2026-02-06"
     },
     {
       "level1": "OPERATIONAL",
@@ -408,8 +408,8 @@
       "activity_id": null,
       "activity_name": "AGI TR Unit 2",
       "duration": 11.0,
-      "planned_start": "2026-02-04",
-      "planned_finish": "2026-02-14"
+      "planned_start": "2026-02-05",
+      "planned_finish": "2026-02-15"
     },
     {
       "level1": "OPERATIONAL",
@@ -417,8 +417,8 @@
       "activity_id": "A2029",
       "activity_name": "LCT Arrives at MZP; Deck preparations",
       "duration": 1.0,
-      "planned_start": "2026-02-04",
-      "planned_finish": "2026-02-04"
+      "planned_start": "2026-02-05",
+      "planned_finish": "2026-02-05"
     },
     {
       "level1": "OPERATIONAL",
@@ -426,8 +426,8 @@
       "activity_id": "A2030",
       "activity_name": "Loading of AGI TR Unit 2 on SPMT; lashing; Shifting to Mina Zayed Port RoRo Jetty area",
       "duration": 0.3,
-      "planned_start": "2026-02-05",
-      "planned_finish": "2026-02-05"
+      "planned_start": "2026-02-06",
+      "planned_finish": "2026-02-06"
     },
     {
       "level1": "OPERATIONAL",
@@ -435,8 +435,8 @@
       "activity_id": "A2040",
       "activity_name": "RoRo Ramp Installation - 5t Frokift and Crane required",
       "duration": 0.3,
-      "planned_start": "2026-02-05",
-      "planned_finish": "2026-02-05"
+      "planned_start": "2026-02-06",
+      "planned_finish": "2026-02-06"
     },
     {
       "level1": "OPERATIONAL",
@@ -444,8 +444,8 @@
       "activity_id": "A2050",
       "activity_name": "Load-out of AGL TR Unit 2; stool down",
       "duration": 0.2,
-      "planned_start": "2026-02-05",
-      "planned_finish": "2026-02-05"
+      "planned_start": "2026-02-06",
+      "planned_finish": "2026-02-06"
     },
     {
       "level1": "OPERATIONAL",
@@ -453,8 +453,8 @@
       "activity_id": "A2060",
       "activity_name": "RoRo ramp removal; Seafastening AGL TR Unit 2 - Crane required",
       "duration": 1.5,
-      "planned_start": "2026-02-05",
-      "planned_finish": "2026-02-06"
+      "planned_start": "2026-02-06",
+      "planned_finish": "2026-02-07"
     },
     {
       "level1": "OPERATIONAL",
@@ -462,8 +462,8 @@
       "activity_id": "A2070",
       "activity_name": "MWS; MPI; Sail-away - Marine Transportation by LCT to Al Ghallan Island",
       "duration": 1.0,
-      "planned_start": "2026-02-07",
-      "planned_finish": "2026-02-07"
+      "planned_start": "2026-02-08",
+      "planned_finish": "2026-02-08"
     },
     {
       "level1": "OPERATIONAL",
@@ -471,8 +471,8 @@
       "activity_id": "A2090",
       "activity_name": "LCT Arrival; Berthing at AGL RoRo Jetty",
       "duration": 0.5,
-      "planned_start": "2026-02-08",
-      "planned_finish": "2026-02-08"
+      "planned_start": "2026-02-09",
+      "planned_finish": "2026-02-09"
     },
     {
       "level1": "OPERATIONAL",
@@ -480,8 +480,8 @@
       "activity_id": "A2100",
       "activity_name": "Unlashing and cutting; steel sets preparations - Forklift required",
       "duration": 0.5,
-      "planned_start": "2026-02-08",
-      "planned_finish": "2026-02-08"
+      "planned_start": "2026-02-09",
+      "planned_finish": "2026-02-09"
     },
     {
       "level1": "OPERATIONAL",
@@ -489,8 +489,8 @@
       "activity_id": "A2110",
       "activity_name": "Load-in of AGI TR Unit 2 (including RoRo Ramp Installation); store on Jetty - Crane required",
       "duration": 1.0,
-      "planned_start": "2026-02-09",
-      "planned_finish": "2026-02-09"
+      "planned_start": "2026-02-10",
+      "planned_finish": "2026-02-10"
     },
     {
       "level1": "OPERATIONAL",
@@ -498,8 +498,8 @@
       "activity_id": "A2120",
       "activity_name": "LCT Sails back to MZP to collect TR Unit 3 (SPMT to bring back 2pcs of 7.45m transport beam)",
       "duration": 1.0,
-      "planned_start": "2026-02-10",
-      "planned_finish": "2026-02-10"
+      "planned_start": "2026-02-11",
+      "planned_finish": "2026-02-11"
     },
     {
       "level1": "OPERATIONAL",
@@ -507,8 +507,8 @@
       "activity_id": "A2130",
       "activity_name": "Steel bridge Installation - Crane required",
       "duration": 0.3,
-      "planned_start": "2026-02-10",
-      "planned_finish": "2026-02-10"
+      "planned_start": "2026-02-11",
+      "planned_finish": "2026-02-11"
     },
     {
       "level1": "OPERATIONAL",
@@ -516,8 +516,8 @@
       "activity_id": "A2140",
       "activity_name": "AGL TR Unit 2 (TR Bay 3) load on SPMT; lashing; Transportation and JD (steel set to be delivered to bay area by trailer)",
       "duration": 0.7,
-      "planned_start": "2026-02-10",
-      "planned_finish": "2026-02-10"
+      "planned_start": "2026-02-11",
+      "planned_finish": "2026-02-11"
     },
     {
       "level1": "OPERATIONAL",
@@ -525,8 +525,8 @@
       "activity_id": "A2150",
       "activity_name": "Turning of AGI TR Unit 2 (TR Bay 3) - 10t Forklift required",
       "duration": 3.0,
-      "planned_start": "2026-02-11",
-      "planned_finish": "2026-02-13"
+      "planned_start": "2026-02-12",
+      "planned_finish": "2026-02-14"
     },
     {
       "level1": "OPERATIONAL",
@@ -534,8 +534,8 @@
       "activity_id": "A2160",
       "activity_name": "Jacking down of AGI TR Unit 2 (TR Bay 3) on temporary support - Forklift required",
       "duration": 1.0,
-      "planned_start": "2026-02-14",
-      "planned_finish": "2026-02-14"
+      "planned_start": "2026-02-15",
+      "planned_finish": "2026-02-15"
     },
     {
       "level1": "OPERATIONAL",
@@ -543,8 +543,8 @@
       "activity_id": "A2170",
       "activity_name": "SPMT shifting back to Port",
       "duration": 0.5,
-      "planned_start": "2026-02-12",
-      "planned_finish": "2026-02-12"
+      "planned_start": "2026-02-13",
+      "planned_finish": "2026-02-13"
     },
     {
       "level1": "OPERATIONAL",
@@ -552,8 +552,8 @@
       "activity_id": null,
       "activity_name": "AGI TR Unit 3",
       "duration": 11.0,
-      "planned_start": "2026-02-11",
-      "planned_finish": "2026-02-21"
+      "planned_start": "2026-02-12",
+      "planned_finish": "2026-02-22"
     },
     {
       "level1": "OPERATIONAL",
@@ -561,8 +561,8 @@
       "activity_id": "A2180",
       "activity_name": "LCT Arrives at MZP; Deck preparations; Beam replacement",
       "duration": 1.0,
-      "planned_start": "2026-02-11",
-      "planned_finish": "2026-02-11"
+      "planned_start": "2026-02-12",
+      "planned_finish": "2026-02-12"
     },
     {
       "level1": "OPERATIONAL",
@@ -570,8 +570,8 @@
       "activity_id": "A2190",
       "activity_name": "Loading of AGI TR Unit 3 on SPMT; lashing; Shifting to Mina Zayed Port RoRo Jetty area",
       "duration": 0.3,
-      "planned_start": "2026-02-12",
-      "planned_finish": "2026-02-12"
+      "planned_start": "2026-02-13",
+      "planned_finish": "2026-02-13"
     },
     {
       "level1": "OPERATIONAL",
@@ -579,8 +579,8 @@
       "activity_id": "A2200",
       "activity_name": "RoRo Ramp Installation - 5t Frokift and Crane required",
       "duration": 0.3,
-      "planned_start": "2026-02-12",
-      "planned_finish": "2026-02-12"
+      "planned_start": "2026-02-13",
+      "planned_finish": "2026-02-13"
     },
     {
       "level1": "OPERATIONAL",
@@ -588,8 +588,8 @@
       "activity_id": "A2210",
       "activity_name": "Load-out of AGL TR Unit 3; stool down",
       "duration": 0.2,
-      "planned_start": "2026-02-12",
-      "planned_finish": "2026-02-12"
+      "planned_start": "2026-02-13",
+      "planned_finish": "2026-02-13"
     },
     {
       "level1": "OPERATIONAL",
@@ -597,8 +597,8 @@
       "activity_id": "A2220",
       "activity_name": "RoRo ramp removal; Seafastening AGL TR Unit 3 - Crane required",
       "duration": 1.5,
-      "planned_start": "2026-02-12",
-      "planned_finish": "2026-02-13"
+      "planned_start": "2026-02-13",
+      "planned_finish": "2026-02-14"
     },
     {
       "level1": "OPERATIONAL",
@@ -606,8 +606,8 @@
       "activity_id": "A2230",
       "activity_name": "MWS; MPI; Sail-away - Marine Transportation by LCT to Al Ghallan Island",
       "duration": 1.0,
-      "planned_start": "2026-02-14",
-      "planned_finish": "2026-02-14"
+      "planned_start": "2026-02-15",
+      "planned_finish": "2026-02-15"
     },
     {
       "level1": "OPERATIONAL",
@@ -615,8 +615,8 @@
       "activity_id": "A2250",
       "activity_name": "LCT Arrival; Berthing at AGL RoRo Jetty",
       "duration": 0.5,
-      "planned_start": "2026-02-15",
-      "planned_finish": "2026-02-15"
+      "planned_start": "2026-02-16",
+      "planned_finish": "2026-02-16"
     },
     {
       "level1": "OPERATIONAL",
@@ -624,8 +624,8 @@
       "activity_id": "A2260",
       "activity_name": "Unlashing and cutting; steel sets preparations - Forklift required",
       "duration": 0.5,
-      "planned_start": "2026-02-15",
-      "planned_finish": "2026-02-15"
+      "planned_start": "2026-02-16",
+      "planned_finish": "2026-02-16"
     },
     {
       "level1": "OPERATIONAL",
@@ -633,8 +633,8 @@
       "activity_id": "A2270",
       "activity_name": "Load-in of AGI TR Unit 3 (including RoRo Ramp Installation); store on Jetty - Crane required",
       "duration": 1.0,
-      "planned_start": "2026-02-16",
-      "planned_finish": "2026-02-16"
+      "planned_start": "2026-02-17",
+      "planned_finish": "2026-02-17"
     },
     {
       "level1": "OPERATIONAL",
@@ -642,8 +642,8 @@
       "activity_id": "A2280",
       "activity_name": "LCT Sails back to MZP to collect TR Unit 4",
       "duration": 1.0,
-      "planned_start": "2026-02-17",
-      "planned_finish": "2026-02-17"
+      "planned_start": "2026-02-18",
+      "planned_finish": "2026-02-18"
     },
     {
       "level1": "OPERATIONAL",
@@ -651,8 +651,8 @@
       "activity_id": "A2290",
       "activity_name": "Steel bridge Installation - Crane required",
       "duration": 0.3,
-      "planned_start": "2026-02-17",
-      "planned_finish": "2026-02-17"
+      "planned_start": "2026-02-18",
+      "planned_finish": "2026-02-18"
     },
     {
       "level1": "OPERATIONAL",
@@ -660,8 +660,8 @@
       "activity_id": "A2300",
       "activity_name": "AGL TR Unit 3 (TR Bay 2) load on SPMT; lashing; Transportation and JD (steel set to be delivered to bay area by trailer)",
       "duration": 0.7,
-      "planned_start": "2026-02-17",
-      "planned_finish": "2026-02-17"
+      "planned_start": "2026-02-18",
+      "planned_finish": "2026-02-18"
     },
     {
       "level1": "OPERATIONAL",
@@ -669,8 +669,8 @@
       "activity_id": "A2310",
       "activity_name": "Turning of AGI TR Unit 3 (TR Bay 2) - 10t Forklift required",
       "duration": 3.0,
-      "planned_start": "2026-02-18",
-      "planned_finish": "2026-02-20"
+      "planned_start": "2026-02-19",
+      "planned_finish": "2026-02-21"
     },
     {
       "level1": "OPERATIONAL",
@@ -678,8 +678,8 @@
       "activity_id": "A2320",
       "activity_name": "Jacking down of AGI TR Unit 3 (TR Bay 2) on temporary support - Forklift required",
       "duration": 1.0,
-      "planned_start": "2026-02-21",
-      "planned_finish": "2026-02-21"
+      "planned_start": "2026-02-22",
+      "planned_finish": "2026-02-22"
     },
     {
       "level1": "OPERATIONAL",
@@ -687,8 +687,8 @@
       "activity_id": "A2330",
       "activity_name": "SPMT shifting back to Port",
       "duration": 0.5,
-      "planned_start": "2026-02-19",
-      "planned_finish": "2026-02-19"
+      "planned_start": "2026-02-20",
+      "planned_finish": "2026-02-20"
     },
     {
       "level1": "OPERATIONAL",
@@ -696,8 +696,8 @@
       "activity_id": null,
       "activity_name": "AGI TR Unit 4",
       "duration": 11.0,
-      "planned_start": "2026-02-18",
-      "planned_finish": "2026-02-28"
+      "planned_start": "2026-02-19",
+      "planned_finish": "2026-03-01"
     },
     {
       "level1": "OPERATIONAL",
@@ -705,8 +705,8 @@
       "activity_id": "A2340",
       "activity_name": "LCT Arrives at MZP; Deck preparations; Beam replacement",
       "duration": 1.0,
-      "planned_start": "2026-02-18",
-      "planned_finish": "2026-02-18"
+      "planned_start": "2026-02-19",
+      "planned_finish": "2026-02-19"
     },
     {
       "level1": "OPERATIONAL",
@@ -714,8 +714,8 @@
       "activity_id": "A2350",
       "activity_name": "Loading of AGI TR Unit 4 on SPMT; lashing; Shifting to Mina Zayed Port RoRo Jetty area",
       "duration": 0.3,
-      "planned_start": "2026-02-19",
-      "planned_finish": "2026-02-19"
+      "planned_start": "2026-02-20",
+      "planned_finish": "2026-02-20"
     },
     {
       "level1": "OPERATIONAL",
@@ -723,8 +723,8 @@
       "activity_id": "A2360",
       "activity_name": "RoRo Ramp Installation - 5t Frokift and Crane required",
       "duration": 0.3,
-      "planned_start": "2026-02-19",
-      "planned_finish": "2026-02-19"
+      "planned_start": "2026-02-20",
+      "planned_finish": "2026-02-20"
     },
     {
       "level1": "OPERATIONAL",
@@ -732,8 +732,8 @@
       "activity_id": "A2370",
       "activity_name": "Load-out of AGL TR Unit 4; stool down",
       "duration": 0.2,
-      "planned_start": "2026-02-19",
-      "planned_finish": "2026-02-19"
+      "planned_start": "2026-02-20",
+      "planned_finish": "2026-02-20"
     },
     {
       "level1": "OPERATIONAL",
@@ -741,8 +741,8 @@
       "activity_id": "A2380",
       "activity_name": "RoRo ramp removal; Seafastening AGL TR Unit 4 - Crane required",
       "duration": 1.5,
-      "planned_start": "2026-02-19",
-      "planned_finish": "2026-02-20"
+      "planned_start": "2026-02-20",
+      "planned_finish": "2026-02-21"
     },
     {
       "level1": "OPERATIONAL",
@@ -750,8 +750,8 @@
       "activity_id": "A2390",
       "activity_name": "MWS; MPI; Sail-away - Marine Transportation by LCT to Al Ghallan Island",
       "duration": 1.0,
-      "planned_start": "2026-02-21",
-      "planned_finish": "2026-02-21"
+      "planned_start": "2026-02-22",
+      "planned_finish": "2026-02-22"
     },
     {
       "level1": "OPERATIONAL",
@@ -759,8 +759,8 @@
       "activity_id": "A2410",
       "activity_name": "LCT Arrival; Berthing at AGL RoRo Jetty",
       "duration": 0.5,
-      "planned_start": "2026-02-22",
-      "planned_finish": "2026-02-22"
+      "planned_start": "2026-02-23",
+      "planned_finish": "2026-02-23"
     },
     {
       "level1": "OPERATIONAL",
@@ -768,8 +768,8 @@
       "activity_id": "A2420",
       "activity_name": "Unlashing and cutting; steel sets preparations - Forklift required",
       "duration": 0.5,
-      "planned_start": "2026-02-22",
-      "planned_finish": "2026-02-22"
+      "planned_start": "2026-02-23",
+      "planned_finish": "2026-02-23"
     },
     {
       "level1": "OPERATIONAL",
@@ -777,8 +777,8 @@
       "activity_id": "A2430",
       "activity_name": "Load-in of AGI TR Unit 4 (including RoRo Ramp Installation); store on Jetty - Crane required",
       "duration": 1.0,
-      "planned_start": "2026-02-23",
-      "planned_finish": "2026-02-23"
+      "planned_start": "2026-02-24",
+      "planned_finish": "2026-02-24"
     },
     {
       "level1": "OPERATIONAL",
@@ -786,8 +786,8 @@
       "activity_id": "A2440",
       "activity_name": "LCT Sails back to MZP to collect TR Unit 5",
       "duration": 1.0,
-      "planned_start": "2026-02-24",
-      "planned_finish": "2026-02-24"
+      "planned_start": "2026-02-25",
+      "planned_finish": "2026-02-25"
     },
     {
       "level1": "OPERATIONAL",
@@ -795,8 +795,8 @@
       "activity_id": "A2450",
       "activity_name": "Steel bridge Installation - Crane required",
       "duration": 0.3,
-      "planned_start": "2026-02-24",
-      "planned_finish": "2026-02-24"
+      "planned_start": "2026-02-25",
+      "planned_finish": "2026-02-25"
     },
     {
       "level1": "OPERATIONAL",
@@ -804,8 +804,8 @@
       "activity_id": "A2460",
       "activity_name": "AGL TR Unit 4 (TR Bay 1) load on SPMT; lashing; Transportation and JD (steel set to be delivered to bay area by trailer)",
       "duration": 0.7,
-      "planned_start": "2026-02-24",
-      "planned_finish": "2026-02-24"
+      "planned_start": "2026-02-25",
+      "planned_finish": "2026-02-25"
     },
     {
       "level1": "OPERATIONAL",
@@ -813,8 +813,8 @@
       "activity_id": "A2470",
       "activity_name": "Turning of AGI TR Unit 4 (TR Bay 1) - 10t Forklift required",
       "duration": 3.0,
-      "planned_start": "2026-02-25",
-      "planned_finish": "2026-02-27"
+      "planned_start": "2026-02-26",
+      "planned_finish": "2026-02-28"
     },
     {
       "level1": "OPERATIONAL",
@@ -822,8 +822,8 @@
       "activity_id": "A2480",
       "activity_name": "Jacking down of AGI TR Unit 4 (TR Bay 1) on temporary support - Forklift required",
       "duration": 1.0,
-      "planned_start": "2026-02-28",
-      "planned_finish": "2026-02-28"
+      "planned_start": "2026-03-01",
+      "planned_finish": "2026-03-01"
     },
     {
       "level1": "OPERATIONAL",
@@ -831,8 +831,8 @@
       "activity_id": "A2490",
       "activity_name": "SPMT shifting back to Port",
       "duration": 0.5,
-      "planned_start": "2026-02-26",
-      "planned_finish": "2026-02-26"
+      "planned_start": "2026-02-27",
+      "planned_finish": "2026-02-27"
     },
     {
       "level1": "OPERATIONAL",
@@ -840,8 +840,8 @@
       "activity_id": null,
       "activity_name": "AGI TR Unit 5",
       "duration": 11.0,
-      "planned_start": "2026-02-25",
-      "planned_finish": "2026-03-07"
+      "planned_start": "2026-02-26",
+      "planned_finish": "2026-03-08"
     },
     {
       "level1": "OPERATIONAL",
@@ -849,8 +849,8 @@
       "activity_id": "A2500",
       "activity_name": "LCT Arrives at MZP; Deck preparations; Beam replacement",
       "duration": 1.0,
-      "planned_start": "2026-02-25",
-      "planned_finish": "2026-02-25"
+      "planned_start": "2026-02-26",
+      "planned_finish": "2026-02-26"
     },
     {
       "level1": "OPERATIONAL",
@@ -858,8 +858,8 @@
       "activity_id": "A2510",
       "activity_name": "Loading of AGI TR Unit 5 on SPMT; lashing; Shifting to Mina Zayed Port RoRo Jetty area",
       "duration": 0.3,
-      "planned_start": "2026-02-26",
-      "planned_finish": "2026-02-26"
+      "planned_start": "2026-02-27",
+      "planned_finish": "2026-02-27"
     },
     {
       "level1": "OPERATIONAL",
@@ -867,8 +867,8 @@
       "activity_id": "A2520",
       "activity_name": "RoRo Ramp Installation - 5t Frokift and Crane required",
       "duration": 0.3,
-      "planned_start": "2026-02-26",
-      "planned_finish": "2026-02-26"
+      "planned_start": "2026-02-27",
+      "planned_finish": "2026-02-27"
     },
     {
       "level1": "OPERATIONAL",
@@ -876,8 +876,8 @@
       "activity_id": "A2530",
       "activity_name": "Load-out of AGL TR Unit 5; stool down",
       "duration": 0.2,
-      "planned_start": "2026-02-26",
-      "planned_finish": "2026-02-26"
+      "planned_start": "2026-02-27",
+      "planned_finish": "2026-02-27"
     },
     {
       "level1": "OPERATIONAL",
@@ -885,8 +885,8 @@
       "activity_id": "A2540",
       "activity_name": "RoRo ramp removal; Seafastening AGL TR Unit 5 - Crane required",
       "duration": 1.5,
-      "planned_start": "2026-02-26",
-      "planned_finish": "2026-02-27"
+      "planned_start": "2026-02-27",
+      "planned_finish": "2026-02-28"
     },
     {
       "level1": "OPERATIONAL",
@@ -894,8 +894,8 @@
       "activity_id": "A2550",
       "activity_name": "MWS; MPI; Sail-away - Marine Transportation by LCT to Al Ghallan Island",
       "duration": 1.0,
-      "planned_start": "2026-02-28",
-      "planned_finish": "2026-02-28"
+      "planned_start": "2026-03-01",
+      "planned_finish": "2026-03-01"
     },
     {
       "level1": "OPERATIONAL",
@@ -903,8 +903,8 @@
       "activity_id": "A2560",
       "activity_name": "LCT Arrival; Berthing at AGL RoRo Jetty",
       "duration": 0.5,
-      "planned_start": "2026-03-01",
-      "planned_finish": "2026-03-01"
+      "planned_start": "2026-03-02",
+      "planned_finish": "2026-03-02"
     },
     {
       "level1": "OPERATIONAL",
@@ -912,8 +912,8 @@
       "activity_id": "A2570",
       "activity_name": "Unlashing and cutting; steel sets preparations - Forklift required",
       "duration": 0.5,
-      "planned_start": "2026-03-01",
-      "planned_finish": "2026-03-01"
+      "planned_start": "2026-03-02",
+      "planned_finish": "2026-03-02"
     },
     {
       "level1": "OPERATIONAL",
@@ -921,8 +921,8 @@
       "activity_id": "A2580",
       "activity_name": "Load-in of AGI TR Unit 5 (including RoRo Ramp Installation); store on Jetty - Crane required",
       "duration": 1.0,
-      "planned_start": "2026-03-02",
-      "planned_finish": "2026-03-02"
+      "planned_start": "2026-03-03",
+      "planned_finish": "2026-03-03"
     },
     {
       "level1": "OPERATIONAL",
@@ -930,8 +930,8 @@
       "activity_id": "A2590",
       "activity_name": "LCT Sails back to MZP to collect TR Unit 6",
       "duration": 1.0,
-      "planned_start": "2026-03-03",
-      "planned_finish": "2026-03-03"
+      "planned_start": "2026-03-04",
+      "planned_finish": "2026-03-04"
     },
     {
       "level1": "OPERATIONAL",
@@ -939,8 +939,8 @@
       "activity_id": "A2600",
       "activity_name": "Steel bridge Installation - Crane required",
       "duration": 0.3,
-      "planned_start": "2026-03-03",
-      "planned_finish": "2026-03-03"
+      "planned_start": "2026-03-04",
+      "planned_finish": "2026-03-04"
     },
     {
       "level1": "OPERATIONAL",
@@ -948,8 +948,8 @@
       "activity_id": "A2610",
       "activity_name": "AGL TR Unit 5 (TR Bay 5) load on SPMT; lashing; Transportation and JD (steel set to be delivered to bay area by trailer)",
       "duration": 0.7,
-      "planned_start": "2026-03-03",
-      "planned_finish": "2026-03-03"
+      "planned_start": "2026-03-04",
+      "planned_finish": "2026-03-04"
     },
     {
       "level1": "OPERATIONAL",
@@ -957,8 +957,8 @@
       "activity_id": "A2620",
       "activity_name": "Turning of AGI TR Unit 5 (TR Bay 5) - 10t Forklift required",
       "duration": 3.0,
-      "planned_start": "2026-03-04",
-      "planned_finish": "2026-03-06"
+      "planned_start": "2026-03-05",
+      "planned_finish": "2026-03-07"
     },
     {
       "level1": "OPERATIONAL",
@@ -966,8 +966,8 @@
       "activity_id": "A2630",
       "activity_name": "Jacking down of AGI TR Unit 5 (TR Bay 5) on temporary support - Forklift required",
       "duration": 1.0,
-      "planned_start": "2026-03-07",
-      "planned_finish": "2026-03-07"
+      "planned_start": "2026-03-08",
+      "planned_finish": "2026-03-08"
     },
     {
       "level1": "OPERATIONAL",
@@ -975,8 +975,8 @@
       "activity_id": "A2640",
       "activity_name": "SPMT shifting back to Port",
       "duration": 0.5,
-      "planned_start": "2026-03-05",
-      "planned_finish": "2026-03-05"
+      "planned_start": "2026-03-06",
+      "planned_finish": "2026-03-06"
     },
     {
       "level1": "OPERATIONAL",
@@ -984,8 +984,8 @@
       "activity_id": null,
       "activity_name": "AGI TR Unit 6",
       "duration": 11.0,
-      "planned_start": "2026-03-04",
-      "planned_finish": "2026-03-14"
+      "planned_start": "2026-03-05",
+      "planned_finish": "2026-03-15"
     },
     {
       "level1": "OPERATIONAL",
@@ -993,8 +993,8 @@
       "activity_id": "A2650",
       "activity_name": "LCT Arrives at MZP; Deck preparations; Beam replacement",
       "duration": 1.0,
-      "planned_start": "2026-03-04",
-      "planned_finish": "2026-03-04"
+      "planned_start": "2026-03-05",
+      "planned_finish": "2026-03-05"
     },
     {
       "level1": "OPERATIONAL",
@@ -1002,8 +1002,8 @@
       "activity_id": "A2660",
       "activity_name": "Loading of AGI TR Unit 6 on SPMT; lashing; Shifting to Mina Zayed Port RoRo Jetty area",
       "duration": 0.3,
-      "planned_start": "2026-03-05",
-      "planned_finish": "2026-03-05"
+      "planned_start": "2026-03-06",
+      "planned_finish": "2026-03-06"
     },
     {
       "level1": "OPERATIONAL",
@@ -1011,8 +1011,8 @@
       "activity_id": "A2670",
       "activity_name": "RoRo Ramp Installation - 5t Frokift and Crane required",
       "duration": 0.3,
-      "planned_start": "2026-03-05",
-      "planned_finish": "2026-03-05"
+      "planned_start": "2026-03-06",
+      "planned_finish": "2026-03-06"
     },
     {
       "level1": "OPERATIONAL",
@@ -1020,8 +1020,8 @@
       "activity_id": "A2680",
       "activity_name": "Load-out of AGL TR Unit 6; stool down",
       "duration": 0.2,
-      "planned_start": "2026-03-05",
-      "planned_finish": "2026-03-05"
+      "planned_start": "2026-03-06",
+      "planned_finish": "2026-03-06"
     },
     {
       "level1": "OPERATIONAL",
@@ -1029,8 +1029,8 @@
       "activity_id": "A2690",
       "activity_name": "RoRo ramp removal; Seafastening AGL TR Unit 6 - Crane required",
       "duration": 1.5,
-      "planned_start": "2026-03-05",
-      "planned_finish": "2026-03-06"
+      "planned_start": "2026-03-06",
+      "planned_finish": "2026-03-07"
     },
     {
       "level1": "OPERATIONAL",
@@ -1038,8 +1038,8 @@
       "activity_id": "A2700",
       "activity_name": "MWS; MPI; Sail-away - Marine Transportation by LCT to Al Ghallan Island",
       "duration": 1.0,
-      "planned_start": "2026-03-07",
-      "planned_finish": "2026-03-07"
+      "planned_start": "2026-03-08",
+      "planned_finish": "2026-03-08"
     },
     {
       "level1": "OPERATIONAL",
@@ -1047,8 +1047,8 @@
       "activity_id": "A2710",
       "activity_name": "LCT Arrival; Berthing at AGL RoRo Jetty",
       "duration": 0.5,
-      "planned_start": "2026-03-08",
-      "planned_finish": "2026-03-08"
+      "planned_start": "2026-03-09",
+      "planned_finish": "2026-03-09"
     },
     {
       "level1": "OPERATIONAL",
@@ -1056,8 +1056,8 @@
       "activity_id": "A2720",
       "activity_name": "Unlashing and cutting; steel sets preparations - Forklift required",
       "duration": 0.5,
-      "planned_start": "2026-03-08",
-      "planned_finish": "2026-03-08"
+      "planned_start": "2026-03-09",
+      "planned_finish": "2026-03-09"
     },
     {
       "level1": "OPERATIONAL",
@@ -1065,8 +1065,8 @@
       "activity_id": "A2730",
       "activity_name": "Load-in of AGI TR Unit 6 (including RoRo Ramp Installation); store on Jetty - Crane required",
       "duration": 1.0,
-      "planned_start": "2026-03-09",
-      "planned_finish": "2026-03-09"
+      "planned_start": "2026-03-10",
+      "planned_finish": "2026-03-10"
     },
     {
       "level1": "OPERATIONAL",
@@ -1074,8 +1074,8 @@
       "activity_id": "A2740",
       "activity_name": "LCT Sails back to MZP to collect TR Unit 7",
       "duration": 1.0,
-      "planned_start": "2026-03-10",
-      "planned_finish": "2026-03-10"
+      "planned_start": "2026-03-11",
+      "planned_finish": "2026-03-11"
     },
     {
       "level1": "OPERATIONAL",
@@ -1083,8 +1083,8 @@
       "activity_id": "A2750",
       "activity_name": "Steel bridge Installation - Crane required",
       "duration": 0.3,
-      "planned_start": "2026-03-10",
-      "planned_finish": "2026-03-10"
+      "planned_start": "2026-03-11",
+      "planned_finish": "2026-03-11"
     },
     {
       "level1": "OPERATIONAL",
@@ -1092,8 +1092,8 @@
       "activity_id": "A2760",
       "activity_name": "AGL TR Unit 6 (TR Bay 6) load on SPMT; lashing; Transportation and JD (steel set to be delivered to bay area by trailer)",
       "duration": 0.7,
-      "planned_start": "2026-03-10",
-      "planned_finish": "2026-03-10"
+      "planned_start": "2026-03-11",
+      "planned_finish": "2026-03-11"
     },
     {
       "level1": "OPERATIONAL",
@@ -1101,8 +1101,8 @@
       "activity_id": "A2770",
       "activity_name": "Turning of AGI TR Unit 6 (TR Bay 6) - 10t Forklift required",
       "duration": 3.0,
-      "planned_start": "2026-03-11",
-      "planned_finish": "2026-03-13"
+      "planned_start": "2026-03-12",
+      "planned_finish": "2026-03-14"
     },
     {
       "level1": "OPERATIONAL",
@@ -1110,8 +1110,8 @@
       "activity_id": "A2780",
       "activity_name": "Jacking down of AGI TR Unit 6 (TR Bay 6) on temporary support - Forklift required",
       "duration": 1.0,
-      "planned_start": "2026-03-14",
-      "planned_finish": "2026-03-14"
+      "planned_start": "2026-03-15",
+      "planned_finish": "2026-03-15"
     },
     {
       "level1": "OPERATIONAL",
@@ -1119,8 +1119,8 @@
       "activity_id": "A2790",
       "activity_name": "SPMT shifting back to Port",
       "duration": 0.5,
-      "planned_start": "2026-03-12",
-      "planned_finish": "2026-03-12"
+      "planned_start": "2026-03-13",
+      "planned_finish": "2026-03-13"
     },
     {
       "level1": "OPERATIONAL",
@@ -1128,8 +1128,8 @@
       "activity_id": null,
       "activity_name": "AGI TR Unit 7",
       "duration": 11.0,
-      "planned_start": "2026-03-11",
-      "planned_finish": "2026-03-21"
+      "planned_start": "2026-03-12",
+      "planned_finish": "2026-03-22"
     },
     {
       "level1": "OPERATIONAL",
@@ -1137,8 +1137,8 @@
       "activity_id": "A2800",
       "activity_name": "LCT Arrives at MZP; Deck preparations; Beam replacement",
       "duration": 1.0,
-      "planned_start": "2026-03-11",
-      "planned_finish": "2026-03-11"
+      "planned_start": "2026-03-12",
+      "planned_finish": "2026-03-12"
     },
     {
       "level1": "OPERATIONAL",
@@ -1146,8 +1146,8 @@
       "activity_id": "A2810",
       "activity_name": "Loading of AGI TR Unit 7 on SPMT; lashing; Shifting to Mina Zayed Port RoRo Jetty area",
       "duration": 0.3,
-      "planned_start": "2026-03-12",
-      "planned_finish": "2026-03-12"
+      "planned_start": "2026-03-13",
+      "planned_finish": "2026-03-13"
     },
     {
       "level1": "OPERATIONAL",
@@ -1155,8 +1155,8 @@
       "activity_id": "A2820",
       "activity_name": "RoRo Ramp Installation - 5t Frokift and Crane required",
       "duration": 0.3,
-      "planned_start": "2026-03-12",
-      "planned_finish": "2026-03-12"
+      "planned_start": "2026-03-13",
+      "planned_finish": "2026-03-13"
     },
     {
       "level1": "OPERATIONAL",
@@ -1164,8 +1164,8 @@
       "activity_id": "A2830",
       "activity_name": "Load-out of AGL TR Unit 7; stool down",
       "duration": 0.2,
-      "planned_start": "2026-03-12",
-      "planned_finish": "2026-03-12"
+      "planned_start": "2026-03-13",
+      "planned_finish": "2026-03-13"
     },
     {
       "level1": "OPERATIONAL",
@@ -1173,8 +1173,8 @@
       "activity_id": "A2840",
       "activity_name": "RoRo ramp removal; Seafastening AGL TR Unit 7 - Crane required",
       "duration": 1.5,
-      "planned_start": "2026-03-12",
-      "planned_finish": "2026-03-13"
+      "planned_start": "2026-03-13",
+      "planned_finish": "2026-03-14"
     },
     {
       "level1": "OPERATIONAL",
@@ -1182,8 +1182,8 @@
       "activity_id": "A2850",
       "activity_name": "MWS; MPI; Sail-away - Marine Transportation by LCT to Al Ghallan Island",
       "duration": 1.0,
-      "planned_start": "2026-03-14",
-      "planned_finish": "2026-03-14"
+      "planned_start": "2026-03-15",
+      "planned_finish": "2026-03-15"
     },
     {
       "level1": "OPERATIONAL",
@@ -1191,8 +1191,8 @@
       "activity_id": "A2860",
       "activity_name": "LCT Arrival; Berthing at AGL RoRo Jetty",
       "duration": 0.5,
-      "planned_start": "2026-03-15",
-      "planned_finish": "2026-03-15"
+      "planned_start": "2026-03-16",
+      "planned_finish": "2026-03-16"
     },
     {
       "level1": "OPERATIONAL",
@@ -1200,8 +1200,8 @@
       "activity_id": "A2870",
       "activity_name": "Unlashing and cutting; steel sets preparations - Forklift required",
       "duration": 0.5,
-      "planned_start": "2026-03-15",
-      "planned_finish": "2026-03-15"
+      "planned_start": "2026-03-16",
+      "planned_finish": "2026-03-16"
     },
     {
       "level1": "OPERATIONAL",
@@ -1209,8 +1209,8 @@
       "activity_id": "A2880",
       "activity_name": "Load-in of AGI TR Unit 7 (including RoRo Ramp Installation); store on Jetty - Crane required",
       "duration": 1.0,
-      "planned_start": "2026-03-16",
-      "planned_finish": "2026-03-16"
+      "planned_start": "2026-03-17",
+      "planned_finish": "2026-03-17"
     },
     {
       "level1": "OPERATIONAL",
@@ -1218,8 +1218,8 @@
       "activity_id": "A2900",
       "activity_name": "Steel bridge Installation - Crane required",
       "duration": 0.3,
-      "planned_start": "2026-03-17",
-      "planned_finish": "2026-03-17"
+      "planned_start": "2026-03-18",
+      "planned_finish": "2026-03-18"
     },
     {
       "level1": "OPERATIONAL",
@@ -1227,8 +1227,8 @@
       "activity_id": "A2910",
       "activity_name": "AGL TR Unit 7 (TR Bay 7) load on SPMT; lashing; Transportation and JD (steel set to be delivered to bay area by trailer)",
       "duration": 0.7,
-      "planned_start": "2026-03-17",
-      "planned_finish": "2026-03-17"
+      "planned_start": "2026-03-18",
+      "planned_finish": "2026-03-18"
     },
     {
       "level1": "OPERATIONAL",
@@ -1236,8 +1236,8 @@
       "activity_id": "A2920",
       "activity_name": "Turning of AGI TR Unit 7 (TR Bay 7) - 10t Forklift required",
       "duration": 3.0,
-      "planned_start": "2026-03-18",
-      "planned_finish": "2026-03-20"
+      "planned_start": "2026-03-19",
+      "planned_finish": "2026-03-21"
     },
     {
       "level1": "OPERATIONAL",
@@ -1245,8 +1245,8 @@
       "activity_id": "A2930",
       "activity_name": "Jacking down of AGI TR Unit 7 (TR Bay 7) on temporary support - Forklift required",
       "duration": 1.0,
-      "planned_start": "2026-03-21",
-      "planned_finish": "2026-03-21"
+      "planned_start": "2026-03-22",
+      "planned_finish": "2026-03-22"
     },
     {
       "level1": "OPERATIONAL",
@@ -1254,8 +1254,8 @@
       "activity_id": "A2940",
       "activity_name": "SPMT shifting back to Port",
       "duration": 0.5,
-      "planned_start": "2026-03-19",
-      "planned_finish": "2026-03-19"
+      "planned_start": "2026-03-20",
+      "planned_finish": "2026-03-20"
     }
   ],
   "summary": {
@@ -1265,7 +1265,7 @@
     "total_activities": 139,
     "date_range": {
       "start": "2026-01-26",
-      "finish": "2026-03-22"
+      "finish": "2026-03-23"
     }
   }
 }

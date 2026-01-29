@@ -221,7 +221,7 @@ ln -s AGENTS.md agents.md
 
 CONVERT 프로젝트는 Cursor Subagents와 Agent Skills를 사용하여 작업을 분리하고 표준화한다.
 
-**사용 가이드**: `.cursor/USAGE_GUIDE.md` - 실전 사용법 및 예시  
+**사용 가이드**: `.cursor/USAGE_GUIDE.md` - 실전 사용법 및 예시
 **상세 가이드**: `subagentandskillguide.md` - 구조 및 설치 가이드
 
 ### 12.1 Subagents (서브에이전트)
@@ -234,12 +234,16 @@ Subagents는 `.cursor/agents/` 디렉토리에 위치하며, 특정 작업을 �
 | `verifier` | 완료된 작업 검증(테스트/스모크) | 작업 완료 후 확인 | 수정 가능 |
 | `excel-style-guardian` | Excel 서식 회귀 방지 | CIPL/간트 등 Excel 산출물 작업 시 | readonly |
 | `agi-schedule-updater` | AGI TR Schedule HTML 공지란·Weather & Marine Risk 블록 매일 갱신 | 공지/날씨 업데이트 필요 시 | 수정 가능 |
+| `docstyle-researcher` | 공문서 **파이프라인 1단계**: 작성 후 **같은 런에서 2단계 검증** → .docx + style-report + Verdict | 공문서 작성·협조공문·안내문 .docx 생성 시 | 수정 가능 (out/output) |
+| `docx-style-verifier` | **파이프라인 2단계**(자동) 또는 단독: 생성 DOCX가 템플릿과 정량적으로 유사한지 검증 | "검증해", "템플릿과 똑같아?" | readonly, fast |
 
 **사용 예시:**
 - `/convert-scoper` - 프로젝트 구조 파악이 필요할 때
 - `/verifier` - 구현 완료 후 검증이 필요할 때
 - `/excel-style-guardian` - Excel 파일 서식 유지가 중요할 때
 - `/agi-schedule-updater` - AGI TR Unit 1 Schedule 공지·날씨 블록 갱신이 필요할 때
+- `/docstyle-researcher` - 공문서 작성 요청 시 **한 번 호출** → 작성+검증 파이프라인, .docx + Verdict 반환
+- `/docx-style-verifier` - 검증만 따로 할 때
 
 ### 12.2 Skills (스킬)
 
@@ -255,6 +259,8 @@ Skills는 `.cursor/skills/<name>/SKILL.md`에 위치하며, 반복 작업을 표
 | `agi-schedule-daily-update` | AGI TR Schedule HTML 공지란·Weather & Marine Risk 블록 매일 갱신 | AGI schedule 공지, 날씨 블록 업데이트, Mina Zayed weather |
 | `agi-schedule-shift` | AGI TR 일정(JSON/HTML) pivot 이후 전체 일정 delta일 시프트 | 일정 시프트, schedule shift, 일정 연기, AGI schedule delay |
 | `weather-go-nogo` | SEA TRANSIT Go/No-Go 의사결정(3단 Gate: 임계값·Squall/피크파 버퍼·연속 window) | sea transit Go/No-Go, weather window, Hs/Hmax, squall buffer, marine weather decision |
+| `water-tide-voyage` | WATER TIDE.csv 기반 6~17시 최고 물때 상위 3시간대를 Voyage Overview tide-table에 연동 | WATER TIDE Voyage Overview, 물때 상위 3시간, tide table 갱신 |
+| `official-doc-drafter` | 템플릿(DOCX/PDF) 기반으로 스타일을 최대한 동일하게 유지하며 공문서 DOCX 생성 | 공문서, 템플릿 복제, PDF 스타일, 레터헤드 |
 
 ### 12.3 검증 및 실행
 
@@ -302,7 +308,8 @@ Subagents와 Skills는 기존 작업 루틴(섹션 4)과 통합된다:
 2. **Verify 단계**: `/verifier` 또는 `convert-toolbox` 스모크 실행
 3. **Excel 작업**: `/excel-style-guardian`으로 서식 회귀 방지
 4. **모듈별 작업**: 해당 스킬 사용 (예: `mrconvert-run`, `email-thread-search`)
-5. **AGI TR Schedule**: `/agi-schedule-updater` 또는 `agi-schedule-daily-update`(공지·날씨), `agi-schedule-shift`(일정 시프트)
+5. **AGI TR Schedule**: `/agi-schedule-updater` 또는 `agi-schedule-daily-update`(공지·날씨), `agi-schedule-shift`(일정 시프트), `water-tide-voyage`(Voyage Overview 물때 테이블 연동)
+6. **공문서 작성**: `/docstyle-researcher` 한 번 호출 → 작성 + 검증 파이프라인(compare_docx_style.py) 실행 → out/output에 .docx + style-report + Verdict 산출
 
 ---
 
@@ -310,7 +317,7 @@ Subagents와 Skills는 기존 작업 루틴(섹션 4)과 통합된다:
 
 * 본 건은 “문서 작성” 작업이며 UAE 규정/통관/요율/ETA 등 실시간 근거 요구 항목이 없어 ZERO 게이트 비적용.
 
-(내부 참고 문서)   
+(내부 참고 문서)
 
 [1]: https://github.blog/changelog/2025-08-28-copilot-coding-agent-now-supports-agents-md-custom-instructions/ "Copilot coding agent now supports AGENTS.md custom instructions - GitHub Changelog"
 [2]: https://developers.openai.com/codex/guides/agents-md/?utm_source=chatgpt.com "Custom instructions with AGENTS.md"

@@ -1,0 +1,63 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Official document content",
+    "description": "Field-based content for fill_template.py placeholders (ISO 8601 date recommended)",
+    "type": "object",
+    "properties": {
+        "DOC_NO": {
+            "type": "string",
+            "description": "문서번호"
+        },
+        "DATE": {
+            "type": "string",
+            "description": "일자 (YYYY-MM-DD 권장)"
+        },
+        "RECIPIENT": {
+            "type": "string",
+            "description": "수신"
+        },
+        "SUBJECT": {
+            "type": "string",
+            "description": "제목"
+        },
+        "BODY_PARAGRAPHS": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            ],
+            "description": "본문"
+        },
+        "ATTACHMENTS": {
+            "type": "string",
+            "description": "첨부"
+        },
+        "SIGNER_TITLE": {
+            "type": "string",
+            "description": "서명자 직함"
+        },
+        "SIGNER_NAME": {
+            "type": "string",
+            "description": "서명자 성명"
+        },
+        "ORG_NAME": {
+            "type": "string",
+            "description": "기관명"
+        },
+        "ORG_ADDRESS": {
+            "type": "string",
+            "description": "기관 주소"
+        },
+        "ORG_CONTACT": {
+            "type": "string",
+            "description": "기관 연락처"
+        }
+    },
+    "additionalProperties": true
+}

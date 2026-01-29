@@ -41,9 +41,9 @@ description: 통합 파이프라인 2단계. AGI TR Schedule HTML(files 폴더)�
 | 구분 | 입력 경로 | 동작 |
 |------|-----------|------|
 | **1. Mina Zayed Port 인근 날씨** | 에이전트(웹 검색) | 인터넷 검색 후 요약 문단을 날씨란에 삽입(기존 방식). |
-| **2. 해상 날씨** | 사용자 수동 다운로드 | PDF·JPG를 `files/weather/YYYYMMDD/` 에 두면, 에이전트가 **PDF/JPG 파싱** 후 해상 날씨 문단을 날씨란에 삽입. |
+| **2. 해상 날씨** | 사용자 수동 다운로드 | **날씨 확인 시에는 항상** `files/weather/` 폴더에서 **날짜(YYYYMMDD)가 가장 최근인 폴더**의 PDF·JPG를 파싱하여 적용. (예: `20260128`, `20260129` 가 있으면 → `20260129` 사용.) |
 
-- **해상용 파일 경로**: `AGI TR 1-6 Transportation Master Gantt Chart/files/weather/YYYYMMDD/` (YYYYMMDD = 해당일).
+- **해상용 파일 경로**: `AGI TR 1-6 Transportation Master Gantt Chart/files/weather/` 내 **최신 날짜 폴더**(YYYYMMDD). (예: `20260128`, `20260129` 가 있으면 `20260129` 사용.)
 - **해상용 파일**: PDF(예: ADNOC_DAILY_FORECAST_*.pdf, ADNOC-TR *.pdf, ENGLISH *.pdf), JPG(예: MR.JPG, SF.jpg, ST.jpg).
 - **해상 파싱**: PDF는 텍스트 추출(mrconvert 또는 PyMuPDF 등), JPG는 OCR 또는 이미지 분석 후 해상 예보·해상 상태 요약문 생성 → Weather & Marine Risk 블록에 **해상(Marine)** 문단으로 추가.
 
@@ -70,19 +70,19 @@ description: 통합 파이프라인 2단계. AGI TR Schedule HTML(files 폴더)�
 - 검색 결과를 요약해 **위 4일치**에 맞춰 날짜별 문단으로 삽입.
 
 **2b) 해상 날씨 (수동 다운로드)**
-- **경로**: `AGI TR 1-6 Transportation Master Gantt Chart/files/weather/YYYYMMDD/` (해당일 폴더). 사용자가 PDF·JPG를 수동 다운로드해 둠.
-- **파싱**: 해당일 폴더 내 PDF는 텍스트 추출(mrconvert 또는 동일 도구), JPG는 OCR 후 해상 예보/해상 상태 요약 추출.
+- **경로**: `AGI TR 1-6 Transportation Master Gantt Chart/files/weather/` 내 **날짜(YYYYMMDD)가 가장 최근인 폴더**를 사용. (예: `20260128`, `20260129` 가 있으면 `20260129` 사용.) 사용자가 PDF·JPG를 수동 다운로드해 둠.
+- **파싱**: 최신 날짜 폴더 내 PDF는 텍스트 추출(mrconvert 또는 동일 도구), JPG는 OCR 후 해상 예보/해상 상태 요약 추출.
 - **PDF 파서 불가 시 fallback** (보안/DRM 등으로 PDF 직접 파싱이 실패할 때):
   1. **PDF 파일을 실행(열기)** 한다. (뷰어로 화면에 표시.)
   2. **화면에 표시된 PDF를 스크린 캡처**한다. (전체 창 또는 해당 페이지만.)
   3. **스크린 캡처한 이미지 파일**을 **파서**한다. (이미지 OCR/이미지 분석으로 텍스트·표 추출 후 해상 예보 요약.)
   - fallback 후에도 동일하게 추출 결과를 날씨란 "Marine / Offshore" 문단으로 삽입.
-- **삽입**: 추출한 해상 예보를 날씨란에 "Marine / Offshore" 또는 **동일 4일치** 날짜별 해상 문단으로 삽입. 해당일 폴더가 없거나 파일이 없으면 2b는 생략.
+- **삽입**: 추출한 해상 예보를 날씨란에 "Marine / Offshore" 또는 **동일 4일치** 날짜별 해상 문단으로 삽입. `files/weather/` 폴더가 비어 있거나 최신 날짜 폴더에 파일이 없으면 2b는 생략.
 - **JPG OCR 설정**: JPG 파싱은 Tesseract OCR 사용. `eng.traineddata`가 없으면 프로젝트에 `out/tessdata/eng.traineddata`를 두고, `scripts/weather_parse.py`가 자동으로 `TESSDATA_PREFIX=CONVERT/out/tessdata`를 사용. **날씨 파서 확인**: `python scripts/weather_parse.py "AGI TR 1-6.../files/weather/YYYYMMDD"` 로 PDF·JPG 파싱 가능 여부 확인.
 
 **2c) PDF 파서 → WEATHER_DASHBOARD → 이미지 임베드 파이프라인 (4일 히트맵용)**
 - **순서**: (1) PDF/JPG 파싱 → (2) 파서 txt → WEATHER용 JSON 변환 → (3) WEATHER_DASHBOARD.py 실행 → (4) embed_heatmap_base64.py 또는 파일 참조.
-- **1단계**: `python scripts/weather_parse.py "AGI TR 1-6.../files/weather/YYYYMMDD" --out files/out/weather_parsed/YYYYMMDD`
+- **1단계**: `files/weather/` 에서 **최신 날짜 폴더**(YYYYMMDD) 확인 후 → `python scripts/weather_parse.py "AGI TR 1-6.../files/weather/YYYYMMDD" --out files/out/weather_parsed/YYYYMMDD`
 - **2단계**: `python scripts/parsed_to_weather_json.py files/out/weather_parsed/YYYYMMDD` → `files/out/weather_parsed/YYYYMMDD/weather_for_weather_py.json` 생성 (ADNOC 텍스트에서 날짜·파고(ft)·풍속(kt) 추출).
 - **3단계**: `files/` 폴더에서 `python WEATHER_DASHBOARD.py` 실행. 4일 모드일 때 위 JSON이 있으면 자동 사용 → `files/out/weather_4day_heatmap.png` 생성.
 - **4단계(선택)**: `files/out/weather_4day_heatmap.png` 를 `files/weather_4day_heatmap_dashboard.png` 로 복사 후, `files/` 에서 `python embed_heatmap_base64.py` 실행 → `files/AGI TR SCHEDULE_*.html` 내 이미지를 Base64 인라인으로 교체. (되돌리려면 `python replace_img_ref.py`.)

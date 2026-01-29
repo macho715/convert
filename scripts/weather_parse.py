@@ -1,17 +1,41 @@
 """
 Weather folder PDF/JPG parser for AGI schedule daily update.
 Sets TESSDATA_PREFIX to CONVERT/out/tessdata so JPG OCR works without system tessdata.
+
+날씨 확인 시에는 항상 files/weather/ 폴더에서 최신 날짜(YYYYMMDD)가 있는 폴더의 파일을 파싱하여 적용.
+
 Usage: python scripts/weather_parse.py [weather_folder]
-       python scripts/weather_parse.py "AGI TR 1-6 Transportation Master Gantt Chart/weather/20260128"
+       python scripts/weather_parse.py
+         → files/weather/ 내 최신 날짜 폴더 자동 사용
+       python scripts/weather_parse.py "AGI TR 1-6 Transportation Master Gantt Chart/files/weather/20260129"
 """
 from __future__ import annotations
 
 import os
+import re
 import sys
 from pathlib import Path
 
 # CONVERT root = parent of scripts/
 _CONVERT_ROOT = Path(__file__).resolve().parent.parent
+_WEATHER_BASE = _CONVERT_ROOT / "AGI TR 1-6 Transportation Master Gantt Chart" / "files" / "weather"
+
+
+def get_latest_weather_folder(base: Path | None = None) -> Path | None:
+    """Return the folder with the most recent YYYYMMDD date in files/weather/.
+    Returns None if no valid folder exists."""
+    base = base or _WEATHER_BASE
+    if not base.is_dir():
+        return None
+    pattern = re.compile(r"^(\d{8})$")
+    candidates: list[tuple[str, Path]] = []
+    for d in base.iterdir():
+        if d.is_dir() and pattern.match(d.name):
+            candidates.append((d.name, d))
+    if not candidates:
+        return None
+    candidates.sort(key=lambda x: x[0], reverse=True)
+    return candidates[0][1]
 _TESSDATA = _CONVERT_ROOT / "out" / "tessdata"
 if (_TESSDATA / "eng.traineddata").exists():
     os.environ["TESSDATA_PREFIX"] = str(_TESSDATA)
@@ -87,9 +111,14 @@ def main() -> int:
         if a == "--out" and sys.argv.index(a) + 1 < len(sys.argv):
             out_dir = Path(sys.argv[sys.argv.index(a) + 1])
             break
-    folder = Path(args[0]) if args else (
-        _CONVERT_ROOT / "AGI TR 1-6 Transportation Master Gantt Chart" / "weather" / "20260128"
-    )
+    if args:
+        folder = Path(args[0])
+    else:
+        folder = get_latest_weather_folder()
+        if folder is None:
+            print(f"No YYYYMMDD folder found in {_WEATHER_BASE}", file=sys.stderr)
+            return 1
+        print(f"Using latest weather folder: {folder.name}")
     if not folder.is_dir():
         print(f"Not a directory: {folder}", file=sys.stderr)
         return 1

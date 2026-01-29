@@ -16,6 +16,7 @@ from __future__ import annotations
 import math
 import json
 import os
+import re
 import requests
 import numpy as np
 import matplotlib as mpl
@@ -32,11 +33,41 @@ TZ = "Asia/Dubai"
 LAT = 24.12
 LON = 52.53
 
-# Schedule 4-day mode (set TARGET_DATE for "tomorrow" run, e.g. date(2026, 1, 29); None = today)
+# Schedule 4-day mode (set TARGET_DATE for manual date; None = use latest files/weather/ folder)
 TARGET_DATE = None
 SCHEDULE_4DAY_MODE = True
+
+_WEATHER_BASE = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), "weather"
+)
+
+
+def _get_latest_weather_date() -> date | None:
+    """Return the date from the most recent YYYYMMDD folder in files/weather/. None if none."""
+    if not os.path.isdir(_WEATHER_BASE):
+        return None
+    pattern = re.compile(r"^(\d{8})$")
+    candidates = []
+    for name in os.listdir(_WEATHER_BASE):
+        m = pattern.match(name)
+        if m:
+            try:
+                y, mo, d = int(name[:4]), int(name[4:6]), int(name[6:8])
+                candidates.append((name, date(y, mo, d)))
+            except ValueError:
+                pass
+    if not candidates:
+        return None
+    candidates.sort(key=lambda x: x[0], reverse=True)
+    return candidates[0][1]
+
+
 if SCHEDULE_4DAY_MODE:
-    _update = TARGET_DATE if TARGET_DATE else date.today()
+    if TARGET_DATE is not None:
+        _update = TARGET_DATE
+    else:
+        _latest = _get_latest_weather_date()
+        _update = _latest if _latest is not None else date.today()
     START_DATE = _update
     END_DATE = _update + timedelta(days=3)
     _script_dir = (
@@ -90,7 +121,7 @@ if SCHEDULE_4DAY_MODE:
 VOYAGES = [
     {
         "name": "V1",
-        "start": date(2026, 1, 31),
+        "start": date(2026, 1, 30),
         "end": date(2026, 2, 9),
         "label": "TR1",
         "type": "transport",
@@ -500,6 +531,10 @@ def main():
     days = daterange(START_DATE, END_DATE)
     idx = to_idx_map(days)
     n = len(days)
+    print(
+        f"[INFO] Date range: {START_DATE.isoformat()} ~ {END_DATE.isoformat()} "
+        f"(4 days) | Data: {WEATHER_JSON_PATH}"
+    )
 
     # Arrays
     wind_kn = np.full(n, np.nan)
@@ -786,11 +821,15 @@ def main():
         ax.set_facecolor(theme["bg_secondary"])
         ax.patch.set_alpha(0.5)
 
-    date_labels = [d.strftime("%m/%d") for d in days]
+    # Date labels: "DD Mon" format for consistency with Weather & Marine Risk block
+    date_labels = [d.strftime("%d %b") for d in days]
     x_limits = (-0.5, n - 0.5)
     tick_step = max(1, n // 8)
     x_ticks = list(range(0, n, tick_step))
     x_tick_labels = [date_labels[i] for i in x_ticks]
+    # Daily Operation Status: show ALL dates (one per bar) for date sync
+    ax3_ticks = list(range(n))
+    ax3_tick_labels = date_labels
 
     # Heatmap
     im = ax1.imshow(
@@ -993,9 +1032,10 @@ def main():
 
     ax3.set_xlim(x_limits)
     ax3.set_ylim(0, 1.3)
-    ax3.set_xticks(x_ticks)
+    # Daily Operation Status: all dates shown (one per bar) for date sync with heatmap
+    ax3.set_xticks(ax3_ticks)
     ax3.set_xticklabels(
-        x_tick_labels,
+        ax3_tick_labels,
         rotation=0,
         ha="center",
         fontsize=10,

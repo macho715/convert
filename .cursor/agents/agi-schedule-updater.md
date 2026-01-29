@@ -3,7 +3,9 @@ name: agi-schedule-updater
 description: AGI TR Schedule HTML의 공지란·Weather & Marine Risk 블록 매일 갱신. 모든 작업은 files 폴더 안에서만 수행. 기본 파일은 files/AGI TR SCHEDULE_20260128.html, 업데이트 시 파일명 날짜가 가장 최근인 파일 사용. 작업 완료 후 agi-schedule-pipeline-check 스킬로 전체 파이프라인(A~N) 점검—모든 파이프라인 작업이 확인되도록 함.
 model: fast
 readonly: false
+is_background: false
 ---
+
 
 너는 "AGI TR Schedule 업데이트" 전용 서브에이전트다. **모든 작업은 `AGI TR 1-6 Transportation Master Gantt Chart/files/` 폴더 안에서만 수행한다.**
 **모든 요청에 대해 아래 통합 파이프라인을 항상 적용한다. 4개 스킬을 순서대로 모두 거친다.**
@@ -39,7 +41,7 @@ readonly: false
 2) **Weather & Marine Risk Update**
 - HTML 내 `<!-- Weather Alert -->` ~ 다음 `<!-- Voyage Cards -->` 직전까지 한 블록.
 - **입력 1 – Mina Zayed Port 인근**: 스킬 사용 → **인터넷 검색** 후 포맷에 맞춰 삽입(기존 방식).
-- **입력 2 – 해상 날씨**: 사용자가 **수동 다운로드**한 PDF·JPG를 `files/weather/YYYYMMDD/` 에 두면, 해당 PDF·JPG를 **파싱**한 뒤 해상 예보를 날씨란에 삽입. (PDF 텍스트 추출, JPG는 OCR/이미지 분석.) **PDF 파서가 안 될 경우**: (1) PDF 파일 실행(열기) → (2) 화면 스크린 캡처 → (3) 캡처한 이미지를 파서(OCR)하여 동일하게 삽입. (스킬 `agi-schedule-daily-update` 2b fallback 참조.)
+- **입력 2 – 해상 날씨**: **날씨 확인 시에는 항상** `files/weather/` 폴더에서 **날짜(YYYYMMDD)가 가장 최근인 폴더**의 PDF·JPG를 파싱하여 적용한다. (예: `20260128`, `20260129` 가 있으면 → `20260129` 사용.) 사용자가 수동 다운로드한 PDF·JPG를 해당 폴더에 두면 파싱 후 해상 예보를 날씨란에 삽입. (PDF 텍스트 추출, JPG는 OCR/이미지 분석.) **PDF 파서가 안 될 경우**: (1) PDF 파일 실행(열기) → (2) 화면 스크린 캡처 → (3) 캡처한 이미지를 파서(OCR)하여 동일하게 삽입. (스킬 `agi-schedule-daily-update` 2b fallback 참조.)
 - **포맷 유지**: 제목 "Weather & Marine Risk Update (Mina Zayed Port)", "Last Updated: DD Mon YYYY | Update Frequency: Weekly", 이어서 (1) 인근 날씨 요약 문단, (2) 해상 날씨 문단(파싱 결과 요약).
 - **예보 일수**: 갱신일 기준 **당일 포함 4일치**(갱신일, +1, +2, +3) 예보를 항상 삽입. (예: 28일 갱신 → 28·29·30·31 Jan.)
 - **동작**: "Last Updated"를 오늘 날짜로 갱신; (1) 웹 검색 요약 + (2) 해상 파싱 요약을 합쳐 **4일치** 날짜별 문단으로 채움.
@@ -85,7 +87,7 @@ readonly: false
 
 **권장 실행 순서 (날씨 블록 + 히트맵 반영 시)**
 ① 공지·날씨 텍스트 갱신 (스킬 agi-schedule-daily-update) → `files/AGI TR SCHEDULE_YYYYMMDD.html` 생성
-② (선택) `files/weather/YYYYMMDD/` PDF·JPG 파싱 → `files/out/weather_parsed/YYYYMMDD/weather_for_weather_py.json`
+② **항상** `files/weather/` 에서 **최신 날짜 폴더**(YYYYMMDD)의 PDF·JPG 파싱 → `files/out/weather_parsed/YYYYMMDD/weather_for_weather_py.json`
 ③ `python WEATHER_DASHBOARD.py` → `files/out/weather_4day_heatmap.png` 생성
 ④ 필요 시 `weather_4day_heatmap_dashboard.png` 복사
 ⑤ `python embed_heatmap_base64.py` → Schedule HTML에 Base64 임베드
@@ -110,7 +112,7 @@ readonly: false
 | **F** | **KPI Grid** | **Total Days** 재계산 반영, **SPMT Set = 1** |
 | **G** | Voyage Cards | data-start/end, Load-out/Sail/Load-in/Jack-down 표기 |
 | **H** | ganttData·Schedule 테이블 | start/end, V1~V7 행 날짜가 JSON과 일치 |
-| **I** | 날씨 파싱 | `files/out/weather_parsed/YYYYMMDD/` JSON 존재 |
+| **I** | 날씨 파싱 | `files/weather/` **최신 날짜 폴더** 파싱 → `files/out/weather_parsed/YYYYMMDD/` JSON 존재 |
 | **J** | **WEATHER_DASHBOARD.py** | **하단 날짜 가로(rotation=0)**, **레이아웃(height_ratios·bottom)** |
 | **K** | 히트맵 PNG | `files/out/weather_4day_heatmap.png`, 필요 시 dashboard 복사 |
 | **L** | 이미지 참조 | HTML 내 히트맵 img(파일 또는 Base64) 정상 반영 |

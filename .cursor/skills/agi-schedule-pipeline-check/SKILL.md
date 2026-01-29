@@ -38,7 +38,7 @@ description: 통합 파이프라인 3단계. 모든 AGI Schedule 파이프라인
 | **F** | KPI Grid | 6개 카드 | **KPI 갱신 수행 주체(유일):** 본 스킬(3단계)에서 **Total Days** 재계산 반영, **SPMT Set = 1** 확인·수정. 2단계(agi-schedule-daily-update)는 KPI를 수정하지 않음. |
 | **G** | Voyage Cards | data-start/end, 표시 텍스트 | TR1~V7 일정과 JSON·ganttData 일치, Load-out/Sail/Load-in/Jack-down 표기 |
 | **H** | ganttData·테이블 | JS activities, Schedule table | start/end YYYY-MM-DD, V1~V7 행 날짜가 JSON과 일치 |
-| **I** | 날씨 파싱 | `files/weather/YYYYMMDD/` → `files/out/weather_parsed/` | (해당일 자료 있으면) JSON 생성 여부 |
+| **I** | 날씨 파싱 | `files/weather/` **최신 날짜 폴더** → `files/out/weather_parsed/YYYYMMDD/` | **항상** 최신 YYYYMMDD 폴더 파싱 후 JSON 생성 여부 |
 | **J** | WEATHER_DASHBOARD | `files/WEATHER_DASHBOARD.py` | TARGET_DATE·VOYAGES, **하단 날짜 가로(rotation=0)**, **레이아웃(height_ratios·bottom)** |
 | **K** | 히트맵 PNG | `files/out/weather_4day_heatmap.png` | 파일 존재, 필요 시 dashboard 복사 |
 | **L** | 이미지 참조 | `embed_heatmap_base64.py` / `replace_img_ref.py` | HTML 내 히트맵 img src(파일 또는 Base64) 정상 반영 |

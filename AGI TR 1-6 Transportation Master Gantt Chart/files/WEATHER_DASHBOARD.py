@@ -33,9 +33,12 @@ TZ = "Asia/Dubai"
 LAT = 24.12
 LON = 52.53
 
-# Schedule 4-day mode (set TARGET_DATE for manual date; None = use latest files/weather/ folder)
+# Schedule 4-day mode (set TARGET_DATE for manual date; None = use today for date range)
+# Daily Operation Status 박스 날짜: 항상 "오늘" 기준 4일치 표시 (TARGET_DATE 또는 date.today())
 TARGET_DATE = None
 SCHEDULE_4DAY_MODE = True
+# True: 날짜 범위·Daily Operation Status = 오늘(date.today()) 기준. False: files/weather/ 최신 폴더 기준
+USE_TODAY_AS_DATE_ANCHOR = True
 
 _WEATHER_BASE = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), "weather"
@@ -65,6 +68,9 @@ def _get_latest_weather_date() -> date | None:
 if SCHEDULE_4DAY_MODE:
     if TARGET_DATE is not None:
         _update = TARGET_DATE
+    elif USE_TODAY_AS_DATE_ANCHOR:
+        # Daily Operation Status 박스: 오늘 날짜 기준 4일치 (1/29 → 29 Jan, 30 Jan, 31 Jan, 01 Feb)
+        _update = date.today()
     else:
         _latest = _get_latest_weather_date()
         _update = _latest if _latest is not None else date.today()
@@ -96,7 +102,7 @@ WEATHER_JSON_PATH = os.path.join(
 WEATHER_REQUEST_PATH = os.path.join(SCRIPT_DIR, "weather_data_requests.txt")
 
 if SCHEDULE_4DAY_MODE:
-    # Prefer files/out/weather_parsed/YYYYMMDD (files-only pipeline), then CONVERT root
+    # JSON path: try _update (today or TARGET) first, then latest weather folder
     _parsed_in_files = os.path.join(
         SCRIPT_DIR,
         "out",
@@ -116,6 +122,19 @@ if SCHEDULE_4DAY_MODE:
         WEATHER_JSON_PATH = _parsed_in_files
     elif os.path.exists(_parsed_candidate):
         WEATHER_JSON_PATH = _parsed_candidate
+    else:
+        # Fallback: latest weather folder (e.g. today=2025-01-29 but project uses 2026)
+        _latest = _get_latest_weather_date()
+        if _latest is not None:
+            _fallback = os.path.join(
+                SCRIPT_DIR,
+                "out",
+                "weather_parsed",
+                _latest.strftime("%Y%m%d"),
+                "weather_for_weather_py.json",
+            )
+            if os.path.exists(_fallback):
+                WEATHER_JSON_PATH = _fallback
 
 # Voyage overlay (7 voyages; SSOT: agi tr final schedule.json parent "AGI TR Unit N" planned_start/finish)
 VOYAGES = [

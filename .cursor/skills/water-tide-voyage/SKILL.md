@@ -82,4 +82,4 @@ TIME    HEIGHT
 
 ## 통합
 
-- **agi-schedule-pipeline-check**: 점검 목록 **N) 물때 테이블** — WATER TIDE.csv 기반 상위 3시간대가 각 Voyage Overview에 반영되었는지 확인; 미반영 시 본 스킬 또는 `tide_to_voyage_overview.py` 실행.
+- **agi-schedule-pipeline-check**: 점검 목록 **N) 물때 테이블** — **항상** `tide_to_voyage_overview.py` 실행. 일정 시프트 후 대시보드(7 Voyages Overview) 일관성 유지를 위해 파이프라인 3단계에서 조건 없이 수행.

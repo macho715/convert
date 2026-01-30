@@ -72,6 +72,18 @@ description: 통합 파이프라인 1단계. AGI TR 일정(JSON/HTML)에서 pivo
 - pivot_date **이전** 날짜는 변경하지 않는다.
 - JSON과 HTML을 **동시에** 시프트하여 `files/` 내 두 파일이 같은 일정을 유지하도록 한다.
 
+## 대시보드 동기화 (일정 변경 시)
+
+시프트 후 **파이프라인 3단계(agi-schedule-pipeline-check)** 를 반드시 실행하여 대시보드 전체에 동일한 날짜가 적용되도록 한다:
+
+| 대시보드 영역 | 갱신 항목 |
+|---------------|-----------|
+| **7 Voyages Overview** | voyage-card data-start/end, Load-out/Sail/Load-in/Jack-down, **tide-table** (water-tide-voyage) |
+| **Detailed Voyage Schedule** | Schedule 테이블 V1~V7, ganttData activities |
+| **Gantt Chart** (Jan 26 - Mar 25, 2026) | projectStart/projectEnd, 차트 제목 날짜 범위 |
+
+- **물때**: `tide_to_voyage_overview.py`는 pipeline-check 단계 N에서 **항상** 실행되어 voyage별 data-start~data-end에 맞는 tide-table을 반영한다.
+
 ## 통합
 
 - Subagent `/agi-schedule-updater`와 별개. 일정 시프트는 이 스킬만으로 수행 가능. 시프트 시에도 작업 범위는 `files/` 로 한정.

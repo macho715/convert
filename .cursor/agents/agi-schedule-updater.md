@@ -18,10 +18,24 @@ is_background: false
 |------|------|------|------|
 | **1** | **agi-schedule-shift** | 일정 시프트 요청(pivot_date·new_date 제공) 시: `files/schedule_shift.py`로 JSON·HTML 시프트. 미제공 시: "일정 시프트 없음" 확인만. | `files/agi tr final schedule.json`, `files/AGI TR SCHEDULE_*.html` |
 | **2** | **agi-schedule-daily-update** | **항상** 적용. 공지란(날짜=갱신일, 본문=사용자 제공 시)·Weather & Marine Risk(Last Updated, 4일치, Mina Zayed·해상) 갱신 → `files/AGI TR SCHEDULE_YYYYMMDD.html` 저장. | 소스=가장 최근 날짜 Schedule HTML |
-| **3** | **agi-schedule-pipeline-check** | **항상** 적용. 전체 파이프라인 A~N 점검·수정(공지 날짜, SPMT Set=1, Total Days, KPI·Voyage·ganttData·**히트맵 생성·삽입**·이미지 참조·**물때 테이블 N** 등). **히트맵 삽입**은 J·K·L; **물때 테이블**은 N) WATER TIDE.csv → Voyage Overview tide-table. | 점검 후 누락 항목 수정 |
+| **3** | **agi-schedule-pipeline-check** | **항상** 적용. 전체 파이프라인 A~N 점검·수정(공지 날짜, SPMT Set=1, Total Days, KPI·Voyage·ganttData·**히트맵 생성·삽입**·이미지 참조·**물때 테이블 N** 등). **히트맵 삽입**은 J·K·L; **물때 테이블**은 N) WATER TIDE.csv → Voyage Overview tide-table **항상 실행**. | 점검 후 누락 항목 수정 |
+| **3-N** | **water-tide-voyage** | **항상** 적용(3단계 내 포함). `files/tide_to_voyage_overview.py` 실행 → 각 voyage-card의 data-start~data-end 구간에 맞춰 WATER TIDE.csv 기반 상위 3시간대를 tide-table에 반영. 일정 시프트 후 **반드시** 실행하여 대시보드 일관성 유지. | `files/WATER TIDE.csv`, `files/AGI TR SCHEDULE_*.html` |
 | **4** | **weather-go-nogo** | 해상 Go/No-Go 요청 또는 파싱 데이터(`files/out/weather_parsed/.../weather_for_weather_py.json`) 존재 시: 파고·풍속·한도값으로 Gate-A/B/C 평가 → GO/NO-GO/CONDITIONAL 출력. 미제공 시: "파고·풍속·한도값 입력 시 Go/No-Go 평가 가능" 안내. | 입력: wave_ft, wind_kt, (선택) Hs_limit_m, Wind_limit_kt, SailingTime_hr |
 
-**실행 요약**: 1) 시프트 필요 시 시프트 → 2) 공지·날씨 갱신(항상) → 3) 파이프라인 점검 A~N(항상, **히트맵 J→K→L**, **물때 테이블 N**) → 4) Go/No-Go 입력 있으면 평가, 없으면 안내.
+**실행 요약**: 1) 시프트 필요 시 시프트 → 2) 공지·날씨 갱신(항상) → 3) 파이프라인 점검 A~N(항상, **히트맵 J→K→L**, **물때 N 항상 실행**) → 4) Go/No-Go 입력 있으면 평가, 없으면 안내.
+
+## 대시보드 일관성 (일정 변경 시 필수)
+
+**사용자가 일정 변경을 요청하면**, 대시보드에 있는 **모든 항목**에 동일한 날짜가 적용되어야 한다. 다음 3개 영역이 JSON·ganttData와 **일치**해야 함:
+
+| 대시보드 영역 | 포함 항목 | 갱신 주체 |
+|---------------|-----------|-----------|
+| **7 Voyages Overview** | voyage-card `data-start`/`data-end`, Load-out/Sail/Load-in/Jack-down 표기, **tide-table** (WATER TIDE.csv 기반 상위 3시간대) | schedule_shift → pipeline-check(G·N) |
+| **Detailed Voyage Schedule** | Schedule 테이블 V1~V7 행의 start/end 날짜, ganttData activities | schedule_shift → pipeline-check(H) |
+| **Gantt Chart** (예: Jan 26 - Mar 25, 2026) | projectStart/projectEnd, ganttData 각 row의 start/end, 차트 제목 날짜 범위 | schedule_shift → pipeline-check(C) |
+
+- **일정 시프트 후**: `schedule_shift.py`가 JSON·HTML 내 모든 `2026-MM-DD` 날짜를 시프트. 이후 **3단계 pipeline-check**에서 G·H·N을 점검·수정하여 **7 Voyages Overview, Detailed Voyage Schedule, Gantt Chart**가 동일 일정을 반영하도록 한다.
+- **물때(N)**: `tide_to_voyage_overview.py`는 voyage-card의 `data-start`~`data-end`를 읽어 해당 구간의 상위 3시간대를 계산하므로, **일정 시프트 후 반드시 실행**하여 Voyage Overview의 tide-table이 새 일정과 일치하도록 한다.
 
 ## 기본 파일 및 업데이트 소스
 
@@ -117,7 +131,7 @@ is_background: false
 | **K** | 히트맵 PNG | `files/out/weather_4day_heatmap.png`, 필요 시 dashboard 복사 |
 | **L** | 이미지 참조 | HTML 내 히트맵 img(파일 또는 Base64) 정상 반영 |
 | **M** | weather-go-nogo 연계 | 파싱 JSON 존재 시 Go/No-Go 평가 가능 안내; 4단계에서 평가 |
-| **N** | **물때 테이블** | WATER TIDE.csv 6~17시 상위 3시간대 → Voyage Overview tide-table 반영 |
+| **N** | **물때 테이블** | WATER TIDE.csv 6~17시 상위 3시간대 → Voyage Overview tide-table 반영 (**항상 실행**) |
 
 상세 절차·체크리스트·실행 순서는 스킬 `agi-schedule-pipeline-check` 참조.
 

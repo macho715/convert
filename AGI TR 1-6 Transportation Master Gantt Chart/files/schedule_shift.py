@@ -6,8 +6,10 @@ import sys
 from datetime import datetime, timedelta
 from pathlib import Path
 
-# TR1 Load-out 1월 31일: pivot 2026-01-30 → 2026-01-31 (+1)
-PIVOT = "2026-01-30"
+# TR1 Load-out 1월 31일 + LCT 1/28 입항 반영
+# 전후 관계: LCT 입항 1/28 → Deck prep 1/28~29 → Loading 1/30 → Load-out 1/31
+# pivot 2026-01-27: Deck prep(27~28)→(28~29), Load-out(30)→(31), 이후 전체 +1
+PIVOT = "2026-01-27"
 DELTA_DAYS = 1
 
 

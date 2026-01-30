@@ -22,6 +22,18 @@ description: 통합 파이프라인 3단계. 모든 AGI Schedule 파이프라인
 - **대상**: `AGI TR 1-6 Transportation Master Gantt Chart/files/` 내 모든 파이프라인 산출물
 - **소스 HTML**: 파일명 날짜(YYYYMMDD)가 **가장 최근인** `files/AGI TR SCHEDULE_*.html`
 
+## 대시보드 일관성 (일정 변경 시 필수)
+
+**사용자가 일정 변경을 요청하면**, 대시보드의 **모든 항목**에 동일한 날짜가 적용되어야 한다:
+
+| 대시보드 영역 | 포함 항목 | 점검 단계 |
+|---------------|-----------|-----------|
+| **7 Voyages Overview** | voyage-card data-start/end, Load-out/Sail/Load-in/Jack-down, **tide-table** | G, **N** |
+| **Detailed Voyage Schedule** | Schedule 테이블 V1~V7 행 날짜, ganttData activities | H |
+| **Gantt Chart** (예: Jan 26 - Mar 25, 2026) | projectStart/projectEnd, ganttData start/end, 차트 제목 | C |
+
+- **물때(N)**: `tide_to_voyage_overview.py`는 **항상** 실행하여 voyage별 data-start~data-end 구간에 맞는 tide-table을 반영한다.
+
 ---
 
 ## 전체 파이프라인 작업 목록 (점검 시 모두 확인)
@@ -43,7 +55,7 @@ description: 통합 파이프라인 3단계. 모든 AGI Schedule 파이프라인
 | **K** | 히트맵 PNG | `files/out/weather_4day_heatmap.png` | 파일 존재, 필요 시 dashboard 복사 |
 | **L** | 이미지 참조 | `embed_heatmap_base64.py` / `replace_img_ref.py` | HTML 내 히트맵 img src(파일 또는 Base64) 정상 반영 |
 | **M** | weather-go-nogo 연계 | 스킬 `weather-go-nogo` | 파싱 JSON(`files/out/weather_parsed/...`) 존재 시 Go/No-Go 평가 가능 안내; 입력(파고·풍속·한도) 있으면 4단계에서 평가. |
-| **N** | **물때 테이블** | 스킬 `water-tide-voyage` / `tide_to_voyage_overview.py` | **WATER TIDE.csv** 기반 6:00~17:00 상위 3시간대가 각 Voyage Overview `table.tide-table`에 반영되었는지 확인; 미반영 시 실행. |
+| **N** | **물때 테이블** | 스킬 `water-tide-voyage` / `tide_to_voyage_overview.py` | **WATER TIDE.csv** 기반 6:00~17:00 상위 3시간대가 각 Voyage Overview `table.tide-table`에 반영. **항상 실행** (일정 시프트 후 대시보드 일관성 유지). |
 
 ---
 
@@ -103,8 +115,8 @@ description: 통합 파이프라인 3단계. 모든 AGI Schedule 파이프라인
 
 - **규칙**: `files/WATER TIDE.csv` 에서 **6:00~17:00** 구간만 사용해 voyage별 기간 내 **최고 물때 상위 3시간대**를 계산하고, 각 Voyage Overview의 `table.tide-table` tbody에 TIME/HEIGHT 3행으로 반영.
 - **위치**: HTML 내 각 `.voyage-card` 내 `table.tide-table` tbody.
-- **점검**: 각 voyage-card의 data-start~data-end 구간에 대해 WATER TIDE.csv 기반 상위 3시간대가 tide-table에 반영되었는지 확인.
-- **수정**: 미반영 시 `files/` 폴더에서 `python tide_to_voyage_overview.py` 실행. 스킬 `water-tide-voyage` 참조.
+- **실행**: **항상** `files/` 폴더에서 `python tide_to_voyage_overview.py` 실행. 일정 시프트 후 대시보드(7 Voyages Overview) 일관성 유지를 위해 조건 없이 수행.
+- **스킬**: `water-tide-voyage` 참조.
 
 ---
 
@@ -121,7 +133,7 @@ description: 통합 파이프라인 3단계. 모든 AGI Schedule 파이프라인
 9. **K**: `files/out/weather_4day_heatmap.png` 존재, 필요 시 dashboard 복사.
 10. **L**: HTML 내 히트맵 img 반영 여부 확인, 필요 시 `embed_heatmap_base64.py` 또는 `replace_img_ref.py` 실행.
 11. **M**: `files/out/weather_parsed/YYYYMMDD/weather_for_weather_py.json` 존재 시, 4단계 스킬 `weather-go-nogo` 로 해상 Go/No-Go 평가 가능함을 안내. (파고·풍속·한도값 입력 시 평가.)
-12. **N**: WATER TIDE.csv 기반 Voyage Overview 물때 테이블 — 각 voyage의 tide-table에 6~17시 상위 3시간대 반영 여부 확인; 필요 시 `python tide_to_voyage_overview.py` 실행.
+12. **N**: WATER TIDE.csv 기반 Voyage Overview 물때 테이블 — **항상** `python tide_to_voyage_overview.py` 실행하여 각 voyage의 tide-table에 6~17시 상위 3시간대 반영.
 
 ---
 

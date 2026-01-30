@@ -93,12 +93,13 @@ def replace_tide_table_in_html(
     html = html_path.read_text(encoding="utf-8")
     changed = False
     for voyage_num, rows in reversed(voyage_top3):
-        card_start = f'data-voyage="{voyage_num}"'
+        # Match voyage-card (has data-start), not voyage-chip button
+        card_start = f'data-voyage="{voyage_num}" data-start'
         idx = html.find(card_start)
         if idx == -1:
             continue
         tbody_start = html.find("<tbody>", idx)
-        tbody_end = html.find("</tbody>", idx)
+        tbody_end = html.find("</tbody>", tbody_start)
         if tbody_start == -1 or tbody_end == -1 or tbody_end < tbody_start:
             continue
         block = html[max(0, tbody_start - 200) : tbody_start]
@@ -135,6 +136,7 @@ def main() -> None:
         cards = voyage_cards_from_html(html_path)
         if not cards:
             continue
+        print(f"Processing {html_path.name} ({len(cards)} voyages)")
         voyage_top3: list[tuple[int, list[tuple[str, float]]]] = []
         for v_num, start, end in cards:
             top3 = top3_tide_for_range(tide_rows, start, end)
@@ -149,7 +151,7 @@ def main() -> None:
             print(f"[dry-run] Would update {html_path.name}")
             continue
         if replace_tide_table_in_html(html_path, voyage_top3, dry_run=False):
-            print(f"Updated {html_path.name}")
+            print(f"Updated tide tables: {html_path.name}")
 
 
 if __name__ == "__main__":
